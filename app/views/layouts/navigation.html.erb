@@ -1,0 +1,11 @@
+<%= content_for :navigation do %>
+  <header>
+    <%= render 'layouts/sidenav' %>
+  </header>
+
+  <main>
+    <%= yield %>
+  </main>
+<% end %>
+
+<%= render :file  => 'layouts/application.html.erb' %>

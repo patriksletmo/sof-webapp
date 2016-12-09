@@ -11,12 +11,10 @@
   </head>
 
   <body>
-    <header>
-      <%= render 'layouts/navigation' %>
-    </header>
-
-    <main>
+    <% if content_for? :navigation %>
+      <%= yield :navigation %>
+    <% else %>
       <%= yield %>
-    </main>
+    <% end %>
   </body>
 </html>
