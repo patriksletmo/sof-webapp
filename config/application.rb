@@ -6,7 +6,10 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-Dotenv::Railtie.load
+# Load environment variables for development and testing only
+if Rails.env.development? or Rails.env.test?
+  Dotenv::Railtie.load
+end
 
 module SofWebapp
   class Application < Rails::Application
