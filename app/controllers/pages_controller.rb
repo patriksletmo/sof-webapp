@@ -1,20 +1,23 @@
 class PagesController < ApplicationController
   def index
-    @index = "index"
-    @info = "info"
-    @contacts = "contacts"
+    @sidebar_index = "index"
+    @sidebar_info = "info"
+    @sidebar_contacts = "contacts"
 
   end
 
   def info
-    @index = "index"
-    @info = "info"
-    @contacts = "contacts"
+    @sidebar_index = "index"
+    @sidebar_info = "info"
+    @sidebar_contacts = "contacts"
   end
 
   def contacts
-    @index = "index"
-    @info = "info"
-    @contacts = "contacts"
+    @sidebar_index = "index"
+    @sidebar_info = "info"
+    @sidebar_contacts = "contacts"
+    @contacts = Contact.all
+
+
   end
 end

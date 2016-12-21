@@ -3,10 +3,11 @@
   <div>
     <h2>Kontaktinfomation</h2>
     <h4>Styrelsen</h4>
-    <ul>
-      <a href=""> Email </a>
-      <p> Telefon: 070123456</p>
-    </ul>
+    <%= @contacts.each do |c| %>
+        <h3><%= c.title %></h3>
+        <p><%= c.name %></p>
+        <p><%= c.email %></p>
+    <% end %>
   </div>
 
 </div>
