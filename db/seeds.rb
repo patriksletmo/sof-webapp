@@ -7,5 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-c1 = Contact.create(name: 'Jacob', title: 'cool it putte', email: 'asd@asd.com')
+Contact.create([{name: "Jacob", title: "cool it-putte", email: "asd@asd.com"},
+                {name: "Pata", title: "asd", email: "ASD"}])
+
+
+#Contact.create(name: "Jacob", title: "cool it-putte", email: "asd@asd.com")
+#Contact.create(name: "Pata", title: "asd", email: "ASD")
 #Contact.create([{name: 'Pata'}, {title: 'också cool it putte'}, {email: 'asd2@asd.com'}])
+
