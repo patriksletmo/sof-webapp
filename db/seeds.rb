@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+Contact.delete_all
 Contact.create([{name: "Daniel Modig", title: "General", email: "general@sof17.se"},
                 {name: "Victoria Boman", title: "Personal", email: "personal@sof17.se"},
                 {name: "Lukas Lindqvist", title: "IT", email: "it@sof17.se"},
