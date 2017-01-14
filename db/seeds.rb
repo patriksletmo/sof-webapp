@@ -8,7 +8,7 @@
 
 
 Contact.create([{name: "Jacob", title: "cool it-putte", email: "asd@asd.com"},
-                {name: "Pata", title: "asd", email: "ASD"}])
+                {name: "Pata", title: "asdasdsad", email: "ASD"}])
 
 
 #Contact.create(name: "Jacob", title: "cool it-putte", email: "asd@asd.com")
