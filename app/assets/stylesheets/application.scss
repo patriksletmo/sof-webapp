@@ -16,14 +16,23 @@
 
 @import "materialize/components/color";
 $primary-color: color("blue", "lighten-2") !default;
-$secondary-color: color("yellow", "base") !default;
+$secondary-color: color("red", "base") !default;
 @import "materialize";
 
 @import "pages";
 
+$sidenav-width: 300px;
+
 header, main, footer {
-  padding-left: 300px;
+  padding-left: $sidenav-width;
 }
+
+.side-nav {
+  width: $sidenav-width;
+  color: white;
+  background-color: $secondary-color;
+}
+
 
 @media only screen and (max-width : 992px) {
   header, main, footer {

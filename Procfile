@@ -1,0 +1,1 @@
+release: bundle exec rake sof_setup:wait_db db:migrate db:seed
