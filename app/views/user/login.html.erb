@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Hej</h1>
+  <p>Logga in nedan</p>
+  <br>
+
+  <div class="row">
+    <% flash.each do |key, value| %>
+        <script type="application/javascript">
+            Materialize.toast('<%= value %>', 4000)
+        </script>
+    <% end %>
+
+    <%= form_for(@credentials, url: '/login') do |f| %>
+        <div class="input-field">
+          <%= f.email_field :email %>
+          <label for="email">E-mail</label>
+        </div>
+        <div class="input-field">
+          <%= f.password_field :password %>
+          <label for="password">Lösenord</label>
+        </div>
+        <button type="submit" class="btn waves-effect waves-light">Logga in</button>
+    <% end %>
+  </div>
+</div>
