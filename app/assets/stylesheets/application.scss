@@ -16,7 +16,7 @@
 
 @import "materialize/components/color";
 $primary-color: color("blue", "lighten-2") !default;
-$secondary-color: color("yellow", "base") !default;
+$secondary-color: color("red", "base") !default;
 @import "materialize";
 
 @import "pages";
@@ -26,10 +26,12 @@ $header-font: Helvetica, sans-serif;
 $body-font: Helvetica, sans-serif;
 
 
+$sidenav-width: 300px;
 
-main, footer {
-  padding-left: 300px;
+header, main, footer {
+  padding-left: $sidenav-width;
 }
+
 
 @media only screen and (max-width : 992px) {
   header, main, footer {

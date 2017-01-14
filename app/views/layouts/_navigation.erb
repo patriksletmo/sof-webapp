@@ -4,8 +4,13 @@
       <img src="https://s3-eu-west-1.amazonaws.com/lintek-sof/sof-homepage/logos/Logga_SOF_pafarg2.png">
     </a>
   </li>
-  <li><a href="#" class="list-item waves-effect waves-teal"><i class="material-icons">cloud</i>First Sidebar Link</a></li>
-  <li><a href="#" class="list-item waves-effect waves-white">Kontakt</a></li>
+
+  <li><%= link_to(contacts_path) do %>
+        <p class="waves-effect waves-teal"><i class="material-icons">contacts</i>contacts</p>
+    <% end %>
+  </li>
+
+  //TODO: Redo so it is the same as rails link_to structure
   <li><a href="#" data-activates="secondary-nav" class="list-item button-collapse waves-effect waves-purple">Secondary navbar test<i class="material-icons indicator">play_arrow</i></a></li>
 
 </ul>
@@ -13,6 +18,7 @@
 <div class="container">
   <a href="#" data-activates="main-nav" class="button-collapse full hide-on-large-only"><i class="material-icons">menu</i></a>
 </div>
+
 
 <ul id="secondary-nav" class="side-nav">
   <li><a href="#!" class="waves-effect waves-teal"><i class="material-icons">cloud</i>First Sidebar Link</a></li>
@@ -33,3 +39,4 @@
     </ul>
   </li>
 </ul>
+
