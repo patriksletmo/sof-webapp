@@ -2,12 +2,11 @@
 
   <div>
     <h2>Kontaktinfomation</h2>
-    <h4>Styrelsen</h4>
+    <h3>Styrelsen</h3>
     <% @contacts.each do |c| %>
-
-        <h3><%= c.title %></h3>
+        <h4><%= c.title %></h4>
         <p><%= c.name %></p>
-        <p><%= c.email %></p>
+        <a href="mailto:<%= c.email %>"><%= c.email %></a>
 
     <% end %>
   </div>

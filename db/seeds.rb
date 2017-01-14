@@ -7,11 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Contact.create([{name: "Jacob", title: "cool it-putte", email: "asd@asd.com"},
-                {name: "Pata", title: "asdasdsad", email: "ASD"}])
-
-
-#Contact.create(name: "Jacob", title: "cool it-putte", email: "asd@asd.com")
-#Contact.create(name: "Pata", title: "asd", email: "ASD")
-#Contact.create([{name: 'Pata'}, {title: 'också cool it putte'}, {email: 'asd2@asd.com'}])
-
+Contact.create([{name: "Daniel Modig", title: "General", email: "general@sof17.se"},
+                {name: "Victoria Boman", title: "Personal", email: "personal@sof17.se"},
+                {name: "Lukas Lindqvist", title: "IT", email: "it@sof17.se"},
+                {name: "Gustav Gränsbo", title: "Orkester och Ljud", email: "orkester-ljud@sof17.se"},
+                {name: "Josefin Ringenson", title: "Riks-SMASK", email: "riks-smask@sof17.se"},
+                {name: "Simon Rung", title: "Administrationssammordnare", email: "administration@sof17.se"},
+                {name: "Junior Asante", title: "Kårtege", email: "kartege@sof17.se"}])
