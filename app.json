@@ -1,7 +1,7 @@
 {
   "name": "sof-webapp",
   "scripts": {
-    "postdeploy": "bin/addon-wait && bundle exec rake db:drop db:create db:migrate db:seed"
+    //"postdeploy": "bin/addon-wait && bundle exec rake db:drop db:create db:migrate db:seed"
     //"postdeploy": "bundle exec rake db:migrate"
   },
   "env": {
