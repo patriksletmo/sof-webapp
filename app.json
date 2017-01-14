@@ -1,6 +1,7 @@
 {
   "name": "sof-webapp",
   "scripts": {
+    "postdeploy": "bin/addon-wait && bundle exec rake db:drop db:create db:migrate db:seed"
   },
   "env": {
     "LANG": {
@@ -36,6 +37,9 @@
   "buildpacks": [
     {
       "url": "heroku/ruby"
+    },
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-addon-wait"
     }
   ]
 }
