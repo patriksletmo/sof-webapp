@@ -12,5 +12,5 @@ Contact.create([{name: "Daniel Modig", title: "General", email: "general@sof17.s
                 {name: "Lukas Lindqvist", title: "IT", email: "it@sof17.se"},
                 {name: "Gustav Gränsbo", title: "Orkester och Ljud", email: "orkester-ljud@sof17.se"},
                 {name: "Josefin Ringenson", title: "Riks-SMASK", email: "riks-smask@sof17.se"},
-                {name: "Simon Rung", title: "Administrationssammordnare", email: "administration@sof17.se"},
+                {name: "Simon Rung", title: "Administration", email: "administration@sof17.se"},
                 {name: "Junior Asante", title: "Kårtege", email: "kartege@sof17.se"}])
