@@ -1,1 +1,1 @@
-release: bin/addon-wait && bundle exec rake db:drop db:create db:migrate db:seed
+release: bundle exec rake sof_setup:wait_db db:drop db:create db:migrate db:seed
