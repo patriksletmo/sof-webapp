@@ -1,1 +1,1 @@
-release: bundle exec rake db:drop db:create db:migrate db:seed
+release: bin/addon-wait && bundle exec rake db:drop db:create db:migrate db:seed
