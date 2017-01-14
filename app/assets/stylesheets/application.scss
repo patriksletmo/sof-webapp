@@ -21,7 +21,13 @@ $secondary-color: color("yellow", "base") !default;
 
 @import "pages";
 
-header, main, footer {
+// TODO: Change to proper fonts.
+$header-font: Helvetica, sans-serif;
+$body-font: Helvetica, sans-serif;
+
+
+
+main, footer {
   padding-left: 300px;
 }
 

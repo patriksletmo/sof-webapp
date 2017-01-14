@@ -1,7 +1,46 @@
-.secondary-nav {
+@import "application";
 
+$brand-logo-size: 124px;
+
+#main-nav {
+  background: #B00100;
+  z-index: 999;
+  color: #FFF;
 }
 
-.test-wrapper {
-    padding-left: 600px;
+#main-nav.side-nav a.list-item {
+  color: #FFF;
+  padding-left: 30px;
+  padding-right: 0px;
+}
+
+#main-nav.side-nav a i.indicator {
+  float: right;
+  padding-left: 25px;
+}
+
+#main-nav.side-nav i {
+  color: #FFF;
+}
+
+.side-nav a.brand-logo {
+  text-align: center;
+  padding: 20px 0px;
+  height: 160px;
+  margin-bottom: 20px;
+}
+
+.side-nav a.brand-logo img {
+  height: $brand-logo-size;
+}
+
+
+#secondary-nav {
+  margin-left: 300px;
+  z-index: 998;
+}
+
+#secondary-nav li {
+  position: relative;
+  top: 30%;
 }

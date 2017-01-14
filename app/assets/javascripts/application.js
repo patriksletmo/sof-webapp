@@ -18,7 +18,14 @@
 
 document.addEventListener('turbolinks:load', function () {
     // Initialize collapse button
-    $(".button-collapse").sideNav();
+    $(".button-collapse").sideNav({
+
+    });
+
+    $(".secondary-nav-button").sideNav({
+
+    });
+
 
     // Initialize collapsible (uncomment the line below if you use the dropdown variation)
     $('.collapsible').collapsible();
