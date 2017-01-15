@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   get 'index' => 'pages#index'
   get 'info' => 'pages#info'
   get 'contacts' => 'pages#contacts'
+
+  # Let’s encrypt
+  get '/.well-known/acme-challenge/:id' => 'lets_encrypt#challenge', as: :letsencrypt_challenge
 end
