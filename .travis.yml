@@ -1,5 +1,7 @@
 language: ruby
 rvm:
 - 2.3.3
+before_script:
+  - bundle exec rake db:create db:schema:load db:seed
 script:
-  - rake test
+  - bundle exec rake test
