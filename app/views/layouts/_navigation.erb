@@ -5,6 +5,12 @@
     </a>
   </li>
 
+  <% if current_user.nil? %>
+      <li><%= link_to('Logga in', login_path, {:class => 'list-item waves-effect waves-teal'}) %></li>
+    <% else %>
+      <li><%= link_to("Inloggad som #{current_user.username}", profile_path, {:class => 'list-item waves-effect waves-teal'}) %></li>
+    <% end %>
+
   <li><%= link_to('Contacts', contacts_path, {:class => 'list-item waves-effect waves-teal'}) %></li>
 
   <!-- TODO: Redo so it is the same as rails link_to structure -->
