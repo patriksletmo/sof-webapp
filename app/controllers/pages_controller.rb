@@ -18,6 +18,5 @@ class PagesController < ApplicationController
     @sidebar_contacts = "contacts"
     @contacts = Contact.all
 
-
   end
 end

@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   get 'index' => 'pages#index'
   get 'info' => 'pages#info'
-  get 'contacts' => 'pages#contacts'
+  get 'contacts' => 'pages#contacts#index'
+
 end
