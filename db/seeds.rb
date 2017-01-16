@@ -17,7 +17,7 @@ Contact.delete_all
 
 Contact.create([
  {name: "Daniel Modig", title: "General", email: "general@sof17.se", group: "high"},
- {name: "Samuel Trennelius", title: "Controller", email: "TODO", group: "low"},
+ {name: "Samuel Trennelius", title: "Controller", email: "controller@sof17.se", group: "low"},
  {name: "Gustav Gränsbo", title: "Orkester och Ljud", email: "orkester-ljud@sof17.se", group: "low"},
  {name: "Lukas Lindqvist", title: "IT", email: "it@sof17.se", group: "low"},
  {name: "Elin Östberg", title: "Festvalsamordnare", email: "TODO", group: "low"},
