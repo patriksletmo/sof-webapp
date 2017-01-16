@@ -21,9 +21,17 @@ $secondary-color: color("red", "base") !default;
 
 @import "pages";
 
+// TODO: Change to proper fonts.
+$header-font: Helvetica, sans-serif;
+$body-font: Helvetica, sans-serif;
+
+
+$sidenav-width: 300px;
+
 header, main, footer {
-  padding-left: 300px;
+  padding-left: $sidenav-width;
 }
+
 
 @media only screen and (max-width : 992px) {
   header, main, footer {
