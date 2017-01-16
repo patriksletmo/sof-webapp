@@ -10,10 +10,22 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
+
+
   <body>
+    <header>
+      <nav class="top-nav">
+        <div class="container">
+          <div class="nav-wrapper">
+            <!-- <%= link_to(@header_title, @header_title.downcase, {:class => 'page-title'}) %> -->
+            <a class="page-title"> <%= @header_title %></a>
+            <!-- <%= link_to('Contacts', contacts_path, {:class => 'page-title'}) %> -->
+          </div>
+        </div>
+      </nav>
 
-  <%= render 'layouts/navigation' %>
-
+      <%= render 'layouts/navigation' %>
+    </header>
   <main>
     <%= yield %>
   </main>
