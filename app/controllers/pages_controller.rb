@@ -4,10 +4,7 @@ class PagesController < ApplicationController
   end
 
   def info
-  end
-
-  def contacts
-    @contacts = Contact.all
 
   end
+
 end
