@@ -4,6 +4,7 @@
 .top-nav {
   height: 122px;
   box-shadow: none;
+  background: $primary-color;
 }
 
 .page-title {
@@ -14,4 +15,12 @@
 
 .nav-wrapper {
   text-align: center;
+
+}
+
+.nav-wrapper a {
+  position: relative;
+  top: 50%;
+  transform: perspective(1px) translateY(-50%);
+  color: $accent-color;
 }
