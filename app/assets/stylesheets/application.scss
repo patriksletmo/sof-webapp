@@ -15,15 +15,16 @@
  */
 
 @import "materialize/components/color";
-$primary-color: color("blue", "lighten-2") !default;
-$secondary-color: color("red", "base") !default;
 @import "materialize";
 
-@import "pages";
+$primary-color: #e74c4c;
+$secondary-color: #9b59b6;
+$accent-color: #F5D76E;
 
-// TODO: Change to proper fonts.
-$header-font: Helvetica, sans-serif;
-$body-font: Helvetica, sans-serif;
+
+$header-font: 'Facile Sans';
+$body-font: 'Facile Sans';
+$nav-font: 'Facile Sans';
 
 
 $sidenav-width: 300px;
@@ -44,3 +45,5 @@ header, main, footer {
     width: 85%;
   }
 }
+
+
