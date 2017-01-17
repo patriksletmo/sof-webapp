@@ -33,6 +33,9 @@ header, main, footer {
   padding-left: $sidenav-width;
 }
 
+body {
+  background: $secondary-color;
+}
 
 @media only screen and (max-width : 992px) {
   header, main, footer {
