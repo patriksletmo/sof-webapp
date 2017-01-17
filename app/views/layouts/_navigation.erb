@@ -4,11 +4,9 @@
       <img src="https://s3-eu-west-1.amazonaws.com/lintek-sof/sof-homepage/logos/Logga_SOF_pafarg2.png">
     </a>
   </li>
-
-  <li><%= link_to('Contacts', contacts_path, {:class => 'list-item waves-effect waves-teal'}) %></li>
-
+  <li><%= link_to('Contacts', contacts_path, {:class => 'waves-effect waves-teal'}) %></li>
   <!-- TODO: Redo so it is the same as rails link_to structure -->
-  <li><a href="#" data-activates="secondary-nav" class="list-item button-collapse waves-effect waves-purple">Secondary navbar test<i class="material-icons indicator">play_arrow</i></a></li>
+  <li><a href="#" data-activates="secondary-nav" class="nav-control waves-effect waves-purple">Secondary<i class="material-icons indicator">play_arrow</i></a></li>
 
 </ul>
 
@@ -17,23 +15,8 @@
 </div>
 
 
-<ul id="secondary-nav" class="side-nav">
-  <li><a href="#!" class="waves-effect waves-teal"><i class="material-icons">cloud</i>First Sidebar Link</a></li>
-  <li><a href="#!"><i class="material-icons">cloud</i>Second Sidebar Link</a></li>
-  <li class="no-padding">
-    <ul class="collapsible collapsible-accordion">
-      <li>
-        <a class="collapsible-header">Dropdown<i class="material-icons">arrow_drop_down</i></a>
-        <div class="collapsible-body">
-          <ul>
-            <li><a href="#!">First</a></li>
-            <li><a href="#!">Second</a></li>
-            <li><a href="#!">Third</a></li>
-            <li><a href="#!">Fourth</a></li>
-          </ul>
-        </div>
-      </li>
-    </ul>
-  </li>
+<ul id="secondary-nav" class="side-nav hide">
+  <li><a href="#!" class="list-item waves-effect waves-teal"><i class="material-icons">cloud</i>First Sidebar Link</a></li>
+  <li><a href="#!" class="list-item waves-effect waves-purple"><i class="material-icons">cloud</i>Second Sidebar Link</a></li>
 </ul>
 
