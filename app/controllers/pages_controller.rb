@@ -5,15 +5,7 @@ class PagesController < ApplicationController
   end
 
   def info
-    @header_title = "Info"
-    @header = "Information"
-  end
-
-  def contacts
-    @header_title = "Contacts"
-    @header = "Styrelsen"
-    @contacts = Contact.all
-
 
   end
+
 end
