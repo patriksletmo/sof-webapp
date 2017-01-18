@@ -1,4 +1,4 @@
-@import "application";
+@import "colors";
 @import "fonts";
 
 
@@ -11,7 +11,13 @@ $brand-logo-size: 124px;
 
 #main-nav li {
   font-family: $nav-font;
+  width: 300px;
+}
 
+#main-nav li.nav-item a {
+  width: 300px;
+  display: inline-block;
+  vertical-align: bottom;
 }
 
 #main-nav li i.indicator {
