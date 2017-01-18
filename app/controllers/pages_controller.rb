@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def index
-
+    @header_title = "Studentorkesterfestivalen 2017"
+    @header = "SOF17"
   end
 
   def info

@@ -1,46 +1,76 @@
-@import "application";
+@import "colors";
+@import "fonts";
+
 
 $brand-logo-size: 124px;
 
 #main-nav {
-  background: #B00100;
+  background: $accent-color;
   z-index: 999;
-  color: #FFF;
 }
 
-#main-nav.side-nav a.list-item {
-  color: #FFF;
-  padding-left: 30px;
-  padding-right: 0px;
+#main-nav li {
+  font-family: $nav-font;
+  width: 300px;
 }
 
-#main-nav.side-nav a i.indicator {
+#main-nav li.nav-item a {
+  width: 300px;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+#main-nav li i.indicator {
   float: right;
-  padding-left: 25px;
+  text-align: right;
+  margin: 0;
 }
 
-#main-nav.side-nav i {
-  color: #FFF;
+#main-nav.side-nav a {
+  color: $primary-color;
+  font-size: 24px;
 }
 
-.side-nav a.brand-logo {
+#main-nav.side-nav a.brand-logo {
   text-align: center;
   padding: 20px 0px;
   height: 160px;
   margin-bottom: 20px;
 }
 
-.side-nav a.brand-logo img {
+#main-nav.side-nav a.brand-logo img {
   height: $brand-logo-size;
 }
 
 
 #secondary-nav {
+  width: 275px;
+  background: $primary-color;
   margin-left: 300px;
   z-index: 998;
 }
 
 #secondary-nav li {
+  font-family: $nav-font;
+}
+
+#secondary-nav.side-nav a {
+  color: $accent-color;
+  font-size: 20px;
+}
+
+#secondary-nav.side-nav a.list-item {
+  color: $accent-color;
+  padding-left: 30px;
+  padding-right: 0px;
+}
+
+#main-nav.side-nav i {
+  color: $primary-color;
+}
+
+#secondary-nav li {
+  color: $primary-color;
   position: relative;
   top: 30%;
 }

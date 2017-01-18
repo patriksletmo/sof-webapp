@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Facile Sans';
+  src:font-url('FacileSans.eot');
+  src:font-url('FacileSans.eot?#iefix') format('embedded-opentype'),
+  font-url('FacileSans.woff') format('woff'),
+  font-url('FacileSans.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+$header-font: 'Facile Sans';
+$body-font: 'Facile Sans';
+$nav-font: 'Facile Sans';
