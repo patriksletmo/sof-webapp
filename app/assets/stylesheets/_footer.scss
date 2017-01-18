@@ -1,10 +1,11 @@
-@import "application";
+@import "colors";
 @import "fonts";
 
-footer.page-footer {
-  padding-left: $sidenav-width;
+footer.page-footer.footer-wrapper {
+  margin-left: 300px;
   background-color: $primary-color;
 }
+
 
 body {
   display: flex;
