@@ -12,6 +12,12 @@
 
   <body>
 
+  <% flash.each do |key, value| %>
+      <script type="application/javascript">
+          Materialize.toast('<%= value %>', 4000)
+      </script>
+  <% end %>
+
   <%= render 'layouts/navigation' %>
 
   <main>
