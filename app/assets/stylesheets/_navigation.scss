@@ -1,11 +1,13 @@
 @import "colors";
 @import "fonts";
 
+$nav-primary-color: $secondary-color;
+$nav-accent-color: $accent-color;
 
 $brand-logo-size: 124px;
 
 #slide-out {
-  background: $accent-color;
+  background: $nav-primary-color;
   z-index: 999;
 }
 
@@ -20,7 +22,7 @@ $brand-logo-size: 124px;
 }
 
 #slide-out.side-nav a {
-  color: $primary-color;
+  color: $nav-accent-color;
   font-size: 24px;
   padding: 0 8px 0 32px;
 }
@@ -37,8 +39,8 @@ $brand-logo-size: 124px;
 }
 
 #slide-out .collapsible-body a {
-  background: $primary-color;
-  color: $accent-color;
+  background: $nav-accent-color;
+  color: $nav-primary-color;
 }
 
 /*
