@@ -15,4 +15,8 @@ Rails.application.routes.draw do
   # Let’s encrypt
   get '/.well-known/acme-challenge/:id' => 'lets_encrypt#challenge', as: :letsencrypt_challenge
 
+  # Static controller
+  get '/:category/*page' => 'pages#index'
+
+
 end

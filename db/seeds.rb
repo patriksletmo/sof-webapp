@@ -36,6 +36,9 @@ Contact.create([
                ])
 
 
-
-
+Page.delete_all
+Page.create(category: "pages", page: "test", header: "Test view", content: "asd this is test content", show_in_menu: false )
+Page.create(category: "contacts", page: "volonteer", header: "Detta är headern",
+            content: "<h> Hej :) </h> ASDASDsadadmlsadwrpglö",
+            show_in_menu: false)
 

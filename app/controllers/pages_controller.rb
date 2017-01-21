@@ -1,8 +1,16 @@
 class PagesController < ApplicationController
   def index
-    @header_title = "Studentorkesterfestivalen 2017"
-    @header = "SOF17"
+    category = params[:category]
+    page = params[:page]
+
+    @page = Page.find_by(category: category, page: page)
+    if @page.nil?
+      render nothing: true, status: 404
+    end
   end
+
+
+
 
   def info
 

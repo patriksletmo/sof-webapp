@@ -1,8 +1,14 @@
+<% content_for :header_title do %>
+    <% @page.header %>
+<% end %>
+
 <div class="container" xmlns:background-repeat="http://www.w3.org/1999/xhtml">
 
   <div>
-    <h2>Studentorkesterfestivalen 2017</h2>
-    <h3> 11 - 13 Maj, Linköpings Universitet</h3>
+    <% @page.elements do |elem| %>
+        <%= render partial: elem.name, locals: { elem: elem } %>
+
+    <%end %>
   </div>
 
 </div>
