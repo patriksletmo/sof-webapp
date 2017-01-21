@@ -3,17 +3,16 @@ class PagesController < ApplicationController
     category = params[:category]
     page = params[:page]
 
-    @page = Page.find_by(category: category, page: page)
-    if @page.nil?
-      render nothing: true, status: 404
+
+    if category == nil and page == nil
+      @page = Page.where(category: "index").first
+    else
+      @page = Page.find_by(category: category, page: page)
     end
-  end
 
-
-
-
-  def info
-
+    if @page.nil?
+      render nothing: false, status: 404
+    end
   end
 
 end

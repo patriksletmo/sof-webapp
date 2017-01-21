@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170121124200) do
+ActiveRecord::Schema.define(version: 20170121145241) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20170121124200) do
     t.string   "header"
     t.text     "content"
     t.boolean  "show_in_menu"
+    t.string   "image"
   end
 
 end

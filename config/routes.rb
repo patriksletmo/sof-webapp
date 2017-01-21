@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
   # Pages
   get 'index' => 'pages#index'
-  get 'info' => 'pages#info'
 
 
   # Controller
@@ -15,8 +14,12 @@ Rails.application.routes.draw do
   # Let’s encrypt
   get '/.well-known/acme-challenge/:id' => 'lets_encrypt#challenge', as: :letsencrypt_challenge
 
+
+
   # Static controller
-  get '/:category/*page' => 'pages#index'
+
+  get ':category' => 'pages#index'
+  get '/:category/:page' => 'pages#index'
 
 
 end
