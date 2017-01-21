@@ -1,26 +1,32 @@
-<ul id="main-nav" class="side-nav fixed">
-  <li class="logo">
-    <a href="#" class="brand-logo">
-      <img src="https://s3-eu-west-1.amazonaws.com/lintek-sof/sof-homepage/logos/Logga_SOF_pafarg2.png">
-    </a>
-  </li>
-  <li><%= link_to('Contacts', contact_path, {:class => 'waves-effect waves-teal'}) %></li>
-  <!-- TODO: Redo so it is the same as rails link_to structure -->
-  <li><a href="#" id="contactNavActivator" data-activates="contactNav" class="waves-effect waves-purple">Contact<i class="material-icons indicator">play_arrow</i></a></li>
-  <li><a href="#" id="testNavActivator" data-activates="testNav" class="waves-effect waves-purple">Secondary<i class="material-icons indicator">play_arrow</i></a></li>
-</ul>
+<div id="navgroup">
+  <ul id="slide-out" class="side-nav fixed">
+    <li class="logo">
+      <a href="#" class="brand-logo">
+        <img src="https://s3-eu-west-1.amazonaws.com/lintek-sof/sof-homepage/logos/Logga_SOF_pafarg2.png">
+      </a>
+    </li>
+    <li><%= link_to('Contacts', contact_path, {:class => 'waves-effect waves-teal'}) %></li>
 
-<div class="container">
-  <a href="#" data-activates="main-nav" class="button-collapse full hide-on-large-only"><i class="material-icons">menu</i></a>
+    <li><a href="#" id="contact" data-activates="underNav" class="underNavActivator waves-effect waves-purple">Contact<i class="material-icons indicator">play_arrow</i></a></li>
+    <li class="no-padding">
+      <ul class="collapsible collapsible-accordion">
+        <li>
+          <a class="collapsible-header">Dropdown<i class="material-icons indicator">arrow_drop_down</i></a>
+          <div class="collapsible-body">
+            <ul>
+              <li><a href="#!">First</a></li>
+              <li><a href="#!">Second</a></li>
+              <li><a href="#!">Third</a></li>
+              <li><a href="#!">Fourth</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#" id="test" data-activates="underNav" class="underNavActivator waves-effect waves-purple">Secondary<i class="material-icons indicator">play_arrow</i></a></li>
+  </ul>
+
+  <div class="container">
+    <a href="#" data-activates="main-nav" class="button-collapse full hide-on-large-only"><i class="material-icons">menu</i></a>
+  </div>
 </div>
-
-
-<ul id="contactNav" class="secondary-nav side-nav hide">
-  <li><a href="#!" class="list-item waves-effect waves-teal"><i class="material-icons">cloud</i>First Sidebar Link</a></li>
-  <li><a href="#!" class="list-item waves-effect waves-purple"><i class="material-icons">cloud</i>Second Sidebar Link</a></li>
-</ul>
-
-<ul id="testNav" class="secondary-nav side-nav hide">
-  <li><a href="#!" class="list-item waves-effect waves-teal"><i class="material-icons">cloud</i>First Sidebar Link</a></li>
-  <li><a href="#!" class="list-item waves-effect waves-purple"><i class="material-icons">cloud</i>Second Sidebar Link</a></li>
-</ul>
