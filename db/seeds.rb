@@ -37,7 +37,7 @@ Contact.create([
 
 
 Page.delete_all
-Page.create(category: "index", page: "index", header: "Index view", content: "this is Index view", image: "", show_in_menu: false)
+Page.create(category: "index", page: "", header: "Index view", content: "this is Index view", image: "", show_in_menu: false)
 Page.create(category: "pages", page: "test", header: "Test view", content: "<h> rubrik </h> this is test content <img>", image: "https://s3-eu-west-1.amazonaws.com/lintek-sof/sof-homepage/logos/Logga_SOF_pafarg2.png",  show_in_menu: false )
 Page.create(category: "contacts", page: "volonteer", header: "Detta är headern",
             content: "<h> Hej :) </h> ASDASDsadadmlsadwrpglö",

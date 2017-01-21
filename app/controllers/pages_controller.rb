@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
 
     if category == nil and page == nil
-      @page = Page.where(category: "index").first
+      @page = Page.find_by(category: "index", page: "")
     else
       @page = Page.find_by(category: category, page: page)
     end
