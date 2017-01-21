@@ -6,48 +6,21 @@ var isNavActive = false;
 var activeNav;
 var activeNavActivator;
 
-document.addEventListener('turbolinks:load', function () {
-    // Initialize collapse button
-    $('.button-collapse').sideNav();
-
-    $('#contactNavActivator').sideNav();
-
-    $('#testNavActivator').sideNav();
-
-
-    $('#contactNavActivator').mouseenter(function () {
-        if (!isActiveNav('contactNav') && isNavActive) {
-            deactivateActiveNav();
-        }
-
-        activateNav('contactNav', 'contactNavActivator');
-
-    });
-
-    $('#contactNav').mouseleave(function () {
-        if (isNavActive) {
-            $('#contactNavActivator').sideNav('hide');
-            setTimeout(function () {
-                $('#contactNav').addClass('hide');
-            }, 75);
-            isNavActive = false;
-        }
-    });
-
-    // Initialize collapsible (uncomment the line below if you use the dropdown variation)
-    $('.collapsible').collapsible();
-});
-
 var activateNav = function (navId, activatorId) {
-    document.getElementById(activatorId).sideNav('show');
+    $('#' + activatorId).sideNav('show');
     activeNavActivator = activatorId;
-    document.getElementById(navId).removeClass('hide');
+    $('#' + navId).removeClass('hide');
     activeNav = navId;
     isNavActive = true;
 };
 
 var isActiveNav = function (navId) {
-    return document.getElementById(navId).id == activeNav.id;
+    if (activeNav != null) {
+        return navId == activeNav.id;
+    } else {
+        return false
+    }
+
 };
 
 var deactivateActiveNav = function () {
@@ -61,4 +34,46 @@ var deactivateActiveNav = function () {
         activeNavActivator = null;
     }
 };
+
+
+document.addEventListener('turbolinks:load', function () {
+    // Initialize collapse button
+    $('.button-collapse').sideNav();
+
+    $('#contactNavActivator').sideNav();
+
+    $('#testNavActivator').sideNav();
+
+
+    $('#contactNavActivator').mouseenter(function () {
+        //window.alert('hej');
+        if (!isActiveNav('contactNav') && isNavActive) {
+            window.alert('deactivate');
+            deactivateActiveNav();
+        }
+        activateNav('contactNav', 'contactNavActivator');
+    });
+
+    $('#testNavActivator').mouseenter(function () {
+        if (!isActiveNav('testNav') && isNavActive) {
+            deactivateActiveNav();
+        }
+        activateNav('testNav', 'testNavActivator');
+    });
+
+    $('.secondary-nav').mouseleave(function () {
+        if (isNavActive) {
+            isNavActive = false;
+            $(activeNavActivator).sideNav('hide');
+            setTimeout(function () {
+                $(activeNav).addClass('hide');
+            }, 75);
+        }
+    });
+
+    // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+    $('.collapsible').collapsible();
+});
+
+
 
