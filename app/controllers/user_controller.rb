@@ -12,7 +12,7 @@ class UserController < ApplicationController
         flash[:success] = 'Ett mail har skickats till din e-postadress'
         redirect_to login_url
       else
-        flash[:error] = response.friendly_error
+        flash.now[:error] = response.friendly_error
       end
     end
   end
@@ -33,7 +33,7 @@ class UserController < ApplicationController
         store_token_from_response response
         redirect_to profile_url
       else
-        flash[:error] = response.friendly_error
+        flash.now[:error] = response.friendly_error
       end
     end
   end
@@ -45,7 +45,7 @@ class UserController < ApplicationController
         flash[:success] = 'Ett mail har skickats till adressen du angav'
         redirect_to login_url
       else
-        flash[:error] = response.friendly_error
+        flash.now[:error] = response.friendly_error
       end
     end
   end
@@ -58,7 +58,7 @@ class UserController < ApplicationController
         flash[:success] = 'Lösenord återställt'
         redirect_to login_url
       else
-        flash[:error] = response.friendly_error
+        flash.now[:error] = response.friendly_error
       end
     end
   end
