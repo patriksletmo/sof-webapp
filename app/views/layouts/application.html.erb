@@ -13,14 +13,10 @@
 
 
   <body>
-    <header>
-      <%= render 'layouts/header' %>
-
-      <%= render 'layouts/navigation' %>
-    </header>
-  <main>
-    <%= yield %>
-  </main>
-    <%= render 'layouts/footer' %>
+    <% if content_for? :navigation %>
+      <%= yield :navigation %>
+    <% else %>
+      <%= yield %>
+    <% end %>
   </body>
 </html>
