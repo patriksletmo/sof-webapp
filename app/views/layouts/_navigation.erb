@@ -6,8 +6,8 @@
   </li>
   <li><%= link_to('Contacts', contact_path, {:class => 'waves-effect waves-teal'}) %></li>
   <!-- TODO: Redo so it is the same as rails link_to structure -->
-  <li><a href="#" data-activates="secondary-nav" class="nav-control waves-effect waves-purple">Secondary<i class="material-icons indicator">play_arrow</i></a></li>
-
+  <li><a href="#" id="contactNavActivator" data-activates="contactNav" class="waves-effect waves-purple">Contact<i class="material-icons indicator">play_arrow</i></a></li>
+  <li><a href="#" id="testNavActivator" data-activates="testNav" class="waves-effect waves-purple">Secondary<i class="material-icons indicator">play_arrow</i></a></li>
 </ul>
 
 <div class="container">
@@ -15,8 +15,12 @@
 </div>
 
 
-<ul id="secondary-nav" class="side-nav hide">
+<ul id="contactNav" class="side-nav hide">
   <li><a href="#!" class="list-item waves-effect waves-teal"><i class="material-icons">cloud</i>First Sidebar Link</a></li>
   <li><a href="#!" class="list-item waves-effect waves-purple"><i class="material-icons">cloud</i>Second Sidebar Link</a></li>
 </ul>
 
+<ul id="testNav" class="side-nav hide">
+  <li><a href="#!" class="list-item waves-effect waves-teal"><i class="material-icons">cloud</i>First Sidebar Link</a></li>
+  <li><a href="#!" class="list-item waves-effect waves-purple"><i class="material-icons">cloud</i>Second Sidebar Link</a></li>
+</ul>

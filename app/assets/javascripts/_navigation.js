@@ -2,65 +2,63 @@
  * Created by lukas on 2017-01-15.
  */
 
+var isNavActive = false;
+var activeNav;
+var activeNavActivator;
+
 document.addEventListener('turbolinks:load', function () {
     // Initialize collapse button
-    $('.button-collapse').sideNav(
-    );
+    $('.button-collapse').sideNav();
 
-    var navcontrol = $('.nav-control');
+    $('#contactNavActivator').sideNav();
 
-    var sidenavActive;
-    var sidenavVisibility;
-    var mouseoverMainnav = false;
+    $('#testNavActivator').sideNav();
 
-    navcontrol.sideNav({
-        closeOnClick: true
+
+    $('#contactNavActivator').mouseenter(function () {
+        if (!isActiveNav('contactNav') && isNavActive) {
+            deactivateActiveNav();
+        }
+
+        activateNav('contactNav', 'contactNavActivator');
+
     });
 
-    navcontrol.hover(function () {
-        mouseoverMainnav = true;
-        sidenavActive = setTimeout(function () {
-            if ($('#secondary-nav:hidden')) {
-                navcontrol.sideNav('show');
-            }
-        }, 300);
-        sidenavVisibility = setTimeout(function () {
-            $('#secondary-nav').removeClass('hide');
-        }, 200);
-    }, function () {
-        mouseoverMainnav = false;
-        clearTimeout(sidenavActive);
-        clearTimeout(sidenavVisibility);
-
-        sidenavActive = setTimeout(function () {
-            if ($('#secondary-nav:visible')) {
-                navcontrol.sideNav('hide');
-            }
-        }, 200);
-        sidenavVisibility = setTimeout(function () {
-            $('#secondary-nav').addClass('hide');
-        }, 300);
-    });
-
-    $('#secondary-nav').hover(function () {
-        clearTimeout(sidenavActive);
-        clearTimeout(sidenavVisibility);
-    }, function () {
-        sidenavActive = setTimeout(function () {
-            if (!mouseoverMainnav) {
-                if ($('#secondary-nav:visible')) {
-                    navcontrol.sideNav('hide');
-                }
-            }
-        }, 75);
-        sidenavVisibility = setTimeout(function () {
-            if (!mouseoverMainnav) {
-                $('#secondary-nav').addClass('hide');
-            }
-        }, 150);
-
+    $('#contactNav').mouseleave(function () {
+        if (isNavActive) {
+            $('#contactNavActivator').sideNav('hide');
+            setTimeout(function () {
+                $('#contactNav').addClass('hide');
+            }, 75);
+            isNavActive = false;
+        }
     });
 
     // Initialize collapsible (uncomment the line below if you use the dropdown variation)
     $('.collapsible').collapsible();
 });
+
+var activateNav = function (navId, activatorId) {
+    document.getElementById(activatorId).sideNav('show');
+    activeNavActivator = activatorId;
+    document.getElementById(navId).removeClass('hide');
+    activeNav = navId;
+    isNavActive = true;
+};
+
+var isActiveNav = function (navId) {
+    return document.getElementById(navId).id == activeNav.id;
+};
+
+var deactivateActiveNav = function () {
+    if (isNavActive) {
+        activeNav.addClass('hide');
+        setTimeout(function () {
+            activeNavActivator.sideNav('hide');
+        }, 75);
+        isNavActive = false;
+        activeNav = null;
+        activeNavActivator = null;
+    }
+};
+

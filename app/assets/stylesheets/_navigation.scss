@@ -37,23 +37,23 @@ $brand-logo-size: 124px;
 }
 
 
-#secondary-nav {
+#contactNav {
   width: 275px;
   background: $primary-color;
   margin-left: 300px;
   z-index: 998;
 }
 
-#secondary-nav li {
+#contactNav li {
   font-family: $nav-font;
 }
 
-#secondary-nav.side-nav a {
+#contactNav.side-nav a {
   color: $accent-color;
   font-size: 20px;
 }
 
-#secondary-nav.side-nav a.list-item {
+#contactNav.side-nav a.list-item {
   color: $accent-color;
   padding-left: 30px;
   padding-right: 0px;
@@ -63,7 +63,7 @@ $brand-logo-size: 124px;
   color: $primary-color;
 }
 
-#secondary-nav li {
+#contactNav li {
   color: $primary-color;
   position: relative;
   top: 30%;
