@@ -1,48 +1,55 @@
-<ul id="main-nav" class="side-nav fixed">
-  <li class="logo">
-    <a href="#" class="brand-logo">
-      <img src="https://s3-eu-west-1.amazonaws.com/lintek-sof/sof-homepage/logos/Logga_SOF_pafarg2.png">
-    </a>
-  </li>
+<div id="navgroup">
+  <ul id="slide-out" class="side-nav fixed z-depth-5">
+    <li class="logo">
+      <a href="#" class="brand-logo">
+        <img src="https://s3-eu-west-1.amazonaws.com/lintek-sof/sof-homepage/logos/Logga_SOF_pafarg2.png">
+      </a>
+    </li>
 
-  <% if current_user.nil? %>
-      <li><%= link_to('Logga in', login_path, {:class => 'list-item waves-effect waves-teal'}) %></li>
+    <% if current_user.nil? %>
+        <li><%= link_to('Logga in', login_path, {:class => 'list-item waves-effect waves-teal'}) %></li>
     <% else %>
-      <li><%= link_to("Inloggad som #{current_user.username}", profile_path, {:class => 'list-item waves-effect waves-teal'}) %></li>
+        <li><%= link_to("Inloggad som #{current_user.username}", profile_path, {:class => 'list-item waves-effect waves-teal'}) %></li>
 
-      <!-- TODO: Move to secondary navbar -->
-      <li><%= link_to('Logga ut', logout_path, {:class => 'list-item waves-effect waves-teal'}) %></li>
+        <!-- TODO: Move to secondary navbar -->
+        <li><%= link_to('Logga ut', logout_path, {:class => 'list-item waves-effect waves-teal'}) %></li>
     <% end %>
 
-  <li><%= link_to('Contacts', contacts_path, {:class => 'list-item waves-effect waves-teal'}) %></li>
+    <% menu_items.each do |item| %>
+        <% if item['menu_items'].any? %>
+            <li class="no-padding">
+              <ul class="collapsible collapsible-accordion">
+                <li>
+                  <a class="collapsible-header">
+                    <%= item['title'] %>
+                    <i class="material-icons indicator">arrow_drop_down</i>
+                  </a>
+                  <div class="collapsible-body">
+                    <ul>
+                      <% item['menu_items'].each do |sub_menu_item| %>
+                          <li>
+                            <a href="#!">
+                              <%= sub_menu_item['title'] %>
+                            </a>
+                          </li>
+                      <% end %>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </li>
+        <% else %>
+            <li>
+              <a href="#!" class="waves-effect waves-teal">
+                <i class="material-icons">cloud</i>
+                <%= item['title'] %>
+              </a>
+            </li>
+        <% end %>
+    <% end %>
+  </ul>
 
-  <!-- TODO: Redo so it is the same as rails link_to structure -->
-  <li><a href="#" data-activates="secondary-nav" class="list-item button-collapse waves-effect waves-purple">Secondary navbar test<i class="material-icons indicator">play_arrow</i></a></li>
-
-</ul>
-
-<div class="container">
-  <a href="#" data-activates="main-nav" class="button-collapse full hide-on-large-only"><i class="material-icons">menu</i></a>
+  <div class="container">
+    <a href="#" data-activates="main-nav" class="button-collapse full hide-on-large-only"><i class="material-icons">menu</i></a>
+  </div>
 </div>
-
-
-<ul id="secondary-nav" class="side-nav">
-  <li><a href="#!" class="waves-effect waves-teal"><i class="material-icons">cloud</i>First Sidebar Link</a></li>
-  <li><a href="#!"><i class="material-icons">cloud</i>Second Sidebar Link</a></li>
-  <li class="no-padding">
-    <ul class="collapsible collapsible-accordion">
-      <li>
-        <a class="collapsible-header">Dropdown<i class="material-icons">arrow_drop_down</i></a>
-        <div class="collapsible-body">
-          <ul>
-            <li><a href="#!">First</a></li>
-            <li><a href="#!">Second</a></li>
-            <li><a href="#!">Third</a></li>
-            <li><a href="#!">Fourth</a></li>
-          </ul>
-        </div>
-      </li>
-    </ul>
-  </li>
-</ul>
-

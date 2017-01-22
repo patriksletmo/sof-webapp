@@ -3,6 +3,8 @@ require 'ext/response'
 class Database
   include HTTParty
   include Areas::AccountArea
+  include Areas::MenuArea
+  include Areas::PagesArea
 
   base_uri Rails.configuration.database_api_url
 

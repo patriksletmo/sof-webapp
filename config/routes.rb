@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'pages#index'
 
+  # Authentication
   get '/profile', to: 'user#index'
   match '/register', to: 'user#register', via: [:get, :post]
   match '/login', to: 'user#login', via: [:get, :post]
@@ -11,10 +12,14 @@ Rails.application.routes.draw do
   get '/login/liu_id', to: 'user#login_liu_id'
   get '/login/verify', to: 'user#verify_liu_id'
 
-  get 'index' => 'pages#index'
-  get 'info' => 'pages#info'
-  get 'contacts' => 'pages#contacts'
+  # Controller
+  get 'contact' => 'contacts#contact'
+  get 'press' => 'contacts#press'
 
   # Let’s encrypt
   get '/.well-known/acme-challenge/:id' => 'lets_encrypt#challenge', as: :letsencrypt_challenge
+
+  # Pages controller
+  get '/:category(/:page)' => 'pages#index'
+
 end

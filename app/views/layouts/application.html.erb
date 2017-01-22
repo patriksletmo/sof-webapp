@@ -11,17 +11,16 @@
   </head>
 
   <body>
+    <% flash.each do |key, value| %>
+        <script type="application/javascript">
+            Materialize.toast('<%= value %>', 4000)
+        </script>
+    <% end %>
 
-  <% flash.each do |key, value| %>
-      <script type="application/javascript">
-          Materialize.toast('<%= value %>', 4000)
-      </script>
-  <% end %>
-
-  <%= render 'layouts/navigation' %>
-
-  <main>
-    <%= yield %>
-  </main>
+    <% if content_for? :navigation %>
+      <%= yield :navigation %>
+    <% else %>
+      <%= yield %>
+    <% end %>
   </body>
 </html>
