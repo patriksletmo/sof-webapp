@@ -1,12 +1,9 @@
 class PagesController < NavigationController
   def index
-    category = params[:category] || "index"
-    page = params[:page] || ""
+    @page = Database.new(token).page(params[:category], params[:page])
 
-    @page = Page.find_by(category: category, page: page)
-
-    if @page.nil?
-      render nothing: false, status: 404
+    unless @page.success?
+      render nothing: true, status: 404
     end
   end
 end
