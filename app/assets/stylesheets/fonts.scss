@@ -1,3 +1,4 @@
+// Temporary test-font
 @font-face {
   font-family: 'Facile Sans';
   src:font-url('FacileSans.eot');
@@ -8,13 +9,52 @@
   font-style: normal;
 }
 
+// SOF-font from last year.
 @font-face {
-  font-family: 'Swis721 Ex Bt Bold';
-  src:font-url('Swis71_Ex_BT_Bold.tff') format('truetype');
+  font-family: 'Swis721 Ex BT';
+  src: font-url('Swiss721BT-BoldExtended.eot');
+  src: font-url('Swiss721BT-BoldExtended.eot?#iefix') format('embedded-opentype'),
+  font-url('Swiss721BT-BoldExtended.woff') format('woff'),
+  font-url('Swiss721BT-BoldExtended.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+// Official Lintek font - Light version
+@font-face {
+  font-family: 'DIN';
+  src: font-url('DIN-Light.eot');
+  src: font-url('DIN-Light.eot?#iefix') format('embedded-opentype'),
+  font-url('DIN-Light.woff') format('woff'),
+  font-url('DIN-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+// Official Lintek font - Bold version
+@font-face {
+  font-family: 'DIN';
+  src: font-url('DIN-Bold.eot');
+  src: font-url('DIN-Bold.eot?#iefix') format('embedded-opentype'),
+  font-url('DIN-Bold.woff') format('woff'),
+  font-url('DIN-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+// Official Lintek font - Regular version
+@font-face {
+  font-family: 'DIN';
+  src: font-url('DIN-Regular.eot');
+  src: font-url('DIN-Regular.eot?#iefix') format('embedded-opentype'),
+  font-url('DIN-Regular.woff') format('woff'),
+  font-url('DIN-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
+
+
 $header-font: 'Facile Sans';
 $body-font: 'Facile Sans';
-$nav-font: 'Facile Sans';
+$nav-font: 'DIN';

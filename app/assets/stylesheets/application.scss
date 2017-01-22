@@ -11,17 +11,17 @@
 
 $sidenav-width: 300px;
 
-header, main {
+header, main, footer {
   margin-left: $sidenav-width;
 }
 
 body {
-  background: $secondary-color;
+  background: $sof-purple-color;
 }
 
 @media only screen and (max-width : 992px) {
-  header, main {
-    padding-left: 0;
+  header, main, footer {
+    margin-left: 0;
   }
 }
 

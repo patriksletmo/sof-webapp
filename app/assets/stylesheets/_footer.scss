@@ -2,10 +2,9 @@
 @import "fonts";
 
 footer.page-footer.footer-wrapper {
-  margin-left: 300px;
-  background-color: $primary-color;
+  background-color: $sof-red-color;
+  padding-top: 0;
 }
-
 
 body {
   display: flex;
@@ -15,4 +14,33 @@ body {
 
 main {
   flex: 1 0 auto;
+}
+
+.page-footer ul {
+  //display: flex;
+}
+
+.page-footer ul li {
+  display: inline;
+  align-items: stretch;
+  margin: 0 5px;
+}
+
+.page-footer .btn-flat {
+  width: 60px;
+  height: 60px;
+}
+
+.page-footer li i {
+  position: relative;
+  top: 50%;
+  transform: perspective(1px) translateY(-50%);
+}
+
+.page-footer hr {
+  width: 65%;
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, $sof-red-color, white, $sof-red-color);
 }
