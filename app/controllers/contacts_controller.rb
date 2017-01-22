@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
 
   def press
-    @contacts = Contact.where(group: 'huvudansvarig')
+    @contacts = Contact.where(group: 'press')
   end
 
   def voloteer
@@ -9,7 +9,7 @@ class ContactsController < ApplicationController
   end
 
   def expo
-    @contacts = Contact.where(group: 'styrelse')
+    @contacts = Contact.where(group: 'board')
   end
 
   def contact
