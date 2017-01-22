@@ -76,7 +76,7 @@ class UserController < NavigationController
     database.logout
     delete_token
 
-    redirect_to index_url
+    redirect_to root_url
   end
 
   private
