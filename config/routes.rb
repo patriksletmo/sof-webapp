@@ -18,8 +18,8 @@ Rails.application.routes.draw do
 
   # Static controller
 
-  get ':category' => 'pages#index'
   get '/:category/:page' => 'pages#index'
 
+  get '/:category' => 'pages#index'
 
 end
