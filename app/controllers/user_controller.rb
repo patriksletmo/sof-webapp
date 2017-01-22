@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UserController < NavigationController
   def register
     if request.post?
       response = database.register(
