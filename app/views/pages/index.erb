@@ -1,13 +1,12 @@
 <% content_for :header_title do %>
-    <% @page.header %>
+    <% @page['header'] %>
 <% end %>
 
 <div class="container" xmlns:background-repeat="http://www.w3.org/1999/xhtml">
 
   <div>
-    <% @page.elements do |elem| %>
+    <% page_elements do |elem| %>
         <%= render partial: elem.name, locals: { elem: elem } %>
-
     <%end %>
   </div>
 
