@@ -1,5 +1,6 @@
+<% content_for :header_title do %>Profil<% end %>
+
 <div class="container">
-  <h3>Profil</h3>
   <% if current_user.nil? %>
     <p>Inte inloggad</p>
   <% else %>
