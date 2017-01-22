@@ -1,0 +1,27 @@
+@import "colors";
+@import "fonts";
+
+.top-nav {
+  height: 122px;
+  box-shadow: none;
+  background: $primary-color;
+}
+
+.page-title {
+  position: relative;
+  top: 50%;
+  transform: perspective(1px) translateY(-50%);
+  text-align: center;
+}
+
+.page-title h1 {
+  display: inline-block;
+  vertical-align: bottom;
+
+  text-align: center;
+  font-size: 48px;
+  font-family: $header-font;
+
+  color: $accent-color;
+  margin: 0;
+}

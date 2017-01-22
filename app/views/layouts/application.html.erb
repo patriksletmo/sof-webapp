@@ -10,12 +10,13 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
+
+
   <body>
-
-  <%= render 'layouts/navigation' %>
-
-  <main>
-    <%= yield %>
-  </main>
+    <% if content_for? :navigation %>
+      <%= yield :navigation %>
+    <% else %>
+      <%= yield %>
+    <% end %>
   </body>
 </html>
