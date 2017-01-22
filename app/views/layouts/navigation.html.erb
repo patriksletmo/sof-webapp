@@ -1,0 +1,14 @@
+<%= content_for :navigation do %>
+  <header>
+    <%= render 'layouts/header' %>
+    <%= render 'layouts/navigation' %>
+  </header>
+
+  <main>
+    <%= yield %>
+  </main>
+
+    <%= render 'layouts/footer' %>
+<% end %>
+
+<%= render :file  => 'layouts/application.html.erb' %>

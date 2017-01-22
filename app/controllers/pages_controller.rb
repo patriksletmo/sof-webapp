@@ -1,4 +1,4 @@
-class PagesController < ApplicationController
+class PagesController < NavigationController
   def index
     category = params[:category] || "index"
     page = params[:page] || ""
@@ -9,5 +9,4 @@ class PagesController < ApplicationController
       render nothing: false, status: 404
     end
   end
-
 end

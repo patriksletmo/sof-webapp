@@ -1,76 +1,76 @@
 @import "colors";
 @import "fonts";
 
+$nav-primary-color: $secondary-color;
+$nav-accent-color: $accent-color;
 
 $brand-logo-size: 124px;
 
-#main-nav {
-  background: $accent-color;
+#slide-out {
+  background: $nav-primary-color;
   z-index: 999;
 }
 
-#main-nav li {
+#slide-out li {
   font-family: $nav-font;
-  width: 300px;
 }
 
-#main-nav li.nav-item a {
-  width: 300px;
-  display: inline-block;
-  vertical-align: bottom;
-}
-
-#main-nav li i.indicator {
+#slide-out li i.indicator {
   float: right;
   text-align: right;
   margin: 0;
 }
 
-#main-nav.side-nav a {
-  color: $primary-color;
+#slide-out.side-nav a {
+  color: $nav-accent-color;
   font-size: 24px;
+  padding: 0 8px 0 32px;
 }
 
-#main-nav.side-nav a.brand-logo {
+#slide-out.side-nav a.brand-logo {
   text-align: center;
   padding: 20px 0px;
   height: 160px;
   margin-bottom: 20px;
 }
 
-#main-nav.side-nav a.brand-logo img {
+#slide-out.side-nav a.brand-logo img {
   height: $brand-logo-size;
 }
 
+#slide-out .collapsible-body a {
+  background: $nav-accent-color;
+  color: $nav-primary-color;
+}
 
-#secondary-nav {
+/*
+
+.side-nav.secondary-nav {
   width: 275px;
   background: $primary-color;
   margin-left: 300px;
   z-index: 998;
 }
 
-#secondary-nav li {
+.side-nav.secondary-nav ul {
   font-family: $nav-font;
+  color: $primary-color;
+  position: relative;
+  top: 30%;
 }
 
-#secondary-nav.side-nav a {
+.side-nav.secondary-nav a {
   color: $accent-color;
   font-size: 20px;
 }
 
-#secondary-nav.side-nav a.list-item {
+.side-nav.secondary-nav a.list-item {
   color: $accent-color;
   padding-left: 30px;
   padding-right: 0px;
 }
 
-#main-nav.side-nav i {
+.side-nav.secondary-nav i {
   color: $primary-color;
 }
-
-#secondary-nav li {
-  color: $primary-color;
-  position: relative;
-  top: 30%;
-}
+*/
