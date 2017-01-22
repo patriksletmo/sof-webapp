@@ -1,5 +1,11 @@
 source 'https://rubygems.org'
 
+# nokogiri
+gem 'nokogiri'
+
+# REST API helper
+gem 'httparty'
+
 # Enable use of .env file to specify environment variables for development
 gem 'dotenv-rails', :groups => [:development, :test]
 
@@ -56,9 +62,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-# REST API helper
-gem 'httparty'
 
 # Ruby version for Heroku
 ruby '2.3.3'
