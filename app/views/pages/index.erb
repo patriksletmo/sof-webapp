@@ -1,8 +1,13 @@
+<% content_for :header_title do %>
+    <% @page['header'] %>
+<% end %>
+
 <div class="container">
 
-  <div class="header">
-    <h2>Studentorkesterfestivalen 2017</h2>
-    <h3> 11 - 13 Maj, Linköpings Universitet</h3>
+  <div>
+    <% page_elements do |elem| %>
+        <%= render partial: elem.name, locals: { elem: elem } %>
+    <%end %>
   </div>
 
 </div>

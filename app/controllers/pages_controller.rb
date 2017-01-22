@@ -1,10 +1,9 @@
 class PagesController < NavigationController
   def index
-    @header_title = "Studentorkesterfestivalen 2017"
-    @header = "SOF17"
-  end
+    @page = Database.new(token).page(params[:category], params[:page])
 
-  def info
-
+    unless @page.success?
+      render nothing: true, status: 404
+    end
   end
 end

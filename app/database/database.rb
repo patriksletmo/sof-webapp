@@ -10,4 +10,8 @@ class Database
     self.class.get('/api/v1/menu')
   end
 
+  def page(category, page)
+    self.class.get("/api/v1/pages/find/#{category}/#{page}")
+  end
+
 end
