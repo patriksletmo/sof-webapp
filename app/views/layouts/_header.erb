@@ -1,7 +1,9 @@
-<nav class="top-nav z-depth-1">
-  <div class="page-title">
-    <h1>
-      <%= content_for :header_title %>
-    </h1>
+<nav id="top-nav">
+  <div class="nav-wrapper nav-header">
+    <a href="#" id="nav-hamburger" data-activates="slide-out" class="button-collapse full hide-on-large-only"><i class="material-icons large">menu</i></a>
+
+    <div class="brand-logo page-title center">
+        <%= content_for :header_title %>
+    </div>
   </div>
 </nav>
