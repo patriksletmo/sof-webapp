@@ -1,0 +1,37 @@
+<% content_for :header_title do %>Skapa användare<% end %>
+
+<div class="container">
+  <div class="row section">
+    <div class="col s12 m6">
+      <div class="card grey lighten-4">
+        <form method="post" id="register_user">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+            <div class="card-content">
+              <span class="card-title">Registrera dig</span>
+              <div class="input-field">
+                <input type="email" name="email" id="email">
+                <label for="email">E-mail</label>
+              </div>
+              <div class="input-field">
+                <input type="password" name="password" id="password">
+                <label for="password">Lösenord</label>
+              </div>
+              <div class="input-field">
+                <input type="password" name="password_confirmation" id="password_confirmation">
+                <label for="password_confirmation">Upprepa lösenord</label>
+              </div>
+            </div>
+            <div class="card-action">
+              <a class="blue-text" href="javascript:;" onclick="document.getElementById('register_user').submit();">Skapa användare</a>
+            </div>
+
+            <input type="submit"
+                   style="position: absolute; left: -9999px; width: 1px; height: 1px;"
+                   tabindex="-1" />
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

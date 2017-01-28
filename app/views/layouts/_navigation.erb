@@ -1,10 +1,40 @@
 <div id="navgroup">
-  <ul id="slide-out" class="side-nav fixed z-depth-5">
+  <ul id="slide-out" class="side-nav fixed z-depth-4">
     <li class="logo">
       <a href="#" class="brand-logo">
         <img src="https://s3-eu-west-1.amazonaws.com/lintek-sof/sof-homepage/logos/Logga_SOF_pafarg2.png">
       </a>
     </li>
+
+    <% if current_user.nil? %>
+        <li><%= link_to('Logga in', login_path, {:class => 'list-item waves-effect waves-teal'}) %></li>
+    <% else %>
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+            <li>
+              <a class="collapsible-header">
+                Konto
+                <i class="material-icons indicator">arrow_drop_down</i>
+              </a>
+              <div class="collapsible-body">
+                <ul>
+                  <li>
+                    <a href="<%= profile_url %>">
+                      Profil
+                    </a>
+                  </li>
+                  <li>
+                    <a href="<%= logout_url %>">
+                      Logga ut
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </li>
+    <% end %>
+
     <% menu_items.each do |item| %>
         <% if item['menu_items'].any? %>
             <li class="no-padding">
@@ -38,7 +68,6 @@
         <% end %>
     <% end %>
   </ul>
-
 
   <div class="container">
     <a href="#" data-activates="main-nav" class="button-collapse full hide-on-large-only"><i class="material-icons">menu</i></a>

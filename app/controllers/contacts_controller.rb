@@ -1,4 +1,4 @@
-class ContactsController < ApplicationController
+class ContactsController < NavigationController
 
   def press
     @contacts = Contact.where(group: 'press')

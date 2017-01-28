@@ -25,9 +25,13 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
-
-
   <body>
+    <% flash.each do |key, value| %>
+        <script type="application/javascript">
+            Materialize.toast('<%= value %>', 4000)
+        </script>
+    <% end %>
+
     <% if content_for? :navigation %>
       <%= yield :navigation %>
     <% else %>
