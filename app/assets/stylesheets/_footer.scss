@@ -2,7 +2,7 @@
 @import "fonts";
 
 footer.page-footer.footer-wrapper {
-  background-color: $sof-red-color;
+  background-color: $sof-purple-color;
   padding-top: 0;
 }
 
@@ -42,5 +42,5 @@ main {
   border: 0;
   height: 1px;
   background: #333;
-  background-image: linear-gradient(to right, $sof-red-color, white, $sof-red-color);
+  background-image: linear-gradient(to right, $sof-purple-color, white, $sof-purple-color);
 }
