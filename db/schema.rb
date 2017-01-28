@@ -21,4 +21,17 @@ ActiveRecord::Schema.define(version: 20170116145601) do
     t.string   "group"
   end
 
+  create_table "user_logins", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "email"
+    t.string   "password"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "username"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end
