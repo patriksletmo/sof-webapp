@@ -12,6 +12,13 @@ Rails.application.routes.draw do
   get '/login/liu_id', to: 'user#login_liu_id'
   get '/login/verify', to: 'user#verify_liu_id'
 
+
+  # Orchestra
+  get 'orchestra' => 'orchestra#index'
+  get 'orchestra/register' => 'orchestra#register'
+  get 'orchestra/create' => 'orchestra#create'
+  get 'orchestra/orchestras' => 'orchestra#orchestras'
+
   # Controller
   get 'contact' => 'contacts#contact'
   get 'press' => 'contacts#press'

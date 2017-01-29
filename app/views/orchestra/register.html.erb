@@ -1,0 +1,93 @@
+<% content_for :header_title do %>Orkester<% end %>
+
+<div class="container">
+  <div class="row">
+    <form class="col s12 m6 l6">
+      <h2 class="header">Registrera</h2>
+        <div class="row">
+          <div class="col s12 m6">
+            <label>Festival</label>
+            <select>
+              <option value="1">Ingen biljett</option>
+              <option value="2">Torsdag (11/5) - Söndag (14/5) ([Pris])</option>
+              <option value="3">Fredag (12/5) - Söndag (14/5) ([Pris])</option>
+              <option value="4">Lördag (13/5) - Söndag (15/5) ([Pris])</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m6">
+            <label>Matbiljett</label>
+            <select>
+              <option value="1">Ingen biljett</option>
+              <option value="2">Torsdag (11/5) - Söndag (14/5) ([Pris])</option>
+              <option value="3">Fredag (12/5) - Söndag (14/5) ([Pris])</option>
+              <option value="4">Lördag (13/5) - Söndag (15/5) ([Pris])</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m6">
+            <p>
+              <input type="checkbox" class="filled-in" id="box-specialkost" onclick="toggleSpecialkost(this)"/>
+              <label for="filled-in-box">Filled in</label>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m6 l6">
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea id="field-specialkost" class="materialize-textarea" disabled></textarea>
+                <label for="textarea1">Specifiera vilken specialkost</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m6">
+            <label>Sovsal</label>
+            <select>
+              <option value="1">Ja ([Pris])</option>
+              <option value="2">Nej</option>
+            </select>
+          </div>
+        </div>
+      <!-- Tröjor -->
+      <div class="row">
+        <div class="col s12 m6 l10">
+          <label>T-shirts</label>
+          <!-- lista över tröjor -->
+          <ul class="collection" id="collection-of-tshirts">
+
+          </ul>
+        </div>
+        <div class="col s4 m4 l4">
+          <select id="select-selected-tshirt">
+            <option value="1">XS</option>
+            <option value="2">S</option>
+            <option value="3">M</option>
+            <option value="4">L</option>
+            <option value="5">XL</option>
+          </select>
+        </div>
+        <div class="col s4 m4 l4">
+          <a class="waves-effect waves-light btn" onclick="addTshirt(this)">läggtill</a>
+          <!-- popup -->
+        </div>
+      </div>
+      <div class="row">
+          <div class="col s12 m6">
+            <label>T-shirt</label>
+            <select>
+              <option value="1">XS</option>
+              <option value="2">S</option>
+              <option value="3">M</option>
+              <option value="4">L</option>
+              <option value="5">XL</option>
+            </select>
+          </div>
+        </div>
+    </form>
+  </div>
+</div>
