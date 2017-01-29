@@ -1,8 +1,10 @@
 @import "colors";
 @import "fonts";
 
+
 footer.page-footer.footer-wrapper {
-  background-color: $sof-purple-color;
+  background-color: $secondary-color;
+  margin-top: 0;
   padding-top: 0;
 }
 
@@ -16,31 +18,35 @@ main {
   flex: 1 0 auto;
 }
 
-.page-footer ul {
-  //display: flex;
-}
-
 .page-footer ul li {
-  display: inline;
-  align-items: stretch;
-  margin: 0 5px;
-}
-
-.page-footer .btn-flat {
+  display: inline-block;
   width: 60px;
   height: 60px;
 }
 
-.page-footer li i {
-  position: relative;
-  top: 50%;
-  transform: perspective(1px) translateY(-50%);
+.page-footer .btn-flat {
+  color: $accent-color;
+  width: 60px;
+  height: 60px;
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+
+.page-footer .btn-flat:hover {
+  border: 1px solid $accent-color;
+  -webkit-background-clip: padding-box; /* for Safari */
+  background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+}
+
+.page-footer i {
+  position: absolute;
+  left: 20px;
+  top: 10px;
 }
 
 .page-footer hr {
-  width: 65%;
+  width: 70%;
   border: 0;
   height: 1px;
   background: #333;
-  background-image: linear-gradient(to right, $sof-purple-color, white, $sof-purple-color);
+  background-image: linear-gradient(to right, $sof-purple-color, $accent-color, $sof-purple-color);
 }

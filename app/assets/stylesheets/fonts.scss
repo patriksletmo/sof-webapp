@@ -1,10 +1,10 @@
 // Official Lintek Arial Bold font
 @font-face {
   font-family: 'Arial';
-  src: url('Arial-BoldMT.eot');
-  src: url('Arial-BoldMT.eot?#iefix') format('embedded-opentype'),
-  url('Arial-BoldMT.woff') format('woff'),
-  url('Arial-BoldMT.ttf') format('truetype');
+  src: font-url('Arial-BoldMT.eot');
+  src: font-url('Arial-BoldMT.eot?#iefix') format('embedded-opentype'),
+  font-url('Arial-BoldMT.woff') format('woff'),
+  font-url('Arial-BoldMT.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
 }

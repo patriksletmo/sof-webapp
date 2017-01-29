@@ -1,11 +1,13 @@
-// Temp colors - Don't use these
-$primary-color: #e74c4c;
-$secondary-color: #9b59b6;
-$accent-color: #f5d76e;
-
 // Official Colors - use these
 $sof-red-color: #d51130;
 $sof-purple-color: #772761;
 $sof-yellow-color: #ffef2c;
 $sof-green-color: #009640;
 $sof-pink-color: #e60073;
+$sof-whiteish-color: #f9edf1;
+
+// Use these to color things.
+$primary-color: $sof-red-color;
+$secondary-color: $sof-purple-color;
+$accent-color: $sof-whiteish-color;
+
