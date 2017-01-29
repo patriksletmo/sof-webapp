@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  font-url('icomoon.eot?ihbru4');
+  src:  font-url('icomoon.eot?ihbru4#iefix') format('embedded-opentype'),
+  font-url('icomoon.ttf?ihbru4') format('truetype'),
+  font-url('icomoon.woff?ihbru4') format('woff'),
+  font-url('icomoon.svg?ihbru4#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-menu:before {
+  content: "\eafe";
+}
+.icon-youtube:before {
+  content: "\ec69";
+}
+.icon-flickr4:before {
+  content: "\ec72";
+}
+.icon-facebook:before {
+  content: "\ec5c";
+}
+.icon-instagram:before {
+  content: "\ec5e";
+}
+.icon-twitter:before {
+  content: "\ec62";
+}

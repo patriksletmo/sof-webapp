@@ -10,13 +10,21 @@ $top-nav-height: 80px;
 }
 
 .nav-header {
-  background: $sof-purple-color;
+  background: $secondary-color;
 }
 
 .page-title {
   //font-size: 48px;
   font-family: $header-font;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.page-title h4 {
+  line-height: $top-nav-line-height;
+  height: $top-nav-height;
   color: $accent-color;
+  margin: 0 auto;
 }
 
 #nav-hamburger i {
@@ -24,4 +32,5 @@ $top-nav-height: 80px;
   height: $top-nav-height;
   font-size: 2.5em;
 }
+
 
