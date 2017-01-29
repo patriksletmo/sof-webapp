@@ -2,10 +2,10 @@
 
 <div class="container">
   <div class="row">
-    <form class="col s12 m6 l6">
+    <form>
       <h2 class="header">Registrera</h2>
         <div class="row">
-          <div class="col s12 m6">
+          <div class="col s3 m3 l3">
             <label>Festival</label>
             <select>
               <option value="1">Ingen biljett</option>
@@ -16,7 +16,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col s12 m6">
+          <div class="col s3 m3 l3">
             <label>Matbiljett</label>
             <select>
               <option value="1">Ingen biljett</option>
@@ -29,8 +29,8 @@
         <div class="row">
           <div class="col s12 m6">
             <p>
-              <input type="checkbox" class="filled-in" id="box-specialkost" onclick="toggleSpecialkost(this)"/>
-              <label for="filled-in-box">Filled in</label>
+              <input type="checkbox" class="filled-in" id="specialfood-box" name="specialfood-box" onclick="toggleSpecialkost(this)"/>
+              <label for="specialfood-box">Specialkost?</label>
             </p>
           </div>
         </div>
@@ -38,7 +38,7 @@
           <div class="col s12 m6 l6">
             <div class="row">
               <div class="input-field col s12">
-                <textarea id="field-specialkost" class="materialize-textarea" disabled></textarea>
+                <textarea id="field-specialfood" type="text" class="materialize-textarea" name="specialfood"disabled></textarea>
                 <label for="textarea1">Specifiera vilken specialkost</label>
               </div>
             </div>
@@ -47,7 +47,7 @@
         <div class="row">
           <div class="col s12 m6">
             <label>Sovsal</label>
-            <select>
+            <select id="sleep_over" name="sleep_over">
               <option value="1">Ja ([Pris])</option>
               <option value="2">Nej</option>
             </select>
@@ -63,7 +63,7 @@
           </ul>
         </div>
         <div class="col s4 m4 l4">
-          <select id="select-selected-tshirt">
+          <select id="select-selected-tshirt" name="t-shirt">
             <option value="1">XS</option>
             <option value="2">S</option>
             <option value="3">M</option>
@@ -73,21 +73,133 @@
         </div>
         <div class="col s4 m4 l4">
           <a class="waves-effect waves-light btn" onclick="addTshirt(this)">läggtill</a>
-          <!-- popup -->
         </div>
       </div>
       <div class="row">
-          <div class="col s12 m6">
-            <label>T-shirt</label>
-            <select>
-              <option value="1">XS</option>
-              <option value="2">S</option>
-              <option value="3">M</option>
-              <option value="4">L</option>
-              <option value="5">XL</option>
-            </select>
+        <div class="col s4 m4 l4">
+          <label>Medaljer</label>
+          <select id="select-medals" name="medals">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        </div>
+      <div class="row">
+        <div class="col s4 m4 l4">
+          <label>Märken</label>
+          <select id="select-tag" name="tag">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <label> Är du aktiv eller gamling?</label>
+        </div>
+
+        <div class="input-field col s12">
+          <p>
+            <input id="active" type="radio" name="active" value="active">
+            <label for="active">Aktiv</label>
+          </p>
+          <p>
+            <input id="inactive" type="radio" name="active" value="inactive">
+            <label for="inactive">Gamling</label>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <label> Är detta ditt tioende raka SOF/STORK?</label>
+        </div>
+
+        <div class="input-field col s12">
+          <p>
+            <input id="spree_yes" type="radio" name="spree" value="yes">
+            <label for="spree_yes">Ja</label>
+          </p>
+          <p>
+            <input id="spree_no" type="radio" name="spree" value="no">
+            <label for="spree_no">Nej</label>
+          </p>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="input-field col s12">
+          <label> Har du varit på 25 eller fler SOF/STORK?</label>
+        </div>
+
+        <div class="input-field col s12">
+          <p>
+            <input id="25years_yes" type="radio" name="25years" value="yes">
+            <label for="25years_yes">Ja</label>
+          </p>
+          <p>
+            <input id="25years_no" type="radio" name="25years" value="no">
+            <label for="25years_no">Nej</label>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <label> Balett eller orkester?</label>
+        </div>
+
+        <div class="input-field col s12">
+          <p>
+            <!-- the orchs are comming!! -->
+            <input id="performingAs_orch" type="radio" name="performingAs" value="orchestra">
+            <label for="performingAs_orch">Orkester</label>
+          </p>
+          <p>
+            <input id="performingAs_bal" type="radio" name="performingAs" value="ballet">
+            <label for="performingAs_bal">balett</label>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12 m6">
+          <p>
+            <input type="checkbox" class="filled-in" id="performWithOther-box" name="performWithOther-box" onclick="togglePerformWithOther(this)"/>
+            <label for="performWithOther-box">Uppträder du med någon annan orkester?</label>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m6 l6">
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="field-otherOrchestra" class="materialize-textarea" name="otherOrchestra"disabled></textarea>
+              <label for="textarea1">Specifiera vilken orkester</label>
+            </div>
           </div>
         </div>
+      </div>
+
+      <div class="row">
+        <div class="col s6 m8 l8">
+          <label for="size-of-instrument" >Hur stor är ditt instrument? ;))))</label>
+          <select id="select-size-of-instrument" name="size-of-instrument">
+            <option value="1">Mycket litet (Klarinett, flöjt eller liknande)</option>
+            <option value="2">Litet (Trumpet, altsaxofon eller liknande)</option>
+            <option value="3">Medel (Tenorsaxofon, trombon eller liknande)</option>
+            <option value="4">Stort (Barytonsaxofon, tuba, stor väska eller liknande)</option>
+            <option value="5">Tar inte med eget instrument</option>
+          </select>
+        </div>
+      </div>
+
+
     </form>
   </div>
 </div>

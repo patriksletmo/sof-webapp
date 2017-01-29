@@ -3,7 +3,7 @@
  */
 
 function toggleSpecialkost(e) {
-    var target = document.getElementById('field-specialkost');
+    var target = document.getElementById('field-specialfood');
     if (e.checked) {
         target.disabled = false;
         target.focus();
@@ -23,7 +23,7 @@ function addTshirt() {
     entry.onclick = function () {
         this.parentElement.removeChild(this);
     }
-    var size = "asd";
+    var size = "null";
 
 
 
@@ -47,8 +47,17 @@ function addTshirt() {
             fuckedup = true;
     }
     if(!fuckedup) {
-
         entry.appendChild(document.createTextNode(size));
         target.appendChild(entry);
+    }
+}
+
+function togglePerformWithOther(e) {
+    var target = document.getElementById('field-otherOrchestra');
+    if (e.checked) {
+        target.disabled = false;
+        target.focus();
+    } else {
+        target.disabled = true;
     }
 }
