@@ -15,9 +15,14 @@ Rails.application.routes.draw do
 
   # Orchestra
   get 'orchestra' => 'orchestra#index'
-  get 'orchestra/register' => 'orchestra#register'
+  match 'orchestra/register' => 'orchestra#register', via: [:get, :post]
   get 'orchestra/create' => 'orchestra#create'
   get 'orchestra/orchestras' => 'orchestra#orchestras'
+
+  # User management
+  get 'manage/users' => 'user_management#index'
+  get 'manage/users/:id' => 'user_management#show'
+  post 'manage/users/:id' => 'user_management#update'
 
   # Controller
   get 'contact' => 'contacts#contact'

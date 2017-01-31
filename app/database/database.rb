@@ -5,6 +5,7 @@ class Database
   include Areas::AccountArea
   include Areas::MenuArea
   include Areas::PagesArea
+  include Areas::UserArea
 
   base_uri Rails.configuration.database_api_url
 

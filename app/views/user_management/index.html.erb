@@ -1,0 +1,22 @@
+<% content_for :header_title do %>Hantera användare<% end %>
+
+<div class="container">
+<table class="highlight responsive-table">
+  <thead>
+    <tr>
+      <th>Namn</th>
+      <th>E-post</th>
+      <th>Behörigheter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr data-href="<%= url_for action: :show, id: user['id'] %>">
+        <td><%= user['name'] %></td>
+        <td><%= user['email'] %></td>
+        <td><%= given_permissions(user) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
