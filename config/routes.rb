@@ -16,8 +16,9 @@ Rails.application.routes.draw do
   # Orchestra
   get 'orchestra' => 'orchestra#index'
   match 'orchestra/register' => 'orchestra#register', via: [:get, :post]
-  get 'orchestra/create' => 'orchestra#create'
+  match 'orchestra/create' => 'orchestra#create', via: [:get, :post]
   get 'orchestra/orchestras' => 'orchestra#orchestras'
+  get 'orchestra/:id' => 'orchestra#show'
 
   # User management
   get 'manage/users' => 'user_management#index'

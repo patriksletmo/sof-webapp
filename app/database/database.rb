@@ -4,6 +4,7 @@ class Database
   include HTTParty
   include Areas::AccountArea
   include Areas::MenuArea
+  include Areas::OrchestraArea
   include Areas::PagesArea
   include Areas::UserArea
 
