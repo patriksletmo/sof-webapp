@@ -34,15 +34,13 @@ function addTshirt() {
     var target = document.getElementById('collection-of-tshirts');
     var tshirt = document.getElementById('select-selected-tshirt');
     var gender = document.getElementById('switch-gender');
+    var size = tshirt.value;
 
 
-
-    console.log(target.childNodes.length);
     if(target.childNodes.length > 4){
         console.log("too many Tshirts");
         return;
     }
-
 
     var Tshirt_gender
     if(gender.checked){
@@ -51,22 +49,19 @@ function addTshirt() {
         Tshirt_gender = "Male "
     }
 
-
-
-    var fuckedup = false;;
     var entry =  document.createElement('li');
-    // add a delete icon to the right side
 
-    // remove t-shirt from list
     entry.onclick = function () {
         this.parentElement.removeChild(this);
     }
-    var size = tshirt.value;
 
-    size = Tshirt_gender + size;
-    entry.appendChild(document.createTextNode(size));
-    target.appendChild(entry);
-
+    if(Tshirt_gender == "Female " && size == "XXL") {
+        return;
+    } else {
+        size = Tshirt_gender + size;
+        entry.appendChild(document.createTextNode(size));
+        target.appendChild(entry);
+    }
 }
 
 function togglePerformWithOther(e) {
