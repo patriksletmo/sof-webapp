@@ -17,15 +17,7 @@ class Database
   private
 
   def authenticated_options
-    {
-        :headers => {
-            'access-token': @token.auth_token,
-            'token-type':   'Bearer',
-            'client':       @token.client_id,
-            'expiry':       @token.expiry,
-            'uid':          @token.uid
-        }
-    }
+    {headers: @token.headers}
   end
 
   def get(*args)
