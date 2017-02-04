@@ -8,6 +8,7 @@
       <a class="waves-effect waves-light btn-large">Skapa ny orkester</a>
       <a class="waves-effect waves-light btn-large">Registrera till orkester</a>
     </div>
+    <% unless current_user.nil? %>
     <div class="col s12 m6">
       <h4>Mina orkestrar</h4>
       <% current_user['orchestras'].each do |orchestra| %>
@@ -21,6 +22,7 @@
           <p><%= signup['name'] %></p>
       <% end %>
     </div>
+    <% end %>
 
   </div>
 </div>
