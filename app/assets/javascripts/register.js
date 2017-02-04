@@ -66,7 +66,6 @@ function addTshirt() {
 
 
     if(target.childNodes.length > 4){
-        console.log("too many Tshirts");
         return;
     }
 
@@ -78,6 +77,12 @@ function addTshirt() {
     }
 
     var entry =  document.createElement('li');
+    var inpt = document.createElement('input');
+    inpt.name = "tshirt[]";
+    inpt.type = "hidden";
+    inpt.value = Tshirt_gender + size;
+
+
 
     entry.onclick = function () {
         this.parentElement.removeChild(this);
@@ -86,8 +91,12 @@ function addTshirt() {
     if(Tshirt_gender == "Female " && size == "XXL") {
         return;
     } else {
+
         size = Tshirt_gender + size;
-        entry.appendChild(document.createTextNode(size));
+        sizeNode = document.createTextNode(size);
+        inptNode = document.createTextNode(inpt);
+        entry.appendChild(sizeNode);
+        entry.appendChild(inpt);
         target.appendChild(entry);
     }
 }
@@ -101,4 +110,3 @@ function togglePerformWithOther(e) {
         target.disabled = true;
     }
 }
-
