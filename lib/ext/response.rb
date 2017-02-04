@@ -17,5 +17,9 @@ module HTTParty
         STANDARD_ERROR
       end
     end
+
+    def body!
+      self if success?
+    end
   end
 end

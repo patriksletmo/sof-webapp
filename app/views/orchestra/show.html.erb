@@ -1,0 +1,12 @@
+<% content_for :header_title do %><%= @orchestra['name'] %>
+<% end %>
+
+<div class="container">
+  <h3>Kod: <%= @orchestra['code'] %></h3>
+  <p>
+    När era orkestermedlemmar registrerar sig till er orkester måste de ange ovanstående kod för att kopplas till er orkester.
+  </p>
+
+  <p>Ballet: <%= @orchestra['ballet'] %></p>
+  <p>Dormitory: <%= @orchestra['dormitory'] %></p>
+</div>

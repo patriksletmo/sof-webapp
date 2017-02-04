@@ -1,3 +1,58 @@
 <% content_for :header_title do %>Skapa din orkester<% end %>
 
+<div class="container">
+  <div class="row">
+    <form method="post">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
+      <div class="row">
+        <div class="col s12 m6 l6">
+          <label for="orchestra-name">Orkesternamn</label>
+          <input type="text" id="orchestra-name" name="item[name]">
+        </div>
+
+        <div>
+          <div class="input-field col s12">
+            <label>Balett eller orkester?</label>
+          </div>
+
+          <div class="input-field col s12">
+            <p>
+              <input id="performingAs_orch" type="radio" name="item[ballet]" value="false" checked>
+              <label for="performingAs_orch">Orkester</label>
+            </p>
+            <p>
+              <input id="performingAs_bal" type="radio" name="item[ballet]" value="true">
+              <label for="performingAs_bal">Balett</label>
+            </p>
+          </div>
+        </div>
+    </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <label>Vill ni sova i sovsal?</label>
+          <br>
+          <p>
+            Möjligheten finns att under registrering till er orkester inte specificera om man vill sova i sovsal eller
+            inte, och då följa det alternativ som orkestern valt. Vill ni att era orkestermedlemmar ska sova i sovsal?
+          </p>
+        </div>
+
+        <div class="input-field col s12">
+          <p>
+            <!-- the orchs are comming!! -->
+            <input id="dormitory_yes" type="radio" name="item[dormitory]" value="true" checked>
+            <label for="dormitory_yes">Ja</label>
+          </p>
+          <p>
+            <input id="dormitory_no" type="radio" name="item[dormitory]" value="false">
+            <label for="dormitory_no">Nej</label>
+          </p>
+        </div>
+      </div>
+
+      <button type="submit" class="btn">Skapa orkester</button>
+    </form>
+  </div>
+</div>

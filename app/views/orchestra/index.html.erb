@@ -8,5 +8,19 @@
       <a class="waves-effect waves-light btn-large">Skapa ny orkester</a>
       <a class="waves-effect waves-light btn-large">Registrera till orkester</a>
     </div>
+    <div class="col s12 m6">
+      <h4>Mina orkestrar</h4>
+      <% current_user['orchestras'].each do |orchestra| %>
+        <p>
+          <a href="<%= url_for action: :show, id: orchestra['id'] %>"><%= orchestra['name'] %></a>
+        </p>
+      <% end %>
+
+      <h4>Mina orkesteranmälningar</h4>
+      <% current_user['orchestra_signups'].each do |signup| %>
+          <p><%= signup['name'] %></p>
+      <% end %>
+    </div>
+
   </div>
 </div>
