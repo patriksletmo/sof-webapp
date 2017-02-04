@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   match 'orchestra/create' => 'orchestra#create', via: [:get, :post]
   get 'orchestra/orchestras' => 'orchestra#orchestras'
   get 'orchestra/:id' => 'orchestra#show'
+  match 'orchestra/:id/reset_code' => 'orchestra#reset_code', via: [:post]
 
   # User management
   get 'manage/users' => 'user_management#index'

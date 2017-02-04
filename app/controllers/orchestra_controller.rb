@@ -27,6 +27,15 @@ class OrchestraController < NavigationController
     end
   end
 
+  def reset_code
+    response = database.update_orchestra(params[:id], {item: {code: 'reset'}})
+    unless response.success?
+      flash[:error] = 'Kunde inte skapa ny kod'
+    end
+
+    redirect_to action: :show, id: params[:id]
+  end
+
   private
 
   def orchestra_params
