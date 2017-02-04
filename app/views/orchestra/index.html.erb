@@ -19,7 +19,9 @@
 
       <h4>Mina orkesteranmälningar</h4>
       <% current_user['orchestra_signups'].each do |signup| %>
-          <p><%= signup['name'] %></p>
+          <p>
+            <a href="<%= url_for action: :show_signup, id: signup['id'] %>">Anmälan till <%= signup['orchestra']['name'] %></a>
+          </p>
       <% end %>
     </div>
     <% end %>

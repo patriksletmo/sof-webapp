@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'orchestra/:id' => 'orchestra#show'
   post 'orchestra/:id' => 'orchestra#update'
   match 'orchestra/:id/reset_code' => 'orchestra#reset_code', via: [:post]
+  get 'orchestra/signup/:id' => 'orchestra#show_signup'
 
   # User management
   get 'manage/users' => 'user_management#index'
