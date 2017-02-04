@@ -34,12 +34,34 @@ class OrchestraController < NavigationController
     end
   end
 
+  def update
+    response = database.update_orchestra(params[:id], orchestra_params)
+    if response.success?
+      flash[:success] = 'Orkester uppdaterad'
+    else
+      flash[:error] = 'Kunde inte uppdatera orkester'
+    end
+
+    redirect_to action: :show, id: params[:id]
+  end
+
   def show
     @orchestra = database.show_orchestra params[:id]
     unless @orchestra.success?
       flash[:error] = 'Kunde inte hitta orkester'
       redirect_to '/'
     end
+  end
+
+  def reset_code
+    response = database.update_orchestra(params[:id], {item: {code: 'reset'}})
+    if response.success?
+      flash[:success] = 'Kod uppdaterad'
+    else
+      flash[:error] = 'Kunde inte skapa ny kod'
+    end
+
+    redirect_to action: :show, id: params[:id]
   end
 
   private

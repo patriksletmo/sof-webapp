@@ -2,11 +2,76 @@
 <% end %>
 
 <div class="container">
-  <h3>Kod: <%= @orchestra['code'] %></h3>
-  <p>
-    När era orkestermedlemmar registrerar sig till er orkester måste de ange ovanstående kod för att kopplas till er orkester.
-  </p>
+  <div class="row">
+    <div class="col s12 m6">
+      <h4>Kod: <%= @orchestra['code'] %></h4>
+      <p>
+        När era orkestermedlemmar registrerar sig till er orkester måste de ange ovanstående kod för att kopplas till er
+        orkester.
+      </p>
+      <form method="post" action="<%= url_for action: :reset_code, id: @orchestra['id'] %>">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <button type="submit" class="btn">Skapa ny kod</button>
+      </form>
 
-  <p>Ballet: <%= @orchestra['ballet'] %></p>
-  <p>Dormitory: <%= @orchestra['dormitory'] %></p>
+      <h4>Uppdatera orkester</h4>
+
+      <form method="post">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+        <div>
+          <label for="orchestra-name">Orkesternamn</label>
+          <input type="text" id="orchestra-name" name="item[name]" value="<%= @orchestra['name'] %>">
+        </div>
+
+        <div>
+          <div class="input-field col s12">
+            <label>Balett eller orkester?</label>
+          </div>
+
+          <div class="input-field col s12">
+            <p>
+              <input id="performingAs_orch" type="radio" name="item[ballet]" value="false" <%= 'checked' unless @orchestra['ballet'] %>>
+              <label for="performingAs_orch">Orkester</label>
+            </p>
+            <p>
+              <input id="performingAs_bal" type="radio" name="item[ballet]" value="true" <%= 'checked' if @orchestra['ballet'] %>>
+              <label for="performingAs_bal">Balett</label>
+            </p>
+          </div>
+        </div>
+
+        <div class="input-field col s12">
+          <label>Vill ni sova i sovsal?</label>
+          <br>
+          <p>
+            Möjligheten finns att under registrering till er orkester inte specificera om man vill sova i sovsal eller
+            inte, och då följa det alternativ som orkestern valt. Vill ni att era orkestermedlemmar ska sova i sovsal?
+          </p>
+        </div>
+
+        <div class="input-field col s12">
+          <p>
+            <input id="dormitory_yes" type="radio" name="item[dormitory]" value="true" <%= 'checked' if @orchestra['dormitory'] %>>
+            <label for="dormitory_yes">Ja</label>
+          </p>
+          <p>
+            <input id="dormitory_no" type="radio" name="item[dormitory]" value="false" <%= 'checked' unless @orchestra['dormitory'] %>>
+            <label for="dormitory_no">Nej</label>
+          </p>
+        </div>
+
+        <div class="input-field col s12">
+          <br/>
+          <button type="submit" class="btn">Uppdatera orkester</button>
+        </div>
+      </form>
+    </div>
+    <div class="col s12 m6">
+      <h4>Anmälda medlemmar</h4>
+      <% @orchestra['orchestra_signups'].each do |signup| %>
+          <p><%= signup %></p>
+      <% end %>
+    </div>
+  </div>
 </div>

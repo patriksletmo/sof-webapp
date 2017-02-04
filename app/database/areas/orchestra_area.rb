@@ -11,6 +11,14 @@ module Areas
       get("/api/v1/orchestra/#{id}", authenticated_options)
     end
 
+    def update_orchestra(id, item_params)
+      options = {
+          body: item_params
+      }
+
+      put("/api/v1/orchestra/#{id}", options.merge(authenticated_options))
+    end
+
     def create_orchestra_signup(item_params)
       options = {
           body: item_params
