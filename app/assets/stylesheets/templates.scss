@@ -5,13 +5,22 @@ main {
   background-color: $accent-color;
 }
 
-.hero {
+.hero-container {
   height: 400px;
-  //background-color: blue;
+  width: 100%;
+}
+
+.hero {
+  background-repeat: no-repeat;
+  background-position: center;
+  //background-size: contain;
+  height: 100%;
+  width: 100%;
 }
 
 .hero img {
-  height: 400px;
+  height: 100%;
+  width: 100%;
 }
 
 p.hero-description {
