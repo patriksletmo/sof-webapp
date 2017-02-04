@@ -9,13 +9,27 @@ $brand-logo-size: 124px;
 #slide-out {
   background: $nav-primary-color;
   z-index: 999;
+  width: 275px;
+  display: flex;
+  flex-direction: column;
+}
+
+#slide-out ul {
+  width: 100%;
 }
 
 #slide-out li > a {
   font-family: $nav-font;
   font-weight: bold;
-  text-transform: uppercase;
-  font-size: 32px;
+  font-size: 24px;
+  //text-transform: capitalize;
+}
+
+#slide-out li > a.subheader {
+  font-size: 20px;
+  font-weight: normal;
+  height: 30px;
+  line-height: 30px;
 }
 
 #slide-out li i.indicator {
@@ -24,31 +38,91 @@ $brand-logo-size: 124px;
   margin: 0;
 }
 
-#slide-out.side-nav a {
+.side-nav a.menu-item {
   color: $nav-accent-color;
   padding: 0 8px 0 32px;
 }
 
-#slide-out.side-nav a.brand-logo {
-  text-align: center;
-  padding: 20px 0px;
-  height: 160px;
-  margin-bottom: 20px;
-}
-
-#slide-out.side-nav a.brand-logo img {
-  height: $brand-logo-size;
-}
 
 #slide-out .collapsible-body a {
   background: $nav-accent-color;
   color: $nav-primary-color;
 }
 
+/*----------- Mobile nav hamburger -------------*/
+
 #mobile-nav {
   color: #fff;
 }
 
+/*----------- Brand Logo -------------*/
+
+#slide-out a.brand-logo {
+  text-align: center;
+  padding: 20px 0px;
+  height: 160px;
+  margin-bottom: 20px;
+}
+
+#slide-out .brand-logo:hover {
+  background-color: transparent;
+  text-decoration: none;
+}
+
+#slide-out .brand-logo img {
+  height: $brand-logo-size;
+}
+
+/*----------- Lintek logo and hearts -------------*/
+
+ul.lintek-logo-hearts {
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+li.lintek-hearts {
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+}
+
+.lintek-hearts a.lintek-heart {
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+#slide-out a.lintek-heart img {
+  margin: auto;
+  width: 70%;
+}
+
+#slide-out .lintek-logo-text-container {
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+
+#slide-out .lintek-logo-text {
+  color: $accent-color;
+  font-family: DIN;
+  font-weight: normal;
+}
+
+#slide-out .lintek-logo-container {
+  display: flex;
+  height: 80px;
+}
+
+#slide-out .lintek-logo-container img {
+  margin: 0 auto;
+  height: 80%;
+}
 /*
 
 .side-nav.secondary-nav {

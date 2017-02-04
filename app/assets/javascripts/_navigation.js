@@ -1,8 +1,8 @@
 document.addEventListener('turbolinks:load', function () {
     // Initialize collapse button
     $('.button-collapse').sideNav({
-        closeOnClick: true,
-        draggable: false
+        draggable: false,
+        menuWidth: 275
     });
 
     // Initialize collapsible
