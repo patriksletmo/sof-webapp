@@ -5,17 +5,21 @@
     <form method="post">
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
+
       <h2 class="header">Registrera</h2>
         <div class="row">
           <div class="col s12 m6 l6">
-
+            <div class="input-field col s6">
+              <input id="orchestra_code" type="text" class="validate">
+              <label for="orchestra_code">Orkesterkod</label>
+            </div>
           </div>
         </div>
 
 
         <div class="row">
           <div class="col s12 m6 l6">
-            <label>Festivalbiljett    (OBS! Lintekmedlemmar får rabatt)</label>
+            <label>Festivalbiljett    (OBS! Lintekmedlemmars pris är rabatterat)</label>
           </div>
         </div>
         <div class="row">
@@ -33,11 +37,11 @@
         </div>
         <div class="row">
           <div class="col s12 m6 l6">
-            <select name="food_ticket">
-              <option value="1">Ingen biljett</option>
-              <option value="2">Torsdag (11/5) - Söndag (14/5) (215kr)</option>
-              <option value="3">Fredag (12/5) - Söndag (14/5) (140kr)</option>
-              <option value="4">Lördag (13/5) - Söndag (15/5) (75kr)</option>
+            <select name="food_ticket" id="food_ticket">
+              <option value="0">Ingen biljett (0kr)</option>
+              <option value="1">Torsdag (11/5) - Söndag (14/5) (215kr)</option>
+              <option value="2">Fredag (12/5) - Söndag (14/5) (140kr)</option>
+              <option value="3">Lördag (13/5) - Söndag (15/5) (75kr)</option>
             </select>
           </div>
 
@@ -64,8 +68,8 @@
         <div class="row">
           <div class="col s12 m6 l6">
             <select id="sleep_over" name="sleep_over">
-              <option value="1">Nej</option>
-              <option value="2">Ja, sova över i matsalen (50kr)</option>
+              <option value="0">Nej</option>
+              <option value="1">Ja, sova över i matsalen (50kr)</option>
             </select>
           </div>
         </div>
@@ -81,7 +85,7 @@
           <div class="switch">
             <label>
               Man
-              <input type="checkbox" data-role="flipswitch" name="switch" id="switch-gender" onclick="togglePossibleTshirt()">
+              <input type="checkbox" data-role="flipswitch" id="switch-gender" onclick="togglePossibleTshirt()">
               <span class="lever"></span>
               Kvinna
             </label>
@@ -113,7 +117,7 @@
       <div class="row">
         <div class="col s12 m6 l6">
           <label>T-shirts  (100kr) </label>
-          <ul class="collection" id="collection-of-tshirts" size=0> </ul>
+          <ul class="collection" id="collection-of-tshirts"> </ul>
         </div>
 
 
@@ -213,55 +217,25 @@
       </div>
 
       <div class="row">
-        <div class="col s12 m3 l3">
-          <p>
-            <input type="checkbox" class="filled-in" id="performWithOther-box" name="performWithOther-box" onclick="togglePerformWithOther(this)"/>
-            <label for="performWithOther-box">Uppträder du med någon annan orkester?</label>
-          </p>
-        </div>
-        <div class="col s12 m9 l9">
-          <div class="row">
-            <div class="input-field col s12">
-              <textarea id="field-otherOrchestra" class="materialize-textarea" name="otherOrchestra"disabled></textarea>
-              <label for="textarea1">Specifiera vilken orkester</label>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
         <label for="size-of-instrument" >Hur stor är ditt instrument?</label>
       </div>
       <div class="row">
         <div class="col s6 m8 l8">
           <select id="select-size-of-instrument" name="size-of-instrument">
 
-            <option value="1">Tar inte med eget instrument</option>
-            <option value="2">Mycket litet (Klarinett, flöjt eller liknande)</option>
-            <option value="3">Litet (Trumpet, altsaxofon eller liknande)</option>
-            <option value="4">Medel (Tenorsaxofon, trombon eller liknande)</option>
-            <option value="5">Stort (Barytonsaxofon, tuba, stor väska eller liknande)</option>
+            <option value="0">Tar inte med eget instrument</option>
+            <option value="1">Mycket litet (Klarinett, flöjt eller liknande)</option>
+            <option value="2">Litet (Trumpet, altsaxofon eller liknande)</option>
+            <option value="3">Medel (Tenorsaxofon, trombon eller liknande)</option>
+            <option value="4">Stort (Barytonsaxofon, tuba, stor väska eller liknande)</option>
           </select>
         </div>
       </div>
 
+
       <div class="row">
-        <table>
-          <thead>
-            <tr>
-              <th data-field="item">Vara</th>
-              <th data-field="qty">antal</th>
-              <th data-field="prize">pris/st</th>
-              <th data-field="item_total">total</th>
-            </tr>
-          </thead>
-          <tbody>
-
-          </tbody>
-        </table>
+        <button class="waves-effect waves-light btn" type="submit">Registrera orkester</button>
       </div>
-
-      <button type="submit">Registrera orkester</button>
 
     </form>
   </div>

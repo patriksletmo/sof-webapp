@@ -9,16 +9,18 @@ class OrchestraController < NavigationController
 
     @ticketText = ["Ingen biljett", "Torsdag (11/5) - Söndag (14/5)", "Fredag (12/5) - Söndag (14/5)", "Lördag (13/5) - Söndag (15/5)"]
     if @isLintek
-        @ticketCost = [" (0kr)", " (435kr)", " (410kr)", " (190kr)"]
+      @ticketCostStr = [" (0kr)", " (435kr)", " (410kr)", " (190kr)"]
+      @ticketCost = [0, 435, 410, 190]
     else
-      @ticketCost = [" (0kr)", " (535kr)", " (510kr)", " (220kr)"]
+      @ticketCostStr = [" (0kr)", " (535kr)", " (510kr)", " (220kr)"]
+      @ticketCost = [0, 535, 510, 220]
     end
 
     @ticketOpt = [["", ""], ["", ""],["", ""],["", ""]]
 
     for i in 0..3
-      @ticketOpt[i][0] = @ticketText[i] + @ticketCost[i]
-      @ticketOpt[i][1] = i
+      @ticketOpt[i][0] = @ticketText[i] + @ticketCostStr[i]
+      @ticketOpt[i][1] = @ticketCost[i]
     end
 
   end
