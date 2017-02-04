@@ -7,18 +7,18 @@ class OrchestraController < NavigationController
   def register
     @isLintek = true
 
-    @text = ["Ingen biljett", "Torsdag (11/5) - Söndag (14/5)", "Fredag (12/5) - Söndag (14/5)", "Lördag (13/5) - Söndag (15/5)"]
+    @ticketText = ["Ingen biljett", "Torsdag (11/5) - Söndag (14/5)", "Fredag (12/5) - Söndag (14/5)", "Lördag (13/5) - Söndag (15/5)"]
     if @isLintek
-        @cost = [" (0kr)", " (435kr)", " (410kr)", " (190kr)"]
+        @ticketCost = [" (0kr)", " (435kr)", " (410kr)", " (190kr)"]
     else
-        @cost = [" (0kr)", " (535kr)", " (510kr)", " (220kr)"]
+      @ticketCost = [" (0kr)", " (535kr)", " (510kr)", " (220kr)"]
     end
 
-    @opt = [["", ""], ["", ""],["", ""],["", ""]]
+    @ticketOpt = [["", ""], ["", ""],["", ""],["", ""]]
 
     for i in 0..3
-      @opt[i][0] = @text[i] + @cost[i]
-      @opt[i][1] = i
+      @ticketOpt[i][0] = @ticketText[i] + @ticketCost[i]
+      @ticketOpt[i][1] = i
     end
 
   end
