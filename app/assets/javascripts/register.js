@@ -2,13 +2,41 @@
  * Created by Jacob on 2017-01-28.
  */
 
+/*
+document.addEventListener('turbolinks:load', function () {
+    var isLintek = false;
+    var festivalTickets = document.getElementById("festival_ticket");
+
+    console.log(festivalTickets);
+
+    // TS == Thursday - Sunday
+    var text = ["Ingen biljett", "Torsdag (11/5) - Söndag (14/5)", "Fredag (12/5) - Söndag (14/5)", "Lördag (13/5) - Söndag (15/5)"];
+    var cost;
+    if(isLintek){
+        cost = [" (0kr)", " (435kr)", " (410kr)", " (190kr)"];
+    } else {
+        cost = [" (0kr)", " (535kr)", " (510kr)", " (220kr)"];
+    }
+
+
+    for(i = 1; i <= 4; i++){
+        var opt = document.createElement('option');
+        opt.value = i;
+        opt.lintek = isLintek;
+        opt.innerHTML = text[i-1] + cost[i-1];
+        festivalTickets.appendChild(opt);
+    }
+
+});
+*/
+
+
+
 function togglePossibleTshirt(){
-    console.log("toggla vilka tröjor som kan köpas");
 
     var tshirt = document.getElementById('select-selected-tshirt');
     var gender = document.getElementById('switch-gender');
 
-    console.log();
     // checked = Female
     if(gender.checked){
         tshirt[tshirt.length-1].disabled = true;

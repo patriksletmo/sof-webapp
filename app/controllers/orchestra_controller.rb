@@ -5,6 +5,21 @@ class OrchestraController < NavigationController
   end
 
   def register
+    @isLintek = true
+
+    @text = ["Ingen biljett", "Torsdag (11/5) - Söndag (14/5)", "Fredag (12/5) - Söndag (14/5)", "Lördag (13/5) - Söndag (15/5)"]
+    if @isLintek
+        @cost = [" (0kr)", " (435kr)", " (410kr)", " (190kr)"]
+    else
+        @cost = [" (0kr)", " (535kr)", " (510kr)", " (220kr)"]
+    end
+
+    @opt = [["", ""], ["", ""],["", ""],["", ""]]
+
+    for i in 0..3
+      @opt[i][0] = @text[i] + @cost[i]
+      @opt[i][1] = i
+    end
 
   end
 
