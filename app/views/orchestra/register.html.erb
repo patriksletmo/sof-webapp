@@ -8,7 +8,7 @@
       <h2 class="header">Registrera</h2>
         <div class="row">
           <div class="col s12 m6 l6">
-            <label>Festival</label>
+            <label>Festivalbiljett</label>
             <select name="festival_ticket">
               <option value="1">Ingen biljett</option>
               <option value="2">Torsdag (11/5) - Söndag (14/5) ([Pris])</option>
@@ -30,13 +30,12 @@
 
 
         <div class="row">
-          <div class="col s12 m6 l6">
-            <p>
+          <div class="col s12 m2 l2">
               <input type="checkbox" class="filled-in" id="specialfood-box" name="specialfood-box" onclick="toggleSpecialkost(this)"/>
               <label for="specialfood-box">Specialkost?</label>
-            </p>
+
           </div>
-          <div class="col s12 m6 l6">
+          <div class="col s12 m10 l10">
             <div class="row">
               <div class="input-field col s12">
                 <textarea id="field-specialfood" type="text" class="materialize-textarea" name="specialfood"disabled></textarea>
@@ -48,41 +47,68 @@
 
 
         <div class="row">
+          <label>Sova över?</label>
+        </div>
+        <div class="row">
           <div class="col s12 m6 l6">
-            <label>Sova över?</label>
             <select id="sleep_over" name="sleep_over">
-              <option value="1">Ja, sova över i matsalen ([Pris])</option>
-              <option value="2">Nej</option>
+              <option value="1">Nej</option>
+              <option value="2">Ja, sova över i matsalen ([Pris])</option>
             </select>
           </div>
         </div>
 
+      <div class="row"> <!-- Orkestern hämtas ifrån vilken orkester man är med i?" -->
+        <label>Beställ tröjor med din orkester på</label>
+      </div>
       <div class="row">
-        <div class="col s12 m6 l6">
+
+        <div class="col s12 m4 l3">
+
+          <label>Vilket kön passar bäst på dig?</label>
+          <div class="switch">
+            <label>
+              Man
+              <input type="checkbox" data-role="flipswitch" name="switch" id="switch-gender" onclick="togglePossibleTshirt()">
+              <span class="lever"></span>
+              Kvinna
+            </label>
+          </div>
+<!--
+          <label for="switch">Flip Toggle Switch:</label>
+          <input type="checkbox" data-role="flipswitch" name="switch" id="switch">
+          <br>
+          <input type="submit" data-inline="true" value="Submit">
+    -->
+        </div>
+
+        <div class="col s12 m2 l3">
           <select id="select-selected-tshirt">
-            <option value="1">XS</option>
-            <option value="2">S</option>
-            <option value="3">M</option>
-            <option value="4">L</option>
-            <option value="5">XL</option>
+            <option value="XS">XS</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="XXL">XXL</option>
           </select>
         </div>
+
 
         <div class="col s12 m6 l6">
           <a class="waves-effect waves-light btn" onclick="addTshirt(this)">läggtill</a>
         </div>
-
       </div>
-      <div calss="row">
-        <div class="col s12 m12 l12">
+      <div class="row">
+        <div class="col s12 m6 l6">
           <label>T-shirts</label>
-          <ul class="collection" id="collection-of-tshirts"> </ul>
+          <ul class="collection" id="collection-of-tshirts" size=0> </ul>
         </div>
+
 
       </div>
 
       <div class="row">
-        <div class="col s4 m4 l4">
+        <div class="col s4 m6 l6">
           <label>Medaljer</label>
           <select id="select-medals" name="medals">
             <option value="0">Ingen medalj</option>
@@ -93,9 +119,8 @@
             <option value="5">5</option>
           </select>
         </div>
-        </div>
-      <div class="row">
-        <div class="col s4 m4 l4">
+
+        <div class="col s4 m6 l6">
           <label>Märken</label>
           <select id="select-tag" name="tag">
             <option value="0">Inget märke</option>
@@ -176,15 +201,13 @@
       </div>
 
       <div class="row">
-        <div class="col s12 m6">
+        <div class="col s12 m3 l3">
           <p>
             <input type="checkbox" class="filled-in" id="performWithOther-box" name="performWithOther-box" onclick="togglePerformWithOther(this)"/>
             <label for="performWithOther-box">Uppträder du med någon annan orkester?</label>
           </p>
         </div>
-      </div>
-      <div class="row">
-        <div class="col s12 m6 l6">
+        <div class="col s12 m9 l9">
           <div class="row">
             <div class="input-field col s12">
               <textarea id="field-otherOrchestra" class="materialize-textarea" name="otherOrchestra"disabled></textarea>
@@ -195,14 +218,17 @@
       </div>
 
       <div class="row">
+        <label for="size-of-instrument" >Hur stor är ditt instrument?</label>
+      </div>
+      <div class="row">
         <div class="col s6 m8 l8">
-          <label for="size-of-instrument" >Hur stor är ditt instrument? ;))))</label>
           <select id="select-size-of-instrument" name="size-of-instrument">
-            <option value="1">Mycket litet (Klarinett, flöjt eller liknande)</option>
-            <option value="2">Litet (Trumpet, altsaxofon eller liknande)</option>
-            <option value="3">Medel (Tenorsaxofon, trombon eller liknande)</option>
-            <option value="4">Stort (Barytonsaxofon, tuba, stor väska eller liknande)</option>
-            <option value="5">Tar inte med eget instrument</option>
+
+            <option value="1">Tar inte med eget instrument</option>
+            <option value="2">Mycket litet (Klarinett, flöjt eller liknande)</option>
+            <option value="3">Litet (Trumpet, altsaxofon eller liknande)</option>
+            <option value="4">Medel (Tenorsaxofon, trombon eller liknande)</option>
+            <option value="5">Stort (Barytonsaxofon, tuba, stor väska eller liknande)</option>
           </select>
         </div>
       </div>
