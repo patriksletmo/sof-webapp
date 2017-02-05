@@ -2,35 +2,11 @@
  * Created by Jacob on 2017-01-28.
  */
 
-/*
-document.addEventListener('turbolinks:load', function () {
-    var isLintek = false;
-    var festivalTickets = document.getElementById("festival_ticket");
 
-    console.log(festivalTickets);
-
-    // TS == Thursday - Sunday
-    var text = ["Ingen biljett", "Torsdag (11/5) - Söndag (14/5)", "Fredag (12/5) - Söndag (14/5)", "Lördag (13/5) - Söndag (15/5)"];
-    var cost;
-    if(isLintek){
-        cost = [" (0kr)", " (435kr)", " (410kr)", " (190kr)"];
-    } else {
-        cost = [" (0kr)", " (535kr)", " (510kr)", " (220kr)"];
-    }
-
-
-    for(i = 1; i <= 4; i++){
-        var opt = document.createElement('option');
-        opt.value = i;
-        opt.lintek = isLintek;
-        opt.innerHTML = text[i-1] + cost[i-1];
-        festivalTickets.appendChild(opt);
-    }
+$(document).on('turbolinks:load', function () {
+    $("#orchestra_code").on("input change",validateOrchestraCode);
 
 });
-*/
-
-
 
 function togglePossibleTshirt(){
 
@@ -43,10 +19,7 @@ function togglePossibleTshirt(){
     } else {
         tshirt[tshirt.length-1].disabled = false;
     }
-
-
 }
-
 
 function toggleSpecialkost(e) {
     var target = document.getElementById('field-specialfood');
@@ -63,7 +36,6 @@ function addTshirt() {
     var tshirt = document.getElementById('select-selected-tshirt');
     var gender = document.getElementById('switch-gender');
     var size = tshirt.value;
-
 
     if(target.childNodes.length > 4){
         return;
@@ -82,8 +54,6 @@ function addTshirt() {
     inpt.type = "hidden";
     inpt.value = Tshirt_gender + size;
 
-
-
     entry.onclick = function () {
         this.parentElement.removeChild(this);
     }
@@ -101,12 +71,31 @@ function addTshirt() {
     }
 }
 
-function togglePerformWithOther(e) {
-    var target = document.getElementById('field-otherOrchestra');
-    if (e.checked) {
-        target.disabled = false;
-        target.focus();
-    } else {
-        target.disabled = true;
-    }
+function orchestaCodeValid(){
+    var target = document.getElementById('valid_orchestra_code');
+    var targetText = document.getElementById('valid_orchestra_code_label');
+    target.disabled = false;
+    target.checked = true;
+    targetText.innerHTML = "Din kod är giltig";
+    target.disabled = true;
+}
+
+function orchestraCodeInvalid() {
+
+    var target = document.getElementById('valid_orchestra_code');
+    var targetText = document.getElementById('valid_orchestra_code_label');
+    target.disabled = false;
+    target.checked = false;
+    targetText.innerHTML = "Kunde inte hitta din orkester";
+    target.disabled = true;
+}
+
+function validateOrchestraCode() {
+    $.ajax({
+        type: 'GET',
+        url: '/orchestra/verify?code=' + this.value,
+        dataType: 'json',
+        success: orchestaCodeValid,
+        error: orchestraCodeInvalid
+    });
 }

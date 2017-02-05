@@ -18,11 +18,11 @@ Rails.application.routes.draw do
   match 'orchestra/register' => 'orchestra#register', via: [:get, :post]
   match 'orchestra/create' => 'orchestra#create', via: [:get, :post]
   get 'orchestra/orchestras' => 'orchestra#orchestras'
+  get 'orchestra/verify' => 'orchestra#verify_code'
   get 'orchestra/:id' => 'orchestra#show'
   post 'orchestra/:id' => 'orchestra#update'
   match 'orchestra/:id/reset_code' => 'orchestra#reset_code', via: [:post]
   get 'orchestra/signup/:id' => 'orchestra#show_signup'
-  get 'orchestra/verify' => 'orchestra#verify_code'
 
   # User management
   get 'manage/users' => 'user_management#index'
