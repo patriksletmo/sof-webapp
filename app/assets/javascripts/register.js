@@ -22,12 +22,36 @@ function togglePossibleTshirt(){
 }
 
 function toggleSpecialkost(e) {
+
     var target = document.getElementById('field-specialfood');
+
+    var veg = document.getElementById('veg-box');
+    var vega = document.getElementById('vegan-box');
+    var lakt = document.getElementById('laktos-box');
+    var gluten = document.getElementById('gluten-box');
+    var sea = document.getElementById('seafood-box');
+    var fish = document.getElementById('fish-box');
+    var pea = document.getElementById('peanuts-box');
     if (e.checked) {
         target.disabled = false;
+        veg.disabled = false;
+        vega.disabled = false;
+        lakt.disabled = false;
+        gluten.disabled = false;
+        sea.disabled = false;
+        fish.disabled = false;
+        pea.disabled = false;
         target.focus();
     } else {
         target.disabled = true;
+        target.disabled = true;
+        veg.disabled = true;
+        vega.disabled = true;
+        lakt.disabled = true;
+        gluten.disabled = true;
+        sea.disabled = true;
+        fish.disabled = true;
+        pea.disabled = true;
     }
 }
 
@@ -43,9 +67,9 @@ function addTshirt() {
 
     var Tshirt_gender
     if(gender.checked){
-        Tshirt_gender = "Female ";
+        Tshirt_gender = "Dam ";
     } else {
-        Tshirt_gender = "Male "
+        Tshirt_gender = "Herr "
     }
 
     var entry =  document.createElement('li');
@@ -58,7 +82,7 @@ function addTshirt() {
         this.parentElement.removeChild(this);
     }
 
-    if(Tshirt_gender == "Female " && size == "XXL") {
+    if(Tshirt_gender == "Female " && size == "XXXL") {
         return;
     } else {
 
@@ -86,9 +110,21 @@ function orchestraCodeInvalid() {
     var targetText = document.getElementById('valid_orchestra_code_label');
     target.disabled = false;
     target.checked = false;
-    targetText.innerHTML = "Kunde inte hitta din orkester";
+    targetText.innerHTML = "Utdaderad eller ogiltig orkesterkod, kontakta din orkesterledare för den senaste orkesterkoden";
     target.disabled = true;
 }
+
+function toggleMultipleOrchestras(e) {
+    var target = document.getElementById('field-multipleOrch');
+    if (e.checked) {
+        target.disabled = false;
+        target.focus();
+    } else {
+        target.disabled = true;
+    }
+
+}
+
 
 function validateOrchestraCode() {
     $.ajax({
