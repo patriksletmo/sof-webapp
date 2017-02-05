@@ -4,6 +4,8 @@ class OrchestraController < NavigationController
   end
 
   def register
+
+
     @isLintek = current_user['is_lintek_member']
 
     @ticketText = ["Ingen biljett", "Torsdag (11/5) - Söndag (14/5)", "Fredag (12/5) - Söndag (14/5)", "Lördag (13/5) - Söndag (15/5)"]

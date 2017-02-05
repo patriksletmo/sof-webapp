@@ -7,15 +7,14 @@
 
 
       <h2 class="header">Registrera</h2>
+
         <div class="row">
-          <div class="col s12 m6 l6">
-            <div class="input-field col s6">
-              <input id="orchestra_code" type="text" class="validate" name="code">
-              <label for="orchestra_code">Orkesterkod</label>
-            </div>
+          <div class="col s12 m4 l4">
+            <input id="orchestra_code" type="text" class="validate" name="code" onchange="validateOrchestraCode(this)">
+            <label for="orchestra_code">Orkesterkod</label>
           </div>
-          <div class="col s12 m6 l6">
-            <input id="valid_orchestra_code" type="checkbox" class="filled-in">
+          <div class="col s12 m2 l2">
+            <input id="valid_orchestra_code" type="checkbox" class="filled-in" disabled="disabled">
             <label>asd</label>
           </div>
         </div>

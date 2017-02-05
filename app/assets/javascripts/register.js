@@ -110,3 +110,7 @@ function togglePerformWithOther(e) {
         target.disabled = true;
     }
 }
+
+function validateOrchestraCode(e) {
+    console.log(e);
+}
