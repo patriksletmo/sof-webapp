@@ -29,5 +29,14 @@ module Areas
     def show_orchestra_signup(id)
       get("/api/v1/orchestra_signup/#{id}", authenticated_options)
     end
+
+    def verify_orchestra_code(code)
+      options = {
+          body: {
+              code: code
+          }
+      }
+      get('/api/v1/orchestra_signup/verify', options.merge(authenticated_options))
+    end
   end
 end
