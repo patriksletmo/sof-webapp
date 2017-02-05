@@ -7,9 +7,10 @@ class UserCreationTest < ActionDispatch::IntegrationTest
     visit '/'
     click_link 'Logga in'
     assert_equal '/login', current_path
+    assert page.has_current_path? '/login'
 
     click_link 'register-button'
-    assert_equal '/register', current_path
+    assert page.has_current_path? '/register'
 
     fill_in 'E-mail', with: 'test@sof17.se'
     fill_in 'Lösenord', with: 'hunter2760'
@@ -17,28 +18,28 @@ class UserCreationTest < ActionDispatch::IntegrationTest
 
     click_link 'Skapa användare'
 
-    assert_equal '/login', current_path
+    assert page.has_current_path? '/login'
   end
 
   test 'visitors can login with liu id' do
     visit '/'
     click_link 'Logga in'
-    assert_equal '/login', current_path
+    assert page.has_current_path? '/login'
 
     click_link 'Logga in med LiU-ID'
-    assert_equal '/login/liu_id', current_path
+    assert page.has_current_path? /https:\/\/login\.liu\.se\/cas\//, url: true
   end
 
   test 'visitors can login with a normal account' do
     visit '/'
     click_link 'Logga in'
-    assert_equal '/login', current_path
+    assert page.has_current_path? '/login'
 
     fill_in 'E-mail', with: 'test@sof17.se'
     fill_in 'Lösenord', with: 'hunter2760'
 
     click_link 'login-button'
-    assert_equal '/profile', current_path
+    assert page.has_current_path? '/profile'
   end
 
 end
