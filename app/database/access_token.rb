@@ -19,4 +19,8 @@ class AccessToken
       }
     end
   end
+
+  def self.dummy
+    self.new(nil, nil, nil, nil)
+  end
 end

@@ -27,7 +27,7 @@
               </div>
             </div>
             <div class="card-action">
-              <a class="blue-text" href="javascript:;" onclick="document.getElementById('login_form').submit();">Logga in</a>
+              <a id="login-button" class="blue-text" href="javascript:;" onclick="document.getElementById('login_form').submit();">Logga in</a>
               <a class="grey-text" href="<%= reset_request_url %>">Glömt ditt lösenord?</a>
             </div>
 
@@ -44,7 +44,7 @@
       <p>
         Studerar du inte vid Linköpings universitet behöver du skapa ett konto innan du kan logga in.
       </p>
-      <a class="btn waves-effect waves-light" href="<%= register_url %>">Registrera dig</a>
+      <a id="register-button" class="btn waves-effect waves-light" href="<%= register_url %>">Registrera dig</a>
     </div>
 
 
