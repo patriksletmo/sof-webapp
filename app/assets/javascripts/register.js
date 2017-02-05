@@ -100,7 +100,7 @@ function orchestraCodeInvalid() {
 }
 
 function toggleMultipleOrchestras(e) {
-    var target = document.getElementById('field-multipleOrch');
+    var target = document.getElementById('otherPerformance-field');
     if (e.checked) {
         target.disabled = false;
         target.focus();
