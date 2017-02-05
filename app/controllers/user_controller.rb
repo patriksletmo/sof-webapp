@@ -2,6 +2,7 @@ class UserController < NavigationController
   def register
     if request.post?
       response = database.register(
+          params[:display_name],
           params[:email],
           params[:password],
           params[:password_confirmation],

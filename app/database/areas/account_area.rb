@@ -1,7 +1,8 @@
 module Areas
   module AccountArea
-    def register(email, password, confirmation, success_url)
+    def register(display_name, email, password, confirmation, success_url)
       options = {:body => {
+          :display_name => display_name,
           :email => email,
           :password => password,
           :password_confirmation => confirmation,
