@@ -14,39 +14,50 @@ $brand-logo-size: 124px;
   flex-direction: column;
 }
 
+// hide scrollbar
+::-webkit-scrollbar {
+  display: none;
+}
+
 #slide-out ul {
   width: 100%;
 }
 
-#slide-out li > a {
-  font-family: $nav-font;
-  font-weight: bold;
-  font-size: 24px;
-  //text-transform: capitalize;
-}
-
-#slide-out li > a.subheader {
-  font-size: 20px;
-  font-weight: normal;
-  height: 30px;
-  line-height: 30px;
-}
-
-#slide-out li i.indicator {
+.side-nav i.icon-arrow-down {
   float: right;
   text-align: right;
   margin: 0;
+  font-size: 12px;
 }
 
 .side-nav a.menu-item {
+  height: 48px;
   color: $nav-accent-color;
+  font-family: $nav-font;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 48px;
   padding: 0 8px 0 32px;
 }
 
-
-#slide-out .collapsible-body a {
+.side-nav a.submenu-item {
+  height: 38px;
   background: $nav-accent-color;
   color: $nav-primary-color;
+  font-family: $nav-font;
+  font-weight: bold;
+  line-height: 38px;
+  font-size: 20px;
+}
+
+.side-nav a.submenu-item:hover {
+  background-color: $nav-primary-color;
+  color: $nav-accent-color;
+}
+
+
+.side-nav a.collapsible-header.menu-item {
+  padding: 0 8px 0 32px;
 }
 
 /*----------- Mobile nav hamburger -------------*/
@@ -57,19 +68,19 @@ $brand-logo-size: 124px;
 
 /*----------- Brand Logo -------------*/
 
-#slide-out a.brand-logo {
+.side-nav a.brand-logo {
   text-align: center;
   padding: 20px 0px;
   height: 160px;
   margin-bottom: 20px;
 }
 
-#slide-out .brand-logo:hover {
+.side-nav a.brand-logo:hover {
   background-color: transparent;
   text-decoration: none;
 }
 
-#slide-out .brand-logo img {
+.side-nav .brand-logo img {
   height: $brand-logo-size;
 }
 
@@ -81,7 +92,7 @@ ul.lintek-logo-hearts {
 }
 
 li.lintek-hearts {
-  height: 48px;
+  height: 40px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -89,7 +100,7 @@ li.lintek-hearts {
   align-content: center;
 }
 
-.lintek-hearts a.lintek-heart {
+li.lintek-hearts a.lintek-heart {
   width: 40px;
   height: 40px;
   margin: 0;
@@ -97,29 +108,33 @@ li.lintek-hearts {
   display: flex;
 }
 
-#slide-out a.lintek-heart img {
+li.lintek-hearts a.lintek-heart:hover {
+  background-color: transparent;
+}
+
+a.lintek-heart img {
   margin: auto;
   width: 70%;
 }
 
-#slide-out .lintek-logo-text-container {
+.side-nav li.lintek-logo-text-container {
   height: 30px;
   line-height: 30px;
   text-align: center;
 }
 
-#slide-out .lintek-logo-text {
+span.lintek-logo-text {
   color: $accent-color;
   font-family: DIN;
   font-weight: normal;
 }
 
-#slide-out .lintek-logo-container {
+li.lintek-logo-container {
   display: flex;
   height: 80px;
 }
 
-#slide-out .lintek-logo-container img {
+li.lintek-logo-container img {
   margin: 0 auto;
   height: 80%;
 }
