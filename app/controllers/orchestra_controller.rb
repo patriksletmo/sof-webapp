@@ -8,12 +8,12 @@ class OrchestraController < NavigationController
 
     @isLintek = current_user['is_lintek_member']
 
-    @ticketText = ["Ingen biljett", "Torsdag (11/5) - Söndag (14/5)", "Fredag (12/5) - Söndag (14/5)", "Lördag (13/5) - Söndag (15/5)"]
+    @ticketText = ["Torsdag (11/5) - Söndag (14/5)", "Fredag (12/5) - Söndag (14/5)", "Lördag (13/5) - Söndag (15/5)", "Ingen biljett"]
     if @isLintek
-      @ticketCostStr = [" (0kr)", " (435kr)", " (410kr)", " (190kr)"]
+      @ticketCostStr = [" (435kr)", " (410kr)", " (190kr)", " (0kr)"]
       @ticketCost = (0..3).to_a
     else
-      @ticketCostStr = [" (0kr)", " (535kr)", " (510kr)", " (220kr)"]
+      @ticketCostStr = [" (535kr)", " (510kr)", " (220kr)", " (0kr)"]
       @ticketCost = (0..3).to_a
     end
 

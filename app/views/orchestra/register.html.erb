@@ -5,17 +5,17 @@
     <form method="post">
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
-      <h2 class="header">Registrera</h2>
+      <h2 class="header">Registrera till en orkester</h2>
 
       <!-- Orchestra code -->
         <div class="row">
           <div class="col s12 m4 l4">
             <label for="orchestra_code">Orkesterkod</label>
-            <input id="orchestra_code" type="text" class="validate" name="code">
+            <input id="orchestra_code" type="text" class="validate" name="code" required>
           </div>
           <div class="col s12 m4 l4">
-            <input id="valid_orchestra_code" type="checkbox" class="checked">
-            <label id="valid_orchestra_code_label"></label>
+            <input id="valid_orchestra_code" type="checkbox" class="checked" disabled>
+            <label id="valid_orchestra_code_label">Utdaderad eller ogiltig orkesterkod, kontakta din orkesterledare för den senaste orkesterkoden</label>
           </div>
         </div>
 
@@ -42,24 +42,51 @@
         <div class="row">
           <div class="col s12 m6 l6">
             <select name="food_ticket" id="food_ticket">
-              <option value="0">Ingen biljett (0kr)</option>
-              <option value="1">Torsdag (11/5) - Söndag (14/5) (215kr)</option>
-              <option value="2">Fredag (12/5) - Söndag (14/5) (140kr)</option>
-              <option value="3">Lördag (13/5) - Söndag (15/5) (75kr)</option>
+              <option value="0">Torsdag (11/5) - Söndag (14/5) (215kr)</option>
+              <option value="1">Fredag (12/5) - Söndag (14/5) (140kr)</option>
+              <option value="2">Lördag (13/5) - Söndag (15/5) (75kr)</option>
+              <option value="3">Ingen biljett (0kr)</option>
             </select>
           </div>
 
           <div class="col s12 m3 l3">
               <input type="checkbox" class="filled-in" id="specialfood-box" name="specialfood-box" onclick="toggleSpecialkost(this)"/>
-              <label for="specialfood-box">Specialkost?</label>
+              <label for="specialfood-box">Har du någon specialkost?</label>
           </div>
         </div>
+
+        <div class="row">
+          <div class="col s1 m1 l1">
+            <input type="checkbox" class="filled-in" id="veg-box" name="veg-box" disabled/>
+            <label for="veg-box">Vegetariskt?</label>
+
+            <input type="checkbox" class="filled-in" id="vegan-box" name="vegan-box" disabled/>
+            <label for="vegan-box">Vegansk?</label>
+
+            <input type="checkbox" class="filled-in" id="laktos-box" name="laktos-box" disabled/>
+            <label for="laktos-box">Laktos?</label>
+
+            <input type="checkbox" class="filled-in" id="gluten-box" name="gluten-box" disabled/>
+            <label for="gluten-box">Gluten?</label>
+
+            <input type="checkbox" class="filled-in" id="seafood-box" name="seafood-box" disabled/>
+            <label for="seafood-box">Skaldjur?</label>
+
+            <input type="checkbox" class="filled-in" id="fish-box" name="fish-box" disabled/>
+            <label for="fish-box">Fisk?</label>
+
+            <input type="checkbox" class="filled-in" id="peanuts-box" name="peanuts-box" disabled/>
+            <label for="peanuts-box">Jordnötter?</label>
+          </div>
+        </div>
+
+
         <div class="row">
           <div class="col s12 m9 l9">
             <div class="row">
               <div class="input-field col s12">
                 <textarea id="field-specialfood" type="text" class="materialize-textarea" name="specialfood"disabled></textarea>
-                <label for="textarea1">Specifiera vilken specialkost</label>
+                <label for="textarea1">Övrigt</label>
               </div>
             </div>
           </div>
@@ -68,32 +95,33 @@
 
       <!-- Sleep over-->
         <div class="row">
-          <label>Sova över?</label>
+          <label>Sovsal</label>
         </div>
         <div class="row">
           <div class="col s12 m6 l6">
             <select id="sleep_over" name="sleep_over">
-              <option value="0">Nej</option>
-              <option value="1">Ja, sova över i matsalen (50kr)</option>
+              <option value="0">Jag vill göra det min orkester valt</option>
+              <option value="1">Ja, sova över i sovsal (50kr)</option>
+              <option value="2">Nej</option>
             </select>
           </div>
         </div>
 
       <!-- Tshirt -->
       <div class="row"> <!-- Orkestern hämtas ifrån vilken orkester man är med i?" -->
-        <label>Beställ tröjor med din orkester på</label>
+        <label>Beställ tröjor med din orkesters namn på (100kr/st)</label>
       </div>
       <div class="row">
 
         <div class="col s12 m4 l3">
 
-          <label>Vilket kön passar bäst på dig?</label>
+          <label>Vilken tröjmodell vill du ha?</label>
           <div class="switch">
             <label>
-              Man
+              Herr
               <input type="checkbox" data-role="flipswitch" id="switch-gender" onclick="togglePossibleTshirt()">
               <span class="lever"></span>
-              Kvinna
+              Dam
             </label>
           </div>
         </div>
@@ -106,6 +134,7 @@
             <option value="L">L</option>
             <option value="XL">XL</option>
             <option value="XXL">XXL</option>
+            <option value="XXXL">XXXL</option>
           </select>
         </div>
 
@@ -116,7 +145,7 @@
       </div>
       <div class="row">
         <div class="col s12 m6 l6">
-          <label>T-shirts  (100kr) </label>
+          <label>Valda T-shirts </label>
           <ul class="collection" id="collection-of-tshirts"> </ul>
         </div>
       </div>
@@ -124,7 +153,7 @@
       <!-- medals -->
       <div class="row">
         <div class="col s4 m6 l6">
-          <label>Medaljer  (40kr)</label>
+          <label>Medaljer  (40kr/st)</label>
           <select id="select-medals" name="medals">
             <option value="0">Ingen medalj</option>
             <option value="1">1</option>
@@ -137,7 +166,7 @@
 
         <!-- tags -->
         <div class="col s4 m6 l6">
-          <label>Märken  (20kr)</label>
+          <label>Märken  (20kr/st)</label>
           <select id="select-tag" name="tag">
             <option value="0">Inget märke</option>
             <option value="1">1</option>
@@ -155,7 +184,7 @@
 
         <div class="input-field col s12">
           <p>
-            <input id="active" type="radio" name="active" value="active">
+            <input id="active" type="radio" name="active" value="active" checked>
             <label for="active">Aktiv</label>
           </p>
           <p>
@@ -175,7 +204,7 @@
             <label for="spree_yes">Ja</label>
           </p>
           <p>
-            <input id="spree_no" type="radio" name="spree" value="no">
+            <input id="spree_no" type="radio" name="spree" value="no" checked>
             <label for="spree_no">Nej</label>
           </p>
         </div>
@@ -193,7 +222,7 @@
             <label for="25years_yes">Ja</label>
           </p>
           <p>
-            <input id="25years_no" type="radio" name="25years" value="no">
+            <input id="25years_no" type="radio" name="25years" value="no" checked>
             <label for="25years_no">Nej</label>
           </p>
         </div>
@@ -206,7 +235,7 @@
         <div class="input-field col s12">
           <p>
             <!-- the orchs are comming!! -->
-            <input id="performingAs_orch" type="radio" name="performingAs" value="orchestra">
+            <input id="performingAs_orch" type="radio" name="performingAs" value="orchestra" checked>
             <label for="performingAs_orch">Orkester</label>
           </p>
           <p>
@@ -216,8 +245,28 @@
         </div>
       </div>
 
+
+
       <div class="row">
-        <label for="size-of-instrument" >Hur stor är ditt instrument?</label>
+        <div class="col s12 m6 l6">
+          <input type="checkbox" class="filled-in" id="multipleOrch-box" name="multipleOrch-box" onclick="toggleMultipleOrchestras(this)"/>
+          <label for="multipleOrch-box">Uppträder du med någon annan orkester?</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m9 l9">
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="field-multipleOrch" type="text" class="materialize-textarea" name="multipleOrch"disabled></textarea>
+            <label for="textarea1">Vilken/Vilka?</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+      <div class="row">
+        <label for="size-of-instrument" >Hur stort är ditt instrument?</label>
       </div>
       <div class="row">
         <div class="col s6 m8 l8">
@@ -234,7 +283,7 @@
 
 
       <div class="row">
-        <button class="waves-effect waves-light btn" type="submit">Registrera orkester</button>
+        <button class="waves-effect waves-light btn" type="submit">Skicka</button>
       </div>
 
     </form>
