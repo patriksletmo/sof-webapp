@@ -1,4 +1,8 @@
 class UserController < NavigationController
+  def index
+    return if require_login!
+  end
+
   def register
     if request.post?
       response = database.register(

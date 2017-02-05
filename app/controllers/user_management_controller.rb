@@ -1,5 +1,7 @@
 class UserManagementController < NavigationController
   def index
+    return if require_login!
+
     @users = database.all_users
     unless @users.success?
       render status: 403
@@ -7,6 +9,8 @@ class UserManagementController < NavigationController
   end
 
   def show
+    return if require_login!
+
     @user = database.single_user params[:id]
     unless @user.success?
       render status: 404
@@ -14,6 +18,8 @@ class UserManagementController < NavigationController
   end
 
   def update
+    return if require_login!
+
     response = database.update_user(params[:id], user_params)
     if response.success?
       flash[:success] = 'Användare sparad'
