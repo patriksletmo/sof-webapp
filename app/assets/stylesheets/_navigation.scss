@@ -1,8 +1,8 @@
 @import "colors";
 @import "fonts";
 
-$nav-primary-color: $sof-red-color;
-$nav-accent-color: white;
+$nav-primary-color: $primary-color;
+$nav-accent-color: $accent-color;
 
 $brand-logo-size: 124px;
 
@@ -43,6 +43,10 @@ $brand-logo-size: 124px;
 #slide-out .collapsible-body a {
   background: $nav-accent-color;
   color: $nav-primary-color;
+}
+
+#mobile-nav {
+  color: #fff;
 }
 
 /*
