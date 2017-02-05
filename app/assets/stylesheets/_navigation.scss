@@ -70,9 +70,9 @@ $brand-logo-size: 124px;
 
 .side-nav a.brand-logo {
   text-align: center;
-  padding: 20px 0px;
-  height: 160px;
-  margin-bottom: 20px;
+  height: 200px;
+  width: 100%;
+  padding: 0;
 }
 
 .side-nav a.brand-logo:hover {
@@ -81,7 +81,8 @@ $brand-logo-size: 124px;
 }
 
 .side-nav .brand-logo img {
-  height: $brand-logo-size;
+  width: 95%;
+  //height: $brand-logo-size;
 }
 
 /*----------- Lintek logo and hearts -------------*/
@@ -92,8 +93,9 @@ ul.lintek-logo-hearts {
 }
 
 li.lintek-hearts {
+  display: none; // Currently hides the lintek-hearts.
+  //display: flex;
   height: 40px;
-  display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
@@ -121,6 +123,7 @@ a.lintek-heart img {
   height: 30px;
   line-height: 30px;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 span.lintek-logo-text {
@@ -132,6 +135,7 @@ span.lintek-logo-text {
 li.lintek-logo-container {
   display: flex;
   height: 80px;
+  margin-bottom: 5px;
 }
 
 li.lintek-logo-container img {
