@@ -5,21 +5,21 @@
     <form method="post">
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
-
       <h2 class="header">Registrera</h2>
 
+      <!-- Orchestra code -->
         <div class="row">
           <div class="col s12 m4 l4">
-            <input id="orchestra_code" type="text" class="validate" name="code" onchange="validateOrchestraCode(this)">
             <label for="orchestra_code">Orkesterkod</label>
+            <input id="orchestra_code" type="text" class="validate" name="code">
           </div>
-          <div class="col s12 m2 l2">
-            <input id="valid_orchestra_code" type="checkbox" class="filled-in" disabled="disabled">
-            <label>asd</label>
+          <div class="col s12 m4 l4">
+            <input id="valid_orchestra_code" type="checkbox" class="checked">
+            <label id="valid_orchestra_code_label"></label>
           </div>
         </div>
 
-
+      <!-- Festival ticket -->
         <div class="row">
           <div class="col s12 m6 l6">
             <label>Festivalbiljett    (OBS! Lintekmedlemmars pris är rabatterat)</label>
@@ -33,6 +33,7 @@
           </div>
         </div>
 
+      <!-- Food ticket -->
         <div class="row">
           <div class="col s12 m6 l6">
             <label>Matbiljett</label>
@@ -65,6 +66,7 @@
         </div>
 
 
+      <!-- Sleep over-->
         <div class="row">
           <label>Sova över?</label>
         </div>
@@ -77,6 +79,7 @@
           </div>
         </div>
 
+      <!-- Tshirt -->
       <div class="row"> <!-- Orkestern hämtas ifrån vilken orkester man är med i?" -->
         <label>Beställ tröjor med din orkester på</label>
       </div>
@@ -93,12 +96,6 @@
               Kvinna
             </label>
           </div>
-<!--
-          <label for="switch">Flip Toggle Switch:</label>
-          <input type="checkbox" data-role="flipswitch" name="switch" id="switch">
-          <br>
-          <input type="submit" data-inline="true" value="Submit">
-    -->
         </div>
 
         <div class="col s12 m2 l3">
@@ -122,10 +119,9 @@
           <label>T-shirts  (100kr) </label>
           <ul class="collection" id="collection-of-tshirts"> </ul>
         </div>
-
-
       </div>
 
+      <!-- medals -->
       <div class="row">
         <div class="col s4 m6 l6">
           <label>Medaljer  (40kr)</label>
@@ -139,6 +135,7 @@
           </select>
         </div>
 
+        <!-- tags -->
         <div class="col s4 m6 l6">
           <label>Märken  (20kr)</label>
           <select id="select-tag" name="tag">
