@@ -24,34 +24,19 @@ function togglePossibleTshirt(){
 function toggleSpecialkost(e) {
 
     var target = document.getElementById('field-specialfood');
+    var target2 = document.getElementById('specialfood-group');
 
-    var veg = document.getElementById('veg-box');
-    var vega = document.getElementById('vegan-box');
-    var lakt = document.getElementById('laktos-box');
-    var gluten = document.getElementById('gluten-box');
-    var sea = document.getElementById('seafood-box');
-    var fish = document.getElementById('fish-box');
-    var pea = document.getElementById('peanuts-box');
     if (e.checked) {
         target.disabled = false;
-        veg.disabled = false;
-        vega.disabled = false;
-        lakt.disabled = false;
-        gluten.disabled = false;
-        sea.disabled = false;
-        fish.disabled = false;
-        pea.disabled = false;
+        target.style = "display:block";
+        target2.disabled = false;
+        target2.style = "display:block";
         target.focus();
     } else {
         target.disabled = true;
-        target.disabled = true;
-        veg.disabled = true;
-        vega.disabled = true;
-        lakt.disabled = true;
-        gluten.disabled = true;
-        sea.disabled = true;
-        fish.disabled = true;
-        pea.disabled = true;
+        target.style = "display:none";
+        target2.disabled = true;
+        target2.style = "display:none";
     }
 }
 
