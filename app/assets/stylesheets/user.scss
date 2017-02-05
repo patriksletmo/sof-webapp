@@ -1,6 +1,122 @@
+@import "colors";
 // Place all the styles related to the user controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*---------- Login -----------*/
+
+.card-container .tabs .indicator {
+  background-color: $secondary-color;
+}
+
+.card-container .tabs .tab a,
+.card-container .tabs .tab a:active,
+.card-container .tabs .tab a:link,
+.card-container .tabs .tab a:visited {
+  color: $secondary-color;
+}
+
+.card-container .tabs .tab a:hover {
+  color: $primary-color;
+}
+
+
+
+.card-container {
+  margin: 40px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.card-content.no-padding {
+  padding: 0;
+}
+
+.card.login-register-card {
+  width: 450px;
+  margin: auto;
+}
+
+form#login-form {
+  margin: 20px 20px 0;
+}
+
+.card .card-action.login-forgotpassword {
+  margin-top: 20px;
+}
+
+.card .card-action.liu-student {
+  background-color: $liu-blue;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+.card .card-action.liu-student span {
+  margin: auto;
+  font-size: 22px;
+}
+
+.card .card-action.liu-student a.btn {
+  margin: auto;
+  font-size: 14px;
+  width: 170px;
+  padding: 0;
+  text-align: center;
+  background-color: $liu-green;
+  color: #fff;
+}
+
+
+/* label color */
+.card-container .input-field label {
+  //color: $primary-color;
+}
+/* label focus color */
+.card-container .input-field input[type=email]:focus + label,
+.card-container .input-field input[type=password]:focus + label {
+  color: $secondary-color;
+}
+/* label underline focus color */
+.card-container .input-field input[type=email]:focus,
+.card-container .input-field input[type=password]:focus {
+  border-bottom: 1px solid $secondary-color;
+  box-shadow: 0 1px 0 0 $secondary-color;
+}
+/* valid color */
+.card-container .input-field input[type=email].valid,
+.card-container .input-field input[type=password].valid {
+  border-bottom: 1px solid $secondary-color;
+  box-shadow: 0 1px 0 0 $secondary-color;
+}
+/* invalid color */
+.card-container .input-field input[type=email].invalid,
+.card-container .input-field input[type=password].invalid {
+  border-bottom: 1px solid $secondary-color;
+  box-shadow: 0 1px 0 0 $secondary-color;
+}
+/* icon prefix focus color */
+.card-container .input-field .prefix.active {
+  color: $secondary-color;
+}
+
+
+@media only screen and (max-width : 450px) {
+  .card-container {
+    margin: 0;
+  }
+}
+
+
+
+
+
+
+
+
+/*---------- Random -----------*/
 
 .btn-link {
   border: none;

@@ -17,6 +17,7 @@ header, main, footer {
 
 main {
   background-color: $accent-color;
+
 }
 
 @media only screen and (max-width : 992px) {
@@ -28,6 +29,9 @@ main {
 @media only screen and (min-width: 993px) {
   .container {
     width: 85%;
+  }
+  main {
+    min-height: 700px;
   }
 }
 
