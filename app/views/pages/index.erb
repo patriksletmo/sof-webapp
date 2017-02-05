@@ -3,11 +3,9 @@
 <% end %>
 
 <div class="container">
-
   <div>
     <% page_elements do |elem| %>
         <%= render partial: elem.name, locals: { elem: elem } %>
     <%end %>
   </div>
-
 </div>
