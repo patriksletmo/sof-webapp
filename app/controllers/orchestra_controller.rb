@@ -133,10 +133,10 @@ class OrchestraController < NavigationController
                 },
             orchestra_food_ticket_attributes:
                 {
-                    kind: params[:food_ticket].to_i,
-                    diet: (params[:specialfood] if params[:specialfood_on])
+                    kind: params[:food_ticket].to_i
                 },
-            orchestra_articles_attributes: tshirts + medals + tags
+            orchestra_articles_attributes: tshirts + medals + tags,
+            special_diets_attributes: special_diet
         }
     }
   end
@@ -156,5 +156,13 @@ class OrchestraController < NavigationController
 
   def tags
     Array.new(params[:tag].to_i) { |_| {kind: 3} }
+  end
+
+  def special_diet
+    if params[:has_special_diet] and not params[:special_diets].nil?
+      params[:special_diets].map { |x| {name: x}}
+    else
+      []
+    end
   end
 end
