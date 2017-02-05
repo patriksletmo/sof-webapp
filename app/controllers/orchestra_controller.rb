@@ -4,7 +4,7 @@ class OrchestraController < NavigationController
   end
 
   def register
-
+    return if require_login!
 
     @isLintek = current_user['is_lintek_member']
 
@@ -37,6 +37,8 @@ class OrchestraController < NavigationController
   end
 
   def create
+    return if require_login!
+
     if request.post?
       response = database.create_orchestra(orchestra_params)
       if response.success?
@@ -48,6 +50,8 @@ class OrchestraController < NavigationController
   end
 
   def update
+    return if require_login!
+
     response = database.update_orchestra(params[:id], orchestra_params)
     if response.success?
       flash[:success] = 'Orkester uppdaterad'
@@ -59,6 +63,8 @@ class OrchestraController < NavigationController
   end
 
   def show
+    return if require_login!
+
     @orchestra = database.show_orchestra params[:id]
     unless @orchestra.success?
       flash[:error] = 'Kunde inte hitta orkester'
@@ -67,6 +73,8 @@ class OrchestraController < NavigationController
   end
 
   def show_signup
+    return if require_login!
+
     @signup = database.show_orchestra_signup params[:id]
     unless @signup.success?
       flash[:error] = 'Kunde inte hitta anmälan'
@@ -75,6 +83,8 @@ class OrchestraController < NavigationController
   end
 
   def reset_code
+    return if require_login!
+
     response = database.update_orchestra(params[:id], {item: {code: 'reset'}})
     if response.success?
       flash[:success] = 'Kod uppdaterad'
@@ -86,6 +96,8 @@ class OrchestraController < NavigationController
   end
 
   def verify_code
+    return if require_login!
+
     response = database.verify_orchestra_code params[:code]
     if response.success?
       head :no_content

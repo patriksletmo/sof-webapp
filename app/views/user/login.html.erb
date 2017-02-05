@@ -6,7 +6,7 @@
       <div class="card grey lighten-4">
         <div class="card-content valign-wrapper">
           <span class="card-title valign">Student på LiU?</span>
-          <a class="btn waves-effect waves-light blue valign right" style="margin-left: auto;" href="<%= url_for action: 'login_liu_id' %>">
+          <a class="btn waves-effect waves-light blue valign right" style="margin-left: auto;" href="<%= url_for action: 'login_liu_id', redirect_url: params[:redirect_url] %>">
             Logga in med LiU-ID
           </a>
         </div>
