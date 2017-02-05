@@ -23,6 +23,9 @@ class OrchestraController < NavigationController
       @ticketOpt[i][1] = @ticketCost[i]
     end
 
+
+
+
   end
 
   def create
