@@ -73,9 +73,22 @@
     </div>
     <div class="col s12 m6">
       <h4>Anmälda medlemmar</h4>
-      <% @orchestra['orchestra_signups'].each do |signup| %>
-          <p><%= signup %></p>
-      <% end %>
+      <table class="responsive-table">
+        <thead>
+        <tr>
+          <th>Namn</th>
+          <th>Totalpris</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @orchestra['orchestra_signups'].each do |signup| %>
+            <tr>
+              <td><%= signup['user']['display_name'] || '(namn saknas)' %></td>
+              <td>TODO</td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
