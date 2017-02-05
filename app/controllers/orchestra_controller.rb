@@ -114,13 +114,25 @@ class OrchestraController < NavigationController
                     kind: params[:food_ticket].to_i,
                     diet: (params[:specialfood] if params[:specialfood_on])
                 },
-            orchestra_articles_attributes: (params[:tshirt] or []).map do |tshirt|
-              {
-                  kind: 1,
-                  data: tshirt
-              }
-            end
+            orchestra_articles_attributes: tshirts + medals + tags
         }
     }
+  end
+
+  def tshirts
+    (params[:tshirt] or []).map do |tshirt|
+      {
+          kind: 1,
+          data: tshirt
+      }
+    end
+  end
+
+  def medals
+    Array.new(params[:medals].to_i) { |_| {kind: 2} }
+  end
+
+  def tags
+    Array.new(params[:tag].to_i) { |_| {kind: 3} }
   end
 end
