@@ -67,4 +67,11 @@ module AuthenticationConcern
     @temporary_user = temporary_database.current_user.body! unless instance_variable_defined? :@temporary_user
     @temporary_user
   end
+
+  def require_login!
+    if current_user.nil?
+      flash[:error] = 'Inloggning krävs'
+      redirect_to controller: :user, action: :login, redirect_url: request.original_url
+    end
+  end
 end
