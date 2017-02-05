@@ -6,7 +6,6 @@ class UserCreationTest < ActionDispatch::IntegrationTest
   test 'visitors can create accounts' do
     visit '/'
     click_link 'Logga in'
-    assert_equal '/login', current_path
     assert page.has_current_path? '/login'
 
     click_link 'register-button'

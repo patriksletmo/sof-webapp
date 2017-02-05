@@ -3,14 +3,6 @@ if Rails.env.test?
     Capybara::Selenium::Driver.new(app, :browser => :chrome)
   end
 
-  Capybara.register_driver :selenium do |app|
-    Capybara::Selenium::Driver.new(
-        app,
-        browser: :firefox,
-        desired_capabilities: Selenium::WebDriver::Remote::Capabilities.firefox(marionette: false)
-    )
-  end
-
   if ENV['TRAVIS'] == 'true'
     # Travis CI does not support Chrome driver out of the box.
     Capybara.default_driver = :selenium
