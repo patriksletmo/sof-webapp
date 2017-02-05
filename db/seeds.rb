@@ -12,9 +12,6 @@ Contact.delete_all
 #c2 = Contact.create(name: "Victoria Boman", title: "Personal", email: "personal@sof17.se")
 
 
-
-
-
 Contact.create([
  {name: "Daniel Modig", title: "General", email: "general@sof17.se", group: "main"},
  {name: "Samuel Trennelius", title: "Controller", email: "controller@sof17.se", group: "main"},

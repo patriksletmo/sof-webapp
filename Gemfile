@@ -62,6 +62,13 @@ end
 
 group :test do
   gem 'rake'
+
+  # Front-end testing automation
+  gem 'capybara'
+  gem 'selenium-webdriver'
+
+  # Mocking
+  gem 'mocha'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

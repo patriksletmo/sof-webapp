@@ -1,13 +1,14 @@
-// Temporary test-font
+// Official Lintek Arial Bold font
 @font-face {
-  font-family: 'Facile Sans';
-  src:font-url('FacileSans.eot');
-  src:font-url('FacileSans.eot?#iefix') format('embedded-opentype'),
-  font-url('FacileSans.woff') format('woff'),
-  font-url('FacileSans.ttf') format('truetype');
-  font-weight: normal;
+  font-family: 'Arial';
+  src: font-url('Arial-BoldMT.eot');
+  src: font-url('Arial-BoldMT.eot?#iefix') format('embedded-opentype'),
+  font-url('Arial-BoldMT.woff') format('woff'),
+  font-url('Arial-BoldMT.ttf') format('truetype');
+  font-weight: bold;
   font-style: normal;
 }
+
 
 // SOF-font from last year.
 @font-face {
@@ -55,6 +56,6 @@
 
 
 
-$header-font: 'Facile Sans';
-$body-font: 'Facile Sans';
+$header-font: 'Arial';
+$body-font: 'DIN';
 $nav-font: 'DIN';

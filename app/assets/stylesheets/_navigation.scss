@@ -1,50 +1,143 @@
 @import "colors";
 @import "fonts";
 
-$nav-primary-color: $sof-red-color;
-$nav-accent-color: white;
+$nav-primary-color: $primary-color;
+$nav-accent-color: $accent-color;
 
 $brand-logo-size: 124px;
 
 #slide-out {
   background: $nav-primary-color;
   z-index: 999;
+  width: 275px;
+  display: flex;
+  flex-direction: column;
 }
 
-#slide-out li > a {
-  font-family: $nav-font;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 32px;
+// hide scrollbar
+::-webkit-scrollbar {
+  display: none;
 }
 
-#slide-out li i.indicator {
+#slide-out ul {
+  width: 100%;
+}
+
+.side-nav i.icon-arrow-down {
   float: right;
   text-align: right;
   margin: 0;
+  font-size: 12px;
 }
 
-#slide-out.side-nav a {
+.side-nav a.menu-item {
+  height: 48px;
   color: $nav-accent-color;
+  font-family: $nav-font;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 48px;
   padding: 0 8px 0 32px;
 }
 
-#slide-out.side-nav a.brand-logo {
+.side-nav a.submenu-item {
+  height: 38px;
+  background: $nav-accent-color;
+  color: $nav-primary-color;
+  font-family: $nav-font;
+  font-weight: bold;
+  line-height: 38px;
+  font-size: 20px;
+}
+
+.side-nav a.submenu-item:hover {
+  background-color: $nav-primary-color;
+  color: $nav-accent-color;
+}
+
+
+.side-nav a.collapsible-header.menu-item {
+  padding: 0 8px 0 32px;
+}
+
+/*----------- Mobile nav hamburger -------------*/
+
+#mobile-nav {
+  color: #fff;
+}
+
+/*----------- Brand Logo -------------*/
+
+.side-nav a.brand-logo {
   text-align: center;
   padding: 20px 0px;
   height: 160px;
   margin-bottom: 20px;
 }
 
-#slide-out.side-nav a.brand-logo img {
+.side-nav a.brand-logo:hover {
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.side-nav .brand-logo img {
   height: $brand-logo-size;
 }
 
-#slide-out .collapsible-body a {
-  background: $nav-accent-color;
-  color: $nav-primary-color;
+/*----------- Lintek logo and hearts -------------*/
+
+ul.lintek-logo-hearts {
+  margin-top: auto;
+  margin-bottom: 0;
 }
 
+li.lintek-hearts {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+}
+
+li.lintek-hearts a.lintek-heart {
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+li.lintek-hearts a.lintek-heart:hover {
+  background-color: transparent;
+}
+
+a.lintek-heart img {
+  margin: auto;
+  width: 70%;
+}
+
+.side-nav li.lintek-logo-text-container {
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+
+span.lintek-logo-text {
+  color: $accent-color;
+  font-family: DIN;
+  font-weight: normal;
+}
+
+li.lintek-logo-container {
+  display: flex;
+  height: 80px;
+}
+
+li.lintek-logo-container img {
+  margin: 0 auto;
+  height: 80%;
+}
 /*
 
 .side-nav.secondary-nav {
