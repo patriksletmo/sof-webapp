@@ -1,7 +1,6 @@
 class OrchestraController < NavigationController
 
   def index
-
   end
 
   def register
@@ -82,6 +81,15 @@ class OrchestraController < NavigationController
     end
 
     redirect_to action: :show, id: params[:id]
+  end
+
+  def verify_code
+    response = database.verify_orchestra_code params[:code]
+    if response.success?
+      head :no_content
+    else
+      raise 'No match'
+    end
   end
 
   private
