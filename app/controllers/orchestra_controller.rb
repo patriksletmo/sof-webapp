@@ -112,7 +112,7 @@ class OrchestraController < NavigationController
     {
         item: params.require(:item).permit(
             :name,
-            :ballet,
+            :orchestra_type,
             :dormitory
         ).to_h
     }
