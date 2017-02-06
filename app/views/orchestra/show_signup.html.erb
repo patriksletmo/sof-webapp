@@ -74,7 +74,6 @@
 
   <% if(@diets.any?) %>
     <div class="col s12 m3 l3">
-      <h4>Allergier</h4>
       <table class="responsive-table">
         <thead>
         <tr>
@@ -92,6 +91,31 @@
     </div>
   <% end %>
 
+
+<!-- TODO VILKA ORKESTREAR -->
+  <% unless(@otherPerformances.nil?) %>
+    <div class="col s12 m3 l3">
+      <h4>Allergier</h4>
+      <table class="responsive-table">
+        <thead>
+        <tr>
+          <th>Andra uppträdanden</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td><%= @otherPerformances %></td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+
+  <!-- KNAPP -->
+  <form method="post" action="<%= url_for action: :delete, id: @signup["id"] %>">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <button type="submit" class="btn">Tabort anmälan</button>
+  </form>
 
 
 
