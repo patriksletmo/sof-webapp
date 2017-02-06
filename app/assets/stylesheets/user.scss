@@ -1,4 +1,5 @@
 @import "colors";
+@import "fonts";
 // Place all the styles related to the user controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
@@ -20,6 +21,21 @@
   color: $primary-color;
 }
 
+#login-card,
+#register-card {
+  font-family: DIN;
+  font-weight: normal;
+}
+
+#login-card .card-title,
+#register-card .card-title {
+  font-size: 20px;
+}
+
+#login-card .card-action-text,
+#register-card .card-action-text {
+  color: $primary-color
+}
 
 
 .card-container {
@@ -36,14 +52,6 @@
 .card.login-register-card {
   width: 450px;
   margin: auto;
-}
-
-form#login-form {
-  margin: 20px 20px 0;
-}
-
-.card .card-action.login-forgotpassword {
-  margin-top: 20px;
 }
 
 .card .card-action.liu-student {
@@ -77,7 +85,7 @@ form#login-form {
 /* label focus color */
 .card-container .input-field input[type=email]:focus + label,
 .card-container .input-field input[type=password]:focus + label {
-  color: $secondary-color;
+  color: $primary-color;
 }
 /* label underline focus color */
 .card-container .input-field input[type=email]:focus,
