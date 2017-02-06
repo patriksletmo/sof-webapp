@@ -38,3 +38,34 @@ hr.hero-divider {
   height: 1px;
   background-color: $secondary-color;
 }
+
+.row.center {
+  margin-bottom: 40px;
+}
+
+.text-with-icon-column {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.text-with-icon-column i {
+  font-size: 54px;
+  color: $secondary-color;
+  margin-bottom: 20px;
+}
+
+.text-with-icon-column h3 {
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 24px;
+  color: $primary-color;
+}
+
+.text-with-icon-column span {
+  font-family: DIN;
+  font-weight: normal;
+  font-size: 16px;
+  width: 80%;
+  margin: auto;
+}
