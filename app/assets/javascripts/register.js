@@ -50,7 +50,13 @@ function addTshirt() {
         return;
     }
 
-    var Tshirt_gender
+    var ediv = document.createElement('div');
+    var ei = document.createElement('i');
+
+    ei.style = "float: right";
+    ei.className = "icon-bin2";
+
+    var Tshirt_gender;
     if(gender.checked){
         Tshirt_gender = "Dam ";
     } else {
@@ -72,10 +78,11 @@ function addTshirt() {
     } else {
 
         size = Tshirt_gender + size;
-        sizeNode = document.createTextNode(size);
-        inptNode = document.createTextNode(inpt);
-        entry.appendChild(sizeNode);
-        entry.appendChild(inpt);
+        ediv.append(size);
+        ediv.append(ei);
+
+        ediv.append(inpt);
+        entry.append(ediv);
         target.appendChild(entry);
     }
 }
@@ -107,9 +114,7 @@ function toggleMultipleOrchestras(e) {
     } else {
         target.disabled = true;
     }
-
 }
-
 
 function validateOrchestraCode() {
     $.ajax({

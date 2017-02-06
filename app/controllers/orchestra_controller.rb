@@ -82,13 +82,41 @@ class OrchestraController < NavigationController
     end
 
 
-    #@allTshirts = @signup["orchestra_articles"].select{|x| x["kind"]==1}
-    #@totalMedals = @signup["orchestra_articles"].select{|x| x["kind"]==2}.count
-    #@totalTags = @signup["orchestra_articles"].select{|x| x["kind"]==3}.count
+    @isLintek = current_user['is_lintek_member']
+    @ticketText = ["Torsdag - Söndag", "Fredag - Söndag", "Lördag - Söndag", "Ingen biljett"]
+
+    # Festivalbiljett
+    @festivalTicketID = @signup["orchestra_ticket"]["kind"]
+    if @isLintek
+      @ticketCostStr = ["435", "410", "190", "0"]
+    else
+      @ticketCostStr = ["535", "510", "220", "0"]
+    end
+    @festivalTicket = @ticketText[@festivalTicketID]
+    @ticketCost = @ticketCostStr[@festivalTicketID]
+
+    # Matbiljett
+    @foodTicketID = @signup["orchestra_food_ticket"]["kind"]
+    @foodTicket = @ticketText[@foodTicketID]
+    @foodTicketCost = ["215", "140", "75", "0"][@foodTicketID]
+
+    # Övernattning
+    if(@signup["dormitory"])
+      @dormitory = 1
+    else
+      @dormitory = 1
+    end
+
+    @allTshirts = @signup["orchestra_articles"].select{|x| x["kind"]==1}
+    @totalMedals = @signup["orchestra_articles"].select{|x| x["kind"]==2}.count
+    @totalTags = @signup["orchestra_articles"].select{|x| x["kind"]==3}.count
 
 
+    @totalCost = @ticketCost.to_i + @foodTicketCost.to_i + @dormitory * 50 + @allTshirts.count * 100 + @totalMedals* 40 + @totalTags* 20
 
+    # "special_diets"
 
+    @diets = @signup["special_diets"].map{|x| x["name"]}
   end
 
   def reset_code

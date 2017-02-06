@@ -1,8 +1,98 @@
-<% content_for :header_title do %>Anmälan<% end %>
-
-
+<% content_for :header_title do %><%= @signup['orchestra']['name'] %>
+<% end %>
 
 <div class="container">
+
+  <div class="col s12 m6 l6">
+    <h4>Sammanfattning av orkesterregistrering</h4>
+    <table class="responsive-table">
+      <thead>
+      <tr>
+        <th>Produkt</th>
+        <th>Antal</th>
+        <th>styckpris</th>
+        <th>Total</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Festivalbiljett: <%= @festivalTicket %></td>
+          <td> 1 </td>
+          <td><%= @ticketCost %></td>
+          <td><%= @ticketCost %></td>
+        </tr>
+          <tr>
+            <td>Matbiljett: <%= @foodTicket %></td>
+            <td> 1 </td>
+            <td><%= @foodTicketCost %></td>
+            <td><%= @foodTicketCost %></td>
+          </tr>
+
+       <% if(@dormitory) %>
+        <tr>
+          <td>Sovsal</td>
+          <td>1</td>
+          <td>50</td>
+          <td>50</td>
+        </tr>
+      <% end %>
+      <% @allTshirts.each do |t| %>
+          <tr>
+            <td><%= t["data"] %></td>
+            <td> 1 </td>
+            <td> 100</td>
+            <td> 100</td>
+          </tr>
+      <% end %>
+      <% if(@totalMedals > 0) %>
+          <tr>
+            <td>Medaljer</td>
+            <td><%= @totalMedals %></td>
+            <td>40</td>
+            <td><%= @totalMedals * 40 %></td>
+          </tr>
+      <% end %>
+      <% if(@totalTags > 0) %>
+          <tr>
+            <td>Märken</td>
+            <td><%= @totalTags %></td>
+            <td>20</td>
+            <td><%= @totalTags * 20 %></td>
+          </tr>
+      <% end %>
+      <tr>
+        <th>Summa</th>
+        <td></td>
+        <td></td>
+        <td><%= @totalCost %> </td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <% if(@diets.any?) %>
+    <div class="col s12 m3 l3">
+      <h4>Allergier</h4>
+      <table class="responsive-table">
+        <thead>
+        <tr>
+          <th>Allergier</th>
+        </tr>
+        </thead>
+        <tbody>
+          <% @diets.each do |d| %>
+            <tr>
+              <td><%= d %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+
+
 
 
 </div>
