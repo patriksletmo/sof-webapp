@@ -70,6 +70,13 @@
           <button type="submit" class="btn">Uppdatera orkester</button>
         </div>
       </form>
+
+      <form method="post" action="<%= url_for action: :delete_orchestra, id: @orchestra["id"] %>" onsubmit="return confirm('Vill du verkligen ta bort din orkester?');">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <div class="input-field col s12">
+          <button type="submit" class="btn red">Ta bort orkester</button>
+        </div>
+      </form>
     </div>
     <div class="col s12 m6">
       <h4>Anmälda medlemmar</h4>
