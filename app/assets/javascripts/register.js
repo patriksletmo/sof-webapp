@@ -6,14 +6,6 @@
 $(document).on('turbolinks:load', function () {
     $("#orchestra_code").on("input change",validateOrchestraCode);
 
-    /*
-    Disabled since pushpin functionality requires additional tweaking, and time is limited.
-
-    $("#signup-summary").pushpin({
-        top: $('#top-nav').height()
-    });
-    */
-
     $('#festival_ticket').change(updateArticleList);
     $('#food_ticket').change(updateArticleList);
     $('#sleep_over').change(updateArticleList);
@@ -21,7 +13,22 @@ $(document).on('turbolinks:load', function () {
     $('#select-tag').change(updateArticleList);
 
     updateArticleList();
+    updateSignupSummary();
 });
+
+$(window).on('resize', updateSignupSummary);
+
+function updateSignupSummary() {
+    var signupSummary = $("#signup-summary");
+
+    signupSummary.pushpin('remove');
+    signupSummary.pushpin({
+        top: $('#top-nav').height(),
+        bottom: $('body').height() - $('footer').height() - $(signupSummary).height() - 65
+    });
+
+    signupSummary.width($("#signup-summary-parent").width());
+}
 
 function togglePossibleTshirt(){
 
@@ -161,6 +168,8 @@ function updateArticleList() {
     costTotal += appendArticles('Märke', tagPrice, $('#select-tag').val());
 
     appendTotal(costTotal);
+
+    updateSignupSummary();
 }
 
 function appendArticle(name, price) {
