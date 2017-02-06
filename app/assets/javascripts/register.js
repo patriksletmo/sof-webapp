@@ -22,10 +22,12 @@ function updateSignupSummary() {
     var signupSummary = $("#signup-summary");
 
     signupSummary.pushpin('remove');
-    signupSummary.pushpin({
-        top: $('#top-nav').height(),
-        bottom: $('body').height() - $('footer').height() - $(signupSummary).height() - 65
-    });
+    if ($(window).width() > 600) {
+        signupSummary.pushpin({
+            top: $('#top-nav').height(),
+            bottom: $('body').height() - $('footer').height() - $(signupSummary).height() - 65
+        });
+    }
 
     signupSummary.width($("#signup-summary-parent").width());
 }
