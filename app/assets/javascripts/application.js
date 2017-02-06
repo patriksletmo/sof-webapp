@@ -17,5 +17,12 @@
 //= require_tree .
 
 
+// Dont scroll down when using going back to register-card
+if (location.hash == '#register-card') {
+    setTimeout(function() {
+        window.scrollTo(0, 0);
+    }, 1);
+}
+
 
 

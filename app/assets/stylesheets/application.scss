@@ -17,6 +17,7 @@ header, main, footer {
 
 main {
   background-color: $accent-color;
+
 }
 
 select {
@@ -32,6 +33,9 @@ select {
 @media only screen and (min-width: 993px) {
   .container {
     width: 85%;
+  }
+  main {
+    min-height: 700px;
   }
 }
 
