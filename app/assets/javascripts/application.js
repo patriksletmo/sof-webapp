@@ -19,9 +19,7 @@
 
 // Dont scroll down when using going back to register-card
 if (location.hash == '#register-card') {
-    console.log(location.hash);
     setTimeout(function() {
-
         window.scrollTo(0, 0);
     }, 1);
 }
