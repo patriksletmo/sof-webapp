@@ -5,7 +5,9 @@
 
 $(document).on('turbolinks:load', function () {
     $("#orchestra_code").on("input change",validateOrchestraCode);
-
+    $("#signup-summary").pushpin({
+        top: $('#top-nav').height()
+    });
 });
 
 function togglePossibleTshirt(){
@@ -119,4 +121,69 @@ function validateOrchestraCode() {
         success: orchestaCodeValid,
         error: orchestraCodeInvalid
     });
+}
+
+var festivalTicketPrices = [535, 510, 220, 0];
+var festivalTicketPricesLinTek = [435, 410, 190, 0];
+var foodTicketPrices = [215, 140, 75, 0];
+var dormitoryPrices = [50, 50, 0];
+var tshirtPrice = 100;
+var medalPrice = 40;
+var tagPrice = 20;
+
+function updateArticleList() {
+    clearArticleList();
+
+    var costTotal = 0;
+    var festivalTicketType = $('#festival_ticket').val();
+    costTotal += appendArticle('Festivalbiljett', festivalTicketPrices[festivalTicketType]);
+    costTotal += appendLinTekDiscount(festivalTicketType);
+    costTotal += appendArticle('Matbiljett', foodTicketPrices[$('#food_ticket').val()]);
+    costTotal += appendArticle('Sovsal', dormitoryPrices[$('#sleep_over').val()]);
+    costTotal += appendArticles('T-shirt', tshirtPrice, $('#collection-of-tshirts').find('li').length);
+    costTotal += appendArticles('Medalj', medalPrice, $('#select-medals').val());
+    costTotal += appendArticles('Märke', tagPrice, $('#select-tag').val());
+
+    appendTotal(costTotal);
+}
+
+function appendArticle(name, price) {
+    if (price != 0) {
+        var row = $('<tr/>');
+        row.append($('<td/>').text(name));
+        row.append($('<td/>').text(price.toString() + ' SEK'));
+
+        $('#article-list').append(row);
+    }
+
+    return price;
+}
+
+function appendArticles(name, price, amount) {
+    return appendArticle(name + ' x ' + amount.toString(), price * amount);
+}
+
+function appendTotal(cost) {
+    var row = $('<tr/>');
+    row.append($('<th/>').text('Totalt'));
+    row.append($('<th/>').text(cost.toString() + ' SEK'));
+
+    $('#article-list').append(row);
+}
+
+function clearArticleList() {
+    $('#article-list').empty();
+}
+
+function appendLinTekDiscount(ticketType) {
+    var discount = 0;
+    if (isLinTekMember()) {
+        discount = festivalTicketPricesLinTek[ticketType] - festivalTicketPrices[ticketType];
+    }
+
+    return appendArticle("LinTek-rabatt", discount);
+}
+
+function isLinTekMember() {
+    return $('#is-lintek-member').val() == 'true';
 }
