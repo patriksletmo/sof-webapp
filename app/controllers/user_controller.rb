@@ -17,7 +17,8 @@ class UserController < NavigationController
         flash[:success] = 'Ett mail har skickats till din e-postadress'
         redirect_to login_url
       else
-        flash.now[:error] = response.friendly_error
+        flash[:error] = response.friendly_error
+        redirect_to action: :login, anchor: 'register-card', only_path: true
       end
     end
   end

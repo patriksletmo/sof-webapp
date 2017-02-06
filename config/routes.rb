@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'orchestra' => 'orchestra#index'
   match 'orchestra/register' => 'orchestra#register', via: [:get, :post]
   match 'orchestra/create' => 'orchestra#create', via: [:get, :post]
+  match 'orchestra/delete' => 'orchestra#delete', via: [:post]
   get 'orchestra/orchestras' => 'orchestra#orchestras'
   get 'orchestra/verify' => 'orchestra#verify_code'
   get 'orchestra/:id' => 'orchestra#show'

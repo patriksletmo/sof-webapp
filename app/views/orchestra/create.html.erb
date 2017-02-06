@@ -2,6 +2,7 @@
 
 <div class="container">
   <div class="row">
+    <% if current_user['orchestra'].nil? %>
     <form method="post">
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
@@ -59,5 +60,11 @@
 
       <button type="submit" class="btn">Skapa orkester</button>
     </form>
+    <% else %>
+        <h4>Orkesterskapande inte tillgängligt</h4>
+        <p>Du har redan skapat orkestern "<%= current_user['orchestra']['name'] %>".</p>
+        <p>För att skapa en ny orkester behöver du först ta bort din nuvarande.</p>
+        <a class="btn" href="<%= url_for action: :show, id: current_user['orchestra']['id'] %>">Till min orkester</a>
+    <% end %>
   </div>
 </div>

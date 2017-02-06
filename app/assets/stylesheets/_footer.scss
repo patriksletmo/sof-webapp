@@ -67,7 +67,7 @@ main {
   width: 70%;
   height: 12px;
   border-bottom: 1px solid white;
-  margin: 0 auto;
+  margin: 0 auto 20px;
 }
 
 span.text-in-line {
@@ -77,6 +77,7 @@ span.text-in-line {
   font-size: 14px;
   padding: 0 10px;
   background-color: $secondary-color;
+
 }
 
 .container-logos {
@@ -94,6 +95,14 @@ span.text-in-line {
 .sponsor-logo-container img {
   margin: auto;
   width: 90%;
+}
+
+img.vertical-logo {
   max-height: 100%;
 }
+
+img.horizontal-logo {
+  max-height: 80%;
+}
+
 

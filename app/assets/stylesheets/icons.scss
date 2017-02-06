@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  font-url('icomoon.eot?tw3dc0');
-  src:  font-url('icomoon.eot?tw3dc0#iefix') format('embedded-opentype'),
-  font-url('icomoon.ttf?tw3dc0') format('truetype'),
-  font-url('icomoon.woff?tw3dc0') format('woff'),
-  font-url('icomoon.svg?tw3dc0#icomoon') format('svg');
+  src:  font-url('icomoon.eot?f6k92o');
+  src:  font-url('icomoon.eot?f6k92o#iefix') format('embedded-opentype'),
+  font-url('icomoon.ttf?f6k92o') format('truetype'),
+  font-url('icomoon.woff?f6k92o') format('woff'),
+  font-url('icomoon.svg?f6k92o#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,6 +24,24 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-guitar:before {
+  content: "\e943";
+}
+.icon-user-plus:before {
+  content: "\ea45";
+}
+.icon-bin2:before {
+  content: "\eabe";
+}
+.icon-quill4:before {
+  content: "\e911";
+}
+.icon-trumpet:before {
+  content: "\e944";
+}
+.icon-truck:before {
+  content: "\eac5";
+}
 .icon-arrow-down:before {
   content: "\ebbb";
 }
@@ -45,4 +63,3 @@
 .icon-twitter:before {
   content: "\ec62";
 }
-

@@ -1,22 +1,32 @@
 <% content_for :header_title do %>Logga in<% end %>
 
-<div class="container">
-  <div class="row section">
-    <div class="col s12 m6">
-      <div class="card grey lighten-4">
-        <div class="card-content valign-wrapper">
-          <span class="card-title valign">Student på LiU?</span>
-          <a class="btn waves-effect waves-light blue valign right" style="margin-left: auto;" href="<%= url_for action: 'login_liu_id', redirect_url: params[:redirect_url] %>">
-            Logga in med LiU-ID
-          </a>
-        </div>
-      </div>
-      <div class="card grey lighten-4">
-        <form method="post" id="login_form">
-            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+<div class="card-container">
+    <div class="card login-register-card z-depth-1">
 
+      <div class="cards-tabs">
+        <ul class="tabs tabs-fixed-width">
+           <li class="tab">
+             <a href="#login-card">Inloggning</a>
+           </li>
+           <li class="tab">
+             <a href="#register-card">Registrering</a>
+           </li>
+         </ul>
+      </div>
+
+      <div class="card-content no-padding">
+        <div id="login-card">
+          <div class="card-action liu-student">
+            <span class="card-title valign">Student på LiU?</span>
+            <a class="btn waves-effect waves-light z-depth-2" href="<%= url_for action: 'login_liu_id', redirect_url: params[:redirect_url] %>">
+              Logga in med LiU-ID
+            </a>
+          </div>
+
+          <form method="post" id="login-form">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
             <div class="card-content">
-              <span class="card-title">Inloggning</span>
+              <span class="card-title">Inloggning för dig som inte är LiU-student</span>
               <div class="input-field">
                 <input type="email" name="email" id="email">
                 <label for="email">E-mail</label>
@@ -26,27 +36,47 @@
                 <label for="password">Lösenord</label>
               </div>
             </div>
-            <div class="card-action">
-              <a id="login-button" class="blue-text" href="javascript:;" onclick="document.getElementById('login_form').submit();">Logga in</a>
+
+            <div class="card-action login-forgotpassword">
+              <a class="card-action-text" href="javascript:;" onclick="document.getElementById('login_form').submit();">Logga in</a>
               <a class="grey-text" href="<%= reset_request_url %>">Glömt ditt lösenord?</a>
             </div>
 
             <input type="submit"
                    style="position: absolute; left: -9999px; width: 1px; height: 1px;"
                    tabindex="-1" />
-        </form>
+
+          </form>
+        </div>
+
+        <div id="register-card">
+          <form method="post" id="register_user" action="<%= url_for action: :register %>">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+            <div class="card-content">
+              <span class="card-title">Registrering för dig som inte är LiU-student</span>
+              <div class="input-field">
+                <input type="email" name="email" id="email">
+                <label for="email">E-mail</label>
+              </div>
+              <div class="input-field">
+                <input type="password" name="password" id="password">
+                <label for="password">Lösenord</label>
+              </div>
+              <div class="input-field">
+                <input type="password" name="password_confirmation" id="password_confirmation">
+                <label for="password_confirmation">Upprepa lösenord</label>
+              </div>
+            </div>
+            <div class="card-action">
+              <a id="login-button" class="card-action-text" href="javascript:;" onclick="document.getElementById('register_user').submit();">Skapa användare</a>
+            </div>
+
+            <input type="submit"
+                   style="position: absolute; left: -9999px; width: 1px; height: 1px;"
+                   tabindex="-1" />
+          </form>
+        </div>
       </div>
-
     </div>
-
-    <div class="col s12 m6">
-      <h4>Saknar du inloggning?</h4>
-      <p>
-        Studerar du inte vid Linköpings universitet behöver du skapa ett konto innan du kan logga in.
-      </p>
-      <a id="register-button" class="btn waves-effect waves-light" href="<%= register_url %>">Registrera dig</a>
-    </div>
-
-
-  </div>
 </div>

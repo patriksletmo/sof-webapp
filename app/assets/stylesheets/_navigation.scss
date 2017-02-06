@@ -70,8 +70,9 @@ $brand-logo-size: 124px;
 
 .side-nav a.brand-logo {
   text-align: center;
-  height: 200px;
-  width: 100%;
+  margin: auto auto 30px;
+  height: 100px;
+  width: 90%;
   padding: 0;
 }
 
@@ -81,7 +82,7 @@ $brand-logo-size: 124px;
 }
 
 .side-nav .brand-logo img {
-  width: 95%;
+  width: 90%;
   //height: $brand-logo-size;
 }
 
