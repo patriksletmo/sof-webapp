@@ -103,10 +103,11 @@ function addTshirt() {
     } else {
 
         size = Tshirt_gender + size;
+
         ediv.append(size);
         ediv.append(ei);
-
         ediv.append(inpt);
+
         entry.append(ediv);
         target.appendChild(entry);
     }

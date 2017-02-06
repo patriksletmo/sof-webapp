@@ -81,7 +81,6 @@ class OrchestraController < NavigationController
       redirect_to '/'
     end
 
-
     @isLintek = current_user['is_lintek_member']
     @ticketText = ["Torsdag - Söndag", "Fredag - Söndag", "Lördag - Söndag", "Ingen biljett"]
 
@@ -115,8 +114,11 @@ class OrchestraController < NavigationController
     @totalCost = @ticketCost.to_i + @foodTicketCost.to_i + @dormitory * 50 + @allTshirts.count * 100 + @totalMedals* 40 + @totalTags* 20
 
     # "special_diets"
-
     @diets = @signup["special_diets"].map{|x| x["name"]}
+
+    @otherPerformances = @signup["other_performances"]
+
+
   end
 
   def reset_code
@@ -130,6 +132,19 @@ class OrchestraController < NavigationController
     end
 
     redirect_to action: :show, id: params[:id]
+  end
+
+  def delete
+    return if require_login!
+
+    response = database.delete_orchestra_signup(params[:id])
+    if response.success?
+      flash[:success] = 'Anmälan borttagen'
+    else
+      flash[:error] = 'Kunde inte ta bort anmälan'
+    end
+
+    redirect_to action: :register
   end
 
   def verify_code
