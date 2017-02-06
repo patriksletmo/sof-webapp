@@ -122,7 +122,7 @@ class OrchestraController < NavigationController
     {
         item: {
             code: params[:code],
-            dormitory: params[:sleep_over] == '1',
+            dormitory: dormitory,
             active_member: params[:active] == 'active',
             consecutive_10: params[:spree] == 'yes',
             attended_25: params['25years'] == 'yes',
@@ -136,7 +136,8 @@ class OrchestraController < NavigationController
                     kind: params[:food_ticket].to_i
                 },
             orchestra_articles_attributes: tshirts + medals + tags,
-            special_diets_attributes: special_diet
+            special_diets_attributes: special_diet,
+            other_performances: (params['otherPerformance-field'] unless params['otherPerformance-box'].nil?)
         }
     }
   end
@@ -163,6 +164,17 @@ class OrchestraController < NavigationController
       params[:special_diets].map { |x| {name: x}}
     else
       []
+    end
+  end
+
+  def dormitory
+    value = params[:sleep_over]
+    if value == '0'
+      nil
+    elsif value == '1'
+      true
+    elsif value == '2'
+      false
     end
   end
 end
