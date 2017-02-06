@@ -7,28 +7,24 @@
       <input id="is-lintek-member" type="hidden" value="<%= @isLintek %>">
 
       <div class="row">
-        <div class="col s12 m8">
+        <div class="col s12 m7">
           <h4 class="header">Registrera till en orkester</h4>
           <!-- Orchestra code -->
           <div class="row">
-            <div class="col s12 m4 l4">
+          <div class="input-field col s12">
               <label for="orchestra_code">Orkesterkod</label>
               <input id="orchestra_code" type="text" class="validate" name="code" required>
-            </div>
-            <div class="col s12 m8 l8">
+          </div>
+          <div class="col s12">
               <input id="valid_orchestra_code" type="checkbox" class="checked" disabled>
-              <label id="valid_orchestra_code_label">Utdaderad eller ogiltig orkesterkod, kontakta din orkesterledare för den senaste orkesterkoden</label>
-            </div>
+              <label for="valid_orchestra_code" id="valid_orchestra_code_label">Utdaterad eller ogiltig orkesterkod, kontakta din orkesterledare</label>
+          </div>
           </div>
 
           <!-- Festival ticket -->
           <div class="row">
-            <div class="col s12 m6 l6">
-              <label>Festivalbiljett    (OBS! Lintekmedlemmars pris är rabatterat)</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col s12 m6 l6">
+            <div class="col s12">
+              <label for="festival_ticket">Festivalbiljett    (OBS! Lintekmedlemmars pris är rabatterat)</label>
               <select name="festival_ticket" id="festival_ticket">
                 <%=  options_for_select(@ticketOpt)  %>
               </select>
@@ -37,60 +33,66 @@
 
           <!-- Food ticket -->
           <div class="row">
-            <div class="col s12 m6 l6">
-              <label>Matbiljett</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col s12 m6 l6">
+            <div class="col s12">
+              <label for="food_ticket">Matbiljett</label>
               <select name="food_ticket" id="food_ticket">
                 <option value="0">Torsdag (11/5) - Söndag (14/5) (215kr)</option>
                 <option value="1">Fredag (12/5) - Söndag (14/5) (140kr)</option>
                 <option value="2">Lördag (13/5) - Söndag (15/5) (75kr)</option>
                 <option value="3">Ingen biljett (0kr)</option>
               </select>
-            </div>
 
-            <div class="col s12 m3 l3">
-              <input type="checkbox" class="filled-in" id="specialfood-box" name="has_special_diet" onclick="toggleSpecialkost(this)"/>
-              <label for="specialfood-box">Har du någon specialkost?</label>
             </div>
           </div>
 
-          <div  id="specialfood-group" style = "display:none" disabled>
-            <div class="row">
-              <div class="col s1 m1 l1">
-                <input type="checkbox" class="filled-in" id="veg-box" name="special_diets[]" value="Vegetariskt"/>
-                <label for="veg-box">Vegetariskt?</label>
+          <div class="row">
+            <div class="col s12">
+              <input type="checkbox" class="filled-in" id="specialfood-box" name="has_special_diet" onclick="toggleSpecialkost(this)"/>
+              <label for="specialfood-box">Har du någon specialkost?</label>
 
-                <input type="checkbox" class="filled-in" id="vegan-box" name="special_diets[]" value="Vegansk"/>
-                <label for="vegan-box">Vegansk?</label>
+              <div id="specialfood-group" style = "display:none" disabled>
+                <br/>
 
-                <input type="checkbox" class="filled-in" id="laktos-box" name="special_diets[]" value="Laktos"/>
-                <label for="laktos-box">Laktos?</label>
+                <div>
+                  <input type="checkbox" class="filled-in" id="veg-box" name="special_diets[]" value="Vegetariskt"/>
+                  <label for="veg-box">Vegetariskt?</label>
+                </div>
 
-                <input type="checkbox" class="filled-in" id="gluten-box" name="special_diets[]" value="Gluten"/>
-                <label for="gluten-box">Gluten?</label>
+                <div>
+                  <input type="checkbox" class="filled-in" id="vegan-box" name="special_diets[]" value="Vegansk"/>
+                  <label for="vegan-box">Vegansk?</label>
+                </div>
 
-                <input type="checkbox" class="filled-in" id="seafood-box" name="special_diets[]" value="Skaldjur"/>
-                <label for="seafood-box">Skaldjur?</label>
+                <div>
+                  <input type="checkbox" class="filled-in" id="laktos-box" name="special_diets[]" value="Laktos"/>
+                  <label for="laktos-box">Laktos?</label>
+                </div>
 
-                <input type="checkbox" class="filled-in" id="fish-box" name="special_diets[]" value="Fisk"/>
-                <label for="fish-box">Fisk?</label>
+                <div>
+                  <input type="checkbox" class="filled-in" id="gluten-box" name="special_diets[]" value="Gluten"/>
+                  <label for="gluten-box">Gluten?</label>
+                </div>
 
-                <input type="checkbox" class="filled-in" id="peanuts-box" name="special_diets[]" value="Jordnötter"/>
-                <label for="peanuts-box">Jordnötter?</label>
-              </div>
-            </div>
+                <div>
+                  <input type="checkbox" class="filled-in" id="seafood-box" name="special_diets[]" value="Skaldjur"/>
+                  <label for="seafood-box">Skaldjur?</label>
+                </div>
 
+                <div>
+                  <input type="checkbox" class="filled-in" id="fish-box" name="special_diets[]" value="Fisk"/>
+                  <label for="fish-box">Fisk?</label>
+                </div>
 
-            <div class="row">
-              <div class="col s12 m9 l9">
-                <div class="row">
-                  <div class="input-field col s12">
-                    <textarea id="field-specialfood" type="text" class="materialize-textarea" name="special_diets[]"></textarea>
-                    <label for="field-specialfood">Övrigt</label>
-                  </div>
+                <div>
+                  <input type="checkbox" class="filled-in" id="peanuts-box" name="special_diets[]" value="Jordnötter"/>
+                  <label for="peanuts-box">Jordnötter?</label>
+                </div>
+
+                <br/>
+
+                <div class="input-field">
+                  <textarea id="field-specialfood" type="text" class="materialize-textarea" name="special_diets[]" rows="1"></textarea>
+                  <label for="field-specialfood">Övrigt</label>
                 </div>
               </div>
             </div>
@@ -98,10 +100,9 @@
 
           <!-- Sleep over-->
           <div class="row">
-            <label>Sovsal</label>
-          </div>
-          <div class="row">
-            <div class="col s12 m6 l6">
+            <div class="col s12">
+              <label for="sleep_over">Sovsal</label>
+
               <select id="sleep_over" name="sleep_over">
                 <option value="0">Jag vill göra det min orkester valt</option>
                 <option value="1">Ja, sova över i sovsal (50kr)</option>
@@ -111,52 +112,46 @@
           </div>
 
           <!-- Tshirt -->
-          <div class="row"> <!-- Orkestern hämtas ifrån vilken orkester man är med i?" -->
-            <label>Beställ tröjor med din orkesters namn på (100kr/st)</label>
-          </div>
           <div class="row">
+            <div class="col s12">
+              <p>Beställ tröjor med din orkesters namn på (100kr/st)</p>
 
-            <div class="col s12 m4 l3">
+              <div class="row">
+                <div class="col s4">
+                  <label>Vilken tröjmodell vill du ha?</label>
+                  <div class="switch">
+                    <label>
+                      Herr
+                      <input type="checkbox" data-role="flipswitch" id="switch-gender" onclick="togglePossibleTshirt()">
+                      <span class="lever"></span>
+                      Dam
+                    </label>
+                  </div>
 
-              <label>Vilken tröjmodell vill du ha?</label>
-              <div class="switch">
-                <label>
-                  Herr
-                  <input type="checkbox" data-role="flipswitch" id="switch-gender" onclick="togglePossibleTshirt()">
-                  <span class="lever"></span>
-                  Dam
-                </label>
+                    <select id="select-selected-tshirt">
+                      <option value="XS">XS</option>
+                      <option value="S">S</option>
+                      <option value="M">M</option>
+                      <option value="L">L</option>
+                      <option value="XL">XL</option>
+                      <option value="XXL">XXL</option>
+                      <option value="XXXL">XXXL</option>
+                    </select>
+
+                    <a class="waves-effect waves-light btn" onclick="addTshirt(this)">läggtill</a>
+                </div>
+                <div class="col s8">
+                  <label>Valda T-shirts </label>
+                  <ul class="collection" id="collection-of-tshirts"> </ul>
+                </div>
               </div>
-            </div>
-
-            <div class="col s12 m2 l3">
-              <select id="select-selected-tshirt">
-                <option value="XS">XS</option>
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
-                <option value="XL">XL</option>
-                <option value="XXL">XXL</option>
-                <option value="XXXL">XXXL</option>
-              </select>
-            </div>
-
-
-            <div class="col s12 m6 l6">
-              <a class="waves-effect waves-light btn" onclick="addTshirt(this)">läggtill</a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col s12 m6 l6">
-              <label>Valda T-shirts </label>
-              <ul class="collection" id="collection-of-tshirts"> </ul>
             </div>
           </div>
 
           <!-- medals -->
           <div class="row">
-            <div class="col s4 m6 l6">
-              <label>Medaljer  (40kr/st)</label>
+            <div class="col s6">
+              <label for="select-medals">Medaljer  (40kr/st)</label>
               <select id="select-medals" name="medals">
                 <option value="0">Ingen medalj</option>
                 <option value="1">1</option>
@@ -168,8 +163,8 @@
             </div>
 
             <!-- tags -->
-            <div class="col s4 m6 l6">
-              <label>Märken  (20kr/st)</label>
+            <div class="col s6">
+              <label for="select-tag">Märken  (20kr/st)</label>
               <select id="select-tag" name="tag">
                 <option value="0">Inget märke</option>
                 <option value="1">1</option>
@@ -181,11 +176,9 @@
             </div>
           </div>
           <div class="row">
-            <div class="input-field col s12">
+            <div class="col s12">
               <label> Är du aktiv eller gamling?</label>
-            </div>
 
-            <div class="input-field col s12">
               <p>
                 <input id="active" type="radio" name="active" value="active" checked>
                 <label for="active">Aktiv</label>
@@ -197,11 +190,8 @@
             </div>
           </div>
           <div class="row">
-            <div class="input-field col s12">
+            <div class="col s12">
               <label> Är detta ditt tioende raka SOF/STORK?</label>
-            </div>
-
-            <div class="input-field col s12">
               <p>
                 <input id="spree_yes" type="radio" name="spree" value="yes">
                 <label for="spree_yes">Ja</label>
@@ -213,13 +203,10 @@
             </div>
           </div>
 
-
           <div class="row">
-            <div class="input-field col s12">
+            <div class="col s12">
               <label> Har du varit på 25 eller fler SOF/STORK?</label>
-            </div>
 
-            <div class="input-field col s12">
               <p>
                 <input id="25years_yes" type="radio" name="25years" value="yes">
                 <label for="25years_yes">Ja</label>
@@ -230,49 +217,11 @@
               </p>
             </div>
           </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <label> Balett eller orkester?</label>
-            </div>
-
-            <div class="input-field col s12">
-              <p>
-                <!-- the orchs are comming!! -->
-                <input id="performingAs_orch" type="radio" name="performingAs" value="orchestra" checked>
-                <label for="performingAs_orch">Orkester</label>
-              </p>
-              <p>
-                <input id="performingAs_bal" type="radio" name="performingAs" value="ballet">
-                <label for="performingAs_bal">balett</label>
-              </p>
-            </div>
-          </div>
-
-
 
           <div class="row">
-            <div class="col s12 m6 l6">
-              <input type="checkbox" class="filled-in" id="otherPerformance-box" name="otherPerformance-box" onclick="toggleMultipleOrchestras(this)"/>
-              <label for="otherPerformance-box">Uppträder du med någon annan orkester?</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col s12 m9 l9">
-              <div class="row">
-                <div class="input-field col s12">
-                  <textarea id="otherPerformance-field" type="text" class="materialize-textarea" name="otherPerformance-field"disabled></textarea>
-                  <label for="otherPerformance-field">Vilken/Vilka?</label>
-                </div>
-              </div>
-            </div>
-          </div>
+            <div class="col s12">
+              <label for="size-of-instrument" >Hur stort är ditt instrument?</label>
 
-
-          <div class="row">
-            <label for="size-of-instrument" >Hur stort är ditt instrument?</label>
-          </div>
-          <div class="row">
-            <div class="col s6 m8 l8">
               <select id="select-size-of-instrument" name="size-of-instrument">
 
                 <option value="0">Tar inte med eget instrument</option>
@@ -284,12 +233,25 @@
             </div>
           </div>
 
+          <div class="row">
+            <div class="col s12">
+              <input type="checkbox" class="filled-in" id="otherPerformance-box" name="otherPerformance-box" onclick="toggleMultipleOrchestras(this)"/>
+              <label for="otherPerformance-box">Uppträder du med någon annan orkester?</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class=" input-field col s12">
+              <textarea id="otherPerformance-field" type="text" class="materialize-textarea" name="otherPerformance-field"disabled></textarea>
+              <label for="otherPerformance-field">Vilken/Vilka?</label>
+            </div>
+          </div>
+
 
           <div class="row">
             <button class="waves-effect waves-light btn" type="submit">Skicka</button>
           </div>
         </div>
-        <div class="col s12 m4">
+        <div class="col s12 m4 offset-m1">
           <div id="signup-summary">
             <h4>Sammanställning</h4>
             <table class="responsive-table">
