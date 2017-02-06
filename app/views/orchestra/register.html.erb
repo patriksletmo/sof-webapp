@@ -2,6 +2,7 @@
 
 <div class="container">
   <div class="row">
+    <% if current_user['orchestra_signup'].nil? %>
     <form method="post">
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
       <input id="is-lintek-member" type="hidden" value="<%= @isLintek %>">
@@ -269,5 +270,11 @@
         </div>
       </div>
     </form>
+    <% else %>
+        <h4>Orkesteranmälan inte tillgänglig</h4>
+        <p>Du är redan anmäld till orkestern "<%= current_user['orchestra_signup']['orchestra']['name'] %>".</p>
+        <p>För att anmäla dig till en annan orkester behöver du först ta bort din nuvarande anmälan.</p>
+        <a class="btn" href="<%= url_for action: :show_signup, id: current_user['orchestra_signup']['id'] %>">Till min anmälan</a>
+    <% end %>
   </div>
 </div>
