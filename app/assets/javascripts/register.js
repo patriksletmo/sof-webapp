@@ -95,7 +95,7 @@ function orchestraCodeInvalid() {
     var targetText = document.getElementById('valid_orchestra_code_label');
     target.disabled = false;
     target.checked = false;
-    targetText.innerHTML = "Utdaderad eller ogiltig orkesterkod, kontakta din orkesterledare för den senaste orkesterkoden";
+    targetText.innerHTML = "Utdaterad eller ogiltig orkesterkod, kontakta din orkesterledare för den senaste orkesterkoden";
     target.disabled = true;
 }
 

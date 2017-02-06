@@ -82,9 +82,9 @@ class OrchestraController < NavigationController
     end
 
 
-    @allTshirts = @signup["orchestra_articles"].select{|x| x["kind"]==1}
-    @totalMedals = @signup["orchestra_articles"].select{|x| x["kind"]==2}.count
-    @totalTags = @signup["orchestra_articles"].select{|x| x["kind"]==3}.count
+    #@allTshirts = @signup["orchestra_articles"].select{|x| x["kind"]==1}
+    #@totalMedals = @signup["orchestra_articles"].select{|x| x["kind"]==2}.count
+    #@totalTags = @signup["orchestra_articles"].select{|x| x["kind"]==3}.count
 
 
 
