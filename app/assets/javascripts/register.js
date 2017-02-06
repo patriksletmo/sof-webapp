@@ -5,9 +5,22 @@
 
 $(document).on('turbolinks:load', function () {
     $("#orchestra_code").on("input change",validateOrchestraCode);
+
+    /*
+    Disabled since pushpin functionality requires additional tweaking, and time is limited.
+
     $("#signup-summary").pushpin({
         top: $('#top-nav').height()
     });
+    */
+
+    $('#festival_ticket').change(updateArticleList);
+    $('#food_ticket').change(updateArticleList);
+    $('#sleep_over').change(updateArticleList);
+    $('#select-medals').change(updateArticleList);
+    $('#select-tag').change(updateArticleList);
+
+    updateArticleList();
 });
 
 function togglePossibleTshirt(){
@@ -67,6 +80,7 @@ function addTshirt() {
 
     entry.onclick = function () {
         this.parentElement.removeChild(this);
+        updateArticleList();
     }
 
     if(Tshirt_gender == "Female " && size == "XXXL") {
@@ -80,6 +94,8 @@ function addTshirt() {
         entry.appendChild(inpt);
         target.appendChild(entry);
     }
+
+    updateArticleList();
 }
 
 function orchestaCodeValid(){
