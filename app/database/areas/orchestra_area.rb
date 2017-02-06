@@ -11,6 +11,10 @@ module Areas
       get("/api/v1/orchestra/#{id}", authenticated_options)
     end
 
+    def delete_orchestra(id)
+      delete("/api/v1/orchestra/#{id}", authenticated_options)
+    end
+
     def delete_orchestra_signup(id)
       delete("/api/v1/orchestra_signup/#{id}", authenticated_options)
     end

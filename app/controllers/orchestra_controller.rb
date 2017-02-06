@@ -147,6 +147,19 @@ class OrchestraController < NavigationController
     redirect_to action: :register
   end
 
+  def delete_orchestra
+    return if require_login!
+
+    response = database.delete_orchestra(params[:id])
+    if response.success?
+      flash[:success] = 'Orkester borttagen'
+    else
+      flash[:error] = 'Kunde inte ta bort orkester'
+    end
+
+    redirect_to action: :create
+  end
+
   def verify_code
     return if require_login!
 
