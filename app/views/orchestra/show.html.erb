@@ -77,16 +77,20 @@
         <thead>
         <tr>
           <th>Namn</th>
-          <th>Totalpris</th>
+          <th>Kostnad</th>
         </tr>
         </thead>
         <tbody>
         <% @orchestra['orchestra_signups'].each do |signup| %>
             <tr>
               <td><%= signup['user']['display_name'] || '(namn saknas)' %></td>
-              <td>TODO</td>
+              <td><%= signup['total_cost'] %> SEK</td>
             </tr>
         <% end %>
+        <tr>
+          <th>Totalt</th>
+          <th><%= @orchestra['orchestra_signups'].sum { |x| x['total_cost'] } %> SEK</th>
+        </tr>
         </tbody>
       </table>
     </div>
