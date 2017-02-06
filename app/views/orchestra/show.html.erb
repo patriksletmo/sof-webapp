@@ -31,15 +31,15 @@
 
           <div class="input-field col s12">
             <p>
-              <input id="performingAs_orch" type="radio" name="item[ballet]" value="false" <%= 'checked' unless @orchestra['ballet'] %>>
+              <input id="performingAs_orch" type="radio" name="item[ballet]" value="false" <%= 'checked' if @orchestra['orchestra_type'] == 0 %>>
               <label for="performingAs_orch">Orkester</label>
             </p>
             <p>
-              <input id="performingAs_bal" type="radio" name="item[ballet]" value="true" <%= 'checked' if @orchestra['ballet'] %>>
+              <input id="performingAs_bal" type="radio" name="item[ballet]" value="true" <%= 'checked' if @orchestra['orchestra_type'] == 1 %>>
               <label for="performingAs_bal">Balett</label>
             </p>
             <p>
-              <input id="performingAs_orch_bal" type="radio" name="item[ballet]" value="true" <%= 'checked' if @orchestra['ballet'] %>>
+              <input id="performingAs_orch_bal" type="radio" name="item[ballet]" value="true" <%= 'checked' if @orchestra['orchestra_type'] == 2 %>>
               <label for="performingAs_orch_bal">Orkester + Balett</label>
             </p>
           </div>
