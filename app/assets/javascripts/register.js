@@ -25,7 +25,7 @@ function updateSignupSummary() {
     if ($(window).width() > 600) {
         signupSummary.pushpin({
             top: $('#top-nav').height(),
-            bottom: $('body').height() - $('footer').height() - $(signupSummary).height() - 65
+            bottom: $('body').height() - $('footer').height() - $(signupSummary).height() - 45
         });
     }
 
