@@ -21,6 +21,14 @@
           <td><%= @ticketCost %></td>
           <td><%= @ticketCost %></td>
         </tr>
+        <% if(@lintekDiscount < 0) %>
+          <tr>
+            <td>LinTek-rabatt</td>
+            <td> 1 </td>
+            <td><%= @lintekDiscount %></td>
+            <td><%= @lintekDiscount %></td>
+          </tr>
+        <% end %>
           <tr>
             <td>Matbiljett: <%= @foodTicket %></td>
             <td> 1 </td>
@@ -95,7 +103,6 @@
 <!-- TODO VILKA ORKESTREAR -->
   <% unless(@otherPerformances.nil?) %>
     <div class="col s12 m3 l3">
-      <h4>Allergier</h4>
       <table class="responsive-table">
         <thead>
         <tr>
