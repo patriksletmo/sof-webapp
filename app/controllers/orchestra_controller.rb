@@ -107,7 +107,7 @@ class OrchestraController < NavigationController
     if(@signup["dormitory"])
       @dormitory = 1
     else
-      @dormitory = 1
+      @dormitory = 0
     end
 
     @allTshirts = @signup["orchestra_articles"].select{|x| x["kind"]==1}
