@@ -86,11 +86,11 @@ class OrchestraController < NavigationController
 
     # Festivalbiljett
     @festivalTicketID = @signup["orchestra_ticket"]["kind"]
-    if @isLintek
-      @ticketCostStr = ["435", "410", "190", "0"]
-    else
-      @ticketCostStr = ["535", "510", "220", "0"]
-    end
+
+    @LintekDicounntCostStr = ["435", "410", "190", "0"]
+    @ticketCostStr = ["535", "510", "220", "0"]
+
+    @lintekDiscount = @LintekDicounntCostStr[@festivalTicketID].to_i - @ticketCostStr[@festivalTicketID].to_i
     @festivalTicket = @ticketText[@festivalTicketID]
     @ticketCost = @ticketCostStr[@festivalTicketID]
 
