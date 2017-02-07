@@ -4,7 +4,9 @@ class Database
   include HTTParty
   include Areas::AccountArea
   include Areas::MenuArea
+  include Areas::OrchestraArea
   include Areas::PagesArea
+  include Areas::UserArea
 
   base_uri Rails.configuration.database_api_url
 
@@ -15,15 +17,7 @@ class Database
   private
 
   def authenticated_options
-    {
-        :headers => {
-            'access-token': @token.auth_token,
-            'token-type':   'Bearer',
-            'client':       @token.client_id,
-            'expiry':       @token.expiry,
-            'uid':          @token.uid
-        }
-    }
+    {headers: @token.headers}
   end
 
   def get(*args)

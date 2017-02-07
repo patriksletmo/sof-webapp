@@ -20,6 +20,10 @@ main {
 
 }
 
+select {
+  display: block;
+}
+
 @media only screen and (max-width : 992px) {
   header, main, footer {
     margin-left: 0;

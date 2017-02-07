@@ -20,12 +20,26 @@
                 <div class="collapsible-body">
                   <ul>
                     <li>
-                      <a href="<%= profile_url %>">
-                        Profil
+                      <a href="<%= profile_url %>" class="submenu-item waves-effect waves-light">
+                        <%= current_user['display_name'] || 'Profil' %>
                       </a>
                     </li>
+                    <% unless current_user['orchestra'].nil? %>
+                      <li>
+                        <a href="<%= url_for controller: :orchestra, action: :show, id: current_user['orchestra']['id'] %>" class="submenu-item waves-effect waves-light">
+                          Min orkester
+                        </a>
+                      </li>
+                    <% end %>
+                    <% unless current_user['orchestra_signup'].nil? %>
+                        <li>
+                          <a href="<%= url_for controller: :orchestra, action: :show_signup, id: current_user['orchestra_signup']['id'] %>" class="submenu-item waves-effect waves-light">
+                            Min orkesteranmälan
+                          </a>
+                        </li>
+                    <% end %>
                     <li>
-                      <a href="<%= logout_url %>">
+                      <a href="<%= logout_url %>" class="submenu-item waves-effect waves-light">
                         Logga ut
                       </a>
                     </li>
@@ -49,7 +63,7 @@
                       <ul>
                         <% item['menu_items'].each do |sub_menu_item| %>
                             <li>
-                              <a href="#!" class="submenu-item waves-effect waves-light">
+                              <a href="<%= sub_menu_item['href'] %>" class="submenu-item waves-effect waves-light">
                                 <%= sub_menu_item['title'] %>
                               </a>
                             </li>
@@ -61,7 +75,7 @@
               </li>
           <% else %>
               <li>
-                <a href="#!" class="menu-item waves-effect waves-light">
+                <a href="<%= item['href'] %>" class="menu-item waves-effect waves-light">
                   <%= item['title'] %>
                 </a>
               </li>

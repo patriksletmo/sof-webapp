@@ -1,0 +1,71 @@
+<% content_for :header_title do %>Orkester<% end %>
+
+<div class="container">
+  <div class="row">
+    <% if current_user['orchestra'].nil? %>
+    <form method="post">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+      <h2 class="header">Skapa din orkester</h2>
+
+      <div class="row">
+        <div class="col s12 m6 l6">
+          <label for="orchestra-name">Orkesternamn</label>
+          <input type="text" id="orchestra-name" name="item[name]" required>
+        </div>
+
+        <div>
+          <div class="input-field col s12">
+            <label>Balett eller orkester?</label>
+          </div>
+
+          <div class="input-field col s12">
+            <p>
+              <input id="performingAs_orch" type="radio" name="item[orchestra_type]" value="0" checked>
+              <label for="performingAs_orch">Orkester</label>
+            </p>
+            <p>
+              <input id="performingAs_bal" type="radio" name="item[orchestra_type]" value="1">
+              <label for="performingAs_bal">Balett</label>
+            </p>
+            <p>
+              <input id="performingAs_orch_bal" type="radio" name="item[orchestra_type]" value="2">
+              <label for="performingAs_orch_bal">Orkester + Balett</label>
+            </p>
+          </div>
+        </div>
+    </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <label>Vill ni sova i sovsal?</label>
+          <br>
+          <p>
+            Under anmälan till er orkester/balett kan en medlem välja att inte ta ställning till att sova i sovsal eller
+            ej. Då tas automatiskt det beslut du gör nu.
+          </p>
+        </div>
+
+        <div class="input-field col s12">
+          <p>
+            <!-- the orchs are comming!! -->
+            <input id="dormitory_yes" type="radio" name="item[dormitory]" value="true" checked>
+            <label for="dormitory_yes">Ja</label>
+          </p>
+          <p>
+            <input id="dormitory_no" type="radio" name="item[dormitory]" value="false">
+            <label for="dormitory_no">Nej</label>
+          </p>
+        </div>
+      </div>
+
+      <button type="submit" class="btn">Skapa orkester</button>
+    </form>
+    <% else %>
+        <h4>Orkesterskapande inte tillgängligt</h4>
+        <p>Du har redan skapat orkestern "<%= current_user['orchestra']['name'] %>".</p>
+        <p>För att skapa en ny orkester behöver du först ta bort din nuvarande.</p>
+        <a class="btn" href="<%= url_for action: :show, id: current_user['orchestra']['id'] %>">Till min orkester</a>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<% map_permissions(@user).each do |permission| %>
+    <p>
+      <input type="checkbox" id="<%= permission[:id] %>" name="<%= permission[:id] %>" class="filled-in" <%= 'checked' if permission[:given] %>/>
+      <label for="<%= permission[:id] %>"><%= permission[:name] %></label>
+    </p>
+<% end %>

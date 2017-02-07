@@ -1,6 +1,5 @@
 <% content_for :header_title do %>Logga in<% end %>
 
-
 <div class="card-container">
     <div class="card login-register-card z-depth-1">
 
@@ -19,7 +18,7 @@
         <div id="login-card">
           <div class="card-action liu-student">
             <span class="card-title valign">Student på LiU?</span>
-            <a class="btn waves-effect waves-light z-depth-2" href="<%= url_for action: 'login_liu_id' %>">
+            <a class="btn waves-effect waves-light z-depth-2" href="<%= url_for action: 'login_liu_id', redirect_url: params[:redirect_url] %>">
               Logga in med LiU-ID
             </a>
           </div>
@@ -39,7 +38,7 @@
             </div>
 
             <div class="card-action login-forgotpassword">
-              <a class="card-action-text" href="javascript:;" onclick="document.getElementById('login_form').submit();">Logga in</a>
+              <a class="card-action-text" href="javascript:;" onclick="document.getElementById('login-form').submit();">Logga in</a>
               <a class="grey-text" href="<%= reset_request_url %>">Glömt ditt lösenord?</a>
             </div>
 
@@ -57,6 +56,10 @@
             <div class="card-content">
               <span class="card-title">Registrering för dig som inte är LiU-student</span>
               <div class="input-field">
+                <input type="text" name="display_name" id="display_name">
+                <label for="display_name">Namn</label>
+              </div>
+              <div class="input-field">
                 <input type="email" name="email" id="email">
                 <label for="email">E-mail</label>
               </div>
@@ -70,7 +73,7 @@
               </div>
             </div>
             <div class="card-action">
-              <a class="card-action-text" href="javascript:;" onclick="document.getElementById('register_user').submit();">Skapa användare</a>
+              <a id="login-button" class="card-action-text" href="javascript:;" onclick="document.getElementById('register_user').submit();">Skapa användare</a>
             </div>
 
             <input type="submit"
@@ -81,10 +84,3 @@
       </div>
     </div>
 </div>
-
-
-
-
-
-
-

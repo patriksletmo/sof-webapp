@@ -4,7 +4,7 @@ class NavigationController < ApplicationController
   protected
 
   def menu_items
-    @active_menu_items ||= Database.new(token).menu_items
+    @active_menu_items ||= database.menu_items
 
     unless @active_menu_items.success?
       raise 'Unable to fetch menu items from database'

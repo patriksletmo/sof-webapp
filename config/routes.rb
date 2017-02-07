@@ -12,6 +12,25 @@ Rails.application.routes.draw do
   get '/login/liu_id', to: 'user#login_liu_id'
   get '/login/verify', to: 'user#verify_liu_id'
 
+
+  # Orchestra
+  get 'orchestra' => 'orchestra#index'
+  match 'orchestra/register' => 'orchestra#register', via: [:get, :post]
+  match 'orchestra/create' => 'orchestra#create', via: [:get, :post]
+  match 'orchestra/delete' => 'orchestra#delete', via: [:post]
+  match 'orchestra/delete_orchestra' => 'orchestra#delete_orchestra', via: [:post]
+  get 'orchestra/orchestras' => 'orchestra#orchestras'
+  get 'orchestra/verify' => 'orchestra#verify_code'
+  get 'orchestra/:id' => 'orchestra#show'
+  post 'orchestra/:id' => 'orchestra#update'
+  match 'orchestra/:id/reset_code' => 'orchestra#reset_code', via: [:post]
+  get 'orchestra/signup/:id' => 'orchestra#show_signup'
+
+  # User management
+  get 'manage/users' => 'user_management#index'
+  get 'manage/users/:id' => 'user_management#show'
+  post 'manage/users/:id' => 'user_management#update'
+
   # Controller
   get 'contact' => 'contacts#contact'
   get 'press' => 'contacts#press'

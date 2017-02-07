@@ -1,7 +1,12 @@
 class UserController < NavigationController
+  def index
+    return if require_login!
+  end
+
   def register
     if request.post?
       response = database.register(
+          params[:display_name],
           params[:email],
           params[:password],
           params[:password_confirmation],
@@ -32,7 +37,12 @@ class UserController < NavigationController
 
       if response.success?
         store_token_from_response response
-        redirect_to profile_url
+
+        if params[:redirect_url]
+          redirect_to params[:redirect_url]
+        else
+          redirect_to profile_url
+        end
       else
         flash.now[:error] = response.friendly_error
       end
@@ -70,7 +80,12 @@ class UserController < NavigationController
 
   def verify_liu_id
     store_token
-    redirect_to profile_url
+
+    if params[:redirect_url]
+      redirect_to params[:redirect_url]
+    else
+      redirect_to profile_url
+    end
   end
 
   def logout
@@ -93,7 +108,7 @@ class UserController < NavigationController
   end
 
   def verify_liu_login_url
-    url_for controller: 'user', action: 'verify_liu_id', host: request.host
+    url_for controller: 'user', action: 'verify_liu_id', host: request.host, redirect_url: params[:redirect_url]
   end
 
   def account_activation_url
