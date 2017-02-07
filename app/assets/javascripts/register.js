@@ -4,16 +4,18 @@
 
 
 $(document).on('turbolinks:load', function () {
-    $("#orchestra_code").on("input change",validateOrchestraCode);
+    if ($('#festival_ticket').length > 0) {
+        $("#orchestra_code").on("input change", validateOrchestraCode);
 
-    $('#festival_ticket').change(updateArticleList);
-    $('#food_ticket').change(updateArticleList);
-    $('#sleep_over').change(updateArticleList);
-    $('#select-medals').change(updateArticleList);
-    $('#select-tag').change(updateArticleList);
+        $('#festival_ticket').change(updateArticleList);
+        $('#food_ticket').change(updateArticleList);
+        $('#sleep_over').change(updateArticleList);
+        $('#select-medals').change(updateArticleList);
+        $('#select-tag').change(updateArticleList);
 
-    updateArticleList();
-    updateSignupSummary();
+        updateArticleList();
+        updateSignupSummary();
+    }
 });
 
 $(window).on('resize', updateSignupSummary);
