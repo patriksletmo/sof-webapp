@@ -84,23 +84,27 @@
 }
 /* label focus color */
 .card-container .input-field input[type=email]:focus + label,
+.card-container .input-field input[type=text]:focus + label,
 .card-container .input-field input[type=password]:focus + label {
   color: $primary-color;
 }
 /* label underline focus color */
 .card-container .input-field input[type=email]:focus,
+.card-container .input-field input[type=text]:focus,
 .card-container .input-field input[type=password]:focus {
   border-bottom: 1px solid $secondary-color;
   box-shadow: 0 1px 0 0 $secondary-color;
 }
 /* valid color */
 .card-container .input-field input[type=email].valid,
+.card-container .input-field input[type=text].valid,
 .card-container .input-field input[type=password].valid {
   border-bottom: 1px solid $secondary-color;
   box-shadow: 0 1px 0 0 $secondary-color;
 }
 /* invalid color */
 .card-container .input-field input[type=email].invalid,
+.card-container .input-field input[type=text].invalid,
 .card-container .input-field input[type=password].invalid {
   border-bottom: 1px solid $secondary-color;
   box-shadow: 0 1px 0 0 $secondary-color;

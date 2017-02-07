@@ -38,7 +38,7 @@
             </div>
 
             <div class="card-action login-forgotpassword">
-              <a class="card-action-text" href="javascript:;" onclick="document.getElementById('login_form').submit();">Logga in</a>
+              <a class="card-action-text" href="javascript:;" onclick="document.getElementById('login-form').submit();">Logga in</a>
               <a class="grey-text" href="<%= reset_request_url %>">Glömt ditt lösenord?</a>
             </div>
 
@@ -55,6 +55,10 @@
 
             <div class="card-content">
               <span class="card-title">Registrering för dig som inte är LiU-student</span>
+              <div class="input-field">
+                <input type="text" name="display_name" id="display_name">
+                <label for="display_name">Namn</label>
+              </div>
               <div class="input-field">
                 <input type="email" name="email" id="email">
                 <label for="email">E-mail</label>
