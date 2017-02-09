@@ -128,6 +128,22 @@ en:
       error_detail_reference: You are already signed up for the orchestra "%{name}".
       error_detail_text: In order to sign up for a new orchestra you must first remove your current signup.
       error_goto_signup: Show my signup
+    show:
+      code:
+        text: "Code: %{code}"
+        explaination: When your orchestra members register they will have to supply the above code in order to connect to your orchestra.
+        reset: Create new code
+      header: Update orchestra
+      dormitory:
+        warning: NOTE! If you change this option all members who have previously chosen to follow your recommendation will be affected. The will have their option changed to your new choice.
+      actions:
+        update: Update orchestra
+        delete: Remove orchestra
+      members:
+        title: Registered members
+        name: Name
+        cost: Cost
+        total: Total
     messages:
       register:
         success: Registered to orchestra
@@ -139,6 +155,7 @@ en:
         failure: Could not update orchestra
       show:
         failure: Could not find orchestra
+        confirm_delete: Do you really want to remove your orchestra?
       show_signup:
         failure: Could not find signup
       reset_code:

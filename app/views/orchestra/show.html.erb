@@ -4,90 +4,84 @@
 <div class="container">
   <div class="row">
     <div class="col s12 m6">
-      <h4>Kod: <%= @orchestra['code'] %></h4>
-      <p>
-        När era orkestermedlemmar registrerar sig till er orkester måste de ange ovanstående kod för att kopplas till er
-        orkester.
-      </p>
+      <h4><%= t('.code.text', code: @orchestra['code']) %></h4>
+      <p><%= t('.code.explaination') %></p>
       <form method="post" action="<%= url_for action: :reset_code, id: @orchestra['id'] %>">
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-        <button type="submit" class="btn">Skapa ny kod</button>
+        <button type="submit" class="btn"><%= t('.code.reset') %></button>
       </form>
 
-      <h4>Uppdatera orkester</h4>
+      <h4><%= t('.header') %></h4>
 
       <form method="post">
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
         <div>
-          <label for="orchestra-name">Orkesternamn</label>
+          <label for="orchestra-name"><%= t('orchestra.create.name') %></label>
           <input type="text" id="orchestra-name" name="item[name]" value="<%= @orchestra['name'] %>" required>
         </div>
 
         <div>
           <div class="input-field col s12">
-            <label>Balett eller orkester?</label>
+            <label><%= t('orchestra.create.ballet_or_orchestra') %></label>
           </div>
 
           <div class="input-field col s12">
             <p>
               <input id="performingAs_orch" type="radio" name="item[ballet]" value="false" <%= 'checked' if @orchestra['orchestra_type'] == 0 %>>
-              <label for="performingAs_orch">Orkester</label>
+              <label for="performingAs_orch"><%= t('orchestra.create.option_orchestra') %></label>
             </p>
             <p>
               <input id="performingAs_bal" type="radio" name="item[ballet]" value="true" <%= 'checked' if @orchestra['orchestra_type'] == 1 %>>
-              <label for="performingAs_bal">Balett</label>
+              <label for="performingAs_bal"><%= t('orchestra.create.option_ballet') %></label>
             </p>
             <p>
               <input id="performingAs_orch_bal" type="radio" name="item[ballet]" value="true" <%= 'checked' if @orchestra['orchestra_type'] == 2 %>>
-              <label for="performingAs_orch_bal">Orkester + Balett</label>
+              <label for="performingAs_orch_bal"><%= t('orchestra.create.option_ballet_and_orchestra') %></label>
             </p>
           </div>
         </div>
 
         <div class="input-field col s12">
-          <label>Vill ni sova i sovsal?</label>
+          <label><%= t('orchestra.create.dormitory_title') %></label>
           <br>
+          <p><%= t('orchestra.create.dormitory_description') %></p>
           <p>
-            Under anmälan till er orkester/balett kan en medlem välja att inte ta ställning till att sova i sovsal eller
-            ej. Då tas automatiskt det beslut du gör nu.
-          </p>
-          <p>
-            <b>OBS! Ändrar du detta val påverkas alla medlemmar som valt att ej ta ställning. Deras val kommer uppdateras till ditt nya val.</b>
+            <b><%= t('.dormitory.warning') %></b>
           </p>
         </div>
 
         <div class="input-field col s12">
           <p>
             <input id="dormitory_yes" type="radio" name="item[dormitory]" value="true" <%= 'checked' if @orchestra['dormitory'] %>>
-            <label for="dormitory_yes">Ja</label>
+            <label for="dormitory_yes"><%= t('orchestra.create.dormitory_yes') %></label>
           </p>
           <p>
             <input id="dormitory_no" type="radio" name="item[dormitory]" value="false" <%= 'checked' unless @orchestra['dormitory'] %>>
-            <label for="dormitory_no">Nej</label>
+            <label for="dormitory_no"><%= t('orchestra.create.dormitory_no') %></label>
           </p>
         </div>
 
         <div class="input-field col s12">
           <br/>
-          <button type="submit" class="btn">Uppdatera orkester</button>
+          <button type="submit" class="btn"><%= t('.actions.update') %></button>
         </div>
       </form>
 
-      <form method="post" action="<%= url_for action: :delete_orchestra, id: @orchestra["id"] %>" onsubmit="return confirm('Vill du verkligen ta bort din orkester?');">
+      <form method="post" action="<%= url_for action: :delete_orchestra, id: @orchestra["id"] %>" onsubmit="return confirm('<%= t('orchestra.messages.show.confirm_delete') %>');">
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         <div class="input-field col s12">
-          <button type="submit" class="btn red">Ta bort orkester</button>
+          <button type="submit" class="btn red"><%= t('.actions.delete') %></button>
         </div>
       </form>
     </div>
     <div class="col s12 m6">
-      <h4>Anmälda medlemmar</h4>
+      <h4><%= t('.members.title') %></h4>
       <table class="responsive-table">
         <thead>
         <tr>
-          <th>Namn</th>
-          <th>Kostnad</th>
+          <th><%= t('.members.name') %></th>
+          <th><%= t('.members.cost') %></th>
         </tr>
         </thead>
         <tbody>
@@ -98,7 +92,7 @@
             </tr>
         <% end %>
         <tr>
-          <th>Totalt</th>
+          <th><%= t('.members.total') %></th>
           <th><%= @orchestra['orchestra_signups'].sum { |x| x['total_cost'] } %> SEK</th>
         </tr>
         </tbody>
