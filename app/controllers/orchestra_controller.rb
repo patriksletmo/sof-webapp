@@ -97,7 +97,10 @@ class OrchestraController < NavigationController
     end
 
     @isLintek = current_user['is_lintek_member']
-    @ticketText = ["Torsdag - Söndag", "Fredag - Söndag", "Lördag - Söndag", "Ingen biljett"]
+    @ticketText = [t('orchestra.register.festival_tickets.thursday.text_no_date'),
+                   t('orchestra.register.festival_tickets.friday.text_no_date'),
+                   t('orchestra.register.festival_tickets.saturday.text_no_date'),
+                   t('orchestra.register.festival_tickets.no_ticket.text')]
 
     # Festivalbiljett
     @festivalTicketID = @signup["orchestra_ticket"]["kind"]

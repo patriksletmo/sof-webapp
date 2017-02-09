@@ -37,14 +37,17 @@ sv:
       festival_tickets:
         thursday:
           text: Torsdag (11/5) - Söndag (14/5)
+          text_no_date: Torsdag - Söndag
           lintek_price: 435kr
           normal_price: 535kr
         friday:
           text: Fredag (12/5) - Söndag (14/5)
+          text_no_date: Fredag - Söndag
           lintek_price: 410kr
           normal_price: 510kr
         saturday:
           text: Lördag (13/5) - Söndag (15/5)
+          text_no_date: Lördag - Söndag
           lintek_price: 190kr
           normal_price: 220kr
         no_ticket:
