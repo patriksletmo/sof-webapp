@@ -12,3 +12,19 @@ sv:
       festival:
         title: Festivalen
         text: För att anmäla dig behöver du en orkesterkod från din orkester eller baletts ordförande. Den klistrar du in i anmälningsformuläret. Du fyller sedan i lite information om ditt besök, vilken typ av biljetter du önskar samt om du vill köpa några prylar. Inför festivalen kommer din orkester faktureras för dina inköp. Hur du hämtar ut dina grejer gör du upp med er ansvarig!
+    create:
+      header: Skapa din orkester
+      name: Orkesternamn
+      ballet_or_orchestra: Balett eller orkester?
+      option_orchestra: Orkester
+      option_ballet: Balett
+      option_ballet_and_orchestra: Orkester + Balett
+      dormitory_title: Vill ni sova i sovsal?
+      dormitory_description: Under anmälan till er orkester/balett kan en medlem välja att inte ta ställning till att sova i sovsal eller ej. Då tas automatiskt det beslut du gör nu.
+      dormitory_yes: Ja
+      dormitory_no: Nej
+      create_acion: Skapa orkester
+      error_not_available: Orkesterskapande inte tillgängligt
+      error_detail_reference: Du har redan skapat orkestern %{name}
+      error_detail_text: För att skapa en ny orkester behöver du först ta bort din nuvarande.
+      error_goto_orchestra: Till min orkester
