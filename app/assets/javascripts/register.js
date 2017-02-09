@@ -84,9 +84,9 @@ function addTshirt() {
 
     var Tshirt_gender;
     if(gender.checked){
-        Tshirt_gender = "Dam ";
+        Tshirt_gender = t()['orchestra']['register']['tshirts_model_female'] + ' ';
     } else {
-        Tshirt_gender = "Herr "
+        Tshirt_gender = t()['orchestra']['register']['tshirts_model_male'] + ' ';
     }
 
     var entry =  document.createElement('li');
@@ -169,13 +169,13 @@ function updateArticleList() {
 
     var costTotal = 0;
     var festivalTicketType = $('#festival_ticket').val();
-    costTotal += appendArticle('Festivalbiljett', festivalTicketPrices[festivalTicketType]);
+    costTotal += appendArticle(t()['orchestra']['register']['festival_ticket'], festivalTicketPrices[festivalTicketType]);
     costTotal += appendLinTekDiscount(festivalTicketType);
-    costTotal += appendArticle('Matbiljett', foodTicketPrices[$('#food_ticket').val()]);
-    costTotal += appendArticle('Sovsal', dormitoryPrices[$('#sleep_over').val()]);
-    costTotal += appendArticles('T-shirt', tshirtPrice, $('#collection-of-tshirts').find('li').length);
-    costTotal += appendArticles('Medalj', medalPrice, $('#select-medals').val());
-    costTotal += appendArticles('Märke', tagPrice, $('#select-tag').val());
+    costTotal += appendArticle(t()['orchestra']['register']['food_ticket'], foodTicketPrices[$('#food_ticket').val()]);
+    costTotal += appendArticle(t()['orchestra']['register']['dormitory'], dormitoryPrices[$('#sleep_over').val()]);
+    costTotal += appendArticles(t()['orchestra']['register']['tshirt'], tshirtPrice, $('#collection-of-tshirts').find('li').length);
+    costTotal += appendArticles(t()['orchestra']['register']['medal'], medalPrice, $('#select-medals').val());
+    costTotal += appendArticles(t()['orchestra']['register']['tag'], tagPrice, $('#select-tag').val());
 
     appendTotal(costTotal);
 
@@ -200,7 +200,7 @@ function appendArticles(name, price, amount) {
 
 function appendTotal(cost) {
     var row = $('<tr/>');
-    row.append($('<th/>').text('Totalt'));
+    row.append($('<th/>').text(t()['orchestra']['register']['summary_total']));
     row.append($('<th/>').text(cost.toString() + ' SEK'));
 
     $('#article-list').append(row);
@@ -216,7 +216,7 @@ function appendLinTekDiscount(ticketType) {
         discount = festivalTicketPricesLinTek[ticketType] - festivalTicketPrices[ticketType];
     }
 
-    return appendArticle("LinTek-rabatt", discount);
+    return appendArticle(t()['orchestra']['register']['lintek_discount'], discount);
 }
 
 function isLinTekMember() {

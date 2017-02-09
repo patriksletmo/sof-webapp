@@ -52,14 +52,17 @@ sv:
       dormitory_follow_orchestra: Jag vill göra det min orkester valt
       dormitory_yes: Ja, sova över i sovsal (50kr)
       dormitory_no: Nej
+      tshirt: T-shirt
       tshirts: Beställ tröjor med din orkesters namn på (100kr/st)
       tshirts_model: Vilken tröjmodell vill du ha?
       tshirts_model_male: Herr
       tshirts_model_female: Dam
       tshirts_add: Lägg till
       tshirts_chosen: Valda T-shirts
+      medal: Medalj
       medals: Medaljer (40kr/st)
       medals_none: Ingen medalj
+      tag: Märke
       tags: Märken (20kr/st)
       tags_none: Inget märke
       active_or_old: Är du aktiv eller gamling?
@@ -77,9 +80,11 @@ sv:
       instrument_size_large: Stort (Barytonsaxofon, tuba, stor väska eller liknande)
       other_performance: Uppträder du med någon annan orkester?
       other_performance_which: Vilken/Vilka?
+      lintek_discount: LinTek-rabatt
       summary: Sammanställning
       summary_article: Artikel
       summary_cost: Kostnad
+      summary_total: Totalt
       action: Registrera
       error_not_available: Orkesteranmälan inte tillgänglig
       error_detail_reference: Du är redan anmäld till orkestern "%{name}".

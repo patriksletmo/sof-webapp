@@ -73,14 +73,17 @@ en:
       dormitory_follow_orchestra: I wish to do what my orchestra has chosen
       dormitory_yes: "Yes (50 SEK)"
       dormitory_no: "No"
+      tshirt: T-shirt
       tshirts: Order T-shirts (100 SEK each)
       tshirts_model: What model do you want?
       tshirts_model_male: Male
       tshirts_model_female: Female
       tshirts_add: Add
       tshirts_chosen: Chosen T-shirts
+      medal: Medal
       medals: Medals (40 SEK each)
       medals_none: No medals
+      tag: Tag
       tags: Patches (20 SEK each)
       tags_none: No patch
       active_or_old: Are you active or an "oldie"?
@@ -98,9 +101,11 @@ en:
       instrument_size_large: Big (Barytonsaxofon, tuba, large suitcase or similar)
       other_performance: Are you preforming with any other orchestra?
       other_performance_which: Who/whom?
+      lintek_discount: LinTek discount
       summary: Summary
       summary_article: Article
       summary_cost: Cost
+      summary_total: Total
       action: Register
       error_not_available: Orchestra signup not available
       error_detail_reference: You are already signed up for the orchestra "%{name}".
