@@ -35,7 +35,7 @@ class UserManagementController < NavigationController
   def user_params
     {
         user: {
-          name: params[:name],
+          display_name: params[:display_name],
           permissions: permission_params
         }
     }
