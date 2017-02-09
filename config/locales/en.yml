@@ -55,6 +55,23 @@ en:
       code_invalid: Outdated or invalid signup code, contact your orchestra leader
       code_valid: Your code is valid
       festival_ticket: Festival ticket
+      festival_tickets:
+        thursday:
+          text: Thursday (11/5) - Sunday (14/5)
+          lintek_price: 435 SEK
+          normal_price: 535 SEK
+        friday:
+          text: Friday (12/5) - Sunday (14/5)
+          lintek_price: 410 SEK
+          normal_price: 510 SEK
+        saturday:
+          text: Saturday (13/5) - Sunday (15/5)
+          lintek_price: 190 SEK
+          normal_price: 220 SEK
+        no_ticket:
+          text: No festival ticket
+          lintek_price: 0 SEK
+          normal_price: 0 SEK
       food_ticket: Food ticket
       food_ticket_thursday: Thursday (11/5) - Sunday (14/5) (215 SEK)
       food_ticket_friday: Friday (12/5) - Sunday (14/5) (140 SEK)

@@ -8,19 +8,34 @@ class OrchestraController < NavigationController
 
     @isLintek = current_user['is_lintek_member']
 
-    @ticketText = ["Torsdag (11/5) - Söndag (14/5)", "Fredag (12/5) - Söndag (14/5)", "Lördag (13/5) - Söndag (15/5)", "Ingen biljett"]
+    @ticketText = [
+        t('orchestra.register.festival_tickets.thursday.text'),
+        t('orchestra.register.festival_tickets.friday.text'),
+        t('orchestra.register.festival_tickets.saturday.text'),
+        t('orchestra.register.festival_tickets.no_ticket.text')
+    ]
     if @isLintek
-      @ticketCostStr = [" (435kr)", " (410kr)", " (190kr)", " (0kr)"]
+      @ticketCostStr = [
+          t('orchestra.register.festival_tickets.thursday.lintek_price'),
+          t('orchestra.register.festival_tickets.friday.lintek_price'),
+          t('orchestra.register.festival_tickets.saturday.lintek_price'),
+          t('orchestra.register.festival_tickets.no_ticket.lintek_price')
+      ]
       @ticketCost = (0..3).to_a
     else
-      @ticketCostStr = [" (535kr)", " (510kr)", " (220kr)", " (0kr)"]
+      @ticketCostStr = [
+          t('orchestra.register.festival_tickets.thursday.normal_price'),
+          t('orchestra.register.festival_tickets.friday.normal_price'),
+          t('orchestra.register.festival_tickets.saturday.normal_price'),
+          t('orchestra.register.festival_tickets.no_ticket.normal_price')
+      ]
       @ticketCost = (0..3).to_a
     end
 
     @ticketOpt = [["", ""], ["", ""], ["", ""], ["", ""]]
 
     for i in 0..3
-      @ticketOpt[i][0] = @ticketText[i] + @ticketCostStr[i]
+      @ticketOpt[i][0] = @ticketText[i] + " (#{@ticketCostStr[i]})"
       @ticketOpt[i][1] = @ticketCost[i]
     end
 
