@@ -31,6 +31,9 @@ Rails.application.routes.draw do
   get 'manage/users/:id' => 'user_management#show'
   post 'manage/users/:id' => 'user_management#update'
 
+  # Orchestra management
+  get 'manage/orchestras' => 'orchestra_management#index'
+
   # Controller
   get 'contact' => 'contacts#contact'
   get 'press' => 'contacts#press'

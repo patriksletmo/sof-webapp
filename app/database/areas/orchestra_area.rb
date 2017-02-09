@@ -46,5 +46,9 @@ module Areas
       }
       get('/api/v1/orchestra_signup/verify', options.merge(authenticated_options))
     end
+
+    def all_orchestras
+      get('/api/v1/orchestra', authenticated_options)
+    end
   end
 end
