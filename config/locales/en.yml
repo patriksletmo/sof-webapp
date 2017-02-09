@@ -41,7 +41,7 @@ en:
       option_ballet: Ballet
       option_ballet_and_orchestra: Orchestra + Ballet
       dormitory_title: Dormitory
-      dormitory_description: TODO
+      dormitory_description: During the signup to your orchestra or ballet a member can choose to provide a default answer to the question whether the member wants to stay in a dormitory or not. The default answer for your orchestra is set here.
       dormitory_yes: "Yes"
       dormitory_no: "No"
       create_action: Create orchestra
