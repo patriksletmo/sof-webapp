@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'frontpage#index'
 
   # Internationalization
-  get '/lang', to: 'application#change_language'
+  get '/lang/:lang', to: 'application#change_language'
 
   # Authentication
   get '/profile', to: 'user#index'
