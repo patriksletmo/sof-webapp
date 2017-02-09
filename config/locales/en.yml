@@ -144,6 +144,21 @@ en:
         name: Name
         cost: Cost
         total: Total
+    show_signup:
+      header: Summary of orchestra registration
+      columns:
+        product: Product
+        amount: Amount
+        piece_price: Price per piece
+        total: Total
+      products:
+        medals: Medals
+        tags: Patches
+      sum: Sum
+      allergies: Allergies
+      other_performances: Other performances
+      actions:
+        delete: Remove signup
     messages:
       register:
         success: Registered to orchestra
@@ -158,6 +173,7 @@ en:
         confirm_delete: Do you really want to remove your orchestra?
       show_signup:
         failure: Could not find signup
+        confirm_delete: Do you really want to remove your signup?
       reset_code:
         success: Code updated
         failure: Could not create a new code

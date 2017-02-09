@@ -123,6 +123,21 @@ sv:
         name: Namn
         cost: Kostnad
         total: Totalt
+    show_signup:
+      header: Sammanfattning av orkesterregistrering
+      columns:
+        product: Produkt
+        amount: Antal
+        piece_price: Styckpris
+        total: Total
+      products:
+        medals: Medaljer
+        tags: Märken
+      sum: Summa
+      allergies: Allergier
+      other_performances: Andra uppträdanden
+      actions:
+        delete: Ta bort anmälan
     messages:
       register:
         success: Anmäld till orkester
@@ -137,6 +152,7 @@ sv:
         confirm_delete: Vill du verkligen ta bort din orkester?
       show_signup:
         failure: Kunde inte hitta anmälan
+        confirm_delete: Vill du verkligen ta bort din anmälan?
       reset_code:
         success: Kod uppdaterad
         failure: Kunde inte skapa ny kod
