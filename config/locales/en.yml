@@ -21,3 +21,15 @@
 
 en:
   hello: "Hello world"
+  switch_language: Visa sidan på svenska?
+  new_language: sv
+  orchestra:
+    title: Orchestra
+    hero_description: Welcome to SOF17!
+    heroes:
+      signup:
+        title: Signup
+        text: The registration period for orchestras is open from the 6th of February to the 5th of Mars. If you register after this period you will need to pay a late-registration fee of 100 SEK.
+      festival:
+        title: The festival
+        text: To register for an orchestra you need an orchestra code from your orchestras leader. You paste the code into the registration form and fill out the form. Before the festival your orchestra will be debited for your purchases.

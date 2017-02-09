@@ -18,5 +18,8 @@ module SofWebapp
     # -- all .rb files in that directory are automatically loaded.
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
     config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
+
+    # Fallback to English locale when Swedish translation is missing.
+    config.i18n.fallbacks = [:en]
   end
 end
