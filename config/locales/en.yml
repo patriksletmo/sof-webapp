@@ -33,3 +33,19 @@ en:
       festival:
         title: The festival
         text: To register for an orchestra you need an orchestra code from your orchestras leader. You paste the code into the registration form and fill out the form. Before the festival your orchestra will be debited for your purchases.
+    create:
+      header: Create an orchestra
+      name: Name of orchestra
+      ballet_or_orchestra: Ballet or orchestra?
+      option_orchestra: Orchestra
+      option_ballet: Ballet
+      option_ballet_and_orchestra: Orchestra + Ballet
+      dormitory_title: Dormitory
+      dormitory_description: TODO
+      dormitory_yes: "Yes"
+      dormitory_no: "No"
+      create_action: Create orchestra
+      error_not_available: Orchestra creation not available
+      error_detail_reference: You have already created the orchestra "%{name}".
+      error_detail_text: In order to create a new orchestra you must first remove your current orchestra.
+      error_goto_orchestra: Show my orchestra

@@ -23,8 +23,8 @@ sv:
       dormitory_description: Under anmälan till er orkester/balett kan en medlem välja att inte ta ställning till att sova i sovsal eller ej. Då tas automatiskt det beslut du gör nu.
       dormitory_yes: Ja
       dormitory_no: Nej
-      create_acion: Skapa orkester
+      create_action: Skapa orkester
       error_not_available: Orkesterskapande inte tillgängligt
-      error_detail_reference: Du har redan skapat orkestern %{name}
+      error_detail_reference: Du har redan skapat orkestern "%{name}".
       error_detail_text: För att skapa en ny orkester behöver du först ta bort din nuvarande.
       error_goto_orchestra: Till min orkester
