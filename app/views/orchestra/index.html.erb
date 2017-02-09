@@ -1,4 +1,4 @@
-<% content_for :header_title do %>Orkester<% end %>
+<% content_for :header_title do %><%= t('orchestra.title') %><% end %>
 
 <div class="hero-container">
   <div class="hero hero-orchestra center">
@@ -8,7 +8,7 @@
 <div class="container">
   <div class="row center">
     <p class="hero-description">
-      Välkommen till Stuentorkesterfestivalen tjugohundrasjutton!
+      <%= t('orchestra.hero_description') %>
     </p>
     <hr class="hero-divider">
   </div>
@@ -17,8 +17,8 @@
     <div class="col s12 m6 l6">
       <div class="text-with-icon-column">
         <i class="icon-user-plus"></i>
-        <h3>Anmälan</h3>
-        <span>Anmälningsperioden pågår mellan den 6:e februari och den 5:e mars. Om du anmäler dig efter detta tillkommer en förseningsavgift på 100 kr.</span>
+        <h3><%= t('orchestra.heroes.signup.title') %></h3>
+        <span><%= t('orchestra.heroes.signup.text') %></span>
       </div>
     </div>
 
@@ -26,8 +26,8 @@
     <div class="col s12 m6 l6">
       <div class="text-with-icon-column">
         <i class="icon-guitar"></i>
-        <h3>Festivalen</h3>
-        <span>För att anmäla dig behöver du en orkesterkod från din orkester eller baletts ordförande. Den klistrar du in i anmälningsformuläret. Du fyller sedan i lite information om ditt besök, vilken typ av biljetter du önskar samt om du vill köpa några prylar. Inför festivalen kommer din orkester faktureras för dina inköp. Hur du hämtar ut dina grejer gör du upp med er ansvarig!</span>
+        <h3><%= t('orchestra.heroes.festival.title') %></h3>
+        <span><%= t('orchestra.heroes.festival.text') %></span>
       </div>
     </div>
   </div>

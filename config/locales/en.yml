@@ -21,3 +21,168 @@
 
 en:
   hello: "Hello world"
+  switch_language: Visa sidan på svenska?
+  new_language: sv
+  orchestra:
+    title: Orchestra
+    hero_description: Welcome to SOF17!
+    heroes:
+      signup:
+        title: Signup
+        text: The registration period for orchestras is open from the 6th of February to the 5th of Mars. If you register after this period you will need to pay a late-registration fee of 100 SEK.
+      festival:
+        title: The festival
+        text: To register for an orchestra you need an orchestra code from your orchestras leader. You paste the code into the registration form and fill out the form. Before the festival your orchestra will be debited for your purchases.
+    create:
+      header: Create an orchestra
+      name: Name of orchestra
+      ballet_or_orchestra: Ballet or orchestra?
+      option_orchestra: Orchestra
+      option_ballet: Ballet
+      option_ballet_and_orchestra: Orchestra + Ballet
+      dormitory_title: Dormitory
+      dormitory_description: During the signup to your orchestra or ballet a member can choose to provide a default answer to the question whether the member wants to stay in a dormitory or not. The default answer for your orchestra is set here.
+      dormitory_yes: "Yes"
+      dormitory_no: "No"
+      create_action: Create orchestra
+      error_not_available: Orchestra creation not available
+      error_detail_reference: You have already created the orchestra "%{name}".
+      error_detail_text: In order to create a new orchestra you must first remove your current orchestra.
+      error_goto_orchestra: Show my orchestra
+    register:
+      header: Register for an orchestra
+      code: Orchestra signup code
+      code_invalid: Outdated or invalid signup code, contact your orchestra leader
+      code_valid: Your code is valid
+      festival_ticket: Festival ticket
+      festival_tickets:
+        thursday:
+          text: Thursday (11/5) - Sunday (14/5)
+          text_no_date: Thursday - Sunday
+          lintek_price: 435 SEK
+          normal_price: 535 SEK
+        friday:
+          text: Friday (12/5) - Sunday (14/5)
+          text_no_date: Friday - Sunday
+          lintek_price: 410 SEK
+          normal_price: 510 SEK
+        saturday:
+          text: Saturday (13/5) - Sunday (15/5)
+          text_no_date: Saturday - Sunday
+          lintek_price: 190 SEK
+          normal_price: 220 SEK
+        no_ticket:
+          text: No festival ticket
+          lintek_price: 0 SEK
+          normal_price: 0 SEK
+      food_ticket: Food ticket
+      food_ticket_thursday: Thursday (11/5) - Sunday (14/5) (215 SEK)
+      food_ticket_friday: Friday (12/5) - Sunday (14/5) (140 SEK)
+      food_ticket_saturday: Saturday (13/5) - Sunday (15/5) (75 SEK)
+      food_ticket_none: No food ticket (0 SEK)
+      special_diet: Do you have any special dietary requirements?
+      special_diet_vegetarian: Vegetarian?
+      special_diet_vegan: Vegan?
+      special_diet_lactose: Lactose-free?
+      special_diet_gluten: Gluten-free?
+      special_diet_seafood: Seafood-free?
+      special_diet_fish: Fish-free?
+      special_diet_peanuts: Peanut-free?
+      special_diet_other: Other
+      dormitory: Dormitory
+      dormitory_follow_orchestra: I wish to do what my orchestra has chosen
+      dormitory_yes: "Yes (50 SEK)"
+      dormitory_no: "No"
+      tshirt: T-shirt
+      tshirts: Order T-shirts (100 SEK each)
+      tshirts_model: What model do you want?
+      tshirts_model_male: Male
+      tshirts_model_female: Female
+      tshirts_add: Add
+      tshirts_chosen: Chosen T-shirts
+      medal: Medal
+      medals: Medals (40 SEK each)
+      medals_none: No medals
+      tag: Tag
+      tags: Patches (20 SEK each)
+      tags_none: No patch
+      active_or_old: Are you active or an "oldie"?
+      active: Active
+      old: Oldie
+      stork_streak: Is this your 10th straight SOF/STORK?
+      stork_25: Have you attended 25 or more SOF/STORK?
+      option_yes: "Yes"
+      option_no: "No"
+      instrument_size: Approximately what size is your instrument?
+      instrument_size_none: Will not bring any instrument
+      instrument_size_very_small: Very small (Clarinett, flute or similar)
+      instrument_size_small: Small (Trumpet, altsaxofon or similar)
+      instrument_size_medium: Middle (Tenorsaxofon, trombon or similar)
+      instrument_size_large: Big (Barytonsaxofon, tuba, large suitcase or similar)
+      other_performance: Are you preforming with any other orchestra?
+      other_performance_which: Who/whom?
+      lintek_discount: LinTek discount
+      summary: Summary
+      summary_article: Article
+      summary_cost: Cost
+      summary_total: Total
+      action: Register
+      error_not_available: Orchestra signup not available
+      error_detail_reference: You are already signed up for the orchestra "%{name}".
+      error_detail_text: In order to sign up for a new orchestra you must first remove your current signup.
+      error_goto_signup: Show my signup
+    show:
+      code:
+        text: "Code: %{code}"
+        explaination: When your orchestra members register they will have to supply the above code in order to connect to your orchestra.
+        reset: Create new code
+      header: Update orchestra
+      dormitory:
+        warning: NOTE! If you change this option all members who have previously chosen to follow your recommendation will be affected. The will have their option changed to your new choice.
+      actions:
+        update: Update orchestra
+        delete: Remove orchestra
+      members:
+        title: Registered members
+        name: Name
+        cost: Cost
+        total: Total
+    show_signup:
+      header: Summary of orchestra registration
+      columns:
+        product: Product
+        amount: Amount
+        piece_price: Price per piece
+        total: Total
+      products:
+        medals: Medals
+        tags: Patches
+      sum: Sum
+      allergies: Allergies
+      other_performances: Other performances
+      actions:
+        delete: Remove signup
+    messages:
+      register:
+        success: Registered to orchestra
+        failure: Could not create registration
+      create:
+        failure: Could not create orchestra
+      update:
+        success: Orchestra updated
+        failure: Could not update orchestra
+      show:
+        failure: Could not find orchestra
+        confirm_delete: Do you really want to remove your orchestra?
+      show_signup:
+        failure: Could not find signup
+        confirm_delete: Do you really want to remove your signup?
+      reset_code:
+        success: Code updated
+        failure: Could not create a new code
+      delete:
+        success: Signup removed
+        failure: Could not remove signup
+      delete_orchestra:
+        success: Orchestra removed
+        failure: Could not remove orchestra

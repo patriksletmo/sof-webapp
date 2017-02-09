@@ -4,33 +4,33 @@
 <div class="container">
 
   <div class="col s12 m6 l6">
-    <h4>Sammanfattning av orkesterregistrering</h4>
+    <h4><%= t('.header') %></h4>
     <table class="responsive-table">
       <thead>
       <tr>
-        <th>Produkt</th>
-        <th>Antal</th>
-        <th>styckpris</th>
-        <th>Total</th>
+        <th><%= t('.columns.product') %></th>
+        <th><%= t('.columns.amount') %></th>
+        <th><%= t('.columns.piece_price') %></th>
+        <th><%= t('.columns.total') %></th>
       </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Festivalbiljett: <%= @festivalTicket %></td>
+          <td><%= t('orchestra.register.festival_ticket') %>: <%= @festivalTicket %></td>
           <td> 1 </td>
           <td><%= @ticketCost %></td>
           <td><%= @ticketCost %></td>
         </tr>
         <% if(@lintekDiscount < 0) %>
           <tr>
-            <td>LinTek-rabatt</td>
+            <td><%= t('orchestra.register.lintek_discount') %></td>
             <td> 1 </td>
             <td><%= @lintekDiscount %></td>
             <td><%= @lintekDiscount %></td>
           </tr>
         <% end %>
           <tr>
-            <td>Matbiljett: <%= @foodTicket %></td>
+            <td><%= t('orchestra.register.food_ticket') %>: <%= @foodTicket %></td>
             <td> 1 </td>
             <td><%= @foodTicketCost %></td>
             <td><%= @foodTicketCost %></td>
@@ -38,7 +38,7 @@
 
        <% if(@dormitory == 1) %>
         <tr>
-          <td>Sovsal</td>
+          <td><%= t('orchestra.register.dormitory') %></td>
           <td>1</td>
           <td>50</td>
           <td>50</td>
@@ -54,7 +54,7 @@
       <% end %>
       <% if(@totalMedals > 0) %>
           <tr>
-            <td>Medaljer</td>
+            <td><%= t('.products.medals') %></td>
             <td><%= @totalMedals %></td>
             <td>40</td>
             <td><%= @totalMedals * 40 %></td>
@@ -62,14 +62,14 @@
       <% end %>
       <% if(@totalTags > 0) %>
           <tr>
-            <td>Märken</td>
+            <td><%= t('.products.tags') %></td>
             <td><%= @totalTags %></td>
             <td>20</td>
             <td><%= @totalTags * 20 %></td>
           </tr>
       <% end %>
       <tr>
-        <th>Summa</th>
+        <th><%= t('.sum') %></th>
         <td></td>
         <td></td>
         <td><%= @totalCost %> </td>
@@ -85,7 +85,7 @@
       <table class="responsive-table">
         <thead>
         <tr>
-          <th>Allergier</th>
+          <th><%= t('.allergies') %></th>
         </tr>
         </thead>
         <tbody>
@@ -106,7 +106,7 @@
       <table class="responsive-table">
         <thead>
         <tr>
-          <th>Andra uppträdanden</th>
+          <th><%= t('.other_performances') %></th>
         </tr>
         </thead>
         <tbody>
@@ -119,9 +119,9 @@
   <% end %>
 
   <!-- KNAPP -->
-  <form method="post" action="<%= url_for action: :delete, id: @signup["id"] %>" onsubmit="return confirm('Vill du verkligen ta bort din anmälan?');">
+  <form method="post" action="<%= url_for action: :delete, id: @signup["id"] %>" onsubmit="return confirm('<%= t('orchestra.messages.show_signup.confirm_delete') %>');">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    <button type="submit" class="btn red">Ta bort anmälan</button>
+    <button type="submit" class="btn red"><%= t('.actions.delete') %></button>
   </form>
 
 

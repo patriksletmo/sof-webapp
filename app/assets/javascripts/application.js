@@ -24,5 +24,7 @@ if (location.hash == '#register-card') {
     }, 1);
 }
 
-
-
+// Provide current translations from selected locale
+window.t = function() {
+    return window.I18n[$('#locale').val()];
+};

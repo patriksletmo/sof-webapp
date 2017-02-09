@@ -8,19 +8,34 @@ class OrchestraController < NavigationController
 
     @isLintek = current_user['is_lintek_member']
 
-    @ticketText = ["Torsdag (11/5) - Söndag (14/5)", "Fredag (12/5) - Söndag (14/5)", "Lördag (13/5) - Söndag (15/5)", "Ingen biljett"]
+    @ticketText = [
+        t('orchestra.register.festival_tickets.thursday.text'),
+        t('orchestra.register.festival_tickets.friday.text'),
+        t('orchestra.register.festival_tickets.saturday.text'),
+        t('orchestra.register.festival_tickets.no_ticket.text')
+    ]
     if @isLintek
-      @ticketCostStr = [" (435kr)", " (410kr)", " (190kr)", " (0kr)"]
+      @ticketCostStr = [
+          t('orchestra.register.festival_tickets.thursday.lintek_price'),
+          t('orchestra.register.festival_tickets.friday.lintek_price'),
+          t('orchestra.register.festival_tickets.saturday.lintek_price'),
+          t('orchestra.register.festival_tickets.no_ticket.lintek_price')
+      ]
       @ticketCost = (0..3).to_a
     else
-      @ticketCostStr = [" (535kr)", " (510kr)", " (220kr)", " (0kr)"]
+      @ticketCostStr = [
+          t('orchestra.register.festival_tickets.thursday.normal_price'),
+          t('orchestra.register.festival_tickets.friday.normal_price'),
+          t('orchestra.register.festival_tickets.saturday.normal_price'),
+          t('orchestra.register.festival_tickets.no_ticket.normal_price')
+      ]
       @ticketCost = (0..3).to_a
     end
 
     @ticketOpt = [["", ""], ["", ""], ["", ""], ["", ""]]
 
     for i in 0..3
-      @ticketOpt[i][0] = @ticketText[i] + @ticketCostStr[i]
+      @ticketOpt[i][0] = @ticketText[i] + " (#{@ticketCostStr[i]})"
       @ticketOpt[i][1] = @ticketCost[i]
     end
 
@@ -28,10 +43,10 @@ class OrchestraController < NavigationController
       item_params = orchestra_signup_params
       response = database.create_orchestra_signup(item_params)
       if response.success?
-        flash[:success] = 'Anmäld till orkester'
+        flash[:success] = t('orchestra.messages.register.success')
         redirect_to action: :show_signup, id: response['id']
       else
-        flash.now[:error] = 'Kunde inte skapa anmälan'
+        flash.now[:error] = t('orchestra.messages.register.failure')
       end
     end
   end
@@ -44,7 +59,7 @@ class OrchestraController < NavigationController
       if response.success?
         redirect_to action: :show, id: response['id']
       else
-        flash.now[:error] = 'Kunde inte skapa orkester'
+        flash.now[:error] = t('orchestra.messages.create.failure')
       end
     end
   end
@@ -54,9 +69,9 @@ class OrchestraController < NavigationController
 
     response = database.update_orchestra(params[:id], orchestra_params)
     if response.success?
-      flash[:success] = 'Orkester uppdaterad'
+      flash[:success] = t('orchestra.messages.update.success')
     else
-      flash[:error] = 'Kunde inte uppdatera orkester'
+      flash[:error] = t('orchestra.messages.update.failure')
     end
 
     redirect_to action: :show, id: params[:id]
@@ -67,7 +82,7 @@ class OrchestraController < NavigationController
 
     @orchestra = database.show_orchestra params[:id]
     unless @orchestra.success?
-      flash[:error] = 'Kunde inte hitta orkester'
+      flash[:error] = t('orchestra.messages.show.failure')
       redirect_to '/'
     end
   end
@@ -77,12 +92,15 @@ class OrchestraController < NavigationController
 
     @signup = database.show_orchestra_signup params[:id]
     unless @signup.success?
-      flash[:error] = 'Kunde inte hitta anmälan'
+      flash[:error] = t('orchestra.messages.show_signup.failure')
       redirect_to '/'
     end
 
     @isLintek = current_user['is_lintek_member']
-    @ticketText = ["Torsdag - Söndag", "Fredag - Söndag", "Lördag - Söndag", "Ingen biljett"]
+    @ticketText = [t('orchestra.register.festival_tickets.thursday.text_no_date'),
+                   t('orchestra.register.festival_tickets.friday.text_no_date'),
+                   t('orchestra.register.festival_tickets.saturday.text_no_date'),
+                   t('orchestra.register.festival_tickets.no_ticket.text')]
 
     # Festivalbiljett
     @festivalTicketID = @signup["orchestra_ticket"]["kind"]
@@ -130,9 +148,9 @@ class OrchestraController < NavigationController
 
     response = database.update_orchestra(params[:id], {item: {code: 'reset'}})
     if response.success?
-      flash[:success] = 'Kod uppdaterad'
+      flash[:success] = t('orchestra.messages.reset_code.success')
     else
-      flash[:error] = 'Kunde inte skapa ny kod'
+      flash[:error] = t('orchestra.messages.reset_code.failure')
     end
 
     redirect_to action: :show, id: params[:id]
@@ -143,9 +161,9 @@ class OrchestraController < NavigationController
 
     response = database.delete_orchestra_signup(params[:id])
     if response.success?
-      flash[:success] = 'Anmälan borttagen'
+      flash[:success] = t('orchestra.messages.delete.success')
     else
-      flash[:error] = 'Kunde inte ta bort anmälan'
+      flash[:error] = t('orchestra.messages.delete.failure')
     end
 
     redirect_to action: :register
@@ -156,9 +174,9 @@ class OrchestraController < NavigationController
 
     response = database.delete_orchestra(params[:id])
     if response.success?
-      flash[:success] = 'Orkester borttagen'
+      flash[:success] = t('orchestra.messages.delete_orchestra.success')
     else
-      flash[:error] = 'Kunde inte ta bort orkester'
+      flash[:error] = t('orchestra.messages.delete_orchestra.failure')
     end
 
     redirect_to action: :create

@@ -20,12 +20,17 @@
         </script>
     <% end %>
 
-
+    <!-- Localization -->
+    <script type="text/javascript">
+        window.I18n = <%= I18n.backend.send(:translations).to_json.html_safe %>
+    </script>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
 
   <body>
+    <input id="locale" type="hidden" value="<%= I18n.locale %>">
+
     <% flash.each do |key, value| %>
         <script type="application/javascript">
             Materialize.toast('<%= value %>', 4000)

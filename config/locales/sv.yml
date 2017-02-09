@@ -1,0 +1,167 @@
+sv:
+  hello: "Hej världen"
+  switch_language: Display page in English?
+  new_language: en
+  orchestra:
+    title: Orkester
+    hero_description: Välkommen till Stuentorkesterfestivalen tjugohundrasjutton!
+    heroes:
+      signup:
+        title: Anmälan
+        text: Anmälningsperioden pågår mellan den 6:e februari och den 5:e mars. Om du anmäler dig efter detta tillkommer en förseningsavgift på 100 kr.
+      festival:
+        title: Festivalen
+        text: För att anmäla dig behöver du en orkesterkod från din orkester eller baletts ordförande. Den klistrar du in i anmälningsformuläret. Du fyller sedan i lite information om ditt besök, vilken typ av biljetter du önskar samt om du vill köpa några prylar. Inför festivalen kommer din orkester faktureras för dina inköp. Hur du hämtar ut dina grejer gör du upp med er ansvarig!
+    create:
+      header: Skapa din orkester
+      name: Orkesternamn
+      ballet_or_orchestra: Balett eller orkester?
+      option_orchestra: Orkester
+      option_ballet: Balett
+      option_ballet_and_orchestra: Orkester + Balett
+      dormitory_title: Vill ni sova i sovsal?
+      dormitory_description: Under anmälan till er orkester/balett kan en medlem välja att inte ta ställning till att sova i sovsal eller ej. Då tas automatiskt det beslut du gör nu.
+      dormitory_yes: "Ja"
+      dormitory_no: "Nej"
+      create_action: Skapa orkester
+      error_not_available: Orkesterskapande inte tillgängligt
+      error_detail_reference: Du har redan skapat orkestern "%{name}".
+      error_detail_text: För att skapa en ny orkester behöver du först ta bort din nuvarande.
+      error_goto_orchestra: Till min orkester
+    register:
+      header: Registrera till en orkester
+      code: Orkesterkod
+      code_invalid: Utdaterad eller ogiltig orkesterkod, kontakta din orkesterledare
+      code_valid: Din kod är giltig
+      festival_ticket: Festivalbiljett
+      festival_tickets:
+        thursday:
+          text: Torsdag (11/5) - Söndag (14/5)
+          text_no_date: Torsdag - Söndag
+          lintek_price: 435kr
+          normal_price: 535kr
+        friday:
+          text: Fredag (12/5) - Söndag (14/5)
+          text_no_date: Fredag - Söndag
+          lintek_price: 410kr
+          normal_price: 510kr
+        saturday:
+          text: Lördag (13/5) - Söndag (15/5)
+          text_no_date: Lördag - Söndag
+          lintek_price: 190kr
+          normal_price: 220kr
+        no_ticket:
+          text: Ingen biljett
+          lintek_price: 0kr
+          normal_price: 0kr
+      food_ticket: Matbiljett
+      food_ticket_thursday: Torsdag (11/5) - Söndag (14/5) (215kr)
+      food_ticket_friday: Fredag (12/5) - Söndag (14/5) (140kr)
+      food_ticket_saturday: Lördag (13/5) - Söndag (15/5) (75kr)
+      food_ticket_none: Ingen biljett (0kr)
+      special_diet: Har du någon specialkost?
+      special_diet_vegetarian: Vegetariskt?
+      special_diet_vegan: Vegansk?
+      special_diet_lactose: Laktos?
+      special_diet_gluten: Gluten?
+      special_diet_seafood: Skaldjur?
+      special_diet_fish: Fisk?
+      special_diet_peanuts: Jordnötter?
+      special_diet_other: Övrigt
+      dormitory: Sovsal
+      dormitory_follow_orchestra: Jag vill göra det min orkester valt
+      dormitory_yes: Ja, sova över i sovsal (50kr)
+      dormitory_no: Nej
+      tshirt: T-shirt
+      tshirts: Beställ tröjor med din orkesters namn på (100kr/st)
+      tshirts_model: Vilken tröjmodell vill du ha?
+      tshirts_model_male: Herr
+      tshirts_model_female: Dam
+      tshirts_add: Lägg till
+      tshirts_chosen: Valda T-shirts
+      medal: Medalj
+      medals: Medaljer (40kr/st)
+      medals_none: Ingen medalj
+      tag: Märke
+      tags: Märken (20kr/st)
+      tags_none: Inget märke
+      active_or_old: Är du aktiv eller gamling?
+      active: Aktiv
+      old: Gamling
+      stork_streak: Är detta ditt tioende raka SOF/STORK?
+      stork_25: Har du varit på 25 eller fler SOF/STORK?
+      option_yes: "Ja"
+      option_no: "Nej"
+      instrument_size: Hur stort är ditt instrument?
+      instrument_size_none: Tar inte med eget instrument
+      instrument_size_very_small: Mycket litet (Klarinett, flöjt eller liknande)
+      instrument_size_small: Litet (Trumpet, altsaxofon eller liknande)
+      instrument_size_medium: Medel (Tenorsaxofon, trombon eller liknande)
+      instrument_size_large: Stort (Barytonsaxofon, tuba, stor väska eller liknande)
+      other_performance: Uppträder du med någon annan orkester?
+      other_performance_which: Vilken/Vilka?
+      lintek_discount: LinTek-rabatt
+      summary: Sammanställning
+      summary_article: Artikel
+      summary_cost: Kostnad
+      summary_total: Totalt
+      action: Registrera
+      error_not_available: Orkesteranmälan inte tillgänglig
+      error_detail_reference: Du är redan anmäld till orkestern "%{name}".
+      error_detail_text: För att anmäla dig till en annan orkester behöver du först ta bort din nuvarande anmälan.
+      error_goto_signup: Till min anmälan
+    show:
+      code:
+        text: "Kod: %{code}"
+        explaination: När era orkestermedlemmar registrerar sig till er orkester måste de ange ovanstående kod för att kopplas till er orkester.
+        reset: Skapa ny kod
+      header: Uppdatera orkester
+      dormitory:
+        warning: OBS! Ändrar du detta val påverkas alla medlemmar som valt att ej ta ställning. Deras val kommer uppdateras till ditt nya val.
+      actions:
+        update: Uppdatera orkester
+        delete: Ta bort orkester
+      members:
+        title: Anmälda medlemmar
+        name: Namn
+        cost: Kostnad
+        total: Totalt
+    show_signup:
+      header: Sammanfattning av orkesterregistrering
+      columns:
+        product: Produkt
+        amount: Antal
+        piece_price: Styckpris
+        total: Total
+      products:
+        medals: Medaljer
+        tags: Märken
+      sum: Summa
+      allergies: Allergier
+      other_performances: Andra uppträdanden
+      actions:
+        delete: Ta bort anmälan
+    messages:
+      register:
+        success: Anmäld till orkester
+        failure: Kunde inte skapa anmälan
+      create:
+        failure: Kunde inte skapa orkester
+      update:
+        success: Orkester uppdaterad
+        failure: Kunde inte uppdatera orkester
+      show:
+        failure: Kunde inte hitta orkester
+        confirm_delete: Vill du verkligen ta bort din orkester?
+      show_signup:
+        failure: Kunde inte hitta anmälan
+        confirm_delete: Vill du verkligen ta bort din anmälan?
+      reset_code:
+        success: Kod uppdaterad
+        failure: Kunde inte skapa ny kod
+      delete:
+        success: Anmälan borttagen
+        failure: Kunde inte ta bort anmälan
+      delete_orchestra:
+        success: Orkester borttagen
+        failure: Kunde inte ta bort orkester
