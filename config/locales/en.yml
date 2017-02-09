@@ -49,3 +49,60 @@ en:
       error_detail_reference: You have already created the orchestra "%{name}".
       error_detail_text: In order to create a new orchestra you must first remove your current orchestra.
       error_goto_orchestra: Show my orchestra
+    register:
+      header: Register for an orchestra
+      code: Orchestra signup code
+      code_invalid: Outdated or invalid signup code, contact your orchestra leader
+      code_valid: Your code is valid
+      festival_ticket: Festival ticket
+      food_ticket: Food ticket
+      food_ticket_thursday: Thursday (11/5) - Sunday (14/5) (215 SEK)
+      food_ticket_friday: Friday (12/5) - Sunday (14/5) (140 SEK)
+      food_ticket_saturday: Saturday (13/5) - Sunday (15/5) (75 SEK)
+      food_ticket_none: No food ticket (0kr)
+      special_diet: Do you have any special dietary requirements?
+      special_diet_vegetarian: Vegetarian?
+      special_diet_vegan: Vegan?
+      special_diet_lactose: Lactose-free?
+      special_diet_gluten: Gluten-free?
+      special_diet_seafood: Seafood-free?
+      special_diet_fish: Fish-free?
+      special_diet_peanuts: Peanut-free?
+      special_diet_other: Other
+      dormitory: Dormitory
+      dormitory_follow_orchestra: I wish to do what my orchestra has chosen
+      dormitory_yes: "Yes (50 SEK)"
+      dormitory_no: "No"
+      tshirts: Order T-shirts (100 SEK each)
+      tshirts_model: What model do you want?
+      tshirts_model_male: Male
+      tshirts_model_female: Female
+      tshirts_add: Add
+      tshirts_chosen: Chosen T-shirts
+      medals: Medals (40 SEK each)
+      medals_none: No medals
+      tags: Patches (20 SEK each)
+      tags_none: No patch
+      active_or_old: Are you active or an "oldie"?
+      active: Active
+      old: Oldie
+      stork_streak: Is this your 10th straight SOF/STORK?
+      stork_25: Have you attended 25 or more SOF/STORK?
+      option_yes: "Yes"
+      option_no: "No"
+      instrument_size: Approximately what size is your instrument?
+      instrument_size_none: Will not bring any instrument
+      instrument_size_very_small: Very small (Clarinett, flute or similar)
+      instrument_size_small: Small (Trumpet, altsaxofon or similar)
+      instrument_size_medium: Middle (Tenorsaxofon, trombon or similar)
+      instrument_size_large: Big (Barytonsaxofon, tuba, large suitcase or similar)
+      other_performance: Are you preforming with any other orchestra?
+      other_performance_which: Who/whom?
+      summary: Summary
+      summary_article: Article
+      summary_cost: Cost
+      action: Register
+      error_not_available: Orchestra signup not available
+      error_detail_reference: You are already signed up for the orchestra "%{name}".
+      error_detail_text: In order to sign up for a new orchestra you must first remove your current signup.
+      error_goto_signup: Show my signup

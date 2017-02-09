@@ -21,10 +21,67 @@ sv:
       option_ballet_and_orchestra: Orkester + Balett
       dormitory_title: Vill ni sova i sovsal?
       dormitory_description: Under anmälan till er orkester/balett kan en medlem välja att inte ta ställning till att sova i sovsal eller ej. Då tas automatiskt det beslut du gör nu.
-      dormitory_yes: Ja
-      dormitory_no: Nej
+      dormitory_yes: "Ja"
+      dormitory_no: "Nej"
       create_action: Skapa orkester
       error_not_available: Orkesterskapande inte tillgängligt
       error_detail_reference: Du har redan skapat orkestern "%{name}".
       error_detail_text: För att skapa en ny orkester behöver du först ta bort din nuvarande.
       error_goto_orchestra: Till min orkester
+    register:
+      header: Registrera till en orkester
+      code: Orkesterkod
+      code_invalid: Utdaterad eller ogiltig orkesterkod, kontakta din orkesterledare
+      code_valid: Din kod är giltig
+      festival_ticket: Festivalbiljett
+      food_ticket: Matbiljett
+      food_ticket_thursday: Torsdag (11/5) - Söndag (14/5) (215kr)
+      food_ticket_friday: Fredag (12/5) - Söndag (14/5) (140kr)
+      food_ticket_saturday: Lördag (13/5) - Söndag (15/5) (75kr)
+      food_ticket_none: Ingen biljett (0kr)
+      special_diet: Har du någon specialkost?
+      special_diet_vegetarian: Vegetariskt?
+      special_diet_vegan: Vegansk?
+      special_diet_lactose: Laktos?
+      special_diet_gluten: Gluten?
+      special_diet_seafood: Skaldjur?
+      special_diet_fish: Fisk?
+      special_diet_peanuts: Jordnötter?
+      special_diet_other: Övrigt
+      dormitory: Sovsal
+      dormitory_follow_orchestra: Jag vill göra det min orkester valt
+      dormitory_yes: Ja, sova över i sovsal (50kr)
+      dormitory_no: Nej
+      tshirts: Beställ tröjor med din orkesters namn på (100kr/st)
+      tshirts_model: Vilken tröjmodell vill du ha?
+      tshirts_model_male: Herr
+      tshirts_model_female: Dam
+      tshirts_add: Lägg till
+      tshirts_chosen: Valda T-shirts
+      medals: Medaljer (40kr/st)
+      medals_none: Ingen medalj
+      tags: Märken (20kr/st)
+      tags_none: Inget märke
+      active_or_old: Är du aktiv eller gamling?
+      active: Aktiv
+      old: Gamling
+      stork_streak: Är detta ditt tioende raka SOF/STORK?
+      stork_25: Har du varit på 25 eller fler SOF/STORK?
+      option_yes: "Ja"
+      option_no: "Nej"
+      instrument_size: Hur stort är ditt instrument?
+      instrument_size_none: Tar inte med eget instrument
+      instrument_size_very_small: Mycket litet (Klarinett, flöjt eller liknande)
+      instrument_size_small: Litet (Trumpet, altsaxofon eller liknande)
+      instrument_size_medium: Medel (Tenorsaxofon, trombon eller liknande)
+      instrument_size_large: Stort (Barytonsaxofon, tuba, stor väska eller liknande)
+      other_performance: Uppträder du med någon annan orkester?
+      other_performance_which: Vilken/Vilka?
+      summary: Sammanställning
+      summary_article: Artikel
+      summary_cost: Kostnad
+      action: Registrera
+      error_not_available: Orkesteranmälan inte tillgänglig
+      error_detail_reference: Du är redan anmäld till orkestern "%{name}".
+      error_detail_text: För att anmäla dig till en annan orkester behöver du först ta bort din nuvarande anmälan.
+      error_goto_signup: Till min anmälan

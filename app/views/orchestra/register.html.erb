@@ -1,4 +1,4 @@
-<% content_for :header_title do %>Orkester<% end %>
+<% content_for :header_title do %><%= t('orchestra.title') %><% end %>
 
 <div class="container">
   <div class="row">
@@ -10,34 +10,41 @@
 
       <div class="row">
         <div class="col s12 m7 l7">
-          <h4 class="header">Registrera till en orkester</h4>
+          <h4 class="header"><%= t('.header') %></h4>
 
           <p>
-            Välkommen till Stuentorkesterfestivalen tjugohundrasjutton!
+            <%= t('orchestra.hero_description') %>
           </p>
           <p>
-            Anmälningsperioden pågår mellan den 6:e februari och den 5:e mars. Om du anmäler dig efter detta tillkommer en förseningsavgift på 100 kr.
+            <%= t('orchestra.heroes.signup.text') %>
           </p>
           <p>
-            För att anmäla dig behöver du en orkesterkod från din orkester eller baletts ordförande. Den klistrar du in i anmälningsformuläret. Du fyller sedan i lite information om ditt besök, vilken typ av biljetter du önskar samt om du vill köpa några prylar. Inför festivalen kommer din orkester faktureras för dina inköp. Hur du hämtar ut dina grejer gör du upp med er ansvarig!
+            <%= t('orchestra.heroes.festival.text') %>
           </p>
 
           <!-- Orchestra code -->
           <div class="row">
           <div class="input-field col s12">
-              <label for="orchestra_code">Orkesterkod</label>
+              <label for="orchestra_code"><%= t('orchestra.register.code') %></label>
               <input id="orchestra_code" type="text" class="validate" name="code" required>
           </div>
           <div class="col s12">
               <input id="valid_orchestra_code" type="checkbox" class="checked" disabled>
-              <label for="valid_orchestra_code" id="valid_orchestra_code_label">Utdaterad eller ogiltig orkesterkod, kontakta din orkesterledare</label>
+              <label for="valid_orchestra_code" id="valid_orchestra_code_label">
+                <span id="code-invalid">
+                  <%= t('orchestra.register.code_invalid') %>
+                </span>
+                <span id="code-valid" style="display: none;">
+                  <%= t('orchestra.register.code_valid') %>
+                </span>
+              </label>
           </div>
           </div>
 
           <!-- Festival ticket -->
           <div class="row">
             <div class="col s12">
-              <label for="festival_ticket">Festivalbiljett </label>
+              <label for="festival_ticket"><%= t('orchestra.register.festival_ticket') %></label>
               <select name="festival_ticket" id="festival_ticket">
                 <%=  options_for_select(@ticketOpt)  %>
               </select>
@@ -47,12 +54,12 @@
           <!-- Food ticket -->
           <div class="row">
             <div class="col s12">
-              <label for="food_ticket">Matbiljett</label>
+              <label for="food_ticket"><%= t('orchestra.register.food_ticket') %></label>
               <select name="food_ticket" id="food_ticket">
-                <option value="0">Torsdag (11/5) - Söndag (14/5) (215kr)</option>
-                <option value="1">Fredag (12/5) - Söndag (14/5) (140kr)</option>
-                <option value="2">Lördag (13/5) - Söndag (15/5) (75kr)</option>
-                <option value="3">Ingen biljett (0kr)</option>
+                <option value="0"><%= t('orchestra.register.food_ticket_thursday') %></option>
+                <option value="1"><%= t('orchestra.register.food_ticket_friday') %></option>
+                <option value="2"><%= t('orchestra.register.food_ticket_saturday') %></option>
+                <option value="3"><%= t('orchestra.register.food_ticket_none') %></option>
               </select>
 
             </div>
@@ -61,51 +68,51 @@
           <div class="row">
             <div class="col s12">
               <input type="checkbox" class="filled-in" id="specialfood-box" name="has_special_diet" onclick="toggleSpecialkost(this)"/>
-              <label for="specialfood-box">Har du någon specialkost?</label>
+              <label for="specialfood-box"><%= t('orchestra.register.special_diet') %></label>
 
               <div id="specialfood-group" style = "display:none" disabled>
                 <br/>
 
                 <div>
                   <input type="checkbox" class="filled-in" id="veg-box" name="special_diets[]" value="Vegetariskt"/>
-                  <label for="veg-box">Vegetariskt?</label>
+                  <label for="veg-box"><%= t('.special_diet_vegetarian') %></label>
                 </div>
 
                 <div>
                   <input type="checkbox" class="filled-in" id="vegan-box" name="special_diets[]" value="Vegansk"/>
-                  <label for="vegan-box">Vegansk?</label>
+                  <label for="vegan-box"><%= t('.special_diet_vegan') %></label>
                 </div>
 
                 <div>
                   <input type="checkbox" class="filled-in" id="laktos-box" name="special_diets[]" value="Laktos"/>
-                  <label for="laktos-box">Laktos?</label>
+                  <label for="laktos-box"><%= t('.special_diet_lactose') %></label>
                 </div>
 
                 <div>
                   <input type="checkbox" class="filled-in" id="gluten-box" name="special_diets[]" value="Gluten"/>
-                  <label for="gluten-box">Gluten?</label>
+                  <label for="gluten-box"><%= t('.special_diet_gluten') %></label>
                 </div>
 
                 <div>
                   <input type="checkbox" class="filled-in" id="seafood-box" name="special_diets[]" value="Skaldjur"/>
-                  <label for="seafood-box">Skaldjur?</label>
+                  <label for="seafood-box"><%= t('.special_diet_seafood') %></label>
                 </div>
 
                 <div>
                   <input type="checkbox" class="filled-in" id="fish-box" name="special_diets[]" value="Fisk"/>
-                  <label for="fish-box">Fisk?</label>
+                  <label for="fish-box"><%= t('.special_diet_fish') %></label>
                 </div>
 
                 <div>
                   <input type="checkbox" class="filled-in" id="peanuts-box" name="special_diets[]" value="Jordnötter"/>
-                  <label for="peanuts-box">Jordnötter?</label>
+                  <label for="peanuts-box"><%= t('.special_diet_peanuts') %></label>
                 </div>
 
                 <br/>
 
                 <div class="input-field">
                   <textarea id="field-specialfood" type="text" class="materialize-textarea" name="special_diets[]" rows="1"></textarea>
-                  <label for="field-specialfood">Övrigt</label>
+                  <label for="field-specialfood"><%= t('.special_diet_other') %></label>
                 </div>
               </div>
             </div>
@@ -114,12 +121,12 @@
           <!-- Sleep over-->
           <div class="row">
             <div class="col s12">
-              <label for="sleep_over">Sovsal</label>
+              <label for="sleep_over"><%= t('.dormitory') %></label>
 
               <select id="sleep_over" name="sleep_over">
-                <option value="0">Jag vill göra det min orkester valt</option>
-                <option value="1">Ja, sova över i sovsal (50kr)</option>
-                <option value="2">Nej</option>
+                <option value="0"><%= t('.dormitory_follow_orchestra') %></option>
+                <option value="1"><%= t('.dormitory_yes') %></option>
+                <option value="2"><%= t('.dormitory_no') %></option>
               </select>
             </div>
           </div>
@@ -127,17 +134,17 @@
           <!-- Tshirt -->
           <div class="row">
             <div class="col s12">
-              <p>Beställ tröjor med din orkesters namn på (100kr/st)</p>
+              <p><%= t('.tshirts') %></p>
 
               <div class="row">
                 <div class="col s4">
-                  <label>Vilken tröjmodell vill du ha?</label>
+                  <label><%= t('.tshirts_model') %></label>
                   <div class="switch">
                     <label>
-                      Herr
+                      <%= t('.tshirts_model_male') %>
                       <input type="checkbox" data-role="flipswitch" id="switch-gender" onclick="togglePossibleTshirt()">
                       <span class="lever"></span>
-                      Dam
+                      <%= t('.tshirts_model_female') %>
                     </label>
                   </div>
 
@@ -151,10 +158,10 @@
                       <option value="XXXL">XXXL</option>
                     </select>
 
-                    <a class="waves-effect waves-light btn" onclick="addTshirt(this)">läggtill</a>
+                    <a class="waves-effect waves-light btn" onclick="addTshirt(this)"><%= t('.tshirts_add') %></a>
                 </div>
                 <div class="col s8">
-                  <label>Valda T-shirts </label>
+                  <label><%= t('.tshirts_chosen') %></label>
                   <ul class="collection" id="collection-of-tshirts"> </ul>
                 </div>
               </div>
@@ -164,9 +171,9 @@
           <!-- medals -->
           <div class="row">
             <div class="col s6">
-              <label for="select-medals">Medaljer  (40kr/st)</label>
+              <label for="select-medals"><%= t('.medals') %></label>
               <select id="select-medals" name="medals">
-                <option value="0">Ingen medalj</option>
+                <option value="0"><%= t('.medals_none') %></option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -177,9 +184,9 @@
 
             <!-- tags -->
             <div class="col s6">
-              <label for="select-tag">Märken  (20kr/st)</label>
+              <label for="select-tag"><%= t('.tags') %></label>
               <select id="select-tag" name="tag">
-                <option value="0">Inget märke</option>
+                <option value="0"><%= t('.tags_none') %></option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -190,58 +197,58 @@
           </div>
           <div class="row">
             <div class="col s12">
-              <label> Är du aktiv eller gamling?</label>
+              <label><%= t('.active_or_old') %></label>
 
               <p>
                 <input id="active" type="radio" name="active" value="active" checked>
-                <label for="active">Aktiv</label>
+                <label for="active"><%= t('.active') %></label>
               </p>
               <p>
                 <input id="inactive" type="radio" name="active" value="inactive">
-                <label for="inactive">Gamling</label>
+                <label for="inactive"><%= t('.old') %></label>
               </p>
             </div>
           </div>
           <div class="row">
             <div class="col s12">
-              <label> Är detta ditt tioende raka SOF/STORK?</label>
+              <label><%= t('.stork_streak') %></label>
               <p>
                 <input id="spree_yes" type="radio" name="spree" value="yes">
-                <label for="spree_yes">Ja</label>
+                <label for="spree_yes"><%= t('.option_yes') %></label>
               </p>
               <p>
                 <input id="spree_no" type="radio" name="spree" value="no" checked>
-                <label for="spree_no">Nej</label>
+                <label for="spree_no"><%= t('.option_no') %></label>
               </p>
             </div>
           </div>
 
           <div class="row">
             <div class="col s12">
-              <label> Har du varit på 25 eller fler SOF/STORK?</label>
+              <label><%= t('.stork_25') %></label>
 
               <p>
                 <input id="25years_yes" type="radio" name="25years" value="yes">
-                <label for="25years_yes">Ja</label>
+                <label for="25years_yes"><%= t('.option_yes') %></label>
               </p>
               <p>
                 <input id="25years_no" type="radio" name="25years" value="no" checked>
-                <label for="25years_no">Nej</label>
+                <label for="25years_no"><%= t('.option_no') %></label>
               </p>
             </div>
           </div>
 
           <div class="row">
             <div class="col s12">
-              <label for="size-of-instrument" >Hur stort är ditt instrument?</label>
+              <label for="size-of-instrument" ><%= t('.instrument_size') %></label>
 
               <select id="select-size-of-instrument" name="size-of-instrument">
 
-                <option value="0">Tar inte med eget instrument</option>
-                <option value="1">Mycket litet (Klarinett, flöjt eller liknande)</option>
-                <option value="2">Litet (Trumpet, altsaxofon eller liknande)</option>
-                <option value="3">Medel (Tenorsaxofon, trombon eller liknande)</option>
-                <option value="4">Stort (Barytonsaxofon, tuba, stor väska eller liknande)</option>
+                <option value="0"><%= t('.instrument_size_none') %></option>
+                <option value="1"><%= t('.instrument_size_very_small') %></option>
+                <option value="2"><%= t('.instrument_size_small') %></option>
+                <option value="3"><%= t('.instrument_size_medium') %></option>
+                <option value="4"><%= t('.instrument_size_large') %></option>
               </select>
             </div>
           </div>
@@ -249,24 +256,24 @@
           <div class="row">
             <div class="col s12">
               <input type="checkbox" class="filled-in" id="otherPerformance-box" name="otherPerformance-box" onclick="toggleMultipleOrchestras(this)"/>
-              <label for="otherPerformance-box">Uppträder du med någon annan orkester?</label>
+              <label for="otherPerformance-box"><%= t('.other_performance') %></label>
             </div>
           </div>
           <div class="row">
             <div class=" input-field col s12">
               <textarea id="otherPerformance-field" type="text" class="materialize-textarea" name="otherPerformance-field"disabled></textarea>
-              <label for="otherPerformance-field">Vilken/Vilka?</label>
+              <label for="otherPerformance-field"><%= t('.other_performance_which') %></label>
             </div>
           </div>
         </div>
         <div id="signup-summary-parent" class="col s12 m5 l4 offset-l1">
           <div id="signup-summary">
-            <h4>Sammanställning</h4>
+            <h4><%= t('.summary') %></h4>
             <table>
               <thead>
               <tr>
-                <th>Artikel</th>
-                <th>Kostnad</th>
+                <th><%= t('.summary_article') %></th>
+                <th><%= t('.summary_cost') %></th>
               </tr>
               </thead>
               <tbody id="article-list">
@@ -278,15 +285,15 @@
 
       <div class="row">
         <div class="col s12">
-          <button class="waves-effect waves-light btn" type="submit">Skicka</button>
+          <button class="waves-effect waves-light btn" type="submit"><%= t('.action') %></button>
         </div>
       </div>
     </form>
     <% else %>
-        <h4>Orkesteranmälan inte tillgänglig</h4>
-        <p>Du är redan anmäld till orkestern "<%= current_user['orchestra_signup']['orchestra']['name'] %>".</p>
-        <p>För att anmäla dig till en annan orkester behöver du först ta bort din nuvarande anmälan.</p>
-        <a class="btn" href="<%= url_for action: :show_signup, id: current_user['orchestra_signup']['id'] %>">Till min anmälan</a>
+        <h4><%= t('.error_not_available') %></h4>
+        <p><%= t('.error_detail_reference', name: current_user['orchestra_signup']['orchestra']['name']) %></p>
+        <p><%= t('.error_detail_text') %></p>
+        <a class="btn" href="<%= url_for action: :show_signup, id: current_user['orchestra_signup']['id'] %>"><%= t('.error_goto_signup') %></a>
     <% end %>
   </div>
 </div>

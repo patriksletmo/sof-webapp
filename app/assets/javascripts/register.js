@@ -119,20 +119,20 @@ function addTshirt() {
 
 function orchestaCodeValid(){
     var target = document.getElementById('valid_orchestra_code');
-    var targetText = document.getElementById('valid_orchestra_code_label');
     target.disabled = false;
     target.checked = true;
-    targetText.innerHTML = "Din kod är giltig";
+    $('#code-invalid').hide();
+    $('#code-valid').show();
     target.disabled = true;
 }
 
 function orchestraCodeInvalid() {
 
     var target = document.getElementById('valid_orchestra_code');
-    var targetText = document.getElementById('valid_orchestra_code_label');
     target.disabled = false;
     target.checked = false;
-    targetText.innerHTML = "Utdaterad eller ogiltig orkesterkod, kontakta din orkesterledare för den senaste orkesterkoden";
+    $('#code-invalid').show();
+    $('#code-valid').hide();
     target.disabled = true;
 }
 
