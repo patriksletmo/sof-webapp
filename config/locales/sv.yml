@@ -107,3 +107,25 @@ sv:
       error_detail_reference: Du är redan anmäld till orkestern "%{name}".
       error_detail_text: För att anmäla dig till en annan orkester behöver du först ta bort din nuvarande anmälan.
       error_goto_signup: Till min anmälan
+    messages:
+      register:
+        success: Anmäld till orkester
+        failure: Kunde inte skapa anmälan
+      create:
+        failure: Kunde inte skapa orkester
+      update:
+        success: Orkester uppdaterad
+        failure: Kunde inte uppdatera orkester
+      show:
+        failure: Kunde inte hitta orkester
+      show_signup:
+        failure: Kunde inte hitta anmälan
+      reset_code:
+        success: Kod uppdaterad
+        failure: Kunde inte skapa ny kod
+      delete:
+        success: Anmälan borttagen
+        failure: Kunde inte ta bort anmälan
+      delete_orchestra:
+        success: Orkester borttagen
+        failure: Kunde inte ta bort orkester

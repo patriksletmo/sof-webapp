@@ -43,10 +43,10 @@ class OrchestraController < NavigationController
       item_params = orchestra_signup_params
       response = database.create_orchestra_signup(item_params)
       if response.success?
-        flash[:success] = 'Anmäld till orkester'
+        flash[:success] = t('orchestra.messages.register.success')
         redirect_to action: :show_signup, id: response['id']
       else
-        flash.now[:error] = 'Kunde inte skapa anmälan'
+        flash.now[:error] = t('orchestra.messages.register.failure')
       end
     end
   end
@@ -59,7 +59,7 @@ class OrchestraController < NavigationController
       if response.success?
         redirect_to action: :show, id: response['id']
       else
-        flash.now[:error] = 'Kunde inte skapa orkester'
+        flash.now[:error] = t('orchestra.messages.create.failure')
       end
     end
   end
@@ -69,9 +69,9 @@ class OrchestraController < NavigationController
 
     response = database.update_orchestra(params[:id], orchestra_params)
     if response.success?
-      flash[:success] = 'Orkester uppdaterad'
+      flash[:success] = t('orchestra.messages.update.success')
     else
-      flash[:error] = 'Kunde inte uppdatera orkester'
+      flash[:error] = t('orchestra.messages.update.failure')
     end
 
     redirect_to action: :show, id: params[:id]
@@ -82,7 +82,7 @@ class OrchestraController < NavigationController
 
     @orchestra = database.show_orchestra params[:id]
     unless @orchestra.success?
-      flash[:error] = 'Kunde inte hitta orkester'
+      flash[:error] = t('orchestra.messages.show.failure')
       redirect_to '/'
     end
   end
@@ -92,7 +92,7 @@ class OrchestraController < NavigationController
 
     @signup = database.show_orchestra_signup params[:id]
     unless @signup.success?
-      flash[:error] = 'Kunde inte hitta anmälan'
+      flash[:error] = t('orchestra.messages.show_signup.failure')
       redirect_to '/'
     end
 
@@ -145,9 +145,9 @@ class OrchestraController < NavigationController
 
     response = database.update_orchestra(params[:id], {item: {code: 'reset'}})
     if response.success?
-      flash[:success] = 'Kod uppdaterad'
+      flash[:success] = t('orchestra.messages.reset_code.success')
     else
-      flash[:error] = 'Kunde inte skapa ny kod'
+      flash[:error] = t('orchestra.messages.reset_code.failure')
     end
 
     redirect_to action: :show, id: params[:id]
@@ -158,9 +158,9 @@ class OrchestraController < NavigationController
 
     response = database.delete_orchestra_signup(params[:id])
     if response.success?
-      flash[:success] = 'Anmälan borttagen'
+      flash[:success] = t('orchestra.messages.delete.success')
     else
-      flash[:error] = 'Kunde inte ta bort anmälan'
+      flash[:error] = t('orchestra.messages.delete.failure')
     end
 
     redirect_to action: :register
@@ -171,9 +171,9 @@ class OrchestraController < NavigationController
 
     response = database.delete_orchestra(params[:id])
     if response.success?
-      flash[:success] = 'Orkester borttagen'
+      flash[:success] = t('orchestra.messages.delete_orchestra.success')
     else
-      flash[:error] = 'Kunde inte ta bort orkester'
+      flash[:error] = t('orchestra.messages.delete_orchestra.failure')
     end
 
     redirect_to action: :create

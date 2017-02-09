@@ -128,3 +128,25 @@ en:
       error_detail_reference: You are already signed up for the orchestra "%{name}".
       error_detail_text: In order to sign up for a new orchestra you must first remove your current signup.
       error_goto_signup: Show my signup
+    messages:
+      register:
+        success: Registered to orchestra
+        failure: Could not create registration
+      create:
+        failure: Could not create orchestra
+      update:
+        success: Orchestra updated
+        failure: Could not update orchestra
+      show:
+        failure: Could not find orchestra
+      show_signup:
+        failure: Could not find signup
+      reset_code:
+        success: Code updated
+        failure: Could not create a new code
+      delete:
+        success: Signup removed
+        failure: Could not remove signup
+      delete_orchestra:
+        success: Orchestra removed
+        failure: Could not remove orchestra
