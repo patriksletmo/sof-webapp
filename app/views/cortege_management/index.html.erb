@@ -1,0 +1,22 @@
+<% content_for :header_title do %>Hantera kårteger<% end %>
+
+<div class="container">
+  <table class="highlight responsive-table">
+    <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Ägare</th>
+      <th>E-mail</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @corteges.each do |cortege| %>
+        <tr data-href="<%= url_for controller: :cortege, action: :show, id: cortege['id'] %>">
+          <td><%= cortege['name'] %></td>
+          <td><%= cortege['user']['display_name'] %></td>
+          <td><%= cortege['user']['email'] %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

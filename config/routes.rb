@@ -45,6 +45,9 @@ Rails.application.routes.draw do
   # Orchestra management
   get 'manage/orchestras' => 'orchestra_management#index'
 
+  # Cortege management
+  get 'manage/corteges' => 'cortege_management#index'
+
   # Controller
   get 'contact' => 'contacts#contact'
   get 'press' => 'contacts#press'
