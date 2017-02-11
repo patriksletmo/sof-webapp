@@ -139,8 +139,18 @@ li.lintek-logo-container {
   margin-bottom: 5px;
 }
 
+li.lintek-logo-container a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+li.lintek-logo-container a:hover {
+  background-color: transparent;
+}
+
 li.lintek-logo-container img {
-  margin: 0 auto;
+  margin: auto;
   height: 80%;
 }
 
