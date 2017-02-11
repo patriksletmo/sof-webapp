@@ -1,0 +1,2 @@
+class CortegeController < NavigationController
+end

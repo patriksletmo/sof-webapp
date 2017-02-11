@@ -1,0 +1,100 @@
+<% content_for :header_title do %>
+    Kårtege
+<% end %>
+
+<div class="container">
+  <h4>Kårtegeanmälan</h4>
+  <div class="row">
+    <div class="col s12">
+      <div class="row">
+        <div class="col s12 m6">
+          <p>
+            Välkommen till kårtegeanmälnings-sidan. Kom ihåg att alla bidrag måste godkännas av kårtegegruppen för att
+            få vara
+            med, vilket således betyder att anmälan här nedan inte betyder att man är klar för kårtegebygge. För att
+            minimera
+            chanserna att få sitt bidrag nekat så ska man vara tydliga med sin beskrivning av kårtegebidraget och även
+            försöka
+            göra en så realistisk materialuppskattning som möjligt. För mer information om kårtegen, clicka [här] //<--
+            länk till
+            kårteginfo.
+          </p>
+        </div>
+        <div class="col s12 m6">
+          <p><b>
+            Genom att skapa en intresseanmälan binder du dig som ansvarig för kårtegen
+            och intygar att du är nåbar med följande kontaktuppgifter:
+          </b></p>
+          <blockquote>
+            <%= current_user['display_name'] %>
+            <br/>
+            E-mail: <%= current_user['email'] %>
+            <br/>
+            Telefon: <span id="contact_phone"></span><b id="contact_phone_missing">(saknas)</b>
+          </blockquote>
+        </div>
+      </div>
+
+      <form method="post">
+        <div class="row">
+          <div class="input-field col s12 m6">
+            <label for="cortege_name">Lagnamn</label>
+            <input id="cortege_name" type="text" name="name" maxlength="30" required>
+          </div>
+          <div class="input-field col s12 m6">
+            <label for="cortege_contact_phone">Telefonnummer för kontakt</label>
+            <input id="cortege_contact_phone" type="tel" name="contact_phone" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12 m6">
+            <div class="row">
+              <div class="input-field col s12">
+                <label for="cortege_association">Förening</label>
+                <input id="cortege_association" type="text" name="association">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <label for="cortege_participant_count">Antal personer som ingår i laget</label>
+                <input id="cortege_participant_count" type="number" name="participant_count" required>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col s12">
+                <label for="cortege_type">Kårtegetyp</label>
+                <select name="type" id="cortege_type" required>
+                  <option value="0">Makro</option>
+                  <option value="1">Mikro</option>
+                  <option value="2">Fribygge</option>
+                  <option value="3">Casekårtege</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="input-field col s12 m6">
+            <textarea id="cortege_idea" type="text" class="materialize-textarea" name="idea" required></textarea>
+            <label for="cortege_idea">Kårtegeidé</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12 m6">
+            <textarea id="cortege_comments" type="text" class="materialize-textarea" name="comments" required></textarea>
+            <label for="cortege_comments">Övriga kommentarer</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            <button class="waves-effect waves-light btn" type="submit">Skapa intresseanmälan</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>

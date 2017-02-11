@@ -29,6 +29,10 @@ Rails.application.routes.draw do
   match 'orchestra/:id/reset_code' => 'orchestra#reset_code', via: [:post]
   get 'orchestra/signup/:id' => 'orchestra#show_signup'
 
+  # Cortege
+  get 'cortege' => 'cortege#index'
+  get 'cortege/interest' => 'cortege#interest'
+
   # User management
   get 'manage/users' => 'user_management#index'
   get 'manage/users/:id' => 'user_management#show'
