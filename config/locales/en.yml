@@ -53,7 +53,7 @@ en:
       header: Register for an orchestra
       code: Orchestra signup code
       code_invalid: Outdated or invalid signup code, contact your orchestra leader
-      code_valid: Your code is valid
+      code_valid: Your code is valid and belongs to
       festival_ticket: Festival ticket
       festival_tickets:
         thursday:
