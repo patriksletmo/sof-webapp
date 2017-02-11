@@ -32,7 +32,7 @@ sv:
       header: Registrera till en orkester
       code: Orkesterkod
       code_invalid: Utdaterad eller ogiltig orkesterkod, kontakta din orkesterledare
-      code_valid: Din kod är giltig
+      code_valid: Din kod är giltig och tillhör
       festival_ticket: Festivalbiljett
       festival_tickets:
         thursday:
