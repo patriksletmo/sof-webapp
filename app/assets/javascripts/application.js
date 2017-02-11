@@ -29,6 +29,7 @@ window.t = function() {
     return window.I18n[$('#locale').val()];
 };
 
+// Fix broken input-field animation and wave effect when using turbolinks
 $(document).on('turbolinks:load', function () {
     Materialize.updateTextFields();
     Waves.displayEffect();
