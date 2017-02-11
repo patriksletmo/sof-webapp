@@ -122,6 +122,7 @@ function orchestaCodeValid(data){
     var target = document.getElementById('valid_orchestra_code');
     target.disabled = false;
     target.checked = true;
+    $('#orchestra-name').text(data['name']);
     $('#code-invalid').hide();
     $('#code-valid').show();
     target.disabled = true;
