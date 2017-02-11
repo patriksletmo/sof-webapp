@@ -28,3 +28,7 @@ if (location.hash == '#register-card') {
 window.t = function() {
     return window.I18n[$('#locale').val()];
 };
+
+$(document).on('turbolinks:load', function () {
+    Materialize.updateTextFields();
+});
