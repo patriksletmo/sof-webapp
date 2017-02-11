@@ -5,12 +5,16 @@
     <thead>
     <tr>
       <th>Namn</th>
+      <th>Ägare</th>
+      <th>E-mail</th>
     </tr>
     </thead>
     <tbody>
     <% @orchestras.each do |orchestra| %>
         <tr data-href="<%= url_for controller: :orchestra, action: :show, id: orchestra['id'] %>">
           <td><%= orchestra['name'] %></td>
+          <td><%= orchestra['user']['display_name'] %></td>
+          <td><%= orchestra['user']['email'] %></td>
         </tr>
     <% end %>
     </tbody>
