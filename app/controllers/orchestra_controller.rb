@@ -187,7 +187,7 @@ class OrchestraController < NavigationController
 
     response = database.verify_orchestra_code params[:code]
     if response.success?
-      head :no_content
+      render :json => response
     else
       raise 'No match'
     end

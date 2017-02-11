@@ -2,6 +2,7 @@
  * Created by Jacob on 2017-01-28.
  */
 
+var orchestraHasDormitory = false;
 
 $(document).on('turbolinks:load', function () {
     if ($('#festival_ticket').length > 0) {
@@ -117,13 +118,16 @@ function addTshirt() {
     updateArticleList();
 }
 
-function orchestaCodeValid(){
+function orchestaCodeValid(data){
     var target = document.getElementById('valid_orchestra_code');
     target.disabled = false;
     target.checked = true;
     $('#code-invalid').hide();
     $('#code-valid').show();
     target.disabled = true;
+
+    orchestraHasDormitory = data['dormitory'];
+    updateArticleList();
 }
 
 function orchestraCodeInvalid() {
@@ -134,6 +138,9 @@ function orchestraCodeInvalid() {
     $('#code-invalid').show();
     $('#code-valid').hide();
     target.disabled = true;
+
+    orchestraHasDormitory = false;
+    updateArticleList();
 }
 
 function toggleMultipleOrchestras(e) {
@@ -172,7 +179,7 @@ function updateArticleList() {
     costTotal += appendArticle(t()['orchestra']['register']['festival_ticket'], festivalTicketPrices[festivalTicketType]);
     costTotal += appendLinTekDiscount(festivalTicketType);
     costTotal += appendArticle(t()['orchestra']['register']['food_ticket'], foodTicketPrices[$('#food_ticket').val()]);
-    costTotal += appendArticle(t()['orchestra']['register']['dormitory'], dormitoryPrices[$('#sleep_over').val()]);
+    costTotal += appendArticle(t()['orchestra']['register']['dormitory'], dormitoryPrice($('#sleep_over').val()));
     costTotal += appendArticles(t()['orchestra']['register']['tshirt'], tshirtPrice, $('#collection-of-tshirts').find('li').length);
     costTotal += appendArticles(t()['orchestra']['register']['medal'], medalPrice, $('#select-medals').val());
     costTotal += appendArticles(t()['orchestra']['register']['tag'], tagPrice, $('#select-tag').val());
@@ -221,4 +228,12 @@ function appendLinTekDiscount(ticketType) {
 
 function isLinTekMember() {
     return $('#is-lintek-member').val() == 'true';
+}
+
+function dormitoryPrice(chosenIndex) {
+    if (chosenIndex == 0 && !orchestraHasDormitory) {
+        return 0;
+    }
+
+    return dormitoryPrices[chosenIndex];
 }
