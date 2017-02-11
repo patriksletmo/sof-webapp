@@ -1,0 +1,9 @@
+<% content_for :header_title do %><%= @cortege['name'] %><% end %>
+
+<div class="container">
+  <h4>Intresseanmälan</h4>
+  <p><b>Status: </b><%= readable_status %></p>
+  <p><b>Godkänd: </b><%= @cortege['approved'] ? 'Ja' : 'Nej' %></p>
+  <h4>Uppdatera kårtegeanmälan</h4>
+  <%= render 'form', action: 'Uppdatera' %>
+</div>

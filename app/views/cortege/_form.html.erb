@@ -1,0 +1,61 @@
+<form method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+  <div class="row">
+    <div class="input-field col s12 m6">
+      <label for="cortege_name">Lagnamn</label>
+      <input id="cortege_name" type="text" name="item[name]" maxlength="30" value="<%= @cortege['name'] %>" required>
+    </div>
+    <div class="input-field col s12 m6">
+      <label for="cortege_contact_phone">Telefonnummer för kontakt</label>
+      <input id="cortege_contact_phone" type="tel" name="item[contact_phone]" value="<%= @cortege['contact_phone'] %>" required>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="cortege_association">Förening</label>
+          <input id="cortege_association" type="text" name="item[student_association]" value="<%= @cortege['student_association'] %>">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="cortege_participant_count">Antal personer som ingår i laget</label>
+          <input id="cortege_participant_count" type="number" name="item[participant_count]" value="<%= @cortege['participant_count'] %>" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <label for="cortege_type">Kårtegetyp</label>
+          <select name="item[cortege_type]" id="cortege_type" required>
+            <option value="0">Makro</option>
+            <option value="1">Mikro</option>
+            <option value="2">Fribygge</option>
+            <option value="3">Casekårtege</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="input-field col s12 m6">
+      <textarea id="cortege_idea" type="text" class="materialize-textarea" name="item[idea]" required><%= @cortege['idea'] %></textarea>
+      <label for="cortege_idea">Kårtegeidé</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12 m6">
+      <textarea id="cortege_comments" type="text" class="materialize-textarea" name="item[comments]" required><%= @cortege['comments'] %></textarea>
+      <label for="cortege_comments">Övriga kommentarer</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12">
+      <button class="waves-effect waves-light btn" type="submit"><%= action %> intresseanmälan</button>
+    </div>
+  </div>
+</form>

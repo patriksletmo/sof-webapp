@@ -32,6 +32,10 @@ Rails.application.routes.draw do
   # Cortege
   get 'cortege' => 'cortege#index'
   get 'cortege/interest' => 'cortege#interest'
+  post 'cortege/interest' => 'cortege#create'
+  get 'cortege/:id' => 'cortege#show'
+  post 'cortege/:id' => 'cortege#update'
+  delete 'cortege/:id' => 'cortege#delete'
 
   # User management
   get 'manage/users' => 'user_management#index'
