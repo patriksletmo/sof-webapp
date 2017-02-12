@@ -1,9 +1,13 @@
 class CortegeController < NavigationController
   def interest
+    return if require_login!
+
     @cortege = {}
   end
 
   def create
+    return if require_login!
+
     response = database.create_cortege(item_params)
     if response.success?
       flash[:success] = 'Kårtegeanmälan skapad'
@@ -15,6 +19,8 @@ class CortegeController < NavigationController
   end
 
   def show
+    return if require_login!
+
     @cortege = database.show_cortege(params[:id])
     unless @cortege.success?
       flash[:error] = 'Kunde inte hitta kårtegeanmälan'
