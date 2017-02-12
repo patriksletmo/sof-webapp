@@ -58,6 +58,11 @@ Rails.application.routes.draw do
   get 'manage/corteges/:id' => 'cortege_management#show'
   post 'manage/corteges/:id' => 'cortege_management#update'
 
+  # Case cortege management
+  get 'manage/case_corteges' => 'case_cortege_management#index'
+  get 'manage/case_corteges/:id' => 'case_cortege_management#show'
+  post 'manage/case_corteges/:id' => 'case_cortege_management#update'
+
   # Controller
   get 'contact' => 'contacts#contact'
   get 'press' => 'contacts#press'

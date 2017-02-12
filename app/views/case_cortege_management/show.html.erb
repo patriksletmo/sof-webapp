@@ -1,0 +1,54 @@
+<% content_for :header_title do %>Hantera casekårteger<% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col s12 m6">
+      <h4>Intresseanmälan</h4>
+      <p>
+        <b>Utbildning: </b>
+        <%= @cortege['education'] %>
+      </p>
+      <p>
+        <b>Gruppnamn: </b>
+        <%= @cortege['group_name'] %>
+      </p>
+      <p>
+        <b>Kårtegetyp: </b>
+        <%= case_cortege_type %>
+      </p>
+      <p>
+        <b>Motivering</b>
+        <br/>
+        <%= @cortege['motivation'] %>
+      </p>
+    </div>
+    <div class="col s12 m6">
+      <h4>Status</h4>
+      <form method="post">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+        <div class="row">
+          <div class="col s12">
+            <label for="status">Status</label>
+            <select name="item[status]" id="status" required>
+              <%= status_option 'pending' %>
+              <%= status_option 'in-review' %>
+              <%= status_option 'done' %>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <input id="approved" type="checkbox" name="item[approved]" class="filled-in" <%= 'checked' if @cortege['approved'] %>>
+            <label for="approved">Godkänd</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <button class="waves-effect waves-light btn" type="submit">Uppdatera</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
