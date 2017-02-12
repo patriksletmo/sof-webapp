@@ -28,6 +28,19 @@ class CortegeController < NavigationController
     end
   end
 
+  def update
+    return if require_login!
+
+    response = database.update_cortege(params[:id], item_params)
+    if response.success?
+      flash[:success] = 'Kårtegeanmälan uppdaterad'
+      redirect_to action: :show, id: response['id']
+    else
+      flash[:error] = 'Kunde inte uppdatera kårtegeanmälan'
+      redirect_to action: :show, id: response['id']
+    end
+  end
+
   private
 
   def item_params
