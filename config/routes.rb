@@ -47,6 +47,8 @@ Rails.application.routes.draw do
 
   # Cortege management
   get 'manage/corteges' => 'cortege_management#index'
+  get 'manage/corteges/:id' => 'cortege_management#show'
+  post 'manage/corteges/:id' => 'cortege_management#update'
 
   # Controller
   get 'contact' => 'contacts#contact'
