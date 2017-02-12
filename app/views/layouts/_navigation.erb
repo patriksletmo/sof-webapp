@@ -38,6 +38,20 @@
                           </a>
                         </li>
                     <% end %>
+                    <% unless current_user['cortege'].nil? %>
+                        <li>
+                          <a href="<%= url_for controller: :cortege, action: :show, id: current_user['cortege']['id'] %>" class="submenu-item waves-effect waves-light">
+                            Min kårtege
+                          </a>
+                        </li>
+                    <% end %>
+                    <% unless current_user['case_cortege'].nil? %>
+                        <li>
+                          <a href="<%= url_for controller: :case_cortege, action: :show, id: current_user['case_cortege']['id'] %>" class="submenu-item waves-effect waves-light">
+                            Min casekårtege
+                          </a>
+                        </li>
+                    <% end %>
                     <li>
                       <a href="<%= logout_url %>" class="submenu-item waves-effect waves-light">
                         Logga ut

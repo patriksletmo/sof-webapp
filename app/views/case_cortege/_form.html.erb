@@ -1,0 +1,59 @@
+<form method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="education">Utbildning</label>
+          <input id="education" type="text" name="item[education]" value="<%= @cortege['education'] %>" required>
+        </div>
+        <div class="input-field col s12">
+          <label for="group_name">Gruppnamn</label>
+          <input id="group_name" type="text" name="item[group_name]" value="<%= @cortege['group_name'] %>" required>
+        </div>
+        <div class="input-field col s12">
+          <label for="cortege_contact_phone">Telefonnummer för kontakt</label>
+          <input id="cortege_contact_phone" type="tel" name="item[contact_phone]" value="<%= @cortege['contact_phone'] %>" required>
+        </div>
+        <div class="input-field col s12">
+          <textarea id="motivation" type="text" class="materialize-textarea" name="item[motivation]" required><%= @cortege['motivation'] %></textarea>
+          <label for="motivation">Varför vill du delta i kårtegebygget?</label>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m6">
+      <div class="row">
+        <label>Casekårtegetyp</label>
+        <p>
+          <input class="with-gap" name="item[case_cortege_type]" type="radio" id="case_cortege_type_0" <%= 'checked' if @cortege['case_cortege_type'] == 0 %> value="0">
+          <label for="case_cortege_type_0" class="black-text">Caseuppdrag ett</label>
+        </p>
+        <p class="radio-description">
+          <b>Uppdragsgivare:</b> Ebbepark
+          <br/>
+          Ebbepark är en ny stadsdel som ska byggas upp vid Valla - mittemot Irrblosset. De söker nu studenter som ska bygga en kårtegevagn som representerar denna nya stadsdels vision
+          <br/>
+          <a href="http://www.ebbepark.se/" target="_blank">http://www.ebbepark.se/</a>
+        </p>
+        <p>
+          <input class="with-gap" name="item[case_cortege_type]" type="radio" id="case_cortege_type_1" <%= 'checked' if @cortege['case_cortege_type'] == 1 %> value="1">
+          <label for="case_cortege_type_1" class="black-text">Caseuppdrag två</label>
+        </p>
+        <p class="radio-description">
+          <b>Uppdragsgivare:</b> FKP scorpio
+          <br/>
+          Organisationen bakom Bråvalla! Var med och designa en kårtegevagn som visar det bästa från sommarens stora festival Bråvalla!
+          <br/>
+          <a href="http://www.fkpscorpio.se/om-fkp-scorpio/" target="_blank">http://www.fkpscorpio.se/om-fkp-scorpio/</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12">
+      <button class="waves-effect waves-light btn" type="submit"><%= action %> intresseanmälan</button>
+    </div>
+  </div>
+</form>

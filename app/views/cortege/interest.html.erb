@@ -1,0 +1,51 @@
+<% content_for :header_title do %>
+    Kårtege
+<% end %>
+
+<div class="container">
+  <% if current_user['cortege'].nil? %>
+      <h4>Kårtegeanmälan</h4>
+      <div class="row">
+        <div class="col s12">
+          <div class="row">
+            <div class="col s12 m6">
+              <p>
+                Välkommen till kårtegeanmälnings-sidan. Kom ihåg att alla bidrag måste godkännas av kårtegegruppen för
+                att
+                få vara
+                med, vilket således betyder att anmälan här nedan inte betyder att man är klar för kårtegebygge. För att
+                minimera
+                chanserna att få sitt bidrag nekat så ska man vara tydliga med sin beskrivning av kårtegebidraget och
+                även
+                försöka
+                göra en så realistisk materialuppskattning som möjligt. För mer information om kårtegen, clicka [här]
+                //<--
+                länk till
+                kårteginfo.
+              </p>
+            </div>
+            <div class="col s12 m6">
+              <p><b>
+                Genom att skapa en intresseanmälan binder du dig som ansvarig för kårtegen
+                och intygar att du är nåbar med följande kontaktuppgifter:
+              </b></p>
+              <blockquote>
+                <%= current_user['display_name'] %>
+                <br/>
+                E-mail: <%= current_user['email'] %>
+                <br/>
+                Telefon: <span id="contact_phone"></span><b id="contact_phone_missing">(saknas)</b>
+              </blockquote>
+            </div>
+          </div>
+
+          <%= render 'form', action: 'Skapa' %>
+        </div>
+      </div>
+  <% else %>
+      <h4>Intresseanmälan till kårtege inte tillgänglig</h4>
+      <p>Du har redan skapat en intresseanmälan för kårtegen "<%= current_user['cortege']['name'] %>".</p>
+      <p>För att skapa en ny intresseanmälan behöver du först ta bort din nuvarande.</p>
+      <a class="btn" href="<%= url_for action: :show, id: current_user['cortege']['id'] %>">Till min kårtege</a>
+  <% end %>
+</div>
