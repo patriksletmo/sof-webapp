@@ -32,10 +32,10 @@
         <div class="col s12">
           <label for="cortege_type">Kårtegetyp</label>
           <select name="item[cortege_type]" id="cortege_type" required>
-            <option value="0">Makro</option>
-            <option value="1">Mikro</option>
-            <option value="2">Fribygge</option>
-            <option value="3">Casekårtege</option>
+            <option value="0" <%= 'selected' if @cortege['cortege_type'] == 0 %>>Makro</option>
+            <option value="1" <%= 'selected' if @cortege['cortege_type'] == 1 %>>Mikro</option>
+            <option value="2" <%= 'selected' if @cortege['cortege_type'] == 2 %>>Fribygge</option>
+            <option value="3" <%= 'selected' if @cortege['cortege_type'] == 3 %>>Casekårtege</option>
           </select>
         </div>
       </div>
