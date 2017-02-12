@@ -37,6 +37,14 @@ Rails.application.routes.draw do
   post 'cortege/:id' => 'cortege#update'
   post 'cortege/:id/delete' => 'cortege#delete'
 
+  # Case cortege
+  get 'case_cortege' => 'case_cortege#index'
+  get 'case_cortege/new' => 'case_cortege#new'
+  post 'case_cortege/new' => 'case_cortege#create'
+  get 'case_cortege/:id' => 'case_cortege#show'
+  post 'case_cortege/:id' => 'case_cortege#update'
+  post 'case_cortege/:id/delete' => 'case_cortege#delete'
+
   # User management
   get 'manage/users' => 'user_management#index'
   get 'manage/users/:id' => 'user_management#show'

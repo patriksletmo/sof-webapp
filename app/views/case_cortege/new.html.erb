@@ -1,0 +1,19 @@
+<% content_for :header_title do %>
+    Casekårtege
+<% end %>
+
+<div class="container">
+  <% if current_user['case_cortege'].nil? %>
+      <h4>Casekårtegeanmälan</h4>
+      <div class="row">
+        <div class="col s12">
+          <%= render 'form', action: 'Skapa' %>
+        </div>
+      </div>
+  <% else %>
+      <h4>Intresseanmälan till casekårtege inte tillgänglig</h4>
+      <p>Du har redan skapat en intresseanmälan för casekårtege.</p>
+      <p>För att skapa en ny intresseanmälan behöver du först ta bort din nuvarande.</p>
+      <a class="btn" href="<%= url_for action: :show, id: current_user['case_cortege']['id'] %>">Till min casekårtege</a>
+  <% end %>
+</div>
