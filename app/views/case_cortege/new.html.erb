@@ -7,6 +7,27 @@
       <h4>Casekårtegeanmälan</h4>
       <div class="row">
         <div class="col s12">
+          <div class="row">
+            <div class="col s12 m6">
+              <p>
+                TODO: Rätt text här!
+              </p>
+            </div>
+            <div class="col s12 m6">
+              <p><b>
+                Genom att skapa en intresseanmälan binder du dig till anmälan
+                och intygar att du är nåbar med följande kontaktuppgifter:
+              </b></p>
+              <blockquote>
+                <%= current_user['display_name'] %>
+                <br/>
+                E-mail: <%= current_user['email'] %>
+                <br/>
+                Telefon: <span id="contact_phone"></span><b id="contact_phone_missing">(saknas)</b>
+              </blockquote>
+            </div>
+          </div>
+
           <%= render 'form', action: 'Skapa' %>
         </div>
       </div>

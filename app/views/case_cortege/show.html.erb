@@ -9,6 +9,16 @@
       <p><b>Status: </b><%= cortege_status %></p>
       <p><b>Godkänd: </b><%= @cortege['approved'] ? 'Ja' : 'Nej' %></p>
     </div>
+    <div class="col s12 m6">
+      <b>Kontaktuppgifter</b>
+      <blockquote>
+        <%= current_user['display_name'] %>
+        <br/>
+        E-mail: <%= current_user['email'] %>
+        <br/>
+        Telefon: <span id="contact_phone"></span><b id="contact_phone_missing">(saknas)</b>
+      </blockquote>
+    </div>
   </div>
   <h4>Uppdatera casekårtegeanmälan</h4>
   <%= render 'form', action: 'Uppdatera' %>
