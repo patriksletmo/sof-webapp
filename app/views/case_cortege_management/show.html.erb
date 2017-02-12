@@ -21,6 +21,16 @@
         <br/>
         <%= @cortege['motivation'] %>
       </p>
+      <p>
+        <b>Kontaktuppgifter</b>
+      </p>
+      <blockquote>
+        <%= @cortege['user']['display_name'] %>
+        <br/>
+        E-mail: <%= @cortege['user']['email'] %>
+        <br/>
+        Telefon: <%= @cortege['contact_phone'] %>
+      </blockquote>
     </div>
     <div class="col s12 m6">
       <h4>Status</h4>
