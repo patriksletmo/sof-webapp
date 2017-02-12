@@ -1,0 +1,18 @@
+@import "fonts";
+@import "colors";
+
+.hero-cortege {
+  background-image: url("https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/hero/korteget%C3%A5g_2.jpg");
+}
+
+.cortege-container {
+
+  .breadtext {
+    margin-bottom: 40px;
+    p {
+      font-family: DIN;
+      font-weight: normal;
+      font-size: 16px;
+    }
+  }
+}
