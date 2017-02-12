@@ -1,5 +1,8 @@
 $(document).on('turbolinks:load', function () {
-    $("#cortege_contact_phone").on("input change", updateContactPhone);
+    var phoneField = $("#cortege_contact_phone");
+    phoneField.on("input change", updateContactPhone);
+
+    updateContactPhone.bind(phoneField)();
 });
 
 function updateContactPhone() {
