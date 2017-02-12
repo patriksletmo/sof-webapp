@@ -42,9 +42,9 @@ module CortegeHelper
   def readable_case_type(type)
     case type
       when 0
-        'Alternativ 1'
+        'Caseuppdrag ett (Ebbepark)'
       when 1
-        'Alternativ 2'
+        'Caseuppdrag två (FKP scorpio)'
       else
         'Okänd'
     end
