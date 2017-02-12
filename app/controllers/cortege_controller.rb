@@ -41,6 +41,19 @@ class CortegeController < NavigationController
     end
   end
 
+  def delete
+    return if require_login!
+
+    response = database.delete_cortege(params[:id])
+    if response.success?
+      flash[:success] = 'Intresseanmälan borttagen'
+    else
+      flash[:error] = 'Kunde inte ta bort intresseanmälan'
+    end
+
+    redirect_to action: :interest
+  end
+
   private
 
   def item_params
