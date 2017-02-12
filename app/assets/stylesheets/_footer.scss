@@ -92,6 +92,16 @@ span.text-in-line {
   margin: 10px 0;
 }
 
+.sponsor-logo-container a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.sponsor-logo-container a:hover {
+  background-color: transparent;
+}
+
 .sponsor-logo-container img {
   margin: auto;
   width: 90%;
