@@ -1,0 +1,17 @@
+@import "colors";
+@import "fonts";
+
+.case-container {
+  h4 {
+    font-family: Arial;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $primary-color;
+  }
+
+  h5 {
+    font-family: Arial;
+    font-weight: bold;
+    color: $primary-color;
+  }
+}

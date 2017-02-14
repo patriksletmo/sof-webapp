@@ -1,0 +1,26 @@
+<% content_for :header_title do %>Hantera casekårteger<% end %>
+
+<div class="container">
+  <table class="highlight responsive-table">
+    <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Grupp</th>
+      <th>E-mail</th>
+      <th>Status</th>
+      <th>Godkänd</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @corteges.each do |cortege| %>
+        <tr data-href="<%= url_for action: :show, id: cortege['id'] %>">
+          <td><%= cortege['user']['display_name'] %></td>
+          <td><%= cortege['group_name'] %></td>
+          <td><%= cortege['user']['email'] %></td>
+          <td><%= readable_status cortege['status'] %></td>
+          <td><%= cortege['approved'] ? 'Ja' : 'Nej' %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

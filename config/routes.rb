@@ -29,6 +29,22 @@ Rails.application.routes.draw do
   match 'orchestra/:id/reset_code' => 'orchestra#reset_code', via: [:post]
   get 'orchestra/signup/:id' => 'orchestra#show_signup'
 
+  # Cortege
+  get 'cortege' => 'cortege#index'
+  get 'cortege/interest' => 'cortege#interest'
+  post 'cortege/interest' => 'cortege#create'
+  get 'cortege/:id' => 'cortege#show'
+  post 'cortege/:id' => 'cortege#update'
+  post 'cortege/:id/delete' => 'cortege#delete'
+
+  # Case cortege
+  get 'case_cortege' => 'case_cortege#index'
+  get 'case_cortege/new' => 'case_cortege#new'
+  post 'case_cortege/new' => 'case_cortege#create'
+  get 'case_cortege/:id' => 'case_cortege#show'
+  post 'case_cortege/:id' => 'case_cortege#update'
+  post 'case_cortege/:id/delete' => 'case_cortege#delete'
+
   # User management
   get 'manage/users' => 'user_management#index'
   get 'manage/users/:id' => 'user_management#show'
@@ -36,6 +52,16 @@ Rails.application.routes.draw do
 
   # Orchestra management
   get 'manage/orchestras' => 'orchestra_management#index'
+
+  # Cortege management
+  get 'manage/corteges' => 'cortege_management#index'
+  get 'manage/corteges/:id' => 'cortege_management#show'
+  post 'manage/corteges/:id' => 'cortege_management#update'
+
+  # Case cortege management
+  get 'manage/case_corteges' => 'case_cortege_management#index'
+  get 'manage/case_corteges/:id' => 'case_cortege_management#show'
+  post 'manage/case_corteges/:id' => 'case_cortege_management#update'
 
   # Controller
   get 'contact' => 'contacts#contact'

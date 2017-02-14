@@ -1,0 +1,44 @@
+<% content_for :header_title do %>
+    Casekårtege
+<% end %>
+
+<div class="container">
+  <% if current_user['case_cortege'].nil? %>
+      <h4>Casekårtegeanmälan</h4>
+      <div class="row">
+        <div class="col s12">
+          <div class="row">
+            <div class="col s12 m6">
+              <p>
+                Casebyggen är kort och gott kårtegebidrag sponsrade av utvalda företag inom Linköping. Man får då i
+                uppdrag av ett företag att bygga deras kårtegevagn åt dem likt ett projektuppdrag i verkliga livet.
+              </p>
+              <p>
+                <%= link_to 'Läs mer om casebygget här!', action: :index %>
+              </p>
+            </div>
+            <div class="col s12 m6">
+              <p><b>
+                Genom att skapa en intresseanmälan binder du dig till anmälan
+                och intygar att du är nåbar med följande kontaktuppgifter:
+              </b></p>
+              <blockquote>
+                <%= current_user['display_name'] %>
+                <br/>
+                E-mail: <%= current_user['email'] %>
+                <br/>
+                Telefon: <span id="contact_phone"></span><b id="contact_phone_missing">(saknas)</b>
+              </blockquote>
+            </div>
+          </div>
+
+          <%= render 'form', action: 'Skapa' %>
+        </div>
+      </div>
+  <% else %>
+      <h4>Intresseanmälan till casekårtege inte tillgänglig</h4>
+      <p>Du har redan skapat en intresseanmälan för casekårtege.</p>
+      <p>För att skapa en ny intresseanmälan behöver du först ta bort din nuvarande.</p>
+      <a class="btn" href="<%= url_for action: :show, id: current_user['case_cortege']['id'] %>">Till min casekårtege</a>
+  <% end %>
+</div>

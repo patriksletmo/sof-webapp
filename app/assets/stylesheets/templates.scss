@@ -39,8 +39,12 @@ hr.hero-divider {
   background-color: $secondary-color;
 }
 
-.row.center {
+.row.margin-bottom-40 {
   margin-bottom: 40px;
+}
+
+.row.no-bottom-margin {
+  margin-bottom: 0px;
 }
 
 .text-with-icon-column {
@@ -68,4 +72,17 @@ hr.hero-divider {
   font-size: 16px;
   width: 80%;
   margin: auto;
+}
+
+.radio-description {
+  padding-left: 36px;
+}
+
+/* ---- Text formating classes, use them on spans -----*/
+
+.bold {
+  font-weight: bold;
+}
+.enlarge {
+  font-size: 150%;
 }

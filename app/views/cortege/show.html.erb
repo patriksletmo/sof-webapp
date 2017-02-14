@@ -1,0 +1,31 @@
+<% content_for :header_title do %><%= @cortege['name'] %><% end %>
+
+<div class="container">
+  <h4>Intresseanmälan</h4>
+  <div class="row">
+    <div class="col s12 m6">
+      <p><b>Status: </b><%= cortege_status %></p>
+      <p><b>Godkänd: </b><%= @cortege['approved'] ? 'Ja' : 'Nej' %></p>
+    </div>
+    <div class="col s12 m6">
+      <b>Kontaktuppgifter</b>
+      <blockquote>
+        <%= current_user['display_name'] %>
+        <br/>
+        E-mail: <%= current_user['email'] %>
+        <br/>
+        Telefon: <span id="contact_phone"></span><b id="contact_phone_missing">(saknas)</b>
+      </blockquote>
+    </div>
+  </div>
+  <h4>Uppdatera kårtegeanmälan</h4>
+  <%= render 'form', action: 'Uppdatera' %>
+  <div class="row">
+    <form method="post" action="<%= url_for action: :delete %>" onsubmit="return confirm('Vill du verkligen ta bort din intresseanmälan?');">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <div class="input-field col s12">
+        <button type="submit" class="btn red">Ta bort intresseanmälan</button>
+      </div>
+    </form>
+  </div>
+</div>
