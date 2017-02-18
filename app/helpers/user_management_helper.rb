@@ -5,7 +5,9 @@ module UserManagementHelper
       2 => 'Modify available articles',
       3 => 'List users',
       4 => 'Modify users',
-      5 => 'Delete users'
+      5 => 'Delete users',
+      6 => 'List cortege applications',
+      7 => 'Approve cortege applications',
   }
 
   def map_permissions(user)
