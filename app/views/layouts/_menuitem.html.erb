@@ -1,0 +1,29 @@
+<% if item['menu_items'].any? %>
+    <li class="no-padding">
+      <ul class="collapsible collapsible-accordion">
+        <li>
+          <a class="collapsible-header menu-item">
+            <%= item['title'] %>
+            <i class="icon-arrow-down"></i>
+          </a>
+          <div class="collapsible-body">
+            <ul>
+              <% item['menu_items'].each do |sub_menu_item| %>
+                  <li>
+                    <a href="<%= sub_menu_item['href'] %>" class="submenu-item waves-effect waves-light">
+                      <%= sub_menu_item['title'] %>
+                    </a>
+                  </li>
+              <% end %>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </li>
+<% else %>
+    <li>
+      <a href="<%= item['href'] %>" class="menu-item waves-effect waves-light">
+        <%= item['title'] %>
+      </a>
+    </li>
+<% end %>

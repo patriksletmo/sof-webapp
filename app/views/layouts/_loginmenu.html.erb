@@ -1,0 +1,56 @@
+<% if current_user.nil? %>
+    <li><%= link_to('Logga in', login_path, {:class => 'menu-item waves-effect waves-light'}) %></li>
+<% else %>
+    <li class="no-padding">
+      <ul class="collapsible collapsible-accordion">
+        <li>
+          <a class="collapsible-header menu-item">
+            Konto
+            <i class="icon-arrow-down"></i>
+          </a>
+          <div class="collapsible-body">
+            <ul>
+              <li>
+                <a href="<%= profile_url %>" class="submenu-item waves-effect waves-light">
+                  <%= current_user['display_name'] || 'Profil' %>
+                </a>
+              </li>
+              <% unless current_user['orchestra'].nil? %>
+                  <li>
+                    <a href="<%= url_for controller: :orchestra, action: :show, id: current_user['orchestra']['id'] %>" class="submenu-item waves-effect waves-light">
+                      Min orkester
+                    </a>
+                  </li>
+              <% end %>
+              <% unless current_user['orchestra_signup'].nil? %>
+                  <li>
+                    <a href="<%= url_for controller: :orchestra, action: :show_signup, id: current_user['orchestra_signup']['id'] %>" class="submenu-item waves-effect waves-light">
+                      Min orkesteranmälan
+                    </a>
+                  </li>
+              <% end %>
+              <% unless current_user['cortege'].nil? %>
+                  <li>
+                    <a href="<%= url_for controller: :cortege, action: :show, id: current_user['cortege']['id'] %>" class="submenu-item waves-effect waves-light">
+                      Min kårtege
+                    </a>
+                  </li>
+              <% end %>
+              <% unless current_user['case_cortege'].nil? %>
+                  <li>
+                    <a href="<%= url_for controller: :case_cortege, action: :show, id: current_user['case_cortege']['id'] %>" class="submenu-item waves-effect waves-light">
+                      Min casekårtege
+                    </a>
+                  </li>
+              <% end %>
+              <li>
+                <a href="<%= logout_url %>" class="submenu-item waves-effect waves-light">
+                  Logga ut
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </li>
+<% end %>
