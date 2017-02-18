@@ -24,6 +24,9 @@
     },
     "API_BASE_URL": {
       "required": true
+    },
+    "DISPLAY_DATABASE_TYPE": {
+      "required": true
     }
   },
   "formation": {

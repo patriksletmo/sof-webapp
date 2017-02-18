@@ -7,4 +7,8 @@ class FailedResponse < BasicObject
   def friendly_error
     'Kunde inte ansluta till databasen'
   end
+
+  def body!
+    nil
+  end
 end
