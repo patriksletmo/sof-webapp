@@ -4,7 +4,7 @@ class UserManagementController < NavigationController
 
     @users = database.all_users
     unless @users.success?
-      render status: 403
+      redirect_to '/'
     end
   end
 
@@ -13,7 +13,7 @@ class UserManagementController < NavigationController
 
     @user = database.single_user params[:id]
     unless @user.success?
-      render status: 404
+      redirect_to '/'
     end
   end
 
