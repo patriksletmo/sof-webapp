@@ -7,25 +7,5 @@
     font-family: DIN;
     font-weight: normal;
     font-size: 16px;
-    //background-color: $secondary-color;
-    //color: $accent-color;
-    padding: 10px 30px;
-    width: 80%;
-    border-radius: 5px;
-  }
-
-  .row {
-    margin-bottom: 0;
-    margin-top: 20px;
-  }
-
-  .row.first-row {
-    margin-top: 0px;
-  }
-
-  @media only screen and (max-width : 992px) {
-    p {
-      width: 100%;
-    }
   }
 }
