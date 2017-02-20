@@ -27,7 +27,7 @@ fi
 
 # Prepare database app
 bundle install
-rake db:drop db:create db:migrate
+bundle exec rake db:drop db:create db:migrate
 
 # Ensure mailcatcher gem is installed and in separate gemset
 rvm gemset create mailcatcher
@@ -42,12 +42,12 @@ MAILCATCHER_PID=$!
 rvm use 2.3.3
 
 # Start database app in background a store PID
-rails s > /dev/null &
+bundle exec rails s > /dev/null &
 PID=$!
 
 # Perform test suite
 cd ..
-rake test
+bundle exec rake test
 
 # Stop started servers
 kill ${PID}
