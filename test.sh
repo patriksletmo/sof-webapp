@@ -26,7 +26,7 @@ then
 fi
 
 # Prepare database app
-bundle install
+bundle install --gemfile=Gemfile
 bundle exec rake db:drop db:create db:migrate
 
 # Ensure mailcatcher gem is installed and in separate gemset
