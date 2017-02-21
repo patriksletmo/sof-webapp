@@ -35,14 +35,14 @@ rvm use 2.3.3@mailcatcher
 gem install mailcatcher
 
 # Start email server for testing
-mailcatcher -f &
+mailcatcher -f > /dev/null &
 MAILCATCHER_PID=$!
 
 # Return to previous RVM
 rvm use 2.3.3
 
 # Start database app in background a store PID
-RAILS_ENV=development BUNDLE_GEMFILE=Gemfile bundle exec rails s &
+RAILS_ENV=development BUNDLE_GEMFILE=Gemfile bundle exec rails s > /dev/null &
 PID=$!
 
 # Perform test suite
