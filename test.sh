@@ -42,7 +42,7 @@ MAILCATCHER_PID=$!
 rvm use 2.3.3
 
 # Start database app in background a store PID
-RAILS_ENV=development BUNDLE_GEMFILE=Gemfile bundle exec rails s > /dev/null &
+RAILS_ENV=development BUNDLE_GEMFILE=Gemfile bundle exec rails s &
 PID=$!
 
 # Perform test suite
