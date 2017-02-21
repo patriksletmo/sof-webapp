@@ -27,7 +27,7 @@ fi
 
 # Prepare database app
 bundle install --gemfile=Gemfile
-BUNDLE_GEMFILE=Gemfile bundle exec rake db:drop db:create db:migrate
+RAILS_ENV=development BUNDLE_GEMFILE=Gemfile bundle exec rake db:drop db:create db:migrate
 
 # Ensure mailcatcher gem is installed and in separate gemset
 rvm gemset create mailcatcher
