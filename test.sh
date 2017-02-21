@@ -27,7 +27,7 @@ fi
 
 # Prepare database app
 bundle install --gemfile=Gemfile
-bundle exec rake db:drop db:create db:migrate
+BUNDLE_GEMFILE=Gemfile bundle exec rake db:drop db:create db:migrate
 
 # Ensure mailcatcher gem is installed and in separate gemset
 rvm gemset create mailcatcher
@@ -42,7 +42,7 @@ MAILCATCHER_PID=$!
 rvm use 2.3.3
 
 # Start database app in background a store PID
-bundle exec rails s > /dev/null &
+BUNDLE_GEMFILE=Gemfile bundle exec rails s > /dev/null &
 PID=$!
 
 # Perform test suite
