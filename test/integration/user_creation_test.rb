@@ -23,8 +23,6 @@ class UserCreationTest < ActionDispatch::IntegrationTest
 
     assert page.has_current_path? '/login'
 
-    sleep 5
-
     confirmation_email = email.find_mail_with_subject 'Confirmation instructions'
     assert_not_nil confirmation_email
 

@@ -11,11 +11,16 @@ class MailCatcher
     fetch_messages.count > 0
   end
 
-  def find_mail_with_subject(subject)
-    messages = fetch_messages
-    message = messages.find { |x| x['subject'] == subject }
-    unless message.nil?
-      fetch_message message['id']
+  def find_mail_with_subject(subject, attempts_remaining=10)
+    if attempts_remaining > 0
+      messages = fetch_messages
+      message = messages.find { |x| x['subject'] == subject }
+      if message.nil?
+        sleep 0.5
+        find_mail_with_subject(subject, attempts_remaining - 1)
+      else
+        fetch_message message['id']
+      end
     end
   end
 
