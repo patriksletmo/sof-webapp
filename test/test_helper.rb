@@ -6,7 +6,7 @@ require 'capybara/dsl'
 require 'capybara/rails'
 require 'mocha/mini_test'
 require 'helpers/mail_parse_helper'
-require 'helpers/email_tester'
+require 'helpers/email_supported_test'
 
 if ENV['IS_INTEGRATION_TEST'] != 'true'
   abort('Testing with rake test is unsupported. Please use the script test.sh instead.')
