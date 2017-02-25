@@ -3,6 +3,7 @@ require 'ext/response'
 class Database
   include HTTParty
   include Areas::AccountArea
+  include Areas::CartArea
   include Areas::CaseCortegeArea
   include Areas::CortegeArea
   include Areas::MenuArea
