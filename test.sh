@@ -24,6 +24,13 @@ cd .testdatabase
 if [ ! -z $1 ]
 then
     git checkout $1
+else
+    if [ "${TRAVIS_BRANCH}" == "master" ]
+    then
+        git checkout master
+    else
+        git checkout next-release
+    fi
 fi
 
 # Prepare database app
