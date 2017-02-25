@@ -13,6 +13,7 @@
 export PORT=3333
 export API_BASE_URL=http://127.0.0.1:3333
 export IS_INTEGRATION_TEST=true
+export LOCAL_MAILSERVER=true
 
 # Prepare database app
 rm -rf .testdatabase
