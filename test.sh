@@ -9,9 +9,6 @@
 #  - BRANCH:      Branch in database app to checkout before starting tests
 #  - COMMIT HASH: Hash of commit in database app to checkout before starting tests
 
-# Fail the entire script if one command fails
-set -e
-
 # Set up testing environment variables
 export PORT=3333
 export API_BASE_URL=http://127.0.0.1:3333
@@ -51,7 +48,14 @@ PID=$!
 # Perform test suite
 cd ..
 bundle exec rake test
+TEST_STATUS=$?
 
 # Stop started servers
 kill ${PID}
 kill ${MAILCATCHER_PID}
+
+if [ ${TEST_STATUS} -eq 0 ];then
+   exit 0
+else
+   exit 1
+fi
