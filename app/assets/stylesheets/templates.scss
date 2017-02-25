@@ -8,35 +8,40 @@ main {
 .hero-container {
   height: 350px;
   width: 100%;
+
+  .hero {
+    background-repeat: no-repeat;
+    background-position: center;
+    //background-size: contain;
+    height: 100%;
+    width: 100%;
+  }
+  img {
+    height: 100%;
+    width: 100%;
+  }
+
+}
+.hero-description-container {
+  p {
+    margin: 40px auto 50px auto;
+    width: 80%;
+    color: $primary-color;
+    font-family: DIN;
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background-color: $secondary-color;
+  }
 }
 
-.hero {
-  background-repeat: no-repeat;
-  background-position: center;
-  //background-size: contain;
-  height: 100%;
-  width: 100%;
-}
-
-.hero img {
-  height: 100%;
-  width: 100%;
-}
-
-p.hero-description {
-  margin: 40px auto 50px auto;
-  width: 80%;
-  color: $primary-color;
-  font-family: DIN;
-  font-weight: bold;
-  font-size: 20px;
-  text-transform: uppercase;
-}
-
-hr.hero-divider {
-  border: 0;
-  height: 1px;
-  background-color: $secondary-color;
+.margin-bottom-40 {
+  margin-bottom: 40px;
 }
 
 .row.margin-bottom-40 {
@@ -51,38 +56,80 @@ hr.hero-divider {
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
-}
 
-.text-with-icon-column i {
-  font-size: 54px;
-  color: $secondary-color;
-  margin-bottom: 20px;
-}
+  i {
+    font-size: 54px;
+    color: $secondary-color;
+    margin-bottom: 20px;
+  }
 
-.text-with-icon-column h3 {
-  font-family: Arial;
-  font-weight: bold;
-  font-size: 24px;
-  color: $primary-color;
-}
+  h3 {
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 24px;
+  }
 
-.text-with-icon-column span {
-  font-family: DIN;
-  font-weight: normal;
-  font-size: 16px;
-  width: 80%;
-  margin: auto;
+  span {
+    font-family: DIN;
+    font-weight: normal;
+    font-size: 16px;
+    width: 80%;
+    margin: auto;
+  }
 }
 
 .radio-description {
   padding-left: 36px;
 }
 
-/* ---- Text formating classes, use them on spans -----*/
+.row.title-row {
+  margin-bottom: 0;
+  margin-top: 20px;
+}
 
-.bold {
+.row.title-row.first-row {
+  margin-top: 0px;
+}
+
+.title-with-background {
+  margin: 20px auto;
+  padding: 10px 30px;
+  background-color: $secondary-color;
+  color: $accent-color;
+}
+
+.title-attached-to-side {
+  float: left;
+  padding: 10px 40px;
+  background-color: $primary-color;
+  color: $accent-color;
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+@media only screen and (max-width : 992px) {
+  .title-attached-to-side {
+    width: 100%;
+    padding: 10px 20px;
+  }
+}
+
+p.subtitle-text {
+  padding: 10px 30px;
+  width: 80%;
+}
+
+@media only screen and (max-width : 992px) {
+  p.subtitle-text {
+    width: 100%;
+    padding: 10px 10px;
+  }
+}
+
+span.bold {
   font-weight: bold;
 }
-.enlarge {
+span.enlarge {
   font-size: 150%;
 }

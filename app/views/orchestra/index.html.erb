@@ -6,18 +6,19 @@
 </div>
 
 <div class="container">
-  <div class="row center margin-bottom-40">
-    <p class="hero-description">
-      <%= t('orchestra.hero_description') %>
-    </p>
-    <hr class="hero-divider">
+  <div class="hero-description-container">
+    <div class="row center margin-bottom-40">
+      <p class="hero-description">
+        <%= t('orchestra.hero_description') %>
+      </p>
+      <hr class="hero-divider">
+    </div>
   </div>
 
   <div class="row center margin-bottom-40">
     <div class="col s12 m6 l6">
       <div class="text-with-icon-column">
-        <i class="icon-user-plus"></i>
-        <h3><%= t('orchestra.heroes.signup.title') %></h3>
+        <h3 class="title-with-background"><%= t('orchestra.heroes.signup.title') %></h3>
         <span><%= t('orchestra.heroes.signup.text') %></span>
       </div>
     </div>
@@ -25,8 +26,7 @@
 
     <div class="col s12 m6 l6">
       <div class="text-with-icon-column">
-        <i class="icon-guitar"></i>
-        <h3><%= t('orchestra.heroes.festival.title') %></h3>
+        <h3 class="title-with-background"><%= t('orchestra.heroes.festival.title') %></h3>
         <span><%= t('orchestra.heroes.festival.text') %></span>
       </div>
     </div>
