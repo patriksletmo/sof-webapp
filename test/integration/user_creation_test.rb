@@ -26,7 +26,7 @@ class UserCreationTest < ActionDispatch::IntegrationTest
     confirmation_email = email.find_mail_with_subject 'Confirmation instructions'
     assert_not_nil confirmation_email
 
-    confirmation_link = find_link_in confirmation_email, 'Bekräfta e-postadress'
+    confirmation_link = find_link_in confirmation_email, with_title: 'Bekräfta e-postadress'
     assert_not_nil confirmation_link
 
     visit confirmation_link
