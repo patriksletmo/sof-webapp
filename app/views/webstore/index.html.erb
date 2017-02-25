@@ -1,1 +1,31 @@
+<% content_for :header_title do %>Butik<% end %>
+
+<div class="container">
+  <% 4.times do %>
+      <div class="row">
+        <% 3.times do %>
+            <div class="col s1 m4">
+              <div class="card">
+                <div class="card-image">
+                  <img src="http://materializecss.com/images/sample-1.jpg">
+                  <span class="card-title">Card Title</span>
+                </div>
+                <div class="card-content">
+                  <p>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
+                </div>
+                <div class="card-action">
+                  <a href="#">This is a link</a>
+                </div>
+              </div>
+            </div>
+        <% end %>
+      </div>
+  <% end %>
+  <form method="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <button class="btn">Lägg till objekt i varukorgen</button>
+  </form>
+</div>
+
 

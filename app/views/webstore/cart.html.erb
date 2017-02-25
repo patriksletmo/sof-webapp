@@ -1,0 +1,28 @@
+<div class="container">
+  <h4>Varukorg</h4>
+  <form method="post" action="<%= url_for action: :clear_cart %>">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <button class="btn red" type="submit">Rensa</button>
+  </form>
+  <table>
+    <thead>
+    <tr>
+      <th>Namn</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @cart['cart_items'].each do |item| %>
+        <tr>
+          <td><%= item['object_name'] %></td>
+          <td>
+            <form method="post" action="<%= url_for action: :remove_item_from_cart, id: item['id'] %>">
+              <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+              <button class="btn red" type="submit">Ta bort</button>
+            </form>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

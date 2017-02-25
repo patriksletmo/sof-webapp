@@ -63,6 +63,13 @@ Rails.application.routes.draw do
   get 'manage/case_corteges/:id' => 'case_cortege_management#show'
   post 'manage/case_corteges/:id' => 'case_cortege_management#update'
 
+  # Webstore
+  get 'shop' => 'webstore#index'
+  post 'shop' => 'webstore#test'
+  get 'cart' => 'webstore#cart'
+  post 'cart/clear' => 'webstore#clear_cart'
+  post 'cart/delete/:id' => 'webstore#remove_item_from_cart'
+
   # Controller
   get 'contact' => 'contacts#contact'
   get 'press' => 'contacts#press'
