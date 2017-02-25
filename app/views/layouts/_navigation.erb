@@ -42,6 +42,9 @@
         <% end %>
       </li>
       <li>
+        <%= render 'layouts/cart' %>
+      </li>
+      <li>
         <a href="<%= url_for controller: :application, action: :change_language, lang: t('new_language') %>" class="center-align"><span class="switch-language-text"><%= t('switch_language') %></span></a>
       </li>
       <li class="lintek-logo-text-container">

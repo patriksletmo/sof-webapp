@@ -1,0 +1,3 @@
+<% unless current_user.nil? %>
+  <a class="center-align white-text light-font" href="#">Antal objekt i varukorgen: <%= current_user['shopping_cart_count'] %></a>
+<% end %>
