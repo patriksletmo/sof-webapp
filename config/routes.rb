@@ -67,6 +67,9 @@ Rails.application.routes.draw do
   get 'contact' => 'contacts#contact'
   get 'press' => 'contacts#press'
 
+  # Webstore
+  get 'webstore' => 'webstore#index'
+
   # Let’s encrypt
   get '/.well-known/acme-challenge/:id' => 'lets_encrypt#challenge', as: :letsencrypt_challenge
 

@@ -24,6 +24,9 @@
     },
     "API_BASE_URL": {
       "required": true
+    },
+    "STRIPE_PUBLISHABLE_KEY": {
+      "required": true
     }
   },
   "formation": {
