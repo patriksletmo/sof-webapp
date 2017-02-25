@@ -2,7 +2,10 @@ $(document).on('turbolinks:load', function () {
     var phoneField = $("#cortege_contact_phone");
     phoneField.on("input change", updateContactPhone);
 
-    updateContactPhone.bind(phoneField)();
+    if (phoneField.length > 0) {
+        // Only update the initial value if we actually found any element
+        updateContactPhone.bind(phoneField)();
+    }
 });
 
 function updateContactPhone() {
