@@ -9,6 +9,9 @@
 #  - BRANCH:      Branch in database app to checkout before starting tests
 #  - COMMIT HASH: Hash of commit in database app to checkout before starting tests
 
+# Fail the entire script if one command fails
+set -e
+
 # Set up testing environment variables
 export PORT=3333
 export API_BASE_URL=http://127.0.0.1:3333
