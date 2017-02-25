@@ -1,4 +1,4 @@
-class WebstoreController < ApplicationController
+class WebstoreController < NavigationController
 
   # Store frontpage with all the wares
   def index
@@ -7,7 +7,7 @@ class WebstoreController < ApplicationController
 
 
   def charge
-
+    @token = params[:stripeToken]
   end
 
   def cart
@@ -15,7 +15,8 @@ class WebstoreController < ApplicationController
   end
 
   def checkout
-
+    # get amount from cart
+    @amount = 5000
   end
 
 end

@@ -69,6 +69,8 @@ Rails.application.routes.draw do
 
   # Webstore
   get 'webstore' => 'webstore#index'
+  get 'webstore/checkout' => 'webstore#checkout'
+  post 'webstore' => 'webstore#charge'
 
   # Let’s encrypt
   get '/.well-known/acme-challenge/:id' => 'lets_encrypt#challenge', as: :letsencrypt_challenge
