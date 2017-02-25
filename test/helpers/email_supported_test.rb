@@ -1,8 +1,8 @@
 require 'helpers/mailcatcher'
 
-module EmailTester
+module EmailSupportedTest
 
-  def email
+  def inbox
     @email_service ||= MailCatcher.new
   end
 
