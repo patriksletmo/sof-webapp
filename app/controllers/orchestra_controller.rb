@@ -185,7 +185,7 @@ class OrchestraController < NavigationController
   def verify_code
     return if require_login!
 
-    response = database.verify_orchestra_code params[:code]
+    response = database.verify_orchestra_code(params[:code])
     if response.success?
       render :json => response
     else

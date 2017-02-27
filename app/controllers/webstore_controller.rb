@@ -16,7 +16,11 @@ class WebstoreController < NavigationController
   end
 
   def charge
+    return if require_login!
+
     @token = params[:stripeToken]
+
+    response = database.pay_for_order()
   end
 
   def cart
@@ -34,8 +38,14 @@ class WebstoreController < NavigationController
   end
 
   def checkout
-    # get amount from cart
+    return if require_login!
+      # get amount from cart
     @amount = 5000
-  end
 
+    @response = database.create_order()
+    if response.success?
+    else
+      #show error, redirect to webshop
+    end
+  end
 end
