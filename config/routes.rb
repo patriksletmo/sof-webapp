@@ -31,6 +31,8 @@ Rails.application.routes.draw do
 
   # Cortege
   get 'cortege' => 'cortege#index'
+  # 2017-02-27
+  # Following lines were commented to close cortege applications
   #get 'cortege/interest' => 'cortege#interest'
   #post 'cortege/interest' => 'cortege#create'
   get 'cortege/:id' => 'cortege#show'
