@@ -75,7 +75,7 @@ en:
           text: No festival ticket
           lintek_price: 0 SEK
           normal_price: 0 SEK
-      food_ticket: Food ticket
+      food_ticket: Food ticket (breakfast, dinner, nightfood)
       food_ticket_thursday: Thursday (11/5) - Sunday (14/5) (215 SEK)
       food_ticket_friday: Friday (12/5) - Sunday (14/5) (140 SEK)
       food_ticket_saturday: Saturday (13/5) - Sunday (15/5) (75 SEK)
