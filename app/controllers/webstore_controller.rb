@@ -2,16 +2,20 @@ class WebstoreController < NavigationController
 
   # Store frontpage with all the wares
   def index
-
+    @products = database.enabled_products
   end
 
   def test
     new_item = {
-        object_type: 'ticket',
-        object_name: 'Biljett'
+        product_id: params[:product_id],
+        data: data_json
     }
 
-    database.add_item_to_cart new_item
+    response = database.add_item_to_cart new_item
+    unless response.success?
+      flash[:error] = 'Kunde inte lägga vara i kundvagn'
+    end
+
     redirect_to action: :index
   end
 
@@ -36,6 +40,15 @@ class WebstoreController < NavigationController
   def checkout
     # get amount from cart
     @amount = 5000
+  end
+
+  private
+
+  def data_json
+    options = params[:options]
+    unless options.blank?
+      JSON.dump options.to_unsafe_h
+    end
   end
 
 end

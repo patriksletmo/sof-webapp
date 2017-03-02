@@ -1,3 +1,36 @@
-// Place all the styles related to the webstore controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "fonts";
+@import "colors";
+
+.shop-container {
+  .card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .shop-item {
+    width: 250px;
+    margin: 10px 10px;
+
+    .row {
+      margin-top: 15px;
+      margin-bottom: 0;
+    }
+    .select-wrapper input.select-dropdown {
+      margin-bottom: 0;
+    }
+
+    img {
+      height: 250px;
+      width: 250px;
+    }
+
+    .cost {
+      margin: 0;
+      padding: 20px;
+      background-color: $sof-red-color;
+      color: #fff;
+    }
+  }
+}

@@ -33,4 +33,7 @@ window.t = function() {
 $(document).on('turbolinks:load', function () {
     Materialize.updateTextFields();
     Waves.displayEffect();
+
+    // This causes issues when navigating backwards. TODO: Remove or solve before production!
+    $('select').material_select();
 });
