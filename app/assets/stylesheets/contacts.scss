@@ -17,6 +17,12 @@
     justify-content: flex-start;
   }
 
+  @media only screen and (max-width : 992px) {
+    .card-container {
+      justify-content: center;
+    }
+  }
+
   .contact-card {
     margin: 20px;
     width: 250px;
