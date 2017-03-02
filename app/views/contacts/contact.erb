@@ -1,13 +1,42 @@
-<% content_for :header_title do %>
-    Board
-<% end %>
+<% content_for :header_title do %>Kontakt<% end %>
 
-<div class="container" xmlns:background-repeat="http://www.w3.org/1999/xhtml">
 
-  <div>
-    <div class="row">
-      <%= render @contacts %>
-    </div>
-  </div>
+<div class="contact-container">
 
+
+  <% @groups.each do |group| %>
+      <div class="row title-row first-row">
+        <h3 class="title-attached-to-side top-title">
+          <%= group.title %>
+        </h3>
+      </div>
+
+
+      <div class="row card-row">
+        <div class="card-container">
+          <% Contact.where(group: group.group).each do |contact| %>
+              <div class="card contact-card">
+                <div class="card-image">
+                  <img>
+                </div>
+                <div class="card-content no-border">
+                  <span class="title">
+                    <%= contact.title %>
+                  </span>
+                  <br>
+                  <span class="name">
+                    <%= contact.name %>
+                  </span>
+                </div>
+                <div class="card-content no-background">
+                  <span class="email">
+                    <%= contact.email %>
+                  </span>
+                </div>
+              </div>
+          <% end %>
+        </div>
+      </div>
+  <% end %>
 </div>
+

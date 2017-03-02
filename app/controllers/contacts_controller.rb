@@ -13,7 +13,6 @@ class ContactsController < NavigationController
   end
 
   def contact
-    @contacts = Contact.all
+    @groups = ContactGroup.all
   end
-
 end
