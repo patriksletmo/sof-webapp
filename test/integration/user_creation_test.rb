@@ -1,19 +1,20 @@
+require 'test_helper'
+
 class UserCreationTest < ActionDispatch::IntegrationTest
-=begin
-  Disable UI tests until Travis CI integration is fixed
+  include EmailSupportedTest
 
   setup do
-    ApplicationController.any_instance.stubs(:database).returns(TestDatabase.new)
+    inbox.clean
   end
 
-  test 'visitors can create accounts' do
+  test 'visitors can create accounts and then login' do
     visit '/'
     click_link 'Logga in'
     assert page.has_current_path? '/login'
 
-    click_link 'register-button'
-    assert page.has_current_path? '/register'
+    click_link 'Registrering'
 
+    fill_in 'Namn', with: 'Test Testsson'
     fill_in 'E-mail', with: 'test@sof17.se'
     fill_in 'Lösenord', with: 'hunter2760'
     fill_in 'Upprepa lösenord', with: 'hunter2760'
@@ -21,6 +22,23 @@ class UserCreationTest < ActionDispatch::IntegrationTest
     click_link 'Skapa användare'
 
     assert page.has_current_path? '/login'
+
+    confirmation_email = inbox.find_mail_with_subject 'Confirmation instructions'
+    assert_not_nil confirmation_email
+
+    confirmation_link = find_link_in confirmation_email, with_title: 'Bekräfta e-postadress'
+    assert_not_nil confirmation_link
+
+    visit confirmation_link
+    assert page.has_current_path? '/login'
+
+    fill_in 'E-mail', with: 'test@sof17.se'
+    fill_in 'Lösenord', with: 'hunter2760'
+
+    click_link 'login-button'
+
+    assert page.has_current_path? '/profile'
+    assert page.has_content? 'Test Testsson'
   end
 
   test 'visitors can login with liu id' do
@@ -31,19 +49,5 @@ class UserCreationTest < ActionDispatch::IntegrationTest
     click_link 'Logga in med LiU-ID'
     assert page.has_current_path? /https:\/\/login\.liu\.se\/cas\//, url: true
   end
-
-  test 'visitors can login with a normal account' do
-    visit '/'
-    click_link 'Logga in'
-    assert page.has_current_path? '/login'
-
-    fill_in 'E-mail', with: 'test@sof17.se'
-    fill_in 'Lösenord', with: 'hunter2760'
-
-    click_link 'login-button'
-    assert page.has_current_path? '/profile'
-  end
-
-=end
 
 end
