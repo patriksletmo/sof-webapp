@@ -63,8 +63,13 @@ Rails.application.routes.draw do
   get 'manage/case_corteges/:id' => 'case_cortege_management#show'
   post 'manage/case_corteges/:id' => 'case_cortege_management#update'
 
-  # Controller
-  get 'contact' => 'contacts#contact'
+  # Contact
+  get 'contact/press' => 'contacts#press'
+  get 'contact/funkis' => 'contacts#funkis'
+  get 'contact/orchestra' => 'contacts#orchestra'
+  get 'contact/cortege' => 'contacts#cortege'
+  get 'contact/tickets' => 'contacts#tickets'
+  get 'contact/it' => 'contacts#it'
 
   # Let’s encrypt
   get '/.well-known/acme-challenge/:id' => 'lets_encrypt#challenge', as: :letsencrypt_challenge
