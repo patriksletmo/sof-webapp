@@ -17,7 +17,7 @@ ContactGroup.create([
     {group: "orchestra", title: "Orkestrar"},
     {group: "cortege", title: "Kårtege"},
     {group: "tickets", title: "Biljetter"},
-    {group: "it", title: "IT/Websupport"}
+    {group: "it", title: "IT/Webbsupport"}
                     ])
 
 Contact.create([
