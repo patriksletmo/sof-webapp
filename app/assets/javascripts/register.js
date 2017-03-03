@@ -101,7 +101,7 @@ function addTshirt() {
         updateArticleList();
     }
 
-    if(Tshirt_gender == "Dam " || Tshirt_gender == "Female " && size == "XXXL") {
+    if(Tshirt_gender == "Dam " && size == "XXXL" || Tshirt_gender == "Female " && size == "XXXL") {
         return;
     } else {
 
