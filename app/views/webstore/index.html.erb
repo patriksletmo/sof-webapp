@@ -1,27 +1,48 @@
-<% content_for :header_title do %>Butik<% end %>
+<% content_for :header_title do %>Butik
+<% end %>
 
-<div class="container">
-  <% 4.times do %>
-      <div class="row">
-        <% 3.times do %>
-            <div class="col s1 m4">
-              <div class="card">
-                <div class="card-image">
-                  <img src="http://materializecss.com/images/sample-1.jpg">
-                  <span class="card-title">Card Title</span>
-                </div>
-                <div class="card-content">
-                  <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
-                </div>
-                <div class="card-action">
-                  <a href="#">This is a link</a>
-                </div>
+<div class="container shop-container">
+  <div class="row">
+    <div class="card-container">
+      <% @products.each do |product| %>
+          <div class="card shop-item">
+            <form method="post">
+              <div class="card-image">
+                <img src="http://materializecss.com/images/sample-1.jpg">
+                <span class="card-title"><%= product['name'] %></span>
+                <span class="card-title"><%= product['name'] %></span>
               </div>
-            </div>
-        <% end %>
-      </div>
-  <% end %>
+              <p class="cost"><%= product['cost'] %> SEK</p>
+              <div class="card-content">
+                <p><%= product['description'] %></p>
+
+                <% unless product['options'].nil? %>
+                    <% product['options'].each do |option| %>
+                        <div class="row">
+                          <div class="input-field col s12">
+                            <select name="options[<%= option['name'] %>]">
+                              <option value="" disabled selected><%= option['request'] %></option>
+                              <% option['choices'].each do |choice| %>
+                                  <option value="<%= choice['value'] %>"><%= choice['title'] %></option>
+                              <% end %>
+                            </select>
+                            <label><%= option['title'] %></label>
+                          </div>
+                        </div>
+                    <% end %>
+                <% end %>
+              </div>
+              <div class="card-action">
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                <%= hidden_field_tag :product_id, product['id'] %>
+                <a class="card-action-text" href="javascript:;">Lägg till i kundvagn</a>
+              </div>
+            </form>
+          </div>
+      <% end %>
+    </div>
+  </div>
+
   <form method="post">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     <button class="btn">Lägg till objekt i varukorgen</button>

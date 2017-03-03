@@ -2,25 +2,21 @@ class WebstoreController < NavigationController
 
   # Store frontpage with all the wares
   def index
-
+    @products = database.enabled_products
   end
 
   def test
     new_item = {
-        object_type: 'ticket',
-        object_name: 'Biljett'
+        product_id: params[:product_id],
+        data: data_json
     }
 
-    database.add_item_to_cart new_item
+    response = database.add_item_to_cart new_item
+    unless response.success?
+      flash[:error] = 'Kunde inte lägga vara i kundvagn'
+    end
+
     redirect_to action: :index
-  end
-
-  def charge
-    return if require_login!
-
-    @token = params[:stripeToken]
-
-    response = database.pay_for_order()
   end
 
   def cart
@@ -41,11 +37,27 @@ class WebstoreController < NavigationController
     return if require_login!
       # get amount from cart
     @amount = 5000
-
     @response = database.create_order()
     if response.success?
     else
       #show error, redirect to webshop
+    end
+  end
+
+  def charge
+    return if require_login!
+
+    @token = params[:stripeToken]
+
+    response = database.pay_for_order()
+  end
+
+  private
+
+  def data_json
+    options = params[:options]
+    unless options.blank?
+      JSON.dump options.to_unsafe_h
     end
   end
 end
