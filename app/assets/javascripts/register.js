@@ -101,7 +101,7 @@ function addTshirt() {
         updateArticleList();
     }
 
-    if(Tshirt_gender == "Female " && size == "XXXL") {
+    if(Tshirt_gender == "Dam " || Tshirt_gender == "Female " && size == "XXXL") {
         return;
     } else {
 
@@ -166,7 +166,7 @@ function validateOrchestraCode() {
 
 var festivalTicketPrices = [535, 510, 220, 0];
 var festivalTicketPricesLinTek = [435, 410, 190, 0];
-var foodTicketPrices = [215, 140, 75, 0];
+var foodTicketPrices = [215, 140, 75, 0, 140];
 var dormitoryPrices = [50, 50, 0];
 var tshirtPrice = 100;
 var medalPrice = 40;
