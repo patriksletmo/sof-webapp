@@ -31,10 +31,8 @@ Rails.application.routes.draw do
 
   # Cortege
   get 'cortege' => 'cortege#index'
-  # 2017-02-27
-  # Following lines were commented to close cortege applications
-  #get 'cortege/interest' => 'cortege#interest'
-  #post 'cortege/interest' => 'cortege#create'
+  get 'cortege/interest' => 'cortege#interest'
+  post 'cortege/interest' => 'cortege#create'
   get 'cortege/:id' => 'cortege#show'
   post 'cortege/:id' => 'cortege#update'
   post 'cortege/:id/delete' => 'cortege#delete'
@@ -65,9 +63,13 @@ Rails.application.routes.draw do
   get 'manage/case_corteges/:id' => 'case_cortege_management#show'
   post 'manage/case_corteges/:id' => 'case_cortege_management#update'
 
-  # Controller
-  get 'contact' => 'contacts#contact'
-  get 'press' => 'contacts#press'
+  # Contact
+  get 'contact/press' => 'contacts#press'
+  get 'contact/funkis' => 'contacts#funkis'
+  get 'contact/orchestra' => 'contacts#orchestra'
+  get 'contact/cortege' => 'contacts#cortege'
+  get 'contact/tickets' => 'contacts#tickets'
+  get 'contact/it' => 'contacts#it'
 
   # Let’s encrypt
   get '/.well-known/acme-challenge/:id' => 'lets_encrypt#challenge', as: :letsencrypt_challenge

@@ -1,3 +1,83 @@
-// Place all the styles related to the contacts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "fonts";
+@import "colors";
+
+.contact-container {
+  .contact {
+    margin: 20px;
+  }
+
+  .row.card-row {
+    width: 90%;
+  }
+
+  .card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  @media only screen and (max-width : 992px) {
+    .card-container {
+      justify-content: center;
+    }
+  }
+
+  .contact-card {
+    margin: 20px;
+    width: 250px;
+
+    margin: 20px 30px;
+
+    img {
+      height: 250px;
+      width: 250px;
+    }
+    .card-content {
+      padding: 10px;
+    }
+    .card-content.no-border {
+      background-color: $secondary-color;
+      color: $accent-color;
+      border-radius: 0;
+      .name {
+        font-family: Arial;
+        font-weight: bold;
+        font-size: 15px;
+      }
+      .name {
+        font-family: DIN;
+        font-weight: 300;
+        font-size: 15px;
+      }
+    }
+    .card-content.no-background {
+      background-color: white;
+      color: $secondary-color;
+      .email {
+        font-family: Arial;
+        font-weight: normal;
+        font-size: 15px;
+      }
+    }
+  }
+
+  .title-row {
+    height: 46px;
+  }
+
+  .title-row h3 {
+    margin: auto;
+  }
+
+  span {
+    font-family: DIN;
+    font-style: normal;
+    font-size: 16px;
+  }
+
+  .title-with-background {
+    font-size: 20px;
+  }
+
+}
