@@ -119,7 +119,7 @@ class OrchestraController < NavigationController
     # Matbiljett
     @foodTicketID = @signup["orchestra_food_ticket"]["kind"]
     @foodTicket = @ticketText[@foodTicketID]
-    @foodTicketCost = ["215", "140", "75", "0"][@foodTicketID]
+    @foodTicketCost = ["215", "140", "75", "0", "140"][@foodTicketID]
 
     # Övernattning
     if(@signup["dormitory"])
