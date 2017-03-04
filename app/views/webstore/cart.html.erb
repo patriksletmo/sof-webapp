@@ -15,8 +15,12 @@
     <tbody>
     <% @cart['cart_items'].each do |item| %>
         <tr>
-          <td><%= item['product']['name'] %></td>
-          <td><%= item['product']['cost'] %></td>
+          <% if item['product']['kind'].nil? %>
+            <td><%= item['product']['base_product']['name'] %></td>
+          <% else %>
+            <td><%= "#{item['product']['base_product']['name']} (#{item['product']['kind']})" %></td>
+          <% end %>
+          <td><%= item['product']['base_product']['cost'] %></td>
           <td>
             <form method="post" action="<%= url_for action: :remove_item_from_cart, id: item['id'] %>">
               <%= hidden_field_tag :authenticity_token, form_authenticity_token %>

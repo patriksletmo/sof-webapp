@@ -16,25 +16,24 @@
               <div class="card-content">
                 <p><%= product['description'] %></p>
 
-                <% unless product['options'].nil? %>
-                    <% product['options'].each do |option| %>
-                        <div class="row">
-                          <div class="input-field col s12">
-                            <select name="options[<%= option['name'] %>]">
-                              <option value="" disabled selected><%= option['request'] %></option>
-                              <% option['choices'].each do |choice| %>
-                                  <option value="<%= choice['value'] %>"><%= choice['title'] %></option>
-                              <% end %>
-                            </select>
-                            <label><%= option['title'] %></label>
-                          </div>
-                        </div>
-                    <% end %>
+                <% if product['products'].first['kind'].nil? %>
+                    <%= hidden_field_tag :product_id, product['products'].first['id'] %>
+                <% else %>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <select name="product_id">
+                          <option value="" disabled selected>Välj typ</option>
+                          <% product['products'].each do |option| %>
+                              <option value="<%= option['id'] %>"><%= option['kind'] %></option>
+                          <% end %>
+                        </select>
+                      </div>
+                    </div>
                 <% end %>
               </div>
               <div class="card-action">
                 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-                <%= hidden_field_tag :product_id, product['id'] %>
+
                 <a class="card-action-text" href="javascript:;">Lägg till i kundvagn</a>
               </div>
             </form>
