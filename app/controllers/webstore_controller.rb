@@ -19,10 +19,6 @@ class WebstoreController < NavigationController
     redirect_to action: :index
   end
 
-  def charge
-    @token = params[:stripeToken]
-  end
-
   def cart
     @cart = database.get_cart
   end
@@ -38,8 +34,22 @@ class WebstoreController < NavigationController
   end
 
   def checkout
-    # get amount from cart
+    return if require_login!
+      # get amount from cart
     @amount = 5000
+    @response = database.create_order()
+    if response.success?
+    else
+      #show error, redirect to webshop
+    end
+  end
+
+  def charge
+    return if require_login!
+
+    @token = params[:stripeToken]
+
+    response = database.pay_for_order()
   end
 
   private
@@ -50,5 +60,4 @@ class WebstoreController < NavigationController
       JSON.dump options.to_unsafe_h
     end
   end
-
 end
