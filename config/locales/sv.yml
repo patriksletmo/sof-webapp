@@ -54,6 +54,7 @@ sv:
           text: Ingen biljett
           lintek_price: 0kr
           normal_price: 0kr
+      late_registration: Sen anmälan
       food_ticket: Matbiljett (frukost, middag, vickning)
       food_ticket_thursday: Torsdag (11/5) - Söndag (14/5) (215kr)
       food_ticket_friday: Fredag (12/5) - Söndag (14/5) (140kr)
