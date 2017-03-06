@@ -171,6 +171,9 @@ var dormitoryPrices = [50, 50, 0];
 var tshirtPrice = 100;
 var medalPrice = 40;
 var tagPrice = 20;
+var lateRegistrationPrice = 100;
+
+
 
 function updateArticleList() {
     clearArticleList();
@@ -179,6 +182,7 @@ function updateArticleList() {
     var festivalTicketType = $('#festival_ticket').val();
     costTotal += appendArticle(t()['orchestra']['register']['festival_ticket'], festivalTicketPrices[festivalTicketType]);
     costTotal += appendLinTekDiscount(festivalTicketType);
+    costTotal += appendArticle(t()['orchestra']['register']['late_registration'], lateRegistrationFee());
     costTotal += appendArticle(t()['orchestra']['register']['food_ticket'], foodTicketPrices[$('#food_ticket').val()]);
     costTotal += appendArticle(t()['orchestra']['register']['dormitory'], dormitoryPrice($('#sleep_over').val()));
     costTotal += appendArticles(t()['orchestra']['register']['tshirt'], tshirtPrice, $('#collection-of-tshirts').find('li').length);
@@ -189,6 +193,8 @@ function updateArticleList() {
 
     updateSignupSummary();
 }
+
+
 
 function appendArticle(name, price) {
     if (price != 0) {
@@ -238,3 +244,14 @@ function dormitoryPrice(chosenIndex) {
 
     return dormitoryPrices[chosenIndex];
 }
+
+function lateRegistrationFee(){
+    var lastRegistrationDate = new Date()
+    var toDay = new Date()
+    lastRegistrationDate.setFullYear(2017, 2, 5)
+    if(lastRegistrationDate < toDay){
+        return lateRegistrationPrice
+    }
+    return 0
+}
+

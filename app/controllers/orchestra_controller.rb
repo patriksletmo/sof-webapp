@@ -49,6 +49,7 @@ class OrchestraController < NavigationController
         flash.now[:error] = t('orchestra.messages.register.failure')
       end
     end
+
   end
 
   def create
