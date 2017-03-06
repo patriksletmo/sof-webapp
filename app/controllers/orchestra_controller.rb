@@ -106,6 +106,8 @@ class OrchestraController < NavigationController
     # Festivalbiljett
     @festivalTicketID = @signup["orchestra_ticket"]["kind"]
 
+
+
     @LintekDicounntCostStr = ["435", "410", "190", "0"]
     @ticketCostStr = ["535", "510", "220", "0"]
 
@@ -116,6 +118,11 @@ class OrchestraController < NavigationController
 
     @festivalTicket = @ticketText[@festivalTicketID]
     @ticketCost = @ticketCostStr[@festivalTicketID]
+
+
+    @isLateRegistration = @signup["is_late_registration"]
+
+
 
     # Matbiljett
     @foodTicketID = @signup["orchestra_food_ticket"]["kind"]
