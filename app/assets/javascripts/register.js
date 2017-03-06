@@ -2,6 +2,8 @@
  * Created by Jacob on 2017-01-28.
  */
 
+
+
 var orchestraHasDormitory = false;
 
 $(document).on('turbolinks:load', function () {
@@ -246,12 +248,26 @@ function dormitoryPrice(chosenIndex) {
 }
 
 function lateRegistrationFee(){
-    var lastRegistrationDate = new Date()
-    var toDay = new Date()
-    lastRegistrationDate.setFullYear(2017, 2, 5)
-    if(lastRegistrationDate < toDay){
+
+    var currentDate = new Date();
+    var lastRegistrationDate = new Date("Mars 5, 2017 00:00:00");
+
+
+    currentDate = convertDateToUTC1(currentDate);
+    lastRegistrationDate = convertDateToUTC1(lastRegistrationDate);
+
+    if(lastRegistrationDate <= currentDate){
         return lateRegistrationPrice
     }
     return 0
 }
 
+
+function convertDateToUTC1(date) {
+ return new Date(date.getUTCFullYear(),
+    date.getUTCMonth(),
+    date.getUTCDate(), 
+    date.getUTCHours() + 1, 
+    date.getUTCMinutes(), 
+    date.getUTCSeconds());
+}
