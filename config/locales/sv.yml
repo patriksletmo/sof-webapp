@@ -168,3 +168,5 @@ sv:
       delete_orchestra:
         success: Orkester borttagen
         failure: Kunde inte ta bort orkester
+  :yes: "Ja"
+  :no: "Nej"

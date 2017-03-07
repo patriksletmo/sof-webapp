@@ -107,6 +107,30 @@
     </div>
   <% end %>
 
+  <div class="col s12 m3 l3">
+    <table>
+      <thead>
+      <tr>
+        <th>Annan information</th>
+        <th>Svar</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><%= t('orchestra.register.stork_streak') %></td>
+        <td><%= human_boolean @signup['consecutive_10'] %></td>
+      </tr>
+      <tr>
+        <td><%= t('orchestra.register.stork_25') %></td>
+        <td><%= human_boolean @signup['attended_25'] %></td>
+      </tr>
+      <tr>
+        <td><%= t('orchestra.register.instrument_size') %></td>
+        <td><%= human_instrument_size @signup['instrument_size'] %></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 
 <!-- TODO VILKA ORKESTREAR -->
   <% unless(@otherPerformances.blank?) %>

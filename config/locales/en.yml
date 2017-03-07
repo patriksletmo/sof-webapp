@@ -189,3 +189,5 @@ en:
       delete_orchestra:
         success: Orchestra removed
         failure: Could not remove orchestra
+  :yes: "Yes"
+  :no: "No"
