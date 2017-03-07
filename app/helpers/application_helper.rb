@@ -16,4 +16,8 @@ module ApplicationHelper
   def pull_request_number(uri)
     uri.host.split('-').last.split('.').first
   end
+
+  def human_boolean(value)
+    value ? t('yes') : t('no')
+  end
 end
