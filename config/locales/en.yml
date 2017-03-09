@@ -141,6 +141,7 @@ en:
       dormitory:
         warning: NOTE! If you change this option all members who have previously chosen to follow your recommendation will be affected. The will have their option changed to your new choice.
       actions:
+        export: Export orchestra
         update: Update orchestra
         delete: Remove orchestra
       members:

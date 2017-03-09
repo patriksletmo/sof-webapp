@@ -66,7 +66,11 @@
           <br/>
           <button type="submit" class="btn"><%= t('.actions.update') %></button>
         </div>
+
       </form>
+
+      
+
 
       <form method="post" action="<%= url_for action: :delete_orchestra, id: @orchestra["id"] %>" onsubmit="return confirm('<%= t('orchestra.messages.show.confirm_delete') %>');">
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>

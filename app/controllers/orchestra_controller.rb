@@ -85,6 +85,15 @@ class OrchestraController < NavigationController
       flash[:error] = t('orchestra.messages.show.failure')
       redirect_to '/'
     end
+    
+
+    @orchestraSignups = database.all_orchestra_signups params[:id]
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @orchestraSignups }
+    end
+    
   end
 
   def show_signup

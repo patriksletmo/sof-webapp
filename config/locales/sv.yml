@@ -120,6 +120,7 @@ sv:
       dormitory:
         warning: OBS! Ändrar du detta val påverkas alla medlemmar som valt att ej ta ställning. Deras val kommer uppdateras till ditt nya val.
       actions:
+        export: Exportera orkester
         update: Uppdatera orkester
         delete: Ta bort orkester
       members:
