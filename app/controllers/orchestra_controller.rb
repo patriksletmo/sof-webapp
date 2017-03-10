@@ -91,7 +91,7 @@ class OrchestraController < NavigationController
 
     respond_to do |format|
       format.html
-      format.csv { send_data @orchestraSignups.encode('iso-8859-1'), :filename => 'orkestersammanställning.csv', :type => 'text/csv; charset=iso-8859-1; header=present' }
+      format.csv { send_data @orchestraSignups.encode('iso-8859-1'), :filename => "orkestersammanställning-#{Date.today}.csv", :type => 'text/csv; charset=iso-8859-1; header=present' }
     end
     
   end
