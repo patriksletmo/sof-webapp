@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get 'orchestra/orchestras' => 'orchestra#orchestras'
   get 'orchestra/verify' => 'orchestra#verify_code'
   get 'orchestra/:id' => 'orchestra#show'
+  get 'orchestra/:id.csv' => 'orchestra#export'
   post 'orchestra/:id' => 'orchestra#update'
   match 'orchestra/:id/reset_code' => 'orchestra#reset_code', via: [:post]
   get 'orchestra/signup/:id' => 'orchestra#show_signup'
