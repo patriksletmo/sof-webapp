@@ -86,6 +86,19 @@ class OrchestraController < NavigationController
       flash[:error] = t('orchestra.messages.show.failure')
       redirect_to '/'
     end
+    
+
+    
+
+    respond_to do |format|
+      format.html
+      format.csv { 
+        @orchestraSignups = database.all_orchestra_signups params[:id]
+        send_data @orchestraSignups.encode('iso-8859-1'), 
+        :filename => t('orchestra.show.actions.export_file_name') + "-#{Date.today}.csv", 
+        :type => 'text/csv; charset=iso-8859-1; header=present' }
+    end
+    
   end
 
   def show_signup

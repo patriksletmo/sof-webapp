@@ -144,6 +144,8 @@ en:
       actions:
         update: Update orchestra
         delete: Remove orchestra
+        export: Export orchestra
+        export_file_name: Orchestra summary
       members:
         title: Registered members
         name: Name

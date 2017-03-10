@@ -123,6 +123,8 @@ sv:
       actions:
         update: Uppdatera orkester
         delete: Ta bort orkester
+        export: Exportera orkester
+        export_file_name: Orkestersammanställning
       members:
         title: Anmälda medlemmar
         name: Namn
