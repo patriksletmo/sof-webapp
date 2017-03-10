@@ -138,11 +138,12 @@ en:
         text: "Code: %{code}"
         explaination: When your orchestra members register they will have to supply the above code in order to connect to your orchestra.
         reset: Create new code
+        export: Export orchestra
+        export_file_name: Orchestra summary
       header: Update orchestra
       dormitory:
         warning: NOTE! If you change this option all members who have previously chosen to follow your recommendation will be affected. The will have their option changed to your new choice.
       actions:
-        export: Export orchestra
         update: Update orchestra
         delete: Remove orchestra
       members:
