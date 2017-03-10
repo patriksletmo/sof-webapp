@@ -95,7 +95,7 @@ class OrchestraController < NavigationController
       format.csv { 
         @orchestraSignups = database.all_orchestra_signups params[:id]
         send_data @orchestraSignups.encode('iso-8859-1'), 
-        :filename => t('orchestra.show.code.export_file_name') + "-#{Date.today}.csv", 
+        :filename => t('orchestra.show.actions.export_file_name') + "-#{Date.today}.csv", 
         :type => 'text/csv; charset=iso-8859-1; header=present' }
     end
     

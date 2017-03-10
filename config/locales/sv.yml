@@ -117,14 +117,14 @@ sv:
         text: "Kod: %{code}"
         explaination: När era orkestermedlemmar registrerar sig till er orkester måste de ange ovanstående kod för att kopplas till er orkester.
         reset: Skapa ny kod
-        export: Exportera orkester
-        export_file_name: Orkestersammanställning
       header: Uppdatera orkester
       dormitory:
         warning: OBS! Ändrar du detta val påverkas alla medlemmar som valt att ej ta ställning. Deras val kommer uppdateras till ditt nya val.
       actions:
         update: Uppdatera orkester
         delete: Ta bort orkester
+        export: Exportera orkester
+        export_file_name: Orkestersammanställning
       members:
         title: Anmälda medlemmar
         name: Namn
