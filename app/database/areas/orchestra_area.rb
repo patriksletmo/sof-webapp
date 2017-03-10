@@ -39,7 +39,7 @@ module Areas
     end
 
     def all_orchestra_signups(id)
-      get("/api/v1/orchestra/all_signups/#{id}", authenticated_options)
+      get("/api/v1/orchestra/#{id}/all_signups", authenticated_options)
     end
 
     def verify_orchestra_code(code)
