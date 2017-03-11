@@ -154,7 +154,7 @@ class OrchestraController < NavigationController
     @totalTags = @signup["orchestra_articles"].select{|x| x["kind"]==3}.count
 
 
-    @totalCost = @ticketCost.to_i + @lintekDiscount + @foodTicketCost.to_i + @dormitory * 50 + @allTshirts.count * 100 + @totalMedals* 40 + @totalTags* 20
+    @totalCost = @signup['total_cost']
 
     # "special_diets"
     @diets = @signup["special_diets"].map{|x| x["name"]}
