@@ -210,7 +210,7 @@ class OrchestraController < NavigationController
     if response.success?
       render :json => response
     else
-      raise 'No match'
+      render status: 404, plain: 'No match'
     end
   end
 

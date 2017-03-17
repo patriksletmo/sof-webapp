@@ -120,30 +120,33 @@ function addTshirt() {
     updateArticleList();
 }
 
-function orchestaCodeValid(data){
-    var target = document.getElementById('valid_orchestra_code');
-    target.disabled = false;
-    target.checked = true;
-    $('#orchestra-name').text(data['name']);
-    $('#code-invalid').hide();
-    $('#code-valid').show();
-    target.disabled = true;
+function orchestaCodeValid(code, data){
+    if ($("#orchestra_code").val() == code) {
+        var target = document.getElementById('valid_orchestra_code');
+        target.disabled = false;
+        target.checked = true;
+        $('#orchestra-name').text(data['name']);
+        $('#code-invalid').hide();
+        $('#code-valid').show();
+        target.disabled = true;
 
-    orchestraHasDormitory = data['dormitory'];
-    updateArticleList();
+        orchestraHasDormitory = data['dormitory'];
+        updateArticleList();
+    }
 }
 
-function orchestraCodeInvalid() {
+function orchestraCodeInvalid(code) {
+    if ($("#orchestra_code").val() == code) {
+        var target = document.getElementById('valid_orchestra_code');
+        target.disabled = false;
+        target.checked = false;
+        $('#code-invalid').show();
+        $('#code-valid').hide();
+        target.disabled = true;
 
-    var target = document.getElementById('valid_orchestra_code');
-    target.disabled = false;
-    target.checked = false;
-    $('#code-invalid').show();
-    $('#code-valid').hide();
-    target.disabled = true;
-
-    orchestraHasDormitory = false;
-    updateArticleList();
+        orchestraHasDormitory = false;
+        updateArticleList();
+    }
 }
 
 function toggleMultipleOrchestras(e) {
@@ -157,12 +160,17 @@ function toggleMultipleOrchestras(e) {
 }
 
 function validateOrchestraCode() {
+    var code = this.value;
     $.ajax({
         type: 'GET',
-        url: '/orchestra/verify?code=' + this.value,
+        url: '/orchestra/verify?code=' + code,
         dataType: 'json',
-        success: orchestaCodeValid,
-        error: orchestraCodeInvalid
+        success: function (data) {
+            orchestaCodeValid(code, data)
+        },
+        error: function () {
+            orchestraCodeInvalid(code)
+        }
     });
 }
 
