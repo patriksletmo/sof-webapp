@@ -54,10 +54,12 @@ sv:
           text: Ingen biljett
           lintek_price: 0kr
           normal_price: 0kr
-      food_ticket: Matbiljett
+      late_registration: Sen anmälan
+      food_ticket: Matbiljett (frukost, middag, vickning)
       food_ticket_thursday: Torsdag (11/5) - Söndag (14/5) (215kr)
       food_ticket_friday: Fredag (12/5) - Söndag (14/5) (140kr)
       food_ticket_saturday: Lördag (13/5) - Söndag (15/5) (75kr)
+      food_ticket_thursday_friday: Torsdag (11/5) - Fredag (12/5) (140kr)
       food_ticket_none: Ingen biljett (0kr)
       special_diet: Har du någon specialkost?
       special_diet_vegetarian: Vegetariskt?
@@ -121,6 +123,8 @@ sv:
       actions:
         update: Uppdatera orkester
         delete: Ta bort orkester
+        export: Exportera orkester
+        export_file_name: Orkestersammanställning
       members:
         title: Anmälda medlemmar
         name: Namn
@@ -140,6 +144,7 @@ sv:
       allergies: Allergier
       other_performances: Andra uppträdanden
       actions:
+        warning: OBS! Om du tar bort och skapar en ny anmälan efter den 5 Mars så kommer det att tillkomma en förseningsavgift på 100 kr
         delete: Ta bort anmälan
     messages:
       register:
@@ -165,3 +170,5 @@ sv:
       delete_orchestra:
         success: Orkester borttagen
         failure: Kunde inte ta bort orkester
+  :yes: "Ja"
+  :no: "Nej"

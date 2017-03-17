@@ -38,6 +38,10 @@ module Areas
       get("/api/v1/orchestra_signup/#{id}", authenticated_options)
     end
 
+    def all_orchestra_signups(id)
+      get("/api/v1/orchestra/#{id}/all_signups", authenticated_options)
+    end
+
     def verify_orchestra_code(code)
       options = {
           body: {

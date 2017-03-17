@@ -49,6 +49,7 @@ class OrchestraController < NavigationController
         flash.now[:error] = t('orchestra.messages.register.failure')
       end
     end
+
   end
 
   def create
@@ -85,6 +86,19 @@ class OrchestraController < NavigationController
       flash[:error] = t('orchestra.messages.show.failure')
       redirect_to '/'
     end
+    
+
+    
+
+    respond_to do |format|
+      format.html
+      format.csv { 
+        @orchestraSignups = database.all_orchestra_signups params[:id]
+        send_data @orchestraSignups.encode('iso-8859-1'), 
+        :filename => t('orchestra.show.actions.export_file_name') + "-#{Date.today}.csv", 
+        :type => 'text/csv; charset=iso-8859-1; header=present' }
+    end
+    
   end
 
   def show_signup
@@ -105,6 +119,8 @@ class OrchestraController < NavigationController
     # Festivalbiljett
     @festivalTicketID = @signup["orchestra_ticket"]["kind"]
 
+
+
     @LintekDicounntCostStr = ["435", "410", "190", "0"]
     @ticketCostStr = ["535", "510", "220", "0"]
 
@@ -116,10 +132,15 @@ class OrchestraController < NavigationController
     @festivalTicket = @ticketText[@festivalTicketID]
     @ticketCost = @ticketCostStr[@festivalTicketID]
 
+
+    @isLateRegistration = @signup["is_late_registration"]
+
+
+
     # Matbiljett
     @foodTicketID = @signup["orchestra_food_ticket"]["kind"]
     @foodTicket = @ticketText[@foodTicketID]
-    @foodTicketCost = ["215", "140", "75", "0"][@foodTicketID]
+    @foodTicketCost = ["215", "140", "75", "0", "140"][@foodTicketID]
 
     # Övernattning
     if(@signup["dormitory"])
@@ -133,7 +154,7 @@ class OrchestraController < NavigationController
     @totalTags = @signup["orchestra_articles"].select{|x| x["kind"]==3}.count
 
 
-    @totalCost = @ticketCost.to_i + @lintekDiscount + @foodTicketCost.to_i + @dormitory * 50 + @allTshirts.count * 100 + @totalMedals* 40 + @totalTags* 20
+    @totalCost = @signup['total_cost']
 
     # "special_diets"
     @diets = @signup["special_diets"].map{|x| x["name"]}
