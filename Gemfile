@@ -66,6 +66,7 @@ group :test do
   # Front-end testing automation
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'show_me_the_cookies'
 
   # Mocking
   gem 'mocha'

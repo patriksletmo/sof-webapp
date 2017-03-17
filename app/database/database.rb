@@ -16,6 +16,10 @@ class Database
     @token = token
   end
 
+  def self.anonymous
+    Database.new(nil)
+  end
+
   private
 
   def authenticated_options
