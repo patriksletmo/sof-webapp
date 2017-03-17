@@ -39,4 +39,8 @@ class ActionDispatch::IntegrationTest
     Capybara.reset_sessions!
     Capybara.use_default_driver
   end
+
+  def open_menu(menu_text)
+    page.find('#navgroup').find('a', text: menu_text).click
+  end
 end
