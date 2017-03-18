@@ -77,4 +77,6 @@ Rails.application.routes.draw do
   # Pages controller
   get '/:category(/:page)' => 'pages#index'
 
+  # Quick-fix for QR code on beer bottle
+  get '/festivalen/servering/ol', to: redirect('/')
 end
