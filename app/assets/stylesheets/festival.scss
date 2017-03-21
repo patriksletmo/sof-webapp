@@ -1,0 +1,23 @@
+// Place all the styles related to the Festival controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.hero-festival-beer {
+  background-image: url("https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/hero/ol_bild.jpg");
+}
+
+.beer-container {
+  img {
+    width: 100%;
+  }
+
+  .text-with-icon-column span {
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 601px) {
+    .margin-top-40 {
+      margin-top: 0;
+    }
+  }
+}
