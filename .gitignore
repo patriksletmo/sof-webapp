@@ -56,3 +56,5 @@ fabric.properties
 # modules.xml
 # *.ipr
 
+# Test database
+.testdatabase/
