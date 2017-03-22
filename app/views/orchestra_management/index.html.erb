@@ -1,6 +1,13 @@
 <% content_for :header_title do %>Hantera orkestrar<% end %>
 
+
+
+
 <div class="container">
+  <a href="<%= url_for action: :index %>.csv" class="btn">
+    Export all orchestra items
+  </a>
+
   <table class="highlight">
     <thead>
     <tr>
