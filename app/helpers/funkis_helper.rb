@@ -1,0 +1,2 @@
+module FunkisHelper
+end

@@ -1,0 +1,3 @@
+class FunkisController < NavigationController
+  
+end
