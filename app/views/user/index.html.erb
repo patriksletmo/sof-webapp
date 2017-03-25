@@ -2,4 +2,13 @@
 
 <div class="container">
   <p>Inloggad som <%= current_user['display_name'] %></p>
+
+  <a href="<%= url_for action: :edit_password%>" class="btn">
+    Byt lösenord
+  </a>
+
+  <a href="<%= url_for action: :edit_name%>" class="btn">
+    Byt Namn
+  </a>
+
 </div>

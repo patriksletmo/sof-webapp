@@ -74,6 +74,41 @@ class UserController < NavigationController
     end
   end
 
+  def edit_password
+    return if require_login!
+    if request.post?
+      response = database.edit_password(
+          params[:current_password],
+          params[:new_password],
+          params[:password_confirmation]
+      )
+
+      if response.success?
+        flash[:success] = 'Ditt lösenord har uppdaterads'
+        redirect_to root_url
+      else
+        flash[:error] = response.friendly_error
+      end
+    end
+  end
+
+  def edit_name
+    if request.post?
+      response = database.update_user(
+          current_user['id'],
+          {user:{display_name: params[:display_name]
+          }}
+      )
+
+      if response.success?
+        flash[:success] = 'Ditt namn har updaterats'
+        redirect_to edit_name_url
+      else
+        flash[:error] = response.friendly_error
+      end
+    end
+  end
+
   def login_liu_id
     redirect_to liu_login_url
   end
