@@ -88,6 +88,10 @@ class UserController < NavigationController
     end
   end
 
+  def nag_display_name
+
+  end
+
   def logout
     database.logout
     delete_token

@@ -1,0 +1,23 @@
+<% content_for :header_title do %>
+    Färdigställ din profil
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col m8 offset-m2 s12">
+      <p>
+        Vi kunde inte hämta ditt riktiga namn från Kårservice. Vad heter du?
+      </p>
+      <form method="post">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+        <div class="input-field">
+          <input type="email" name="email" id="email">
+          <label for="email">E-mail</label>
+        </div>
+
+        <button type="submit" class="btn waves-effect waves-light">Återställ</button>
+      </form>
+    </div>
+  </div>
+</div>
