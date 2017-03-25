@@ -14,7 +14,7 @@
       <% @contacts.each do |contact| %>
           <div class="card contact-card">
             <div class="card-image">
-              <img src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/placeholder/contact_placeholder.svg">
+              <%= image_tag("https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/contacts/#{contact.picture}.jpg") %>
             </div>
             <div class="card-content no-border">
                   <span class="title">
