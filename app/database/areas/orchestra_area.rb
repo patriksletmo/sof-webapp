@@ -54,5 +54,9 @@ module Areas
     def all_orchestras
       get('/api/v1/orchestra', authenticated_options)
     end
+
+    def item_summary
+      get('/api/v1/orchestra/item_summary', authenticated_options)
+    end
   end
 end
