@@ -41,7 +41,7 @@ class UserController < NavigationController
         if params[:redirect_url]
           redirect_to params[:redirect_url]
         else
-          redirect_to profile_url
+          redirect_to root_url
         end
       else
         flash.now[:error] = response.friendly_error
