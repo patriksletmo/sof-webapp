@@ -1,0 +1,59 @@
+<% content_for :header_title do %>
+    Funkisanmälan - Steg 3/3
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <form method="post" class="sof-form">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <div class="row">
+        <div class="col s12 m7 l7">
+          <h4 class="header">Hej trevliga människa!</h4>
+
+          <p>
+            Kul att du fyllde i det förra formuläret också.
+          </p>
+
+          <p>
+            Nu ska du acceptera ett avtal!
+          </p>
+
+          <p>
+            TODO: Avtal eller villkor
+          </p>
+
+          <br/>
+
+          <!-- Agreement checkbox -->
+          <div class="row">
+            <div class="col s12">
+              <input type="checkbox" class="filled-in" id="agreement" name="agreement" />
+              <label for="agreement">Jag har läst och samtycker till ovanstående villkor</label>
+            </div>
+          </div>
+        </div>
+        <div id="signup-summary-parent" class="col s12 m5 l4 offset-l1">
+          <div id="signup-summary">
+            <h4>Sammanställning</h4>
+            <table>
+              <thead>
+              <tr>
+                <th>Pass</th>
+                <th>Poäng</th>
+              </tr>
+              </thead>
+              <tbody id="pass-list">
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <button class="waves-effect waves-light btn" type="submit">Anmäl dig som funkis</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

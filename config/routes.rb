@@ -50,6 +50,8 @@ Rails.application.routes.draw do
   get 'funkis/categories' => 'funkis#categories'
   get 'funkis/application' => 'funkis#application'
   post 'funkis/application' => 'funkis#new'
+  get 'funkis/application/shifts' => 'funkis#shift_selection'
+  get 'funkis/application/agreement' => 'funkis#agreement'
 
 
   # User management
