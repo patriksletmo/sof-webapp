@@ -1,6 +1,9 @@
 class UserController < NavigationController
   def index
     return if require_login!
+
+
+
   end
 
   def register
@@ -76,6 +79,7 @@ class UserController < NavigationController
 
   def edit_password
     return if require_login!
+
     if request.post?
       response = database.edit_password(
           params[:current_password],

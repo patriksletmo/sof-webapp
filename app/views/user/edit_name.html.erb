@@ -1,7 +1,6 @@
 <% content_for :header_title do %>Byta namn<% end %>
 
 <div class="container">
-  <p>Just nu heter du <i><%= current_user['display_name'] %></i> iallafall :)</p>
   <div class="row section">
     <div class="col s12 m6">
       <div class="card grey lighten-4">
@@ -11,7 +10,7 @@
             <span class="card-title">Byta namn</span>
             <div class="input-field">
               <input type="text" name="display_name" id="display_name" required>
-              <label for="display_name">Vad heter du nu då?</label>
+              <label for="display_name">Nytt namn</label>
             </div>
           </div>
             <div class="card-action">
