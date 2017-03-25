@@ -8,130 +8,114 @@
 </div>
 
 <div class="funkis-container">
+  <% @categories.each_with_index do |category, index| %>
+      <div class="card-container">
+        <div class="card margin-bottom-40">
+          <div class="card-content">
+            <% if index % 3 == 0 %>
+                <div class="funkis-category-container l-green">
+                  <h3>
+                    <%= category['name'] %>
+                  </h3>
+                  <span>
+                    <%= category['funkis_name'] %>
+                  </span>
+                </div>
+            <% elsif index % 3 == 1 %>
+                <div class="funkis-category-container n-green">
+                  <h3>
+                    <%= category['name'] %>
+                  </h3>
+                  <span>
+                    <%= category['funkis_name'] %>
+                  </span>
+                </div>
+            <% else %>
+                <div class="funkis-category-container d-green">
+                  <h3>
+                    <%= category['name'] %>
+                  </h3>
+                  <span>
+                    <%= category['funkis_name'] %>
+                  </span>
+                </div>
+            <% end %>
 
-  <div class="card margin-bottom-40">
-    <div class="card-content">
-      <div class="funkis-category-container l-green">
-        <h3>
-          Mästerkatt
-        </h3>
-        <span>
-          Insatsfunkis
-        </span>
-      </div>
-      <div class="points-container">
-        <h3 class="l-green-text">
-          50/100 p
-        </h3>
-      </div>
-    </div>
-    <div class="card-content bottom-block">
-      <span class="card-title activator center-block center l-green">
-        - Klicka här för mer info -
-      </span>
-    </div>
+            <div class="points-container">
+              <% if index % 3 == 0 %>
+                  <h3 class="l-green-text">
+                    <%= category['points'] %>
+                  </h3>
+              <% elsif index % 3 == 1 %>
+                  <h3 class="n-green-text">
+                    <%= category['points'] %>
+                  </h3>
+              <% else %>
+                  <h3 class="d-green-text">
+                    <%= category['points'] %>
+                  </h3>
+              <% end %>
 
-    <div class="card-reveal">
+            </div>
+          </div>
+
+          <div class="card-content bottom-block">
+            <% if index % 3 == 0 %>
+          <span class="card-title activator center-block center l-green">
+
+            - Klicka här för mer info -
+            </span>
+            <% elsif index % 3 == 1 %>
+          <span class="card-title activator center-block center n-green">
+
+            - Klicka här för mer info -
+            </span>
+            <% else %>
+          <span class="card-title activator center-block center d-green">
+
+            - Klicka här för mer info -
+            </span>
+            <% end %>
+
+          </div>
+
+          <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">
-        Mästerkatt
+        <%= category['name'] %>
         <i class="material-icons right">close</i>
       </span>
-      <p>
-        Anser du dig vara en räddare i nöden? Insatsfunkisarna är där de behövs under festivalen och de klarar allt från att möta besökare i entrén till att utfordra dem med mat och dryck.
-      </p>
-      <table class="bordered">
-        <thead>
-        <tr>
-          <th></th>
-          <th>Torsdag 11/5</th>
-          <th>Fredag 12/5</th>
-          <th>Lördag 13/5</th>
-        </tr>
-        </thead>
+            <p>
+              <%= category['description'] %>
+            </p>
+            <table class="bordered">
+              <thead>
+              <tr>
+                <th></th>
+                <th>Torsdag 11/5</th>
+                <th>Fredag 12/5</th>
+                <th>Lördag 13/5</th>
+              </tr>
+              </thead>
 
-        <tbody>
-        <tr>
-          <td>Dagspass</td>
-          <td>14:00-22:00</td>
-          <td>14:00-22:00</td>
-          <td>15:00-23:00</td>
-        </tr>
-        <tr>
-          <td>Nattpass</td>
-          <td>21:00-04:30</td>
-          <td>21:00-04:30</td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
+              <tbody>
+              <tr>
+                <td>Dagspass</td>
+                <td>14:00-22:00</td>
+                <td>14:00-22:00</td>
+                <td>15:00-23:00</td>
+              </tr>
+              <tr>
+                <td>Nattpass</td>
+                <td>21:00-04:30</td>
+                <td>21:00-04:30</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+  <% end %>
+
+
+
   </div>
-
-
-
-
-
-
-
-
-
-
-
-  <div class="card margin-bottom-40">
-    <div class="card-content">
-      <div class="funkis-category-container n-green">
-        <h3>
-          Mästerkatt
-        </h3>
-        <span>
-          Insatsfunkis
-        </span>
-      </div>
-      <div class="points-container">
-        <h3 class="n-green-text">
-          50/100 p
-        </h3>
-      </div>
-    </div>
-    <div class="card-content bottom-block">
-      <span class="card-title activator center-block center n-green">
-        - Klicka är för mer info -
-      </span>
-    </div>
-
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-    </div>
-  </div>
-
-  <div class="card margin-bottom-40">
-    <div class="card-content">
-      <div class="funkis-category-container d-green">
-        <h3>
-          Mästerkatt
-        </h3>
-        <span>
-          Insatsfunkis
-        </span>
-      </div>
-      <div class="points-container">
-        <h3 class="d-green-text">
-          50/100 p
-        </h3>
-      </div>
-    </div>
-    <div class="card-content bottom-block">
-      <span class="card-title activator center-block center d-green">
-        - Klicka är för mer info -
-      </span>
-    </div>
-
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-    </div>
-  </div>
-
-
-
-</div>
