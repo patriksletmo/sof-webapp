@@ -89,7 +89,15 @@ class UserController < NavigationController
   end
 
   def nag_display_name
-
+    if request.post?
+      response = database.update_user(current_user['id'], {user: {display_name: params[:new_name]}})
+      if response.success?
+        flash[:success] = 'Namn uppdaterat'
+        redirect_to root_url
+      else
+        flash.now[:error] = 'Kunde inte uppdatera namn'
+      end
+    end
   end
 
   def logout
