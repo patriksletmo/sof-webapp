@@ -6,17 +6,20 @@
   <div class="row">
     <div class="col m8 offset-m2 s12 m-margin-top-40">
       <p>
-        Vi kunde inte hämta ditt riktiga namn från Kårservice. Vad heter du? :)
+        <b>Ojdå!</b>
       </p>
       <p>
-        Notera att du måste fylla i detta innan du kan fortsätta utforska sidan!
+        Vi kunde inte hämta ditt riktiga namn från Kårservice. Vad heter du?
+      </p>
+      <p>
+        Notera att du måste fylla i detta innan du kan fortsätta utforska sidan.
       </p>
       <form method="post">
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
         <div class="input-field">
           <input type="text" name="new_name" id="new_name">
-          <label for="new_name">Namn</label>
+          <label for="new_name">För- och efternamn</label>
         </div>
 
         <button type="submit" class="btn waves-effect waves-light">Uppdatera namn</button>
