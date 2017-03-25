@@ -45,6 +45,10 @@ Rails.application.routes.draw do
   post 'case_cortege/:id' => 'case_cortege#update'
   post 'case_cortege/:id/delete' => 'case_cortege#delete'
 
+  # Funkis
+  get 'funkis' => 'funkis#index'
+  get 'funkis/benefits' => 'funkis#benefits'
+
   # User management
   get 'manage/users' => 'user_management#index'
   get 'manage/users/:id' => 'user_management#show'
