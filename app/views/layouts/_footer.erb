@@ -1,9 +1,8 @@
 <footer class="page-footer footer-wrapper">
-  <div class="container">
-    <div class="row">
-      <!-- Social media icons/links -->
-      <div class="col s12">
-        <ul class="social-media-row">
+  <div class="row">
+    <!-- Social media icons/links -->
+      <div class="social-media-row">
+        <ul>
           <li>
             <%= link_to 'https://www.facebook.com/Studentorkesterfestivalen', :class => 'btn-flat btn-social-media waves-effect waves-light', target: :'_blank' do %>
                 <i class="icon-facebook socialmedia-icon"></i>
@@ -28,43 +27,38 @@
             <% end %>
           </li>
         </ul>
-      </div>
     </div>
+  </div>
+
 
     <!-- Sponsors -->
     <div class="row no-margin">
-      <div class="col s12 m12 l12">
-        <div class="line-with-text">
-          <span class="text-in-line">
-            Samarbetspartners
-          </span>
-        </div>
+      <div class="line-with-text">
+        <span class="text-in-line">
+          Samarbetspartners
+        </span>
       </div>
     </div>
     <div class="container-logos">
-      <div class="row">
-        <div class="col s12 m6 l6 sponsor-logo-container">
-          <%= link_to 'https://liu.se/', target: :'_blank' do %>
-            <img src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/logotyper/sponsorer/sponsor4.svg" class="horizontal-logo">
-          <% end %>
-        </div>
-        <div class="col s12 m6 l6 sponsor-logo-container">
-          <%= link_to 'http://www.linkoping.se/', target: :'_blank' do %>
-            <img src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/logotyper/sponsorer/sponsor3.svg" class="horizontal-logo">
-          <% end %>
-        </div>
-        <div class="col s12 m6 l6n sponsor-logo-container">
+      <div class="sponsor-logo-container">
           <%= link_to 'http://visitlinkoping.se/', target: :'_blank' do %>
-            <img src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/logotyper/sponsorer/sponsor2.svg" class="horizontal-logo">
+              <img src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/logotyper/sponsorer/updated/sponsor1.svg" class="horizontal-logo">
           <% end %>
         </div>
-        <div class="col s12 m6 l6 sponsor-logo-container">
-          <%= link_to 'http://wheresthemusic.se/', target: :'_blank' do %>
-          <img src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/logotyper/sponsorer/sponsor1.svg" class="vertical-logo">
+        <div class="sponsor-logo-container">
+          <%= link_to 'http://www.linkoping.se/', target: :'_blank' do %>
+              <img src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/logotyper/sponsorer/updated/sponsor2.svg" class="horizontal-logo">
           <% end %>
         </div>
-      </div>
+        <div class="sponsor-logo-container">
+          <%= link_to 'https://liu.se/', target: :'_blank' do %>
+              <img src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/logotyper/sponsorer/updated/sponsor3.svg" class="horizontal-logo">
+          <% end %>
+        </div>
+        <div class="sponsor-logo-container">
+          <%= link_to 'http://www.ebbepark.se/', target: :'_blank' do %>
+              <img src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/logotyper/sponsorer/updated/sponsor4.svg" class="horizontal-logo">
+          <% end %>
+        </div>
     </div>
-
-  </div>
 </footer>
