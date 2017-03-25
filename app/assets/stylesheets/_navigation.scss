@@ -14,13 +14,13 @@ $brand-logo-size: 124px;
   flex-direction: column;
 }
 
-// hide scrollbar
-::-webkit-scrollbar {
-  display: none;
-}
-
 #slide-out ul {
   width: 100%;
+}
+
+// Only for chrome, but... thats the only one that matters
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
 }
 
 .side-nav i.icon-arrow-down {
