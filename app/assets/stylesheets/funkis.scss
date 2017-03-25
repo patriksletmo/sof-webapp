@@ -1,3 +1,136 @@
 // Place all the styles related to the funkis controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.hero-funkis {
+  background-image: url("https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/hero/funkis.jpg");
+}
+
+$light-green: #45b274;
+$green: #009640;
+$dark-green: #006e27;
+
+
+.funkis-container {
+  display: flex;
+  p {
+    margin: auto;
+    font-family: DIN;
+    font-weight: normal;
+    font-size: 16px;
+  }
+
+  .text-with-icon-column {
+    span {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+  }
+
+  .benefits-staircase {
+    width: 100%;
+    max-width: 500px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .card {
+    height: 400px;
+    width: 400px;
+    margin: auto auto 40px;
+    h3 {
+      margin: 0;
+    }
+    .card-content {
+      padding: 0;
+      .funkis-category-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        flex-wrap: wrap;
+        height: 200px;
+        h3 {
+          font-family: Arial;
+          font-size: 56px;
+          color: white;
+          margin: auto auto 5px;
+        }
+        span {
+          font-family: Arial;
+          font-size: 24px;
+          color: white;
+          margin: 5px auto auto;
+        }
+      }
+      .points-container {
+        height: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        h3 {
+          font-family: Arial;
+          font-size: 72px;
+          margin: auto;
+        }
+      }
+    }
+
+    .card-content.bottom-block {
+      .card-title {
+        line-height: 50px;
+      }
+      span {
+        font-family: Arial;
+        color: white;
+      }
+    }
+
+    .card-reveal {
+      span {
+        font-family: DIN;
+        font-weight: normal;
+      }
+      p {
+        font-family: DIN;
+        font-weight: normal;
+        margin-bottom: 10px;
+      }
+    }
+
+    table {
+      thead {
+        th {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .points-container {
+      h3.l-green-text {
+        color: $light-green;
+      }
+      h3.n-green-text {
+        color: $green;
+      }
+      h3.d-green-text {
+        color: $dark-green;
+      }
+    }
+
+    .l-green {
+      background-color: $light-green;
+    }
+    .n-green {
+      background-color: $green;
+    }
+    .d-green {
+      background-color: $dark-green;
+    }
+
+
+  }
+}

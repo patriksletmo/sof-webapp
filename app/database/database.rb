@@ -5,10 +5,12 @@ class Database
   include Areas::AccountArea
   include Areas::CaseCortegeArea
   include Areas::CortegeArea
+  include Areas::FunkisArea
   include Areas::MenuArea
   include Areas::OrchestraArea
   include Areas::PagesArea
   include Areas::UserArea
+
 
   base_uri Rails.configuration.database_api_url
 

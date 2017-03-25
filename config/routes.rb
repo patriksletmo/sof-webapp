@@ -47,7 +47,10 @@ Rails.application.routes.draw do
 
   # Funkis
   get 'funkis' => 'funkis#index'
-  get 'funkis/benefits' => 'funkis#benefits'
+  get 'funkis/categories' => 'funkis#categories'
+  get 'funkis/application' => 'funkis#application'
+  post 'funkis/application' => 'funkis#new'
+
 
   # User management
   get 'manage/users' => 'user_management#index'

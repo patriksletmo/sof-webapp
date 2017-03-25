@@ -1,9 +1,17 @@
 class FunkisController < NavigationController
   def index
-    render 'funkis/benefits'
+
   end
 
-  def benefits
+  def categories
+    @categories = database.funkis_categories
+  end
 
+  def application
+
+  end
+
+  def new
+    
   end
 end
