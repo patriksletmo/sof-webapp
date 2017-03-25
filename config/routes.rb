@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'user#logout'
   get '/login/liu_id', to: 'user#login_liu_id'
   get '/login/verify', to: 'user#verify_liu_id'
+  match '/complete_profile', to: 'user#nag_display_name', via: [:get, :post]
 
 
   # Orchestra
