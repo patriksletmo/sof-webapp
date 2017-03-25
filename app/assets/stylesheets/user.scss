@@ -51,7 +51,6 @@
 
 .card.login-register-card {
   width: 450px;
-  margin: auto;
 }
 
 .card .card-action.liu-student {
@@ -143,6 +142,21 @@
   margin-right: 20px;
   transition: color .3s ease;
   text-transform: uppercase;
+}
+
+/*---------- Trumpets -----------*/
+
+.left-trump, .right-trump {
+  height: 280px;
+  align-self: center;
+}
+
+.left-trump {
+  margin-right: -30px;
+}
+
+.right-trump {
+  margin-left: -40px;
 }
 
 
