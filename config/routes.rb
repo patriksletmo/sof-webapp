@@ -46,6 +46,9 @@ Rails.application.routes.draw do
   post 'case_cortege/:id' => 'case_cortege#update'
   post 'case_cortege/:id/delete' => 'case_cortege#delete'
 
+  # Festival
+  get '/festivalen/servering/ol', to: 'festival#beer'
+
   # User management
   get 'manage/users' => 'user_management#index'
   get 'manage/users/:id' => 'user_management#show'
@@ -77,5 +80,4 @@ Rails.application.routes.draw do
 
   # Pages controller
   get '/:category(/:page)' => 'pages#index'
-
 end
