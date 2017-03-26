@@ -90,7 +90,7 @@
           <input type='hidden' value='false' name='drivers_license'>
           <div class="row">
             <div class="col s12">
-              <input type="checkbox" class="filled-in" id="b-drivers-license" name="drivers_license" <%= 'checked' if @funkis_application['drivers_license'] %> />
+              <input type="checkbox" class="filled-in" id="b-drivers-license" name="drivers_license" value="true" <%= 'checked' if @funkis_application['drivers_license'].to_s == 'true' %> />
               <label for="b-drivers-license">Har du B-körkort? (obligatoriskt för Chaufför-funkis)</label>
             </div>
           </div>
