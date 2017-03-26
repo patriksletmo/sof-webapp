@@ -9,7 +9,7 @@
       </tr>
       </thead>
       <tbody id="pass-list">
-        <% if @funkis_application['funkis_shift_applications'].any? %>
+        <% if @funkis_application['funkis_shift_applications'] and @funkis_application['funkis_shift_applications'].any? %>
           <% @funkis_application['funkis_shift_applications'].each do |s| %>
             <tr>
               <td>

@@ -8,10 +8,12 @@
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
       <!-- Hack to avoid creating duplicate entries of shift signups -->
-      <% @funkis_application['funkis_shift_applications'].each do |s| %>
-        <input type="hidden" name="funkis_shift_applications_attributes[][iter]" value="1">
-        <input type="hidden" name="funkis_shift_applications_attributes[][id]" value="<%= s['id'] %>">
-        <input type="hidden" name="funkis_shift_applications_attributes[][_destroy]" value="1">
+      <% unless @funkis_application['funkis_shift_applications'].nil? %>
+        <% @funkis_application['funkis_shift_applications'].each do |s| %>
+          <input type="hidden" name="funkis_shift_applications_attributes[][iter]" value="1">
+          <input type="hidden" name="funkis_shift_applications_attributes[][id]" value="<%= s['id'] %>">
+          <input type="hidden" name="funkis_shift_applications_attributes[][_destroy]" value="1">
+        <% end %>
       <% end %>
 
       <div class="row">
@@ -122,9 +124,13 @@
                                         *
                                     <% end %>
 
-                                    <button type="button" class="btn shift-btn <%=
-                                      'red' if @funkis_application['funkis_shift_applications'].any? {|x| x['funkis_shift_id'] == shift['id'] }
-                                    %>" style="margin: 0 10px">Välj</button>
+                                    <% if @funkis_application['funkis_shift_applications'].nil? %>
+                                        <button type="button" class="btn shift-btn" style="margin: 0 10px">Välj</button>
+                                    <% else %>
+                                      <button type="button" class="btn shift-btn <%=
+                                        'red' if @funkis_application['funkis_shift_applications'].any? {|x| x['funkis_shift_id'] == shift['id'] }
+                                      %>" style="margin: 0 10px">Välj</button>
+                                    <% end %>
                                   </td>
                               <% end %>
                             </tr>
