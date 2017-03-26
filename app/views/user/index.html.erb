@@ -4,13 +4,13 @@
   <p>Inloggad som <%= current_user['display_name'] %></p>
 
   <% if current_user['provider'] != 'cas' %>
-    <a href="<%= url_for action: :edit_password%>" class="btn">
-      Byt lösenord
-    </a>
+      <%= link_to edit_password_url, :class => 'btn' do %>
+        Byt lösenord
+      <% end %>
   <% end %>
 
-  <a href="<%= url_for action: :edit_name%>" class="btn">
+  <%= link_to edit_name_url, :class => 'btn' do %>
     Byt namn
-  </a>
+  <% end %>
 
 </div>
