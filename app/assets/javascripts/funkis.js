@@ -106,7 +106,8 @@ function appendShift(shift, name, points) {
     }
 
     if (shift != null) {
-        row.append($('<input type="hidden" name="funkis_shift_applications_attributes[][funkis_shift_id]" value="' + shift['id'] + '" />'))
+        row.append($('<input type="hidden" name="funkis_shift_applications_attributes[][iter]" value="1">'));
+        row.append($('<input type="hidden" name="funkis_shift_applications_attributes[][funkis_shift_id]" value="' + shift['id'] + '" />'));
     }
 
     $('#article-list').append(row);
