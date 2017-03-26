@@ -1,7 +1,36 @@
-// Place all the styles related to the frontpage controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "colors";
+@import "fonts";
 
+#top-bubble {
+  width: 260px;
+  position: absolute;
+  right: 0;
+  top: 79px;
+  z-index: 500;
+}
+
+#top-bubble-text {
+  top: 40px;
+  position: absolute;
+  right: 25px;
+  width: 140px;
+  text-align: center;
+  font-size: 25px;
+  font-family: 'Swis721 Ex BT';
+  line-height: 100%;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: $sof-purple-color;
+  text-shadow: 1px 0px 1px $sof-purple-shadow-color;
+}
+
+#top-bubble-link {
+  width: 180px;
+  height: 140px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
 
 .hero-frontpage {
   background-image: url("https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/hero/korteget%C3%A5g.jpg");
