@@ -25,6 +25,12 @@ class FunkisController < NavigationController
   def agreement
     return if require_login!
     #return if require_step! 2
+    @is_fadder = false
+    current_user['funkis_application']['funkis_shift_applications'].each do |app|
+      if app['funkis_shift']['funkis_category']['name'] == "Zazu"
+        @is_fadder = true;
+      end
+    end
 
     # TODO: Change url
     present_or_save_to root_url
