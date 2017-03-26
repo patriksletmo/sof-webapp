@@ -9,6 +9,34 @@ $top-nav-height: 80px;
   height: $top-nav-height;
 }
 
+#top-bubble {
+  width: 260px;
+  position: absolute;
+  right: 0;
+  top: 79px;
+  z-index: 500;
+}
+
+#top-bubble-text {
+  top: 60px;
+  position: absolute;
+  right: 25px;
+  text-align: left;
+  font-size: 20px;
+  font-family: $header-font;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#top-bubble-link {
+  width: 180px;
+  height: 140px;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+}
+
 .nav-header {
   background: $secondary-color;
 }
@@ -40,5 +68,3 @@ $top-nav-height: 80px;
     font-size: 2.28rem;
   }
 }
-
-
