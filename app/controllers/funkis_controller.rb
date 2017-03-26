@@ -4,20 +4,7 @@ class FunkisController < NavigationController
   end
 
   def categories
-    @categories = database.funkis_categories
-
-    # Sort the funkis_shifts per day
-    @categories.each do |category|
-      days = Hash.new { |h, k| h[k] = [] }
-      category['available_shifts'].each do |shift|
-        if days.key?(shift['day'])
-          days[shift['day']] << shift
-        else
-          days[shift['day']] = [shift]
-        end
-      end
-      category['funkis_shifts'] = days
-    end
+    @categories = all_categories
   end
 
   def application
@@ -29,6 +16,8 @@ class FunkisController < NavigationController
   def shift_selection
     return if require_login!
     return if require_step! 1
+
+    @categories = all_categories
 
     present_or_save_to funkis_application_agreement_url
   end
@@ -42,6 +31,23 @@ class FunkisController < NavigationController
   end
 
   private
+
+  def all_categories
+    cats = database.funkis_categories
+
+    # Sort the funkis_shifts per day
+    cats.each do |category|
+      days = Hash.new { |h, k| h[k] = [] }
+      category['available_shifts'].each do |shift|
+        if days.key?(shift['day'])
+          days[shift['day']] << shift
+        else
+          days[shift['day']] = [shift]
+        end
+      end
+      category['funkis_shifts'] = days
+    end
+  end
 
   def require_step!(step)
     funkis_application = current_user['funkis_application']
