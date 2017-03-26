@@ -17,8 +17,9 @@ $(document).on('turbolinks:load', function () {
         $('#select-tag').change(updateArticleList);
 
         updateArticleList();
-        updateSignupSummary();
     }
+
+    updateSignupSummary();
 });
 
 $(window).on('resize', updateSignupSummary);
