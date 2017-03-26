@@ -1,5 +1,5 @@
 <% if current_user.nil? %>
-    <li><%= link_to('Logga in', login_path, {:class => 'menu-item waves-effect waves-light'}) %></li>
+    <li><%= link_to('Logga in', "#{login_path}?redirect_url=#{request.original_url}", {:class => 'menu-item waves-effect waves-light'}) %></li>
 <% else %>
     <li class="no-padding">
       <ul class="collapsible collapsible-accordion">

@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get '/lang/:lang', to: 'application#change_language'
 
   # Authentication
-  get '/profile', to: 'user#index'
+  get '/profile', to: 'user#index', via: [:get, :post]
+  match '/edit/password', to: 'user#edit_password', via: [:get, :post]
+  match '/edit/name', to: 'user#edit_name', via: [:get, :post]
   match '/register', to: 'user#register', via: [:get, :post]
   match '/login', to: 'user#login', via: [:get, :post]
   match '/reset/request', to: 'user#request_password_reset', via: [:get, :post]
@@ -14,6 +16,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'user#logout'
   get '/login/liu_id', to: 'user#login_liu_id'
   get '/login/verify', to: 'user#verify_liu_id'
+  match '/complete_profile', to: 'user#nag_display_name', via: [:get, :post]
 
 
   # Orchestra
@@ -53,6 +56,8 @@ Rails.application.routes.draw do
   get 'funkis/application/shifts' => 'funkis#shift_selection'
   get 'funkis/application/agreement' => 'funkis#agreement'
 
+  # Festival
+  get '/festivalen/servering/ol', to: 'festival#beer'
 
   # User management
   get 'manage/users' => 'user_management#index'
@@ -85,5 +90,4 @@ Rails.application.routes.draw do
 
   # Pages controller
   get '/:category(/:page)' => 'pages#index'
-
 end
