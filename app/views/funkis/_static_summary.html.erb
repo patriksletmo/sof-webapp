@@ -13,7 +13,7 @@
           <% @funkis_application['funkis_shift_applications'].each do |s| %>
             <tr>
               <td>
-                FUNKIS
+                <%= s['funkis_shift']['funkis_category']['funkis_name'] %>
                 <br/>
                 <%= s['funkis_shift']['day'] %>
                 <br/>
