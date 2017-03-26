@@ -33,8 +33,15 @@ class FunkisController < NavigationController
       end
     end
 
-    # TODO: Change url
-    present_or_save_to root_url
+    present_or_save_to funkis_application_complete_url
+  end
+
+  def show
+    return if require_login!
+    return if require_step! 3
+
+    @funkis_application = current_user['funkis_application']
+    @total_points = calculate_total_points
   end
 
   private
@@ -58,11 +65,14 @@ class FunkisController < NavigationController
 
   def require_step!(step)
     funkis_application = current_user['funkis_application']
-    return true if funkis_application.nil?
+    if funkis_application.nil?
+      redirect_to funkis_application_url
+      return true
+    end
 
     steps_completed = funkis_application['steps_completed']
     if steps_completed < step
-      flash[:error] = 'Du har inte färdigställt det tidigare steget'
+      flash[:error] = 'Du har inte färdigställt ett tidigare steg'
       redirect_to url_for_step(steps_completed)
       true
     else
@@ -82,10 +92,7 @@ class FunkisController < NavigationController
       @funkis_application = current_user['funkis_application'] || {}
     end
 
-    @total_points = 0
-    if @funkis_application and @funkis_application['funkis_shift_applications']
-      @funkis_application['funkis_shift_applications'].each { |x| @total_points += x['funkis_shift']['points'] }
-    end
+    @total_points = calculate_total_points
   end
 
   def save_application
@@ -108,5 +115,13 @@ class FunkisController < NavigationController
       else
         funkis_application_url
     end
+  end
+
+  def calculate_total_points
+    total = 0
+    if @funkis_application and @funkis_application['funkis_shift_applications']
+      @funkis_application['funkis_shift_applications'].each { |x| total += x['funkis_shift']['points'] }
+    end
+    total
   end
 end

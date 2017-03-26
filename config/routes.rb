@@ -54,6 +54,7 @@ Rails.application.routes.draw do
   match 'funkis/application' => 'funkis#application', via: [:get, :post]
   match 'funkis/application/shifts' => 'funkis#shift_selection', via: [:get, :post]
   match 'funkis/application/agreement' => 'funkis#agreement', via: [:get, :post]
+  get 'funkis/application/complete' => 'funkis#show'
 
   # Festival
   get '/festivalen/servering/ol', to: 'festival#beer'
