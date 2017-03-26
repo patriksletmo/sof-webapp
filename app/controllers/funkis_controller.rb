@@ -74,6 +74,11 @@ class FunkisController < NavigationController
     else
       @funkis_application = current_user['funkis_application'] || {}
     end
+
+    @total_points = 0
+    if @funkis_application and @funkis_application['funkis_shift_applications']
+      @funkis_application['funkis_shift_applications'].each { |x| @total_points += x['funkis_shift']['points'] }
+    end
   end
 
   def save_application

@@ -7,7 +7,7 @@
     <form method="post" class="sof-form">
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
       <div class="row">
-        <div class="col s12 m7 l7">
+        <div class="col s12 m6 l6">
           <h4 class="header">Hej trevliga människa!</h4>
 
           <p>
@@ -106,22 +106,7 @@
             </div>
           </div>
         </div>
-        <div id="signup-summary-parent" class="col s12 m5 l4 offset-l1">
-          <div id="signup-summary">
-            <h4>Sammanställning</h4>
-            <table>
-              <thead>
-              <tr>
-                <th>Pass</th>
-                <th>Poäng</th>
-              </tr>
-              </thead>
-              <tbody id="pass-list">
-              </tbody>
-            </table>
-            <p class="center grey-text">Inga pass valda</p>
-          </div>
-        </div>
+        <%= render 'static_summary' %>
       </div>
 
       <div class="row">
