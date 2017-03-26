@@ -35,7 +35,7 @@ class FunkisController < NavigationController
 
   def agreement
     return if require_login!
-    return if require_step! 2
+    #return if require_step! 2
 
     # TODO: Change url
     present_or_save_to root_url
