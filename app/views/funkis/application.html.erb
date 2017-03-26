@@ -24,7 +24,7 @@
           <div class="row">
             <div class="input-field col s12">
               <label for="name">Namn</label>
-              <input id="name" type="text" name="name" value="<%= current_user['display_name'] %>" disabled>
+              <input id="name" type="text" value="<%= current_user['display_name'] %>" disabled>
             </div>
           </div>
 
@@ -32,7 +32,7 @@
           <div class="row">
             <div class="input-field col s12">
               <label for="liu_id">LiU-ID</label>
-              <input id="liu_id" type="text" name="liu_id" value="<%= current_user['nickname'] %>" disabled>
+              <input id="liu_id" type="text" value="<%= current_user['nickname'] %>" disabled>
             </div>
           </div>
 
@@ -40,7 +40,7 @@
           <div class="row">
             <div class="input-field col s12">
               <label for="email">E-post</label>
-              <input id="email" type="text" name="email" value="<%= current_user['email'] %>" disabled>
+              <input id="email" type="text" value="<%= current_user['email'] %>" disabled>
             </div>
           </div>
 
@@ -48,30 +48,39 @@
           <div class="row">
             <div class="input-field col s12">
               <label for="ssn">Personnummer</label>
-              <input id="ssn" type="text" name="ssn">
+              <input id="ssn" type="text" name="ssn" value="<%= @funkis_application['ssn'] %>">
             </div>
           </div>
 
           <!-- Telephone number -->
           <div class="row">
             <div class="input-field col s12">
-              <label for="tel">Telefonnummer</label>
-              <input id="tel" type="tel" name="tel">
+              <label for="phone">Telefonnummer</label>
+              <input id="phone" type="tel" name="phone" value="<%= @funkis_application['phone'] %>">
             </div>
           </div>
 
-          <p>
-            TODO: Allergier
-          </p>
+          <!-- Allergies -->
+          <div class="row">
+            <div class="input-field col s12">
+              <label for="allergies">Allergier</label>
+              <input id="allergies" type="text" name="allergies" value="<%= @funkis_application['allergies'] %>">
+            </div>
+          </div>
 
-          <p>
-            TODO: Tröjstorlek
-          </p>
+          <!-- T-shirt size -->
+          <!-- TODO: Change to dropdown or the like -->
+          <div class="row">
+            <div class="input-field col s12">
+              <label for="tshirt_size">T-shirt</label>
+              <input id="tshirt_size" type="text" name="tshirt_size" value="<%= @funkis_application['tshirt_size'] %>">
+            </div>
+          </div>
 
           <!-- Drivers license -->
           <div class="row">
             <div class="col s12">
-              <input type="checkbox" class="filled-in" id="b-drivers-license" name="b-drivers-license" />
+              <input type="checkbox" class="filled-in" id="b-drivers-license" name="drivers_license" <%= 'checked' if @funkis_application['drivers_license'] %> />
               <label for="b-drivers-license">Har du B-körkort? (obligatoriskt för Chaufför-funkis)</label>
             </div>
           </div>
@@ -80,10 +89,10 @@
           <div class="row">
             <div class="col s12">
               <label for="pre-sale-ticket">Vilket förköp är du intresserad av?</label>
-              <select name="pre-sale-ticket" id="pre-sale-ticket">
-                <option value="0">Inget förköp</option>
-                <option value="1">München Hoben</option>
-                <option value="2">UK</option>
+              <select name="presale_choice" id="pre-sale-ticket">
+                <option value="0" <%= 'selected' if @funkis_application['presale_choice'] == 0 %>>Inget förköp</option>
+                <option value="1" <%= 'selected' if @funkis_application['presale_choice'] == 1 %>>München Hoben</option>
+                <option value="2" <%= 'selected' if @funkis_application['presale_choice'] == 2 %>>UK</option>
               </select>
             </div>
           </div>
