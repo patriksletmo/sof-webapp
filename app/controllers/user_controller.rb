@@ -97,13 +97,12 @@ class UserController < NavigationController
     if request.post?
       response = database.update_user(
           current_user['id'],
-          {user:
-               {display_name: params[:display_name]}
+          user: {
+              display_name: params[:display_name]
           }
       )
-
       if response.success?
-        flash[:success] = 'Ditt namn har updaterats'
+        flash[:success] = 'Ditt namn har uppdaterats'
         redirect_to edit_name_url
       else
         flash.now[:error] = response.friendly_error
