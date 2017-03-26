@@ -1,0 +1,38 @@
+<div id="signup-summary-parent" class="col s12 m6 l5 offset-l1">
+  <div id="signup-summary">
+    <h4>Sammanställning</h4>
+    <table>
+      <thead>
+      <tr>
+        <th>Pass</th>
+        <th>Poäng</th>
+      </tr>
+      </thead>
+      <tbody id="pass-list">
+        <% if @funkis_application['funkis_shift_applications'] and @funkis_application['funkis_shift_applications'].any? %>
+          <% @funkis_application['funkis_shift_applications'].each do |s| %>
+            <tr>
+              <td>
+                <%= s['funkis_shift']['funkis_category']['funkis_name'] %>
+                <br/>
+                <%= s['funkis_shift']['day'] %>
+                <br/>
+                <%= s['funkis_shift']['time'] %>
+              </td>
+              <td><%= s['funkis_shift']['points'] %> poäng</td>
+            </tr>
+          <% end %>
+          <tr>
+            <th>Totalt</th>
+            <th><%= @total_points %> poäng</th>
+          </tr>
+        <% else %>
+          <tr>
+            <td>Inga pass valda</td>
+            <td></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -48,6 +48,14 @@ Rails.application.routes.draw do
   post 'case_cortege/:id' => 'case_cortege#update'
   post 'case_cortege/:id/delete' => 'case_cortege#delete'
 
+  # Funkis
+  get 'funkis' => 'funkis#index'
+  get 'funkis/categories' => 'funkis#categories'
+  match 'funkis/application' => 'funkis#application', via: [:get, :post]
+  match 'funkis/application/shifts' => 'funkis#shift_selection', via: [:get, :post]
+  match 'funkis/application/agreement' => 'funkis#agreement', via: [:get, :post]
+  get 'funkis/application/complete' => 'funkis#show'
+
   # Festival
   get '/festivalen/servering/ol', to: 'festival#beer'
 
