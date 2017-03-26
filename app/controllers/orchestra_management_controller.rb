@@ -6,5 +6,16 @@ class OrchestraManagementController < NavigationController
     unless @orchestras.success?
       render status: 403
     end
+
+    respond_to do |format|
+      format.html
+      format.csv {
+      	@item_summary = database.item_summary
+        send_data @item_summary.encode('iso-8859-1'), 
+        :filename => "item_summary" + "-#{Date.today}.csv", 
+        :type => 'text/csv; charset=iso-8859-1; header=present' }
+    end
+
+
   end
 end

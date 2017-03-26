@@ -1,0 +1,2 @@
+class FestivalController < NavigationController
+end

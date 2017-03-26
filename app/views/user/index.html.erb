@@ -2,4 +2,15 @@
 
 <div class="container">
   <p>Inloggad som <%= current_user['display_name'] %></p>
+
+  <% if current_user['provider'] != 'cas' %>
+      <%= link_to edit_password_url, :class => 'btn' do %>
+        Byt lösenord
+      <% end %>
+  <% end %>
+
+  <%= link_to edit_name_url, :class => 'btn' do %>
+    Byt namn
+  <% end %>
+
 </div>

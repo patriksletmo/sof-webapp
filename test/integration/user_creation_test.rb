@@ -3,6 +3,8 @@ require 'test_helper'
 class UserCreationTest < ActionDispatch::IntegrationTest
   include EmailSupportedTest
 
+  LOGIN_URL_WITH_REDIRECT = /\/login\?redirect_url=/
+
   setup do
     inbox.clean
   end
@@ -10,7 +12,7 @@ class UserCreationTest < ActionDispatch::IntegrationTest
   test 'visitors can create accounts and then login' do
     visit '/'
     click_link 'Logga in'
-    assert page.has_current_path? '/login'
+    assert page.has_current_path? LOGIN_URL_WITH_REDIRECT
 
     click_link 'Registrering'
 
@@ -20,8 +22,6 @@ class UserCreationTest < ActionDispatch::IntegrationTest
     fill_in 'Upprepa lösenord', with: 'hunter2760'
 
     click_link 'Skapa användare'
-
-    assert page.has_current_path? '/login'
 
     confirmation_email = inbox.find_mail_with_subject 'Confirmation instructions'
     assert_not_nil confirmation_email
@@ -37,14 +37,14 @@ class UserCreationTest < ActionDispatch::IntegrationTest
 
     click_link 'login-button'
 
-    assert page.has_current_path? '/profile'
-    assert page.has_content? 'Test Testsson'
+    assert page.has_current_path? '/'
+    assert page.has_content? 'Konto'
   end
 
   test 'visitors can login with liu id' do
     visit '/'
     click_link 'Logga in'
-    assert page.has_current_path? '/login'
+    assert page.has_current_path? LOGIN_URL_WITH_REDIRECT
 
     click_link 'Logga in med LiU-ID'
     assert page.has_current_path? /https:\/\/login\.liu\.se\/cas\//, url: true
