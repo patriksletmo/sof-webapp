@@ -1,0 +1,181 @@
+<% content_for :header_title do %>
+    Funkisanmälan - Steg 2/3
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <form method="post" class="sof-form">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+      <!-- Hack to avoid creating duplicate entries of shift signups -->
+      <% unless @funkis_application['funkis_shift_applications'].nil? %>
+        <% @funkis_application['funkis_shift_applications'].each do |s| %>
+          <input type="hidden" name="funkis_shift_applications_attributes[][iter]" value="1">
+          <input type="hidden" name="funkis_shift_applications_attributes[][id]" value="<%= s['id'] %>">
+          <input type="hidden" name="funkis_shift_applications_attributes[][_destroy]" value="1">
+        <% end %>
+      <% end %>
+
+      <div class="row">
+        <div class="col s12 m6 l6">
+          <h4 class="header">Hej blivande Funkis!</h4>
+
+          <p>
+            Vad kul att du hittat dig hit! Till den bästa anmälan på internet, nämligen anmälan till Funkis för SOF17!
+          </p>
+          <p>
+            Här nedan fyller du i lite kontaktuppgifter samt ditt personnummer som vi använder för identifiera vem just du är. Du väljer även storlek på din jobbtröja. Viktigt att välja rätt storlek här. Efter detta är det dags att välja pass. Du kan välja hur många som helst, men det är viktigt att inte ta två som överlappar. Mycket viktigt faktiskt.
+          </p>
+
+          <p>
+            En till viktig sak är att om du väljer att vara orkestefadder kommer du inte ha tid att arbeta på något mer pass. Så om du nu vill vara orkesterfadder ska du endast anmäla dig till detta.
+          </p>
+
+          <p>
+            Vi ses på SOF!
+          </p>
+
+          <br/>
+
+          <div class="funkis-container shift-signup-container">
+            <% @categories.each_with_index do |category, index| %>
+                <div class="card-container">
+                  <div class="card margin-bottom-40">
+                    <div class="card-content">
+                      <% if index % 3 == 0 %>
+                          <div class="funkis-category-container l-green">
+                            <h3>
+                              <%= category['name'] %>
+                            </h3>
+                            <span class="funkis-name">
+                    <%= category['funkis_name'] %>
+                  </span>
+                          </div>
+                      <% elsif index % 3 == 1 %>
+                          <div class="funkis-category-container n-green">
+                            <h3>
+                              <%= category['name'] %>
+                            </h3>
+                            <span class="funkis-name">
+                    <%= category['funkis_name'] %>
+                  </span>
+                          </div>
+                      <% else %>
+                          <div class="funkis-category-container d-green">
+                            <h3>
+                              <%= category['name'] %>
+                            </h3>
+                            <span class="funkis-name">
+                    <%= category['funkis_name'] %>
+                  </span>
+                          </div>
+                      <% end %>
+
+                      <div class="points-container">
+                        <% if index % 3 == 0 %>
+                            <h3 class="l-green-text">
+                              <%= category['points'] %>
+                            </h3>
+                        <% elsif index % 3 == 1 %>
+                            <h3 class="n-green-text">
+                              <%= category['points'] %>
+                            </h3>
+                        <% else %>
+                            <h3 class="d-green-text">
+                              <%= category['points'] %>
+                            </h3>
+                        <% end %>
+
+                      </div>
+                    </div>
+
+                    <div class="card-content bottom-block">
+                      <% if index % 3 == 0 %>
+                <span class="card-title activator center-block center l-green">
+                  - Klicka här för att anmäla dig -
+                </span>
+                      <% elsif index % 3 == 1 %>
+                <span class="card-title activator center-block center n-green">
+                  - Klicka här för att anmäla dig -
+                </span>
+                      <% else %>
+                <span class="card-title activator center-block center d-green">
+                  - Klicka här för att anmäla dig -
+                </span>
+                      <% end %>
+
+                    </div>
+
+                    <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">
+              <%= category['name'] %>
+              <i class="material-icons right">close</i>
+            </span>
+                      <p>
+                        <%= category['description'] %>
+                      </p>
+                      <table class="bordered">
+                        <tbody>
+                        <% category['funkis_shifts'].each do |key, array| %>
+                            <tr>
+                              <th class="shift-day"><%= key + ' ' + array.first['date'] %></th>
+                              <% array.each do |shift| %>
+                                  <td class="center">
+                                    <input type="hidden" class="shift-id" value="<%= shift['id'] %>">
+                                    <input type="hidden" class="shift-points" value="<%= shift['points'] %>">
+
+                                    <span class="shift-time">
+                                      <%= shift['time'] %>
+                                    </span>
+                                    <% if shift['points'] == 100 %>
+                                        *
+                                    <% end %>
+
+                                    <% if @funkis_application['funkis_shift_applications'].nil? %>
+                                        <button type="button" class="btn shift-btn" style="margin: 0 10px">Välj</button>
+                                    <% else %>
+                                      <button type="button" class="btn shift-btn <%=
+                                        'red' if @funkis_application['funkis_shift_applications'].any? {|x| x['funkis_shift_id'] == shift['id'] }
+                                      %>" style="margin: 0 10px">Välj</button>
+                                    <% end %>
+                                  </td>
+                              <% end %>
+                            </tr>
+                        <% end %>
+                        </tbody>
+                      </table>
+
+                    </div>
+                  </div>
+                </div>
+            <% end %>
+          </div>
+
+        </div>
+        <div id="signup-summary-parent" class="col s12 m6 l5 offset-l1">
+          <div id="signup-summary">
+            <h4>Sammanställning</h4>
+            <table>
+              <thead>
+              <tr>
+                <th>Pass</th>
+                <th>Poäng</th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody id="article-list">
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <a href="<%= funkis_application_url %>" class="waves-effect waves-light btn red lighten-2" type="submit">Tillbaka</a>
+          <button class="waves-effect waves-light btn" type="submit">Fortsätt</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

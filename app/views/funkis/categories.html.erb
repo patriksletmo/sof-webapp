@@ -1,0 +1,114 @@
+<% content_for :header_title do %>
+    Funkiskategorier
+<% end %>
+
+<div class="hero-container margin-bottom-40">
+  <div class="hero hero-funkis center">
+  </div>
+</div>
+
+<div class="funkis-container">
+  <% @categories.each_with_index do |category, index| %>
+      <div class="card-container">
+        <div class="card margin-bottom-40">
+          <div class="card-content">
+            <% if index % 3 == 0 %>
+                <div class="funkis-category-container l-green">
+                  <h3>
+                    <%= category['name'] %>
+                  </h3>
+                  <span>
+                    <%= category['funkis_name'] %>
+                  </span>
+                </div>
+            <% elsif index % 3 == 1 %>
+                <div class="funkis-category-container n-green">
+                  <h3>
+                    <%= category['name'] %>
+                  </h3>
+                  <span>
+                    <%= category['funkis_name'] %>
+                  </span>
+                </div>
+            <% else %>
+                <div class="funkis-category-container d-green">
+                  <h3>
+                    <%= category['name'] %>
+                  </h3>
+                  <span>
+                    <%= category['funkis_name'] %>
+                  </span>
+                </div>
+            <% end %>
+
+            <div class="points-container">
+              <% if index % 3 == 0 %>
+                  <h3 class="l-green-text">
+                    <%= category['points'] %>
+                  </h3>
+              <% elsif index % 3 == 1 %>
+                  <h3 class="n-green-text">
+                    <%= category['points'] %>
+                  </h3>
+              <% else %>
+                  <h3 class="d-green-text">
+                    <%= category['points'] %>
+                  </h3>
+              <% end %>
+
+            </div>
+          </div>
+
+          <div class="card-content bottom-block">
+            <% if index % 3 == 0 %>
+                <span class="card-title activator center-block center l-green">
+                  - Klicka här för mer info -
+                </span>
+            <% elsif index % 3 == 1 %>
+                <span class="card-title activator center-block center n-green">
+                  - Klicka här för mer info -
+                </span>
+            <% else %>
+                <span class="card-title activator center-block center d-green">
+                  - Klicka här för mer info -
+                </span>
+            <% end %>
+
+          </div>
+
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">
+              <%= category['name'] %>
+              <i class="material-icons right">close</i>
+            </span>
+            <p>
+              <%= category['description'] %>
+            </p>
+            <table class="bordered">
+              <tbody>
+              <% category['funkis_shifts'].each do |key, array| %>
+              <tr>
+                <th><%= key + ' ' + array.first['date'] %></th>
+                <% array.each do |shift| %>
+                <td>
+
+                  <% if shift['points'] == 100 %>
+                      <%= shift['time'] %>*
+                  <% else %>
+                      <%= shift['time'] %>
+                  <% end %>
+                </td>
+                <% end %>
+              </tr>
+              <% end %>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+  <% end %>
+
+
+
+  </div>

@@ -1,5 +1,5 @@
 <% if current_user.nil? %>
-    <li><%= link_to('Logga in', login_path, {:class => 'menu-item waves-effect waves-light'}) %></li>
+    <li><%= link_to('Logga in', "#{login_path}?redirect_url=#{request.original_url}", {:class => 'menu-item waves-effect waves-light'}) %></li>
 <% else %>
     <li class="no-padding">
       <ul class="collapsible collapsible-accordion">
@@ -40,6 +40,13 @@
                   <li>
                     <a href="<%= url_for controller: :case_cortege, action: :show, id: current_user['case_cortege']['id'] %>" class="submenu-item waves-effect waves-light">
                       Min casekårtege
+                    </a>
+                  </li>
+              <% end %>
+              <% unless current_user['funkis_application'].nil? or current_user['funkis_application']['terms_agreed_at'].nil? %>
+                  <li>
+                    <a href="<%= url_for controller: :funkis, action: :show %>" class="submenu-item waves-effect waves-light">
+                      Min funkisanmälan
                     </a>
                   </li>
               <% end %>

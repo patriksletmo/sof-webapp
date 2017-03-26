@@ -1,6 +1,8 @@
 <% content_for :header_title do %>Logga in<% end %>
 
 <div class="card-container">
+    <img class="left-trump hide-on-small-only" src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/decorations/rainbow_trumpet.svg" />
+
     <div class="card login-register-card z-depth-1">
 
       <div class="cards-tabs">
@@ -38,7 +40,7 @@
             </div>
 
             <div class="card-action login-forgotpassword">
-              <a class="card-action-text" href="javascript:;" onclick="document.getElementById('login-form').submit();">Logga in</a>
+              <a id="login-button" class="card-action-text" href="javascript:;" onclick="document.getElementById('login-form').submit();">Logga in</a>
               <a class="grey-text" href="<%= reset_request_url %>">Glömt ditt lösenord?</a>
             </div>
 
@@ -83,4 +85,6 @@
         </div>
       </div>
     </div>
+
+    <img class="right-trump hide-on-small-only" src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/decorations/rainbow_trumpet_spegling.svg" />
 </div>

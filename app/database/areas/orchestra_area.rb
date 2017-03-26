@@ -2,7 +2,7 @@ module Areas
   module OrchestraArea
     def create_orchestra(item_params)
       options = {
-          body: item_params
+        body: item_params
       }
       post('/api/v1/orchestra', options.merge(authenticated_options))
     end
@@ -21,7 +21,7 @@ module Areas
 
     def update_orchestra(id, item_params)
       options = {
-          body: item_params
+        body: item_params
       }
 
       put("/api/v1/orchestra/#{id}", options.merge(authenticated_options))
@@ -29,7 +29,7 @@ module Areas
 
     def create_orchestra_signup(item_params)
       options = {
-          body: item_params
+        body: item_params
       }
       post('/api/v1/orchestra_signup', options.merge(authenticated_options))
     end
@@ -44,9 +44,9 @@ module Areas
 
     def verify_orchestra_code(code)
       options = {
-          body: {
-              code: code
-          }
+        body: {
+          code: code
+        }
       }
       get('/api/v1/orchestra_signup/verify', options.merge(authenticated_options))
     end

@@ -41,7 +41,7 @@ class UserController < NavigationController
         if params[:redirect_url]
           redirect_to params[:redirect_url]
         else
-          redirect_to profile_url
+          redirect_to root_url
         end
       else
         flash.now[:error] = response.friendly_error
@@ -74,6 +74,42 @@ class UserController < NavigationController
     end
   end
 
+  def edit_password
+    return if require_login!
+
+    if request.post?
+      response = database.edit_password(
+          params[:current_password],
+          params[:new_password],
+          params[:password_confirmation]
+      )
+
+      if response.success?
+        flash[:success] = 'Ditt lösenord har uppdaterads'
+        redirect_to edit_password_url
+      else
+        flash.now[:error] = response.friendly_error
+      end
+    end
+  end
+
+  def edit_name
+    if request.post?
+      response = database.update_user(
+          current_user['id'],
+          user: {
+              display_name: params[:display_name]
+          }
+      )
+      if response.success?
+        flash[:success] = 'Ditt namn har uppdaterats'
+        redirect_to edit_name_url
+      else
+        flash.now[:error] = response.friendly_error
+      end
+    end
+  end
+
   def login_liu_id
     redirect_to liu_login_url
   end
@@ -85,6 +121,18 @@ class UserController < NavigationController
       redirect_to params[:redirect_url]
     else
       redirect_to profile_url
+    end
+  end
+
+  def nag_display_name
+    if request.post?
+      response = database.update_user(current_user['id'], {user: {display_name: params[:new_name]}})
+      if response.success?
+        flash[:success] = 'Namn uppdaterat'
+        redirect_to root_url
+      else
+        flash.now[:error] = 'Kunde inte uppdatera namn'
+      end
     end
   end
 
