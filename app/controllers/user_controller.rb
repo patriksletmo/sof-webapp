@@ -89,9 +89,9 @@ class UserController < NavigationController
 
       if response.success?
         flash[:success] = 'Ditt lösenord har uppdaterads'
-        redirect_to root_url
+        redirect_to edit_password_url
       else
-        flash[:error] = response.friendly_error
+        flash.now[:error] = response.friendly_error
       end
     end
   end
@@ -100,15 +100,16 @@ class UserController < NavigationController
     if request.post?
       response = database.update_user(
           current_user['id'],
-          {user:{display_name: params[:display_name]
-          }}
+          {user:
+               {display_name: params[:display_name]}
+          }
       )
 
       if response.success?
         flash[:success] = 'Ditt namn har updaterats'
         redirect_to edit_name_url
       else
-        flash[:error] = response.friendly_error
+        flash.now[:error] = response.friendly_error
       end
     end
   end

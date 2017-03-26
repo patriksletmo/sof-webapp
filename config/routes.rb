@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/lang/:lang', to: 'application#change_language'
 
   # Authentication
-  match '/profile', to: 'user#index', via: [:get, :post]
+  get '/profile', to: 'user#index', via: [:get, :post]
   match '/edit/password', to: 'user#edit_password', via: [:get, :post]
   match '/edit/name', to: 'user#edit_name', via: [:get, :post]
   match '/register', to: 'user#register', via: [:get, :post]
