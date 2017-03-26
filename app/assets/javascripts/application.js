@@ -33,4 +33,5 @@ window.t = function() {
 $(document).on('turbolinks:load', function () {
     Materialize.updateTextFields();
     Waves.displayEffect();
+    $('select').material_select();
 });
