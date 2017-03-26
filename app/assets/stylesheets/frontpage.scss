@@ -10,15 +10,18 @@
 }
 
 #top-bubble-text {
-  top: 60px;
+  top: 40px;
   position: absolute;
-  right: 15px;
+  right: 25px;
   width: 140px;
-  text-align: left;
-  font-size: 20px;
-  font-family: $header-font;
+  text-align: center;
+  font-size: 25px;
+  font-family: 'Swis721 Ex BT';
+  line-height: 100%;
   font-weight: bold;
   text-transform: uppercase;
+  color: $sof-purple-color;
+  text-shadow: 1px 0px 1px $sof-purple-shadow-color;
 }
 
 #top-bubble-link {
