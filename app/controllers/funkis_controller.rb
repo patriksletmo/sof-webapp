@@ -27,7 +27,7 @@ class FunkisController < NavigationController
     #return if require_step! 2
     @is_fadder = false
     current_user['funkis_application']['funkis_shift_applications'].each do |app|
-      if app['funkis_shift']['funkis_category'] == "Orkesterfunkis" or app['funkis_shift']['funkis_category'] == "Zazu"
+      if app['funkis_shift']['funkis_category']['name'] == "Zazu"
         @is_fadder = true;
       end
     end
