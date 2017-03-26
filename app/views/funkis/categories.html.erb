@@ -61,68 +61,49 @@
 
           <div class="card-content bottom-block">
             <% if index % 3 == 0 %>
-          <span class="card-title activator center-block center l-green">
-
-            - Klicka här för mer info -
-            </span>
+                <span class="card-title activator center-block center l-green">
+                  - Klicka här för mer info -
+                </span>
             <% elsif index % 3 == 1 %>
-          <span class="card-title activator center-block center n-green">
-
-            - Klicka här för mer info -
-            </span>
+                <span class="card-title activator center-block center n-green">
+                  - Klicka här för mer info -
+                </span>
             <% else %>
-          <span class="card-title activator center-block center d-green">
-
-            - Klicka här för mer info -
-            </span>
+                <span class="card-title activator center-block center d-green">
+                  - Klicka här för mer info -
+                </span>
             <% end %>
 
           </div>
 
           <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">
-        <%= category['name'] %>
-        <i class="material-icons right">close</i>
-      </span>
+            <span class="card-title grey-text text-darken-4">
+              <%= category['name'] %>
+              <i class="material-icons right">close</i>
+            </span>
             <p>
               <%= category['description'] %>
             </p>
             <table class="bordered">
               <tbody>
+              <% category['funkis_shifts'].each do |key, array| %>
               <tr>
-                <th>6/5</th>
-                <td>14:00-22:00</td>
-                <td>14:00-22:00</td>
-                <td>14:00-22:00</td>
-                <td>14:00-22:00</td>
+                <th><%= key + ' ' + array.first['date'] %></th>
+                <% array.each do |shift| %>
+                <td>
+
+                  <% if shift['points'] == 100 %>
+                      <%= shift['time'] %>*
+                  <% else %>
+                      <%= shift['time'] %>
+                  <% end %>
+                </td>
+                <% end %>
               </tr>
-              <tr>
-                <th>7/5</th>
-                <td>14:00-22:00</td>
-                <td>14:00-22:00</td>
-              </tr>
-              <tr>
-                <th>8/5</th>
-                <td>21:00-04:30</td>
-                <td>21:00-04:30</td>
-              </tr>
-              <tr>
-                <th>8/5</th>
-                <td>21:00-04:30</td>
-                <td>21:00-04:30</td>
-              </tr>
-              <tr>
-                <th>8/5</th>
-                <td>21:00-04:30</td>
-                <td>21:00-04:30</td>
-              </tr>
-              <tr>
-                <th>8/5</th>
-                <td>21:00-04:30</td>
-                <td>21:00-04:30</td>
-              </tr>
+              <% end %>
               </tbody>
             </table>
+
           </div>
         </div>
       </div>
