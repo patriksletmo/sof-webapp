@@ -9,6 +9,7 @@ class FunkisController < NavigationController
 
   def application
     return if require_login!
+    return if require_incomplete!
 
     present_or_save_to funkis_application_shifts_url
   end
@@ -16,6 +17,7 @@ class FunkisController < NavigationController
   def shift_selection
     return if require_login!
     return if require_step! 1
+    return if require_incomplete!
 
     @categories = all_categories
 
@@ -25,6 +27,7 @@ class FunkisController < NavigationController
   def agreement
     return if require_login!
     return if require_step! 2
+    return if require_incomplete!
 
     @is_fadder = false
     current_user['funkis_application']['funkis_shift_applications'].each do |app|
@@ -77,6 +80,16 @@ class FunkisController < NavigationController
       true
     else
       false
+    end
+  end
+
+  def require_incomplete!
+    funkis_application = current_user['funkis_application']
+    if funkis_application.nil? || funkis_application['terms_agreed_at'].nil?
+      false
+    else
+      redirect_to funkis_application_complete_url
+      true
     end
   end
 
