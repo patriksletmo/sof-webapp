@@ -97,15 +97,13 @@ function appendShift(shift, name, points) {
     var row = $('<tr/>');
     row.append($('<td/>').html(name));
 
-    if (points > 0) {
+    if (shift != null) {
         var removeButton = $('<button class="btn red">Ta bort</button>');
         removeButton.click(toggleShift.bind(shift['button']));
 
         row.append($('<td/>').text(points.toString() + ' poäng'));
         row.append($('<td/>').append(removeButton));
-    }
 
-    if (shift != null) {
         row.append($('<input type="hidden" name="funkis_shift_applications_attributes[][iter]" value="1">'));
         row.append($('<input type="hidden" name="funkis_shift_applications_attributes[][funkis_shift_id]" value="' + shift['id'] + '" />'));
     }
