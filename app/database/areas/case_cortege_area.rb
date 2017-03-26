@@ -2,7 +2,7 @@ module Areas
   module CaseCortegeArea
     def create_case_cortege(item_params)
       options = {
-          body: item_params
+        body: item_params
       }
       post('/api/v1/case_cortege', options.merge(authenticated_options))
     end
@@ -13,7 +13,7 @@ module Areas
 
     def update_case_cortege(id, item_params)
       options = {
-          body: item_params
+        body: item_params
       }
       put("/api/v1/case_cortege/#{id}", options.merge(authenticated_options))
     end
