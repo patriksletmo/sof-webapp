@@ -114,7 +114,9 @@
                                         *
                                     <% end %>
 
-                                    <button type="button" class="btn shift-btn" style="margin: 0 10px">Välj</button>
+                                    <button type="button" class="btn shift-btn <%=
+                                      'red' if @funkis_application['funkis_shift_applications'].any? {|x| x['funkis_shift_id'] == shift['id'] }
+                                    %>" style="margin: 0 10px">Välj</button>
                                   </td>
                               <% end %>
                             </tr>

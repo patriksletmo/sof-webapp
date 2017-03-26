@@ -3,6 +3,7 @@ $(document).on('turbolinks:load', function () {
         window.selectedShifts = {};
 
         $('.shift-btn').click(toggleShift);
+        $('.shift-btn.red').click();
         updateShiftList();
     }
 });
@@ -102,6 +103,10 @@ function appendShift(shift, name, points) {
 
         row.append($('<td/>').text(points.toString() + ' poäng'));
         row.append($('<td/>').append(removeButton));
+    }
+
+    if (shift != null) {
+        row.append($('<input type="hidden" name="funkis_shift_applications_attributes[][funkis_shift_id]" value="' + shift['id'] + '" />'))
     }
 
     $('#article-list').append(row);
