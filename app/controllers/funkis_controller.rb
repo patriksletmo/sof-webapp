@@ -55,7 +55,7 @@ class FunkisController < NavigationController
     # Sort the funkis_shifts per day
     cats.each do |category|
       days = Hash.new { |h, k| h[k] = [] }
-      category['available_shifts'].each do |shift|
+      category['funkis_shifts'].each do |shift|
         if days.key?(shift['day'])
           days[shift['day']] << shift
         else

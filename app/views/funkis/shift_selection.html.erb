@@ -131,12 +131,12 @@
                                         *
                                     <% end %>
 
-                                    <% if @funkis_application['funkis_shift_applications'].nil? %>
-                                        <button type="button" class="btn shift-btn" style="margin: 0 10px">Välj</button>
+                                    <% if @funkis_application['funkis_shift_applications'].any? {|x| x['funkis_shift_id'] == shift['id'] } %>
+                                        <button type="button" class="btn shift-btn red">Vald</button>
+                                    <% elsif shift['available'] %>
+                                        <button type="button" class="btn shift-btn">Välj</button>
                                     <% else %>
-                                      <button type="button" class="btn shift-btn <%=
-                                        'red' if @funkis_application['funkis_shift_applications'].any? {|x| x['funkis_shift_id'] == shift['id'] }
-                                      %>" style="margin: 0 10px">Välj</button>
+                                        <button type="button" class="btn shift-btn teal lighten-2" disabled>Full</button>
                                     <% end %>
                                   </td>
                               <% end %>
