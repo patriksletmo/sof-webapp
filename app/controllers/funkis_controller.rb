@@ -102,7 +102,7 @@ class FunkisController < NavigationController
         @funkis_application = params
       else
         flash.now[:error] = 'Ett eller flera av dina valda pass var tyvärr fullt, var god försök igen'
-        @funkis_application = current_user['funkis_application'] || {}
+        @funkis_application = current_user['funkis_application']
       end
     else
       @funkis_application = current_user['funkis_application'] || {}
