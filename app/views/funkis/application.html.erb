@@ -101,6 +101,17 @@
               <label for="b-drivers-license">Har du B-körkort? (obligatoriskt för Chaufför-funkis)</label>
             </div>
           </div>
+
+          <!-- Ticket pre-sale -->
+          <div class="row">
+            <div class="col s12">
+              <label for="pre-sale-ticket">Vilket förköp är du intresserad av?</label>
+              <select name="presale_choice" id="pre-sale-ticket">
+                <option value="0" <%= 'selected' if @funkis_application['presale_choice'] == 0 %>>Inget förköp</option>
+                <option value="1" <%= 'selected' if @funkis_application['presale_choice'] == 1 %>>München Hoben</option>
+              </select>
+            </div>
+          </div>
         </div>
         <%= render 'static_summary' %>
       </div>
