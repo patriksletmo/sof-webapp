@@ -98,8 +98,13 @@ class FunkisController < NavigationController
       if save_application.success?
         redirect_to redirect_url
       else
-        flash.now[:error] = 'Kunde inte spara anmälan'
-        @funkis_application = params
+        if action_name != 'shift_selection'
+          flash.now[:error] = 'Kunde inte spara anmälan'
+          @funkis_application = params
+        else
+          flash.now[:error] = 'Ett eller flera av dina valda pass var tyvärr fullt, var god försök igen'
+          @funkis_application = current_user['funkis_application'] || {}
+        end
       end
     else
       @funkis_application = current_user['funkis_application'] || {}
