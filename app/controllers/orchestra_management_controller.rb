@@ -13,9 +13,22 @@ class OrchestraManagementController < NavigationController
       	@item_summary = database.item_summary
         send_data @item_summary.encode('iso-8859-1'), 
         :filename => "item_summary" + "-#{Date.today}.csv", 
-        :type => 'text/csv; charset=iso-8859-1; header=present' }
+        :type => 'text/csv; charset=iso-8859-1; header=present'
+      }
     end
+  end
 
+  def extra_performances
+    return if require_login!
 
+    respond_to do |format|
+      format.html
+      format.csv {
+        extra_performances = database.extra_performances
+        send_data extra_performances.encode('iso-8859-1'),
+            :filename => "extra_performances" + "-#{Date.today}.csv",
+            :type => 'text/csv; charset=iso-8859-1; header=present'
+      }
+    end
   end
 end
