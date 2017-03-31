@@ -21,11 +21,6 @@ class OrchestraManagementController < NavigationController
   def extra_performances
     return if require_login!
 
-    #@orchestras = database.all_orchestras
-    #unless @orchestras.success?
-    #  render status: 403
-    #end
-
     respond_to do |format|
       format.html
       format.csv {
