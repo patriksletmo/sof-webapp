@@ -31,4 +31,18 @@ class OrchestraManagementController < NavigationController
       }
     end
   end
+
+  def anniversary
+    return if require_login!
+
+    respond_to do |format|
+      format.html
+      format.csv {
+        anniversary = database.anniversary
+        send_data anniversary.encode('iso-8859-1'),
+                  :filename => "anniversary" + "-#{Date.today}.csv",
+                  :type => 'text/csv; charset=iso-8859-1; header=present'
+      }
+    end
+  end
 end

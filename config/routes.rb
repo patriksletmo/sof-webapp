@@ -67,6 +67,7 @@ Rails.application.routes.draw do
   # Orchestra management
   get 'manage/orchestras' => 'orchestra_management#index'
   get 'manage/orchestras/extra_performances' => 'orchestra_management#extra_performances'
+  get 'manage/orchestras/anniversary' => 'orchestra_management#anniversary'
 
   # Cortege management
   get 'manage/corteges' => 'cortege_management#index'

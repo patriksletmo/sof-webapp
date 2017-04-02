@@ -62,5 +62,9 @@ module Areas
     def extra_performances
       get('/api/v1/orchestra/extra_performances', authenticated_options)
     end
+
+    def anniversary
+      get('/api/v1/orchestra/anniversary', authenticated_options)
+    end
   end
 end
