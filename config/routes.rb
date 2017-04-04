@@ -63,6 +63,7 @@ Rails.application.routes.draw do
   get 'manage/users' => 'user_management#index'
   get 'manage/users/:id' => 'user_management#show'
   post 'manage/users/:id' => 'user_management#update'
+  post 'manage/users/:id/delete_funkis' => 'user_management#remove_funkis_application'
 
   # Orchestra management
   get 'manage/orchestras' => 'orchestra_management#index'

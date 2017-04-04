@@ -30,6 +30,20 @@ class UserManagementController < NavigationController
     redirect_to action: :show
   end
 
+  def remove_funkis_application
+    return if require_login!
+
+    @user = database.single_user params[:id]
+    response = database.delete_funkis_application(@user['funkis_application']['id'])
+    if response.success?
+      flash[:success] = 'Funkisanmälan borttagen'
+    else
+      flash[:error] = 'Kunde inte ta bort anmälan'
+    end
+
+    redirect_to action: :show
+  end
+
   private
 
   def user_params
