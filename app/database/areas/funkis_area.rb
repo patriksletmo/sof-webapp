@@ -22,6 +22,10 @@ module Areas
       put("/api/v1/funkis_application/#{id}", options.merge(authenticated_options))
     end
 
+    def delete_funkis_application(id)
+      delete("/api/v1/funkis_application/#{id}", authenticated_options)
+    end
+
     def funkis_categories_stats
       get('/api/v1/funkis_application', authenticated_options)
     end
