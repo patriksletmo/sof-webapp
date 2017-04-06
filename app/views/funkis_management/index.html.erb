@@ -1,0 +1,28 @@
+<% content_for :header_title do %>Funkis-anmälningar<% end %>
+
+<div class="container">
+  <table>
+    <thead>
+    <tr>
+      <th>Funkistyp</th>
+      <th>Antal anmälda</th>
+      <th>Röd gräns</th>
+      <th>Gul gräns</th>
+      <th>Grön gräns</th>
+      <th>Andel av röd gräns</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @categories.each do |category| %>
+        <tr>
+          <td><%= category['name'] %></td>
+          <td><%= sum_funkis_field_in category, 'completed_applications_count' %></td>
+          <td><%= sum_funkis_field_in category, 'red_limit' %></td>
+          <td><%= sum_funkis_field_in category, 'yellow_limit' %></td>
+          <td><%= sum_funkis_field_in category, 'green_limit' %></td>
+          <td><%= (1.0 * sum_funkis_field_in(category, 'completed_applications_count') / sum_funkis_field_in(category, 'red_limit') * 100).round(1) %>%</td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

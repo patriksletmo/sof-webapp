@@ -8,6 +8,7 @@ module UserManagementHelper
       5 => 'Delete users',
       6 => 'List cortege applications',
       7 => 'Approve cortege applications',
+      8 => 'List funkis applications',
   }
 
   def map_permissions(user)

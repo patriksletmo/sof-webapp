@@ -21,5 +21,9 @@ module Areas
       }
       put("/api/v1/funkis_application/#{id}", options.merge(authenticated_options))
     end
+
+    def funkis_categories_stats
+      get('/api/v1/funkis_application', authenticated_options)
+    end
   end
 end
