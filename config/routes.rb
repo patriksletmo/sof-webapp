@@ -80,6 +80,9 @@ Rails.application.routes.draw do
   get 'manage/case_corteges/:id' => 'case_cortege_management#show'
   post 'manage/case_corteges/:id' => 'case_cortege_management#update'
 
+  # Funkis management
+  get 'manage/funkis' => 'funkis_management#index'
+
   # Contact
   get 'contact/press' => 'contacts#press'
   get 'contact/funkis' => 'contacts#funkis'
