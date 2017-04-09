@@ -82,6 +82,7 @@ Rails.application.routes.draw do
 
   # Funkis management
   get 'manage/funkis' => 'funkis_management#index'
+  get 'manage/funkis/all_funkis_applications' => 'funkis_management#all_funkis_applications'
 
   # Contact
   get 'contact/press' => 'contacts#press'

@@ -1,6 +1,11 @@
 <% content_for :header_title do %>Funkis-anmälningar<% end %>
 
 <div class="container">
+
+  <a href="<%= url_for action: :all_funkis_applications %>.csv" class="btn">
+    Export funkis applications
+  </a>
+
   <table>
     <thead>
     <tr>
