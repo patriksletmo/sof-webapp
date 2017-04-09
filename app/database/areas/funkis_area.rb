@@ -29,5 +29,9 @@ module Areas
     def funkis_categories_stats
       get('/api/v1/funkis_application', authenticated_options)
     end
+
+    def csv_funkis_applications
+      get('/api/v1/funkis_shift/export_applications', authenticated_options)
+    end
   end
 end
