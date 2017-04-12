@@ -1,0 +1,17 @@
+<%= form_for(cortege_contribution) do |f| %>
+  <% if cortege_contribution.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cortege_contribution.errors.count, "error") %> prohibited this cortege_contribution from being saved:</h2>
+
+      <ul>
+      <% cortege_contribution.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
