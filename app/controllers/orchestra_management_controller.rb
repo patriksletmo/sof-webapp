@@ -52,7 +52,7 @@ class OrchestraManagementController < NavigationController
     respond_to do |format|
       format.html
       format.csv {
-        alleriges = database.allergies
+        allergies = database.allergies
         send_data allergies.encode('iso-8859-1'),
                   :filename => "allergies" + "-#{Date.today}.csv",
                   :type => 'text/csv; charset=iso-8859-1; header=present'
