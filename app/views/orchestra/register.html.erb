@@ -122,12 +122,12 @@
           <!-- Sleep over-->
           <div class="row">
             <div class="col s12">
-              <label for="sleep_over"><%= t('.dormitory') %></label>
+              <label for="sleep_over"><%= t('.dormitory') disable%></label>
 
               <select id="sleep_over" name="sleep_over">
                 <option value="0"><%= t('.dormitory_follow_orchestra') %></option>
                 <option value="1"><%= t('.dormitory_yes') %></option>
-                <option value="2"><%= t('.dormitory_no') %></option>
+                <option value="2" selected="selected"><%= t('.dormitory_no') %></option>
               </select>
             </div>
           </div>
