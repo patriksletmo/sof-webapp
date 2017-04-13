@@ -1,25 +1,19 @@
-<p id="notice"><%= notice %></p>
+<% content_for :header_title do %>
+    Cortegeöversikt
+<% end %>
 
-<h1>Cortege Contributions</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="hero-container">
+  <div class="hero center">
+  </div>
+</div>
 
-  <tbody>
-    <% @cortege_contributions.each do |cortege_contribution| %>
-      <tr>
-        <td><%= link_to 'Show', cortege_contribution %></td>
-        <td><%= link_to 'Edit', edit_cortege_contribution_path(cortege_contribution) %></td>
-        <td><%= link_to 'Destroy', cortege_contribution, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row center">
+    <div class="col s12 m3 l3">
 
-<br>
 
-<%= link_to 'New Cortege Contribution', new_cortege_contribution_path %>
+    </div>
+  </div>
+</div>
+

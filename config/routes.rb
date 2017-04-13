@@ -98,4 +98,7 @@ Rails.application.routes.draw do
 
   # Pages controller
   get '/:category(/:page)' => 'pages#index'
+
+  # Cortege contribution
+  get 'cortege_contributions' => 'cortege_contributions#index'
 end
