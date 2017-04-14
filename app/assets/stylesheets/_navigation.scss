@@ -160,6 +160,20 @@ span.switch-language-text {
   font-weight: normal;
 }
 
+#countdown-description {
+  text-align: center;
+  font-size: 16px;
+  font-family: Arial;
+  color: $sof-seashell-color;
+}
+
+#countdown {
+  text-align: center;
+  font-size: 32px;
+  font-family: Arial;
+  color: $sof-seashell-color;
+  margin-bottom: 15px;
+}
 /*
 
 .side-nav.secondary-nav {
