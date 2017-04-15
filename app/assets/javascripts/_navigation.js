@@ -9,7 +9,7 @@ document.addEventListener('turbolinks:load', function () {
     $('.collapsible').collapsible();
 });
 
-var countdownDate = new Date('April 24, 2017 00:00:00').getTime();
+var countdownDate = new Date('April 25, 2017 00:00:00').getTime();
 
 var x = setInterval(function () {
     var now = new Date().getTime();
