@@ -51,9 +51,15 @@ class WebstoreController < NavigationController
   def charge
     return if require_login!
 
-    @token = params[:stripeToken]
-
-    response = database.pay_for_order()
+    stripe_token = params[:stripe_token]
+    response = database.charge(stripe_token)
+    if response.success?
+      flash[:success] = 'Betalningen lyckades'
+      redirect_to '/'
+    else
+      flash[:error] = 'Betalningen misslyckades'
+      redirect_to action: :checkout
+    end
   end
 
   private

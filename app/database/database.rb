@@ -11,6 +11,7 @@ class Database
   include Areas::OrchestraArea
   include Areas::PagesArea
   include Areas::ProductArea
+  include Areas::StoreArea
   include Areas::UserArea
 
 

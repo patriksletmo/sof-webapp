@@ -44,7 +44,7 @@
         image: 'https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/logotyper/sof/hjartat_2.png',
         locale: 'sv',
         token: function(token) {
-            $('#stripe-token').val(token);
+            $('#stripe-token').val(token.id);
             $('#stripe-form').submit();
         }
     });
