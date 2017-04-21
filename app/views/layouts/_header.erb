@@ -9,19 +9,19 @@
     </div>
 
     <% if current_user.present? %>
-       <a href="<%= url_for controller: :webstore, action: :cart %>">
-      <div class="nav-button">
+     <a href="<%= url_for controller: :webstore, action: :cart %>">
+       <div class="nav-button">
 
-          <i style="display: inline" class="icon-cart2"></i>
-          Varukorg
+         <i style="display: inline" class="icon-cart2"></i>
+         <span class="hide-on-med-and-down">Varukorg</span>
 
-          <% if current_user['shopping_cart_count'].present? and current_user['shopping_cart_count'] > 0 %>
-            <span class="cart-circle">
-              <%= current_user['shopping_cart_count'] %>
-            </span>
-          <% end %>
-      </div>
-       </a>
- <% end %>
+         <% if current_user['shopping_cart_count'].present? and current_user['shopping_cart_count'] > 0 %>
+          <span class="cart-circle">
+            <%= current_user['shopping_cart_count'] %>
+          </span>
+         <% end %>
+       </div>
+     </a>
+    <% end %>
   </div>
 </nav>
