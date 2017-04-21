@@ -11,21 +11,21 @@ module UserManagementHelper
   }
 
   def map_permissions(user)
-    permissions = user['permissions']
+    admin_permissions = user['admin_permissions']
     PERMISSIONS.map do |key, value|
       {
-          id: "permission[#{key}]",
+          id: "admin_permission[#{key}]",
           name: value,
-          given: is_given?(permissions, key)
+          given: is_given?(admin_permissions, key)
       }
     end
   end
 
   def given_permissions(user)
-    permissions = user['permissions']
+    admin_permissions = user['admin_permissions']
     given = []
     PERMISSIONS.each do |key, value|
-      if is_given?(permissions, key)
+      if is_given?(admin_permissions, key)
         given.append(value)
       end
     end
