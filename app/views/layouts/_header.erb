@@ -15,7 +15,7 @@
           <i style="display: inline" class="icon-cart2"></i>
           Varukorg
 
-          <% if current_user['shopping_cart_count'] > 0 %>
+          <% if current_user['shopping_cart_count'].present? and current_user['shopping_cart_count'] > 0 %>
             <span class="cart-circle">
               <%= current_user['shopping_cart_count'] %>
             </span>
