@@ -82,11 +82,13 @@ Rails.application.routes.draw do
   post 'manage/case_corteges/:id' => 'case_cortege_management#update'
 
   # Webstore
-  get 'shop' => 'webstore#index'
-  post 'shop' => 'webstore#test'
-  get 'cart' => 'webstore#cart'
-  post 'cart/clear' => 'webstore#clear_cart'
-  post 'cart/delete/:id' => 'webstore#remove_item_from_cart'
+  get 'store' => 'webstore#index'
+  post 'store' => 'webstore#test'
+  get 'store/cart' => 'webstore#cart'
+  post 'store/cart/clear' => 'webstore#clear_cart'
+  post 'store/cart/delete/:id' => 'webstore#remove_item_from_cart'
+  get 'store/checkout' => 'webstore#checkout'
+  post 'store/checkout' => 'webstore#charge'
 
   # Funkis management
   get 'manage/funkis' => 'funkis_management#index'
@@ -99,11 +101,6 @@ Rails.application.routes.draw do
   get 'contact/cortege' => 'contacts#cortege'
   get 'contact/tickets' => 'contacts#tickets'
   get 'contact/it' => 'contacts#it'
-
-  # Webstore
-  get 'webstore' => 'webstore#index'
-  get 'webstore/checkout' => 'webstore#checkout'
-  post 'webstore' => 'webstore#charge'
 
   # Let’s encrypt
   get '/.well-known/acme-challenge/:id' => 'lets_encrypt#challenge', as: :letsencrypt_challenge
