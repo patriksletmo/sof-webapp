@@ -47,10 +47,9 @@
     </tbody>
   </table>
   <br/>
-  <form class="inline" method="post" action="<%= url_for action: :clear_cart %>">
-    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    <button class="btn green" type="submit">Till kassan</button>
-  </form>
+
+  <a class="btn green" href="<%= url_for action: :checkout %>">Till kassan</a>
+
   <% else %>
     <h4 class="center margin-top-40">Din varukorg är tom!</h4>
       <div class="row">
