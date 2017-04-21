@@ -5,7 +5,7 @@ class WebstoreController < NavigationController
     @products = database.enabled_products
   end
 
-  def test
+  def add_item_to_cart
     new_item = {
         product_id: params[:product_id],
         data: data_json

@@ -83,7 +83,7 @@ Rails.application.routes.draw do
 
   # Webstore
   get 'store' => 'webstore#index'
-  post 'store' => 'webstore#test'
+  post 'store' => 'webstore#add_item_to_cart'
   get 'store/cart' => 'webstore#cart'
   post 'store/cart/clear' => 'webstore#clear_cart'
   post 'store/cart/delete/:id' => 'webstore#remove_item_from_cart'
