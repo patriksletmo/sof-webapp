@@ -21,6 +21,7 @@ class WebstoreController < NavigationController
 
   def cart
     @cart = database.get_cart
+    @total = @cart['cart_items'].sum { |x| x['product']['base_product']['cost'] }
   end
 
   def remove_item_from_cart
