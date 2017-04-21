@@ -9,8 +9,9 @@
     </div>
 
     <% if current_user.present? %>
+       <a href="<%= url_for controller: :webstore, action: :cart %>">
       <div class="nav-button">
-        <span>
+
           <i style="display: inline" class="icon-cart2"></i>
           Varukorg
 
@@ -19,8 +20,8 @@
               <%= current_user['shopping_cart_count'] %>
             </span>
           <% end %>
-        </span>
       </div>
-    <% end %>
+       </a>
+ <% end %>
   </div>
 </nav>
