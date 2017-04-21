@@ -10,7 +10,7 @@ module Areas
 
     def update_user(id, params)
       options = {
-          body: params
+        body: params
       }
       put("/api/v1/users/#{id}", options.merge(authenticated_options))
     end

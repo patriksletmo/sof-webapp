@@ -1,9 +1,9 @@
 <div id="navgroup">
-  <div id="slide-out" class="side-nav fixed">
+  <div id="slide-out" class="side-nav fixed no-scrollbar">
     <ul>
       <li class="logo">
         <a href="/" class="brand-logo">
-          <img src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/logotyper/sof/Logga_2.svg">
+          <img src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/logotyper/sof/Logga_3.svg">
         </a>
       </li>
 
@@ -20,6 +20,11 @@
     </ul>
 
     <ul class="lintek-logo-hearts">
+      <li id="countdown-description">
+        Biljettsläpp om:
+      </li>
+      <li id="countdown">
+      </li>
       <li class="lintek-hearts">
         <%= link_to 'http://lintek.larmdagarna.se/', :class => 'lintek-heart waves-effect waves-light', target: :'_blank' do %>
             <img src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/lintek/larm_hjarta.png">
@@ -41,12 +46,11 @@
             <img src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/lintek/munchen_hjarta.png">
         <% end %>
       </li>
-      <li>
-        <%= render 'layouts/cart' %>
-      </li>
-      <li>
-        <a href="<%= url_for controller: :application, action: :change_language, lang: t('new_language') %>" class="center-align"><span class="switch-language-text"><%= t('switch_language') %></span></a>
-      </li>
+      <% if controller_name == 'orchestra' %>
+        <li>
+          <a href="<%= url_for controller: :application, action: :change_language, lang: t('new_language') %>" class="center-align"><span class="switch-language-text"><%= t('switch_language') %></span></a>
+        </li>
+      <% end %>
       <li class="lintek-logo-text-container">
         <span class="lintek-logo-text">Arrangeras av</span>
       </li>

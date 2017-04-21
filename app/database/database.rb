@@ -6,11 +6,13 @@ class Database
   include Areas::CartArea
   include Areas::CaseCortegeArea
   include Areas::CortegeArea
+  include Areas::FunkisArea
   include Areas::MenuArea
   include Areas::OrchestraArea
   include Areas::PagesArea
   include Areas::ProductArea
   include Areas::UserArea
+
 
   base_uri Rails.configuration.database_api_url
 

@@ -75,10 +75,12 @@ en:
           text: No festival ticket
           lintek_price: 0 SEK
           normal_price: 0 SEK
-      food_ticket: Food ticket
+      late_registration: Late registration
+      food_ticket: Food ticket (breakfast, dinner, nightfood)
       food_ticket_thursday: Thursday (11/5) - Sunday (14/5) (215 SEK)
       food_ticket_friday: Friday (12/5) - Sunday (14/5) (140 SEK)
       food_ticket_saturday: Saturday (13/5) - Sunday (15/5) (75 SEK)
+      food_ticket_thursday_friday: Thursday (11/5) - Friday (12/5) (140 SEK)
       food_ticket_none: No food ticket (0 SEK)
       special_diet: Do you have any special dietary requirements?
       special_diet_vegetarian: Vegetarian?
@@ -142,6 +144,8 @@ en:
       actions:
         update: Update orchestra
         delete: Remove orchestra
+        export: Export orchestra
+        export_file_name: Orchestra summary
       members:
         title: Registered members
         name: Name
@@ -161,6 +165,7 @@ en:
       allergies: Allergies
       other_performances: Other performances
       actions:
+        warning: Note! If you remove this signup to recreate it after the 5th of Mars, a 100 SEK late registration fee will be added.
         delete: Remove signup
     messages:
       register:
@@ -186,3 +191,5 @@ en:
       delete_orchestra:
         success: Orchestra removed
         failure: Could not remove orchestra
+  :yes: "Yes"
+  :no: "No"

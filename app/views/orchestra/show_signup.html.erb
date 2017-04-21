@@ -29,6 +29,14 @@
             <td><%= @lintekDiscount %></td>
           </tr>
         <% end %>
+        <% if(@isLateRegistration) %>
+          <tr>
+            <td><%= t('orchestra.register.late_registration') %> </td>
+            <td> 1 </td>
+            <td> 100 </td>
+            <td> 100 </td>
+          </tr>
+        <% end %>
           <tr>
             <td><%= t('orchestra.register.food_ticket') %>: <%= @foodTicket %></td>
             <td> 1 </td>
@@ -99,6 +107,30 @@
     </div>
   <% end %>
 
+  <div class="col s12 m3 l3">
+    <table>
+      <thead>
+      <tr>
+        <th>Annan information</th>
+        <th>Svar</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><%= t('orchestra.register.stork_streak') %></td>
+        <td><%= human_boolean @signup['consecutive_10'] %></td>
+      </tr>
+      <tr>
+        <td><%= t('orchestra.register.stork_25') %></td>
+        <td><%= human_boolean @signup['attended_25'] %></td>
+      </tr>
+      <tr>
+        <td><%= t('orchestra.register.instrument_size') %></td>
+        <td><%= human_instrument_size @signup['instrument_size'] %></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 
 <!-- TODO VILKA ORKESTREAR -->
   <% unless(@otherPerformances.blank?) %>
@@ -117,6 +149,13 @@
       </table>
     </div>
   <% end %>
+
+
+  <div class="col s12 m2 l3">
+    <p>
+      <%= t('orchestra.show_signup.actions.warning') %>
+    </p>
+  </div>  
 
   <!-- KNAPP -->
   <form method="post" action="<%= url_for action: :delete, id: @signup["id"] %>" onsubmit="return confirm('<%= t('orchestra.messages.show_signup.confirm_delete') %>');">

@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get '/lang/:lang', to: 'application#change_language'
 
   # Authentication
-  get '/profile', to: 'user#index'
+  get '/profile', to: 'user#index', via: [:get, :post]
+  match '/edit/password', to: 'user#edit_password', via: [:get, :post]
+  match '/edit/name', to: 'user#edit_name', via: [:get, :post]
   match '/register', to: 'user#register', via: [:get, :post]
   match '/login', to: 'user#login', via: [:get, :post]
   match '/reset/request', to: 'user#request_password_reset', via: [:get, :post]
@@ -14,6 +16,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'user#logout'
   get '/login/liu_id', to: 'user#login_liu_id'
   get '/login/verify', to: 'user#verify_liu_id'
+  match '/complete_profile', to: 'user#nag_display_name', via: [:get, :post]
 
 
   # Orchestra
@@ -45,13 +48,28 @@ Rails.application.routes.draw do
   post 'case_cortege/:id' => 'case_cortege#update'
   post 'case_cortege/:id/delete' => 'case_cortege#delete'
 
+  # Funkis
+  get 'funkis' => 'funkis#index'
+  get 'funkis/categories' => 'funkis#categories'
+  #match 'funkis/application' => 'funkis#application', via: [:get, :post]
+  #match 'funkis/application/shifts' => 'funkis#shift_selection', via: [:get, :post]
+  #match 'funkis/application/agreement' => 'funkis#agreement', via: [:get, :post]
+  get 'funkis/application/complete' => 'funkis#show'
+
+  # Festival
+  get '/festivalen/servering/ol', to: 'festival#beer'
+
   # User management
   get 'manage/users' => 'user_management#index'
   get 'manage/users/:id' => 'user_management#show'
   post 'manage/users/:id' => 'user_management#update'
+  post 'manage/users/:id/delete_funkis' => 'user_management#remove_funkis_application'
 
   # Orchestra management
   get 'manage/orchestras' => 'orchestra_management#index'
+  get 'manage/orchestras/extra_performances' => 'orchestra_management#extra_performances'
+  get 'manage/orchestras/anniversary' => 'orchestra_management#anniversary'
+  get 'manage/orchestras/allergies' => 'orchestra_management#allergies'
 
   # Cortege management
   get 'manage/corteges' => 'cortege_management#index'
@@ -70,9 +88,17 @@ Rails.application.routes.draw do
   post 'cart/clear' => 'webstore#clear_cart'
   post 'cart/delete/:id' => 'webstore#remove_item_from_cart'
 
-  # Controller
-  get 'contact' => 'contacts#contact'
-  get 'press' => 'contacts#press'
+  # Funkis management
+  get 'manage/funkis' => 'funkis_management#index'
+  get 'manage/funkis/all_funkis_applications' => 'funkis_management#all_funkis_applications'
+
+  # Contact
+  get 'contact/press' => 'contacts#press'
+  get 'contact/funkis' => 'contacts#funkis'
+  get 'contact/orchestra' => 'contacts#orchestra'
+  get 'contact/cortege' => 'contacts#cortege'
+  get 'contact/tickets' => 'contacts#tickets'
+  get 'contact/it' => 'contacts#it'
 
   # Webstore
   get 'webstore' => 'webstore#index'
@@ -84,5 +110,4 @@ Rails.application.routes.draw do
 
   # Pages controller
   get '/:category(/:page)' => 'pages#index'
-
 end

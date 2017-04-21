@@ -66,7 +66,9 @@
           <br/>
           <button type="submit" class="btn"><%= t('.actions.update') %></button>
         </div>
+
       </form>
+
 
       <form method="post" action="<%= url_for action: :delete_orchestra, id: @orchestra["id"] %>" onsubmit="return confirm('<%= t('orchestra.messages.show.confirm_delete') %>');">
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
@@ -75,8 +77,14 @@
         </div>
       </form>
     </div>
-    <div class="col s12 m6">
+
+
+    <div class="col s12 m6 l6">
       <h4><%= t('.members.title') %></h4>
+
+      <a href="<%= url_for action: :show, id: @orchestra["id"] %>.csv" class="btn">
+        <%= t('.actions.export') %>
+      </a>
       <table>
         <thead>
         <tr>
