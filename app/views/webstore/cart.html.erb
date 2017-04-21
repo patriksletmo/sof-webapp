@@ -23,7 +23,7 @@
           <% else %>
             <td><%= "#{item['product']['base_product']['name']} (#{item['product']['kind']})" %></td>
           <% end %>
-          <td class="right"><%= item['product']['base_product']['cost'] %></td>
+          <td class="right"><%= item['product']['base_product']['cost'] %> SEK</td>
           <td>
             <form method="post" action="<%= url_for action: :remove_item_from_cart, id: item['id'] %>">
               <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
@@ -36,7 +36,7 @@
     <% end %>
     <tr>
       <th>Totalt</th>
-      <th class="right"><%= @total %></th>
+      <th class="right"><%= @total %> SEK</th>
       <td>
         <form method="post" action="<%= url_for action: :clear_cart %>">
           <%= hidden_field_tag :authenticity_token, form_authenticity_token %>

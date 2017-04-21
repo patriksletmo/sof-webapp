@@ -20,8 +20,7 @@ class WebstoreController < NavigationController
   end
 
   def cart
-    @cart = database.get_cart
-    @total = @cart['cart_items'].sum { |x| x['product']['base_product']['cost'] }
+    fetch_cart!
   end
 
   def remove_item_from_cart
@@ -36,12 +35,16 @@ class WebstoreController < NavigationController
 
   def checkout
     return if require_login!
+
+    fetch_cart!
+
+    if request.post?
       # get amount from cart
-    @amount = 5000
-    @response = database.create_order()
-    if response.success?
-    else
-      #show error, redirect to webshop
+      @response = database.create_order()
+      if response.success?
+      else
+        #show error, redirect to webshop
+      end
     end
   end
 
@@ -60,5 +63,10 @@ class WebstoreController < NavigationController
     unless options.blank?
       JSON.dump options.to_unsafe_h
     end
+  end
+
+  def fetch_cart!
+    @cart = database.get_cart
+    @total = @cart['cart_items'].sum { |x| x['product']['base_product']['cost'] }
   end
 end
