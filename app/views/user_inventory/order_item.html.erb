@@ -1,0 +1,53 @@
+<% content_for :header_title do %>Köpt artikel
+<% end %>
+
+<div class="container">
+  <h4><%= @order_item['product']['base_product']['name'] %></h4>
+  <p><%= @order_item['product']['base_product']['description'] %></p>
+  <p><b>Kostnad: </b><%= cost @order_item['product']['base_product']['cost'] %></p>
+  <% if @order_item['product']['kind'].present? %>
+      <p><b>Typ: </b><%= @order_item['product']['kind'] %></p>
+  <% end %>
+  <p><b>Ägs av: </b><%= user_alt @order_item['owner'] %></p>
+  <p><b>Köpt av: </b><%= user_alt @order_item['user'] %></p>
+
+  <% if @order_item['gifted_by'].present? %>
+      <p><b>Gåva från: </b><%= user_alt @order_item['gifted_by'] %></p>
+  <% end %>
+
+  <p>
+  <% if is_self @order_item['user'] %>
+      <a class="btn waves-effect waves-light green" href="<%= url_for action: :order, id: @order_item['order_id'] %>">Visa
+        order</a>
+  <% end %>
+
+  <% if is_self @order_item['owner'] %>
+      <a class="btn waves-effect waves-light blue" href="#gift-modal">
+        <i class="icon-gift2"></i> Ge bort
+      </a>
+  <% end %>
+  </p>
+</div>
+
+<div id="gift-modal" class="modal">
+  <form method="post">
+    <div class="modal-content">
+      <h5>Ge bort artikel</h5>
+      <p>Du kan ge bort köpta artiklar till dina nära och kära genom att fylla i deras mailadress här.</p>
+
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+      <div class="row m-margin-top-40">
+        <div class="col s12 m6 l6">
+          <label for="user-email">Mailadress</label>
+          <input type="email" id="user-email" name="owner" required>
+        </div>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <a href="#" class="modal-action modal-close waves-effect waves-light btn-flat grey-text">Avbryt</a>
+      <input type="submit" class="waves-effect waves-light btn-flat blue-text" value="Ge bort" />
+    </div>
+  </form>
+</div>

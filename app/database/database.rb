@@ -13,6 +13,7 @@ class Database
   include Areas::ProductArea
   include Areas::StoreArea
   include Areas::UserArea
+  include Areas::UserInventoryArea
 
 
   base_uri Rails.configuration.database_api_url

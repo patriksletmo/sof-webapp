@@ -36,4 +36,7 @@ $(document).on('turbolinks:load', function () {
 
     // This causes issues when navigating backwards. TODO: Remove or solve before production!
     $('select').material_select();
+
+    // Initialize modal trigger buttons
+    $('.modal').modal();
 });

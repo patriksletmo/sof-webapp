@@ -90,6 +90,12 @@ Rails.application.routes.draw do
   get 'store/checkout' => 'webstore#checkout'
   post 'store/checkout' => 'webstore#charge'
 
+  # User inventory
+  get 'store/orders' => 'user_inventory#orders'
+  get 'store/orders/:id' => 'user_inventory#order'
+  get 'store/inventory/:id' => 'user_inventory#order_item'
+  post 'store/inventory/:id' => 'user_inventory#change_owner'
+
   # Funkis management
   get 'manage/funkis' => 'funkis_management#index'
   get 'manage/funkis/all_funkis_applications' => 'funkis_management#all_funkis_applications'
