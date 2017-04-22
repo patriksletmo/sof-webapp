@@ -65,7 +65,7 @@ group :test do
 
   # Front-end testing automation
   gem 'capybara'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '~> 3.0.5'
 
   # Mocking
   gem 'mocha'
