@@ -1,7 +1,16 @@
 module Areas
   module ProductArea
-    def products
-      get('/api/v1/shopping_product', authenticated_options)
+    def products(all: true)
+      if all
+        get('/api/v1/shopping_product', authenticated_options)
+      else
+        options = {
+            body: {
+                limit_items: true
+            }
+        }
+        get('/api/v1/shopping_product', options.merge(authenticated_options))
+      end
     end
 
     def get_product(id)

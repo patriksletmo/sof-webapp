@@ -7,12 +7,15 @@
       <% @products.each do |product| %>
           <div class="card shop-item">
             <form method="post">
-              <div class="card-image">
-                <img src="http://materializecss.com/images/sample-1.jpg">
+              <div class="cost">
                 <span class="card-title"><%= product['name'] %></span>
-                <span class="card-title"><%= product['name'] %></span>
+                <% if product['products'].any? { |x| x['cost'].present? } %>
+                  <p>Olika priser</p>
+                <% else %>
+                  <p><%= cost product['cost'] %></p>
+                <% end %>
               </div>
-              <p class="cost"><%= product['cost'] %> SEK</p>
+
               <div class="card-content">
                 <p><%= product['description'] %></p>
 
@@ -24,7 +27,11 @@
                         <select name="product_id">
                           <option value="" disabled selected>Välj typ</option>
                           <% product['products'].each do |option| %>
-                              <option value="<%= option['id'] %>"><%= option['kind'] %></option>
+                              <% if product['products'].any? { |x| x['cost'].present? } %>
+                                <option value="<%= option['id'] %>"><%= "#{option['kind']} (#{cost option['cost']})" %></option>
+                              <% else %>
+                                <option value="<%= option['id'] %>"><%= option['kind'] %></option>
+                              <% end %>
                           <% end %>
                         </select>
                       </div>

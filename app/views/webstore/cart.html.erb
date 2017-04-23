@@ -23,7 +23,7 @@
           <% else %>
             <td><%= "#{item['product']['base_product']['name']} (#{item['product']['kind']})" %></td>
           <% end %>
-          <td class="right"><%= item['product']['base_product']['cost'] %> SEK</td>
+          <td class="right"><%= item['product']['actual_cost'] %> SEK</td>
           <td>
             <form method="post" action="<%= url_for action: :remove_item_from_cart, id: item['id'] %>">
               <%= hidden_field_tag :authenticity_token, form_authenticity_token %>

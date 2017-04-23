@@ -2,7 +2,7 @@ class WebstoreController < NavigationController
 
   # Store frontpage with all the wares
   def index
-    @products = database.products
+    @products = database.products(all: false)
   end
 
   def add_item_to_cart
@@ -81,6 +81,6 @@ class WebstoreController < NavigationController
 
   def fetch_cart!
     @cart = database.get_cart
-    @total = @cart['cart_items'].sum { |x| x['product']['base_product']['cost'] }
+    @total = @cart['cart_items'].sum { |x| x['product']['actual_cost'] }
   end
 end
