@@ -18,7 +18,7 @@
           <% else %>
               <td><%= "#{item['product']['base_product']['name']} (#{item['product']['kind']})" %></td>
           <% end %>
-          <td class="right"><%= item['product']['base_product']['cost'] %> SEK</td>
+          <td class="right"><%= item['product']['actual_cost'] %> SEK</td>
         </tr>
     <% end %>
     <tr>

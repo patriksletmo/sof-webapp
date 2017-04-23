@@ -1,0 +1,24 @@
+<% content_for :header_title do %>Hantera produkter<% end %>
+
+<div class="container">
+  <a class="btn green" href="<%= url_for action: :new %>">Skapa ny produkt</a>
+
+  <table class="highlight">
+    <thead>
+    <tr>
+      <th>Artikel</th>
+      <th>Kostnad</th>
+      <th>Krävda rättigheter</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @products.each do |item| %>
+        <tr data-href="<%= url_for action: :show, id: item['id'] %>">
+          <td><%= item['name'] %></td>
+          <td><%= cost item['cost'] %></td>
+          <td><%= human_permissions item['required_permissions'] %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

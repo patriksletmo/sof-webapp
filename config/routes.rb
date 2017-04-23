@@ -99,6 +99,13 @@ Rails.application.routes.draw do
   get 'store/inventory/:id' => 'user_inventory#order_item'
   post 'store/inventory/:id' => 'user_inventory#change_owner'
 
+  # Product management
+  get 'manage/products' => 'product_management#index'
+  get 'manage/products/new' => 'product_management#new'
+  post 'manage/products/new' => 'product_management#create'
+  get 'manage/products/:id' => 'product_management#show'
+  post 'manage/products/:id' => 'product_management#update'
+
   # Funkis management
   get 'manage/funkis' => 'funkis_management#index'
   get 'manage/funkis/all_funkis_applications' => 'funkis_management#all_funkis_applications'
