@@ -55,7 +55,7 @@ class WebstoreController < NavigationController
     response = database.charge(stripe_token)
     if response.success?
       flash[:success] = 'Betalningen lyckades'
-      redirect_to '/'
+      redirect_to controller: :user_inventory, action: :order, id: response['id']
     else
       flash[:error] = 'Betalningen misslyckades'
       redirect_to action: :checkout
