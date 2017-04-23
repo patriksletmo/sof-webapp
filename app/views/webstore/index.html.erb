@@ -19,7 +19,7 @@
               <div class="card-content">
                 <p><%= product['description'] %></p>
 
-                <% if product['products'].first['kind'].nil? %>
+                <% if product['products'].first['kind'].nil? or product['products'].first['kind'].empty? %>
                     <%= hidden_field_tag :product_id, product['products'].first['id'] %>
                 <% else %>
                     <div class="row">
