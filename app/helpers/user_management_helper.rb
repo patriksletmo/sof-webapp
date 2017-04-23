@@ -11,6 +11,17 @@ module UserManagementHelper
       8 => 'List funkis applications',
   }
 
+  GROUPS = {
+      0 => 'All',
+      1 => 'SOF Organisation',
+      2 => 'Orchestra Member',
+      3 => 'Orchestra Leader',
+      4 => 'Funkis',
+      5 => 'Cortege Member',
+      6 => 'Cortege Leader',
+      7 => 'SOF Oldies'
+  }
+
   def map_permissions(user)
     admin_permissions = user['admin_permissions']
     PERMISSIONS.map do |key, value|
@@ -18,6 +29,17 @@ module UserManagementHelper
           id: "admin_permission[#{key}]",
           name: value,
           given: is_given?(admin_permissions, key)
+      }
+    end
+  end
+
+  def map_groups(user)
+    groups = user['usergroup']
+    GROUPS.map do |key, value|
+      {
+          id: "group[#{key}]",
+          name: value,
+          given: is_given?(groups, key)
       }
     end
   end
