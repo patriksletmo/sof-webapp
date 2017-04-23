@@ -14,6 +14,7 @@ class Database
   include Areas::StoreArea
   include Areas::UserArea
   include Areas::UserInventoryArea
+  include Areas::CortegeMembershipArea
 
 
   base_uri Rails.configuration.database_api_url

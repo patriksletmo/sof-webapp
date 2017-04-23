@@ -68,6 +68,41 @@
           </div>
         </div>
       </form>
+
+      <h4>Medlemmar i laget</h4>
+
+      <%= form_tag({controller: "cortege_management", action: "add_member", cortege: true}, method: "post") do %>
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+          <%= text_field_tag('email', nil, placeholder: 'Skriv in medlemmens email...') %>
+          <%= submit_tag("Lägg till medlem", :class => 'btn green') %>
+      <% end %>
+
+      <table>
+        <thead>
+        <tr>
+          <th>Namn</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @cortege_members.each do |member| %>
+            <tr>
+              <td>
+                <%= user member['user'] %>
+              </td>
+              <td>
+                <form method="post" action="<%= url_for action: :remove_member, membership_id: member['id'], id: params[:id] %>">
+                  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                  <button type="submit" class="btn red">Ta bort medlem</button>
+                </form>
+              </td>
+            </tr>
+        <% end %>
+
+        </tbody>
+      </table>
+
     </div>
   </div>
 </div>
