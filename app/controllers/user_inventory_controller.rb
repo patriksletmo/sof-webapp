@@ -15,13 +15,22 @@ class UserInventoryController < NavigationController
     return if require_login!
 
     @order = database.order(params[:id])
-    @total = @order['order_items'].sum { |x| x['cost'] }
+    if @order.success?
+      @total = @order['order_items'].sum { |x| x['cost'] }
+    else
+      flash[:error] = 'Kunde inte hitta order'
+      redirect_to action: :orders
+    end
   end
 
   def order_item
     return if require_login!
 
     @order_item = database.order_item(params[:id])
+    unless @order_item.success?
+      flash[:error] = 'Kunde inte hitta artikel'
+      redirect_to action: :index
+    end
   end
 
   def change_owner
