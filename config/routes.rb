@@ -39,6 +39,8 @@ Rails.application.routes.draw do
   get 'cortege/:id' => 'cortege#show'
   post 'cortege/:id' => 'cortege#update'
   post 'cortege/:id/delete' => 'cortege#delete'
+  post 'corteges/add_member/:id' => 'cortege#add_member'
+  post 'corteges/remove_member/:id' => 'cortege#remove_member'
 
   # Case cortege
   get 'case_cortege' => 'case_cortege#index'
