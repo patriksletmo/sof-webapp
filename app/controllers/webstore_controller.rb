@@ -6,6 +6,8 @@ class WebstoreController < NavigationController
   end
 
   def add_item_to_cart
+    return if require_login!
+
     new_item = {
         product_id: params[:product_id],
         data: data_json
@@ -20,15 +22,21 @@ class WebstoreController < NavigationController
   end
 
   def cart
+    return if require_login!
+
     fetch_cart!
   end
 
   def remove_item_from_cart
+    return if require_login!
+
     database.remove_item_from_cart params[:id]
     redirect_to action: :cart
   end
 
   def clear_cart
+    return if require_login!
+
     database.clear_cart
     redirect_to action: :cart
   end
