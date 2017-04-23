@@ -75,6 +75,8 @@ Rails.application.routes.draw do
   get 'manage/corteges' => 'cortege_management#index'
   get 'manage/corteges/:id' => 'cortege_management#show'
   post 'manage/corteges/:id' => 'cortege_management#update'
+  post 'manage/corteges/add_member/:id' => 'cortege_management#add_member'
+  post 'manage/corteges/remove_member/:id' => 'cortege_management#remove_member'
 
   # Case cortege management
   get 'manage/case_corteges' => 'case_cortege_management#index'

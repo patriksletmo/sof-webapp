@@ -16,6 +16,11 @@ class CortegeManagementController < NavigationController
       flash[:error] = 'Kunde inte hitta kårtegeanmälan'
       redirect_to action: :index
     end
+
+    @cortege_members = database.show_cortege_memberships(params[:id])
+    unless @cortege_members.success?
+      flash.now[:error] = 'Kunde inte hitta kårtegedeltarna'
+    end
   end
 
   def update
@@ -31,7 +36,57 @@ class CortegeManagementController < NavigationController
     end
   end
 
+  def add_member
+    return if require_login!
+
+    response = database.create_cortege_membership(add_membership_params)
+    if response.success?
+      flash[:success] = 'Medlemmen tillagd'
+      redirect_to action: :show, id: params['id']
+    else
+      flash[:error] = 'Något gick fel, medlemmen ej tillagd'
+      redirect_to action: :show, id: params['id']
+    end
+
+  end
+
+  def remove_member
+    return if require_login!
+
+    response = database.delete_cortege_membership(params[:membership_id])
+    if response.success?
+      flash[:success] = 'Medlemen bortagen'
+      redirect_to action: :show, id: params['id']
+    else
+      flash[:error] = 'Något gick fel, medlemmen ej bortagen'
+      redirect_to action: :show, id: params['id']
+    end
+  end
+
   private
+
+  def add_membership_params
+    if params[:cortege]
+      cortege_params = {
+          :cortege_membership => {
+              :cortege_id => params[:id]
+          },
+          :user => {
+              :email => params[:email]
+          }
+      }
+    else
+      cortege_params = {
+          :cortege_membership => {
+              :case_cortege_id => params[:id]
+          },
+          :user => {
+              :email => params[:email]
+          }
+      }
+    end
+    cortege_params
+  end
 
   def item_params
     # Filtering is performed in db-app
