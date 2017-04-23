@@ -4,7 +4,7 @@
 <div class="container">
   <h4><%= @order_item['product']['base_product']['name'] %></h4>
   <p><%= @order_item['product']['base_product']['description'] %></p>
-  <p><b>Kostnad: </b><%= cost @order_item['product']['base_product']['cost'] %></p>
+  <p><b>Kostnad: </b><%= cost @order_item['cost'] %></p>
   <% if @order_item['product']['kind'].present? %>
       <p><b>Typ: </b><%= @order_item['product']['kind'] %></p>
   <% end %>

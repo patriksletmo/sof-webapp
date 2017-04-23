@@ -26,7 +26,7 @@
               <td><%= "#{item['product']['base_product']['name']} (#{item['product']['kind']})" %></td>
           <% end %>
           <td><%= user item['owner'] %></td>
-          <td><%= cost item['product']['base_product']['cost'] %></td>
+          <td><%= cost item['cost'] %></td>
         </tr>
     <% end %>
     </tbody>

@@ -5,7 +5,7 @@ class UserInventoryController < NavigationController
 
   def order
     @order = database.order(params[:id])
-    @total = @order['order_items'].sum { |x| x['product']['base_product']['cost'] }
+    @total = @order['order_items'].sum { |x| x['cost'] }
   end
 
   def order_item
