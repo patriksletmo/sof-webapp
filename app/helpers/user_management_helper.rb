@@ -38,6 +38,7 @@ module UserManagementHelper
   end
 
   def map_groups(groups)
+    groups = groups || 0
     GROUPS.map do |key, value|
       {
           id: "group[#{key}]",
