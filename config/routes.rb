@@ -93,6 +93,7 @@ Rails.application.routes.draw do
   # User inventory
   get 'store/orders' => 'user_inventory#orders'
   get 'store/orders/:id' => 'user_inventory#order'
+  get 'store/inventory' => 'user_inventory#index'
   get 'store/inventory/:id' => 'user_inventory#order_item'
   post 'store/inventory/:id' => 'user_inventory#change_owner'
 

@@ -1,4 +1,8 @@
 class UserInventoryController < NavigationController
+  def index
+    @inventory = database.inventory
+  end
+
   def orders
     @orders = database.orders
   end

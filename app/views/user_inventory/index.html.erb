@@ -1,0 +1,24 @@
+<% content_for :header_title do %>Mina produkter<% end %>
+
+<div class="container">
+  <table class="highlight">
+    <thead>
+    <tr>
+      <th>Artikel</th>
+      <th>Kostnad</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @inventory['owned'].each do |item| %>
+        <tr data-href="<%= url_for action: :order_item, id: item['id'] %>">
+          <% if item['product']['kind'].nil? %>
+              <td><%= item['product']['base_product']['name'] %></td>
+          <% else %>
+              <td><%= "#{item['product']['base_product']['name']} (#{item['product']['kind']})" %></td>
+          <% end %>
+          <td><%= cost item['cost'] %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

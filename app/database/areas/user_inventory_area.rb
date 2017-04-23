@@ -1,5 +1,9 @@
 module Areas
   module UserInventoryArea
+    def inventory
+      get('/api/v1/order_item', authenticated_options)
+    end
+
     def orders
       get('/api/v1/order', authenticated_options)
     end
