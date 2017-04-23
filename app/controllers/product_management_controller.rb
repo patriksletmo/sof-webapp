@@ -52,6 +52,21 @@ class ProductManagementController < NavigationController
   private
 
   def item_params
-    {item: params[:item].to_unsafe_h}
+    {
+        item: params[:item].to_unsafe_h.merge({
+          required_group_permissions: group_params
+        })
+    }
+  end
+
+  def group_params
+    groups = 0
+    unless params[:group].nil?
+      params[:group].each do |key, value|
+        groups |= 1 << key.to_i
+      end
+    end
+
+    groups
   end
 end

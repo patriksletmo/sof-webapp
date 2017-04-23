@@ -38,6 +38,18 @@
     </div>
   </div>
 
+  <h5>Visa för grupper (ingen ikryssad = visa för alla)</h5>
+  <div class="row">
+    <div class="col s12">
+    <% map_groups(@product['required_group_permissions']).each do |group| %>
+        <p>
+          <input type="checkbox" id="<%= group[:id] %>" name="<%= group[:id] %>" class="filled-in" <%= 'checked' if group[:given] %>/>
+          <label for="<%= group[:id] %>"><%= group[:name] %></label>
+        </p>
+    <% end %>
+    </div>
+  </div>
+
   <h5>Varianter</h5>
 
   <div id="variant-container">

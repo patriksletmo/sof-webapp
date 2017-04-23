@@ -1,4 +1,4 @@
-<% map_groups(@user).each do |group| %>
+<% map_user_groups(@user).each do |group| %>
     <p>
       <input type="checkbox" id="<%= group[:id] %>" name="<%= group[:id] %>" class="filled-in" <%= 'checked' if group[:given] %>/>
       <label for="<%= group[:id] %>"><%= group[:name] %></label>

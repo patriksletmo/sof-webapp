@@ -12,7 +12,7 @@ module UserManagementHelper
   }
 
   GROUPS = {
-      0 => 'All',
+      0 => 'All (super-grupp)',
       1 => 'SOF Organisation',
       2 => 'Orchestra Member',
       3 => 'Orchestra Leader',
@@ -33,8 +33,11 @@ module UserManagementHelper
     end
   end
 
-  def map_groups(user)
-    groups = user['usergroup']
+  def map_user_groups(user)
+    map_groups(user['usergroup'])
+  end
+
+  def map_groups(groups)
     GROUPS.map do |key, value|
       {
           id: "group[#{key}]",
