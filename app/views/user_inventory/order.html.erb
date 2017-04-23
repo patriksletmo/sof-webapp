@@ -1,6 +1,8 @@
 <% content_for :header_title do %>Order<% end %>
 
 <div class="container">
+  <p><a href="<%= url_for action: :orders %>"><i class="icon-arrow-left2"></i> Visa alla mina ordrar</a></p>
+
   <h5>Order #<%= @order['id'] %></h5>
   <p><b>Datum: </b><%= date @order['created_at'] %></p>
   <p><b>Betalningsmetod: </b><%= @order['payment_method'] %></p>
