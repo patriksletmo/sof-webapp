@@ -62,8 +62,19 @@ module UserManagementHelper
       end
 
       given.join(', ')
-    else
-      'Inga'
+    end
+  end
+
+  def human_groups(groups)
+    if groups.present?
+      given = []
+      GROUPS.each do |key, value|
+        if is_given?(groups, key)
+          given.append(value)
+        end
+      end
+
+      given.join(', ')
     end
   end
 

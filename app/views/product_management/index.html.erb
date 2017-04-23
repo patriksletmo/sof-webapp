@@ -9,6 +9,7 @@
       <th>Artikel</th>
       <th>Kostnad</th>
       <th>Krävda rättigheter</th>
+      <th>Visas för grupper</th>
     </tr>
     </thead>
     <tbody>
@@ -17,6 +18,7 @@
           <td><%= item['name'] %></td>
           <td><%= cost item['cost'] %></td>
           <td><%= human_permissions item['required_permissions'] %></td>
+          <td><%= human_groups item['required_group_permissions'] %></td>
         </tr>
     <% end %>
     </tbody>
