@@ -24,14 +24,22 @@ module UserManagementHelper
 
   def given_permissions(user)
     admin_permissions = user['admin_permissions']
-    given = []
-    PERMISSIONS.each do |key, value|
-      if is_given?(admin_permissions, key)
-        given.append(value)
-      end
-    end
+    human_permissions(admin_permissions)
+  end
 
-    given.join(', ')
+  def human_permissions(permissions)
+    if permissions.present?
+      given = []
+      PERMISSIONS.each do |key, value|
+        if is_given?(permissions, key)
+          given.append(value)
+        end
+      end
+
+      given.join(', ')
+    else
+      'Inga'
+    end
   end
 
   def is_given?(permissions, permission)

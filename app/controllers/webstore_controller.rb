@@ -2,7 +2,7 @@ class WebstoreController < NavigationController
 
   # Store frontpage with all the wares
   def index
-    @products = database.enabled_products
+    @products = database.products
   end
 
   def add_item_to_cart
