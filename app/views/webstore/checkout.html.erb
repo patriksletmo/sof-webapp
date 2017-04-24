@@ -21,7 +21,7 @@
     <% end %>
     <% if @cart['rebate'] > 0 %>
         <tr>
-          <td><i class="icon-fire"></i> <i class="icon-happy"></i> <i class="icon-cash2"></i> LinTek-rabatt <i class="icon-cash2"></i> <i class="icon-happy"></i> <i class="icon-fire"></i></td>
+          <td>LinTek-rabatt</td>
           <td class="right"><%= cost -@cart['rebate'] %></td>
         </tr>
     <% end %>
@@ -38,9 +38,9 @@
       <div class="row info-square">
         <div class="col s12 m8 offset-m2 l6 offset-l3">
           <div class="card-panel grey lighten-5 z-depth-1">
-            <i class="icon-fire"></i>
+            <img class="tutputte" src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/logotyper/sof/tutputte.png" />
             <span class="black-text">
-          Vill du ha en billigare biljett och en fet tackkravall? Ansök till <%= link_to 'Funkis', funkis_url %>
+          Vill du ha en billigare biljett och en fet tackkravall? Ansök till <%= link_to 'Funkis!', funkis_url %>
         </span>
           </div>
         </div>

@@ -42,15 +42,15 @@
   .info-square {
     .card-panel {
       display: flex;
-      i {
-        color: red;
-        font-size: 24px;
-        margin: auto;
-        padding-right: 24px;
+      .tutputte {
+        width: 70px;
+        height: 70px;
+        margin: auto 24px auto auto;
       }
       span {
         font-family: DIN;
         font-weight: normal;
+        font-size: 22px;
         margin: auto;
         a {
           color: black;
