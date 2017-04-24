@@ -3,6 +3,8 @@ class WebstoreController < NavigationController
 
   # Store frontpage with all the wares
   def index
+    return if require_login!
+    
     @funkis_rebate_info = {
         is_funkis: is_given?(current_user['usergroup'], 4),
         rebate_remaining: current_user['rebate_balance']
