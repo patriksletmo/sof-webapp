@@ -3,10 +3,11 @@
 
 .shop-container {
   .card-container {
+    margin-top: 20px;
     display: flex;
+    justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
   }
 
   .shop-item {
@@ -31,6 +32,19 @@
       padding: 20px;
       background-color: $sof-red-color;
       color: #fff;
+    }
+  }
+  .rebate-square {
+    margin-top: 20px;
+    .card-panel {
+      display: flex;
+      flex-flow: column;
+      span {
+        font-size: 20px;
+        font-family: DIN;
+        font-weight: normal;
+        margin: auto;
+      }
     }
   }
 }

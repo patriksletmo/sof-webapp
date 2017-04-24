@@ -3,6 +3,11 @@ class WebstoreController < NavigationController
 
   # Store frontpage with all the wares
   def index
+    @funkis_rebate_info = {
+        is_funkis: is_given?(current_user['usergroup'], 4),
+        rebate_remaining: current_user['rebate_balance']
+
+    }
     @products = database.products(all: false)
   end
 
