@@ -8,7 +8,8 @@
       </h4>
     </div>
 
-    <% if current_user.present? %>
+   <!-- Only show varukorg if the date is after 2017-04-24 -->
+    <% if current_user.present? and DateTime.parse('2017-04-24 23:59') < DateTime.now + 2.hours %>
      <a href="<%= url_for controller: :webstore, action: :cart %>">
        <div class="nav-button">
 
