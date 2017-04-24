@@ -43,6 +43,17 @@ module Areas
       put('/api/v1/auth/password', options.merge(authenticated_options))
     end
 
+    def edit_password(current_password, new_password, confirmation)
+      options = {
+        :body => {
+          #:current_password => current_password,
+          :password => new_password,
+          :password_confirmation => confirmation
+        }
+      }
+      put('/api/v1/auth/password', options.merge(authenticated_options))
+    end
+
     def logout
       delete('/api/v1/auth/sign_out', authenticated_options)
     end
