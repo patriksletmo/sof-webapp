@@ -1,6 +1,6 @@
 <% content_for :header_title do %>Sammanställning<% end %>
 
-<div class="container">
+<div class="container checkout-container">
   <table>
     <thead>
     <tr>
@@ -28,12 +28,27 @@
 
   <br/>
 
+  <% unless @is_funkis %>
+      <div class="row info-square">
+        <div class="col s12 m8 offset-m2 l6 offset-l3">
+          <div class="card-panel grey lighten-5 z-depth-1">
+            <i class="icon-fire"></i>
+            <span class="black-text">
+          Vill du ha en billigare biljett och en fet tackkravall? Ansök till <%= link_to 'Funkis', funkis_url %>
+        </span>
+          </div>
+        </div>
+      </div>
+  <% end %>
+
   <% if @total == 0 %>
       <a class="btn green" id="free-checkout-button">Bekräfta köp (gratis <i class="icon-happy2"></i>)</a>
   <% else %>
       <a class="btn green" id="checkout-button">Betala</a>
   <% end %>
 </div>
+
+
 
 <form id="stripe-form" method="post" action="<%= url_for action: :charge %>">
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
