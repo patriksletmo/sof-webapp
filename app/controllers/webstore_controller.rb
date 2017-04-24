@@ -76,6 +76,6 @@ class WebstoreController < NavigationController
 
   def fetch_cart!
     @cart = database.get_cart
-    @total = @cart['cart_items'].sum { |x| x['product']['actual_cost'] }
+    @total = @cart['cart_items'].sum { |x| x['product']['actual_cost'] } - @cart['rebate']
   end
 end

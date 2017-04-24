@@ -31,6 +31,13 @@
           <td><%= cost item['cost'] %></td>
         </tr>
     <% end %>
+    <% if @order['rebate'] > 0 %>
+        <tr>
+          <td>LinTek-rabatt</td>
+          <td>Du</td>
+          <td><%= cost -@order['rebate'] %></td>
+        </tr>
+    <% end %>
     </tbody>
     <tfoot>
     <tr>

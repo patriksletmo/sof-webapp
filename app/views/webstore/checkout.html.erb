@@ -19,6 +19,12 @@
           <td class="right"><%= item['product']['actual_cost'] %> SEK</td>
         </tr>
     <% end %>
+    <% if @cart['rebate'] > 0 %>
+        <tr>
+          <td><i class="icon-fire"></i> <i class="icon-happy"></i> <i class="icon-cash2"></i> LinTek-rabatt <i class="icon-cash2"></i> <i class="icon-happy"></i> <i class="icon-fire"></i></td>
+          <td class="right"><%= cost -@cart['rebate'] %></td>
+        </tr>
+    <% end %>
     <tr>
       <th>Totalt</th>
       <th class="right"><%= @total %> SEK</th>
