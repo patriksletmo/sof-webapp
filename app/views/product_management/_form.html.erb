@@ -38,6 +38,14 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="col s12 m6 l6">
+      <input type="hidden" name="item[giftable]" value="false">
+      <input id="product-giftable" class="filled-in" type="checkbox" name="item[giftable]" value="true" <%= 'checked' unless @product['giftable'] == false %> <%# Don't simplify! %>>
+      <label for="product-giftable">Kan ges bort</label>
+    </div>
+  </div>
+
   <h5>Visa för grupper (ingen ikryssad = visa för alla)</h5>
   <div class="row">
     <div class="col s12">

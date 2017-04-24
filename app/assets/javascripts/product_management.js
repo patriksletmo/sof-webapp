@@ -16,7 +16,7 @@ $(document).on('turbolinks:load', function () {
         var inputName = 'item[products_attributes][][' + variable + ']';
         var container = $('<div class="col s10 m5 l5"></div>');
         var label = $('<label>' + name + '</label>');
-        var input = $('<input type="' + type + '" name="' + inputName + '" required>');
+        var input = $('<input type="' + type + '" name="' + inputName + '">');
 
         container.append(label);
         container.append(input);

@@ -22,9 +22,15 @@
   <% end %>
 
   <% if is_self @order_item['owner'] %>
-      <a class="btn waves-effect waves-light blue" href="#gift-modal">
-        <i class="icon-gift2"></i> Ge bort
-      </a>
+      <% if @order_item['product']['base_product']['giftable'] %>
+        <a class="btn waves-effect waves-light blue" href="#gift-modal">
+          <i class="icon-gift2"></i> Ge bort
+        </a>
+      <% else %>
+        <button class="btn waves-effect waves-light blue" href="#gift-modal" disabled>
+          <i class="icon-gift2"></i> Kan inte ges bort
+        </button>
+      <% end %>
   <% end %>
   </p>
 </div>

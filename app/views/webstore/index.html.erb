@@ -9,6 +9,12 @@
             <form method="post">
               <div class="cost">
                 <span class="card-title"><%= product['name'] %></span>
+                <br/>
+                <% if product['giftable'] %>
+                  <small><i class="icon-gift2"></i> Kan ges bort</small>
+                <% else %>
+                  <small><i class="icon-blocked"></i> Kan <u>inte</u> ges bort</small>
+                <% end %>
                 <% if product['products'].any? { |x| x['cost'].present? } %>
                   <p>Olika priser</p>
                 <% else %>
