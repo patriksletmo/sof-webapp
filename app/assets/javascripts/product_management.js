@@ -12,9 +12,9 @@ $(document).on('turbolinks:load', function () {
         return parent;
     }
 
-    function createInput(name, variable, type) {
+    function createInput(name, variable, type, size) {
         var inputName = 'item[products_attributes][][' + variable + ']';
-        var container = $('<div class="col s10 m5 l5"></div>');
+        var container = $('<div class="col s12 m' + size + ' l' + size + '"></div>');
         var label = $('<label>' + name + '</label>');
         var input = $('<input type="' + type + '" name="' + inputName + '">');
 
@@ -29,8 +29,10 @@ $(document).on('turbolinks:load', function () {
 
         var parent = $('<div class="row"></div>');
 
-        parent.append(createInput('Namn', 'kind', 'text'));
-        parent.append(createInput('Pris (SEK)', 'cost', 'number'));
+        parent.append(createInput('Namn', 'kind', 'text', '3'));
+        parent.append(createInput('Pris (SEK)', 'cost', 'number', '2'));
+        parent.append(createInput('Maxantal per person (0 = oändligt)', 'purchase_limit', 'number', '3'));
+        parent.append(createInput('Maxantal (0 = oändligt)', 'max_num_available', 'number', '2'));
         parent.append(createActiveCheckbox());
 
         var deleteButton = $('<div class="col s1 margin-top-32"><button class="btn red"><i class="icon-bin2"></i></button></div>');

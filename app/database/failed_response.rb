@@ -11,4 +11,8 @@ class FailedResponse < BasicObject
   def body!
     nil
   end
+
+  def code
+    -1
+  end
 end
