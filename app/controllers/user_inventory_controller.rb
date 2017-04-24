@@ -16,7 +16,7 @@ class UserInventoryController < NavigationController
 
     @order = database.order(params[:id])
     if @order.success?
-      @total = @order['order_items'].sum { |x| x['cost'] }
+      @total = @order['order_items'].sum { |x| x['cost'] } - @order['rebate'] - @order['funkis_rebate']
     else
       flash[:error] = 'Kunde inte hitta order'
       redirect_to action: :orders

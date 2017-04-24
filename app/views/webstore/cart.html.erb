@@ -34,6 +34,20 @@
           </td>
         </tr>
     <% end %>
+    <% if @cart['rebate'] > 0 %>
+        <tr>
+          <td>LinTek-rabatt</td>
+          <td class="right"><%= cost -@cart['rebate'] %></td>
+          <td></td>
+        </tr>
+    <% end %>
+    <% if @cart['funkis_rebate'] > 0 %>
+        <tr>
+          <td>Funkis-rabatt</td>
+          <td class="right"><%= cost -@cart['funkis_rebate'] %></td>
+          <td></td>
+        </tr>
+    <% end %>
     <tr>
       <th>Totalt</th>
       <th class="right"><%= @total %> SEK</th>
