@@ -19,7 +19,12 @@ module UserManagementHelper
       4 => 'Funkis',
       5 => 'Cortege Member',
       6 => 'Cortege Leader',
-      7 => 'SOF Oldies'
+      7 => 'SOF Oldies',
+      8 => 'Risk-Smask',
+      9 => 'Cortege Freebuild',
+      10 => 'Cortege Micro',
+      11 => 'Cortege Macro',
+      12 => 'LinTek Member'
   }
 
   def map_permissions(user)
