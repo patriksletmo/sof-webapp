@@ -1,4 +1,5 @@
 class WebstoreController < NavigationController
+  include UserManagementHelper
 
   # Store frontpage with all the wares
   def index
@@ -45,6 +46,8 @@ class WebstoreController < NavigationController
     return if require_login!
 
     fetch_cart!
+
+    @is_funkis = is_given? current_user['usergroup'], 4
   end
 
   def charge

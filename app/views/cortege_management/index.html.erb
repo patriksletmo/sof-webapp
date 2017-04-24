@@ -9,6 +9,7 @@
       <th>E-mail</th>
       <th>Status</th>
       <th>Godkänd</th>
+      <th>Betald</th>
     </tr>
     </thead>
     <tbody>
@@ -19,6 +20,7 @@
           <td><%= cortege['user']['email'] %></td>
           <td><%= readable_status cortege['status'] %></td>
           <td><%= cortege['approved'] ? 'Ja' : 'Nej' %></td>
+          <td><%= cortege['paid'] ? 'Ja' : 'Nej' %></td>
         </tr>
     <% end %>
     </tbody>
