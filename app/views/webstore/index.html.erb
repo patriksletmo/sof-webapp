@@ -3,14 +3,16 @@
 
 <div class="container shop-container">
 
-  <% if @funkis_rebate_info[:is_funkis] %>
+  <% if @funkis_rebate_info[:is_funkis] or current_user['is_lintek_member'] %>
       <div class="row center ">
         <div class="col s12 m8 offset-m2 l6 offset-l3">
           <div class="rebate-square">
             <div class="card-panel grey lighten-5 z-depth-1">
-              <span class="black-text">
-                <b>Funkisrabattssaldo:</b> <%= @funkis_rebate_info[:rebate_remaining] %> SEK
-              </span>
+              <% if @funkis_rebate_info[:is_funkis] %>
+                <span class="black-text">
+                  <b>Funkisrabattssaldo:</b> <%= @funkis_rebate_info[:rebate_remaining] %> SEK
+                </span>
+              <% end %>
               <% if current_user['is_lintek_member'] %>
                   <span class="black-text">
                     Lintek-rabatten läggs till automatiskt vid utcheckning.
