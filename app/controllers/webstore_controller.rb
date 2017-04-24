@@ -45,15 +45,6 @@ class WebstoreController < NavigationController
     return if require_login!
 
     fetch_cart!
-
-    if request.post?
-      # get amount from cart
-      @response = database.create_order()
-      if response.success?
-      else
-        #show error, redirect to webshop
-      end
-    end
   end
 
   def charge
@@ -62,10 +53,14 @@ class WebstoreController < NavigationController
     stripe_token = params[:stripe_token]
     response = database.charge(stripe_token)
     if response.success?
-      flash[:success] = 'Betalningen lyckades'
+      flash[:success] = 'Köp genomfört!'
       redirect_to controller: :user_inventory, action: :order, id: response['id']
     else
-      flash[:error] = 'Betalningen misslyckades'
+      if response.code == 406
+        flash[:error] = 'En eller flera av dina produkter överstiger det maximala antalet du kan köpa, eller så finns det inte nog med biljetter kvar'
+      else
+        flash[:error] = 'Betalningen misslyckades'
+      end
       redirect_to action: :checkout
     end
   end

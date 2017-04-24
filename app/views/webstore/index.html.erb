@@ -5,10 +5,24 @@
   <div class="row">
     <div class="card-container">
       <% @products.each do |product| %>
-          <div class="card shop-item">
+          <% if product['purchasable'] %>
+              <div class="card shop-item">
+          <% else %>
+              <div class="card shop-item grey lighten-2">
+          <% end %>
             <form method="post">
-              <div class="cost">
+              <% if product['purchasable'] %>
+                <div class="cost">
+              <% else %>
+                <div class="cost grey">
+              <% end %>
                 <span class="card-title"><%= product['name'] %></span>
+                <br/>
+                <% if product['giftable'] %>
+                  <small><i class="icon-gift2"></i> Kan ges bort</small>
+                <% else %>
+                  <small><i class="icon-blocked"></i> Kan <u>inte</u> ges bort</small>
+                <% end %>
                 <% if product['products'].any? { |x| x['cost'].present? } %>
                   <p>Olika priser</p>
                 <% else %>
@@ -24,14 +38,22 @@
                 <% else %>
                     <div class="row">
                       <div class="input-field col s12">
-                        <select name="product_id">
+                        <% if product['purchasable'] %>
+                          <select name="product_id">
+                        <% else %>
+                          <select name="product_id" disabled>
+                        <% end %>
                           <option value="" disabled selected>Välj typ</option>
                           <% product['products'].each do |option| %>
-                              <% if product['products'].any? { |x| x['cost'].present? } %>
-                                <option value="<%= option['id'] %>"><%= "#{option['kind']} (#{cost option['cost']})" %></option>
-                              <% else %>
-                                <option value="<%= option['id'] %>"><%= option['kind'] %></option>
-                              <% end %>
+                            <% if option['purchasable'] %>
+                                <% if product['products'].any? { |x| x['cost'].present? } %>
+                                    <option value="<%= option['id'] %>"><%= "#{option['kind']} (#{cost option['cost']})" %></option>
+                                <% else %>
+                                    <option value="<%= option['id'] %>"><%= option['kind'] %></option>
+                                <% end %>
+                            <% else %>
+                              <option value="<%= option['id'] %>" disabled><%= option['kind'] %></option>
+                            <% end %>
                           <% end %>
                         </select>
                       </div>
@@ -41,7 +63,13 @@
               <div class="card-action">
                 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
-                <a class="card-action-text" href="javascript:;">Lägg till i kundvagn</a>
+                <% if product['purchasable'] %>
+                  <a class="card-action-text" href="javascript:;">Lägg till i kundvagn</a>
+                <% else %>
+                  <a class="card-action-disabled">
+                    <i class="icon-blocked"></i> Tillfälligt slut / maxgräns uppnådd
+                  </a>
+                <% end %>
               </div>
             </form>
           </div>

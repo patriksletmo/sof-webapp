@@ -18,7 +18,7 @@
     <tbody>
     <% @cart['cart_items'].each do |item| %>
         <tr>
-          <% if item['product']['kind'].nil? %>
+          <% if item['product']['kind'].nil? or item['product']['kind'].empty? %>
             <td><%= item['product']['base_product']['name'] %></td>
           <% else %>
             <td><%= "#{item['product']['base_product']['name']} (#{item['product']['kind']})" %></td>

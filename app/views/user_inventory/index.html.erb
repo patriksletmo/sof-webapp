@@ -12,7 +12,7 @@
         <tbody>
         <% @inventory['owned'].each do |item| %>
             <tr data-href="<%= url_for action: :order_item, id: item['id'] %>">
-              <% if item['product']['kind'].nil? %>
+              <% if item['product']['kind'].nil? or item['product']['kind'].empty? %>
                   <td><%= item['product']['base_product']['name'] %></td>
               <% else %>
                   <td><%= "#{item['product']['base_product']['name']} (#{item['product']['kind']})" %></td>
