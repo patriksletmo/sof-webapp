@@ -1,0 +1,78 @@
+@import "fonts";
+@import "colors";
+
+.shop-container {
+  .card-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .shop-item {
+    width: 250px;
+    margin: 10px 10px;
+
+    .row {
+      margin-top: 15px;
+      margin-bottom: 0;
+    }
+    .select-wrapper input.select-dropdown {
+      margin-bottom: 0;
+    }
+
+    img {
+      height: 250px;
+      width: 250px;
+    }
+
+    .cost {
+      margin: 0;
+      padding: 20px;
+      background-color: $sof-red-color;
+      color: #fff;
+    }
+  }
+  .rebate-square {
+    margin-top: 20px;
+    .card-panel {
+      display: flex;
+      flex-flow: column;
+      span {
+        font-size: 20px;
+        font-family: DIN;
+        font-weight: normal;
+        margin: auto;
+      }
+    }
+  }
+}
+
+.checkout-container {
+  .btn {
+    margin-bottom: 20px;
+  }
+  .info-square {
+    .card-panel {
+      display: flex;
+      .tutputte {
+        width: 70px;
+        height: 70px;
+        margin: auto 24px auto auto;
+      }
+      span {
+        font-family: DIN;
+        font-weight: normal;
+        font-size: 22px;
+        margin: auto;
+        a {
+          color: black;
+          text-decoration: none;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+

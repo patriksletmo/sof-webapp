@@ -1,0 +1,101 @@
+<% content_for :header_title do %>Butik
+<% end %>
+
+<div class="container shop-container">
+
+  <% if @funkis_rebate_info[:is_funkis] or current_user['is_lintek_member'] %>
+      <div class="row center ">
+        <div class="col s12 m8 offset-m2 l6 offset-l3">
+          <div class="rebate-square">
+            <div class="card-panel grey lighten-5 z-depth-1">
+              <% if @funkis_rebate_info[:is_funkis] %>
+                <span class="black-text">
+                  <b>Funkisrabattssaldo:</b> <%= @funkis_rebate_info[:rebate_remaining] %> SEK
+                </span>
+              <% end %>
+              <% if current_user['is_lintek_member'] %>
+                  <span class="black-text">
+                    Lintek-rabatten läggs till automatiskt vid utcheckning.
+                  </span>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+  <% end %>
+
+  <div class="card-container">
+    <% @products.each do |product| %>
+        <% if product['purchasable'] %>
+            <div class="card shop-item">
+        <% else %>
+            <div class="card shop-item grey lighten-2">
+        <% end %>
+        <form method="post">
+          <% if product['purchasable'] %>
+              <div class="cost">
+          <% else %>
+              <div class="cost grey">
+          <% end %>
+          <span class="card-title"><%= product['name'] %></span>
+          <br/>
+          <% if product['giftable'] %>
+              <small><i class="icon-gift2"></i> Kan ges bort</small>
+          <% else %>
+              <small><i class="icon-blocked"></i> Kan <u>inte</u> ges bort</small>
+          <% end %>
+          <% if product['products'].any? { |x| x['cost'].present? } %>
+              <p>Olika priser</p>
+          <% else %>
+              <p><%= cost product['cost'] %></p>
+          <% end %>
+          </div>
+
+          <div class="card-content">
+            <p><%= product['description'] %></p>
+
+            <% if product['products'].first['kind'].nil? or product['products'].first['kind'].empty? %>
+                <%= hidden_field_tag :product_id, product['products'].first['id'] %>
+            <% else %>
+                <div class="row">
+                  <div class="input-field col s12">
+                    <% if product['purchasable'] %>
+                        <select name="product_id">
+                    <% else %>
+                        <select name="product_id" disabled>
+                    <% end %>
+                    <option value="" disabled selected>Välj typ</option>
+                    <% product['products'].each do |option| %>
+                        <% if option['purchasable'] %>
+                            <% if product['products'].any? { |x| x['cost'].present? } %>
+                                <option value="<%= option['id'] %>"><%= "#{option['kind']} (#{cost option['cost']})" %></option>
+                            <% else %>
+                                <option value="<%= option['id'] %>"><%= option['kind'] %></option>
+                            <% end %>
+                        <% else %>
+                            <option value="<%= option['id'] %>" disabled><%= option['kind'] %></option>
+                        <% end %>
+                    <% end %>
+                    </select>
+                  </div>
+                </div>
+            <% end %>
+          </div>
+          <div class="card-action">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+            <% if product['purchasable'] %>
+                <a class="card-action-text" href="javascript:;">Lägg till i kundvagn</a>
+            <% else %>
+                <a class="card-action-disabled">
+                  <i class="icon-blocked"></i> Tillfälligt slut / maxgräns uppnådd
+                </a>
+            <% end %>
+          </div>
+        </form>
+        </div>
+    <% end %>
+    </div>
+  </div>
+
+

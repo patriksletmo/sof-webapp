@@ -29,9 +29,27 @@ window.t = function() {
     return window.I18n[$('#locale').val()];
 };
 
+function initializeSelect() {
+    var $this = $(this);
+    var parent = $this.parent();
+    if (parent.hasClass('select-wrapper')) {
+        var element = $this.detach();
+        parent.parent().append(element);
+        parent.remove();
+    }
+
+    $(this).material_select();
+}
+
 // Fix broken input-field animation and wave effect when using turbolinks
 $(document).on('turbolinks:load', function () {
     Materialize.updateTextFields();
     Waves.displayEffect();
-    $('select').material_select();
+
+    $('select').each(function() {
+        initializeSelect.bind(this)();
+    });
+
+    // Initialize modal trigger buttons
+    $('.modal').modal();
 });

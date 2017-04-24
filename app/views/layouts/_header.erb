@@ -3,9 +3,25 @@
   <a href="#" id="nav-hamburger" data-activates="slide-out" class="button-collapse full hide-on-large-only"><i class="material-icons">menu</i></a>
 
     <div class="brand-logo page-title center">
-      <h4>
+      <h4 style="display: inline-block">
         <%= content_for :header_title %>
       </h4>
     </div>
+
+    <% if current_user.present? %>
+     <a href="<%= url_for controller: :webstore, action: :cart %>">
+       <div class="nav-button">
+
+         <i style="display: inline" class="icon-cart2"></i>
+         <span class="hide-on-med-and-down">Varukorg</span>
+
+         <% if current_user['shopping_cart_count'].present? and current_user['shopping_cart_count'] > 0 %>
+          <span class="cart-circle">
+            <%= current_user['shopping_cart_count'] %>
+          </span>
+         <% end %>
+       </div>
+     </a>
+    <% end %>
   </div>
 </nav>

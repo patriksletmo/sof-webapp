@@ -1,0 +1,57 @@
+<% content_for :header_title do %>Order<% end %>
+
+<div class="container">
+  <p><a href="<%= url_for action: :orders %>"><i class="icon-arrow-left2"></i> Visa alla mina ordrar</a></p>
+
+  <h5>Order #<%= @order['id'] %></h5>
+  <p><b>Datum: </b><%= date @order['created_at'] %></p>
+  <p><b>Betalningsmetod: </b><%= @order['payment_method'] %></p>
+  <p><b>Belopp: </b> <%= cost @total %></p>
+
+  <br/>
+
+  <h5>Produkter</h5>
+  <table class="highlight">
+    <thead>
+    <tr>
+      <th>Artikel</th>
+      <th>Ägare</th>
+      <th>Kostnad</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @order['order_items'].each do |item| %>
+        <tr data-href="<%= url_for action: :order_item, id: item['id'] %>">
+          <% if item['product']['kind'].nil? or item['product']['kind'].empty? %>
+              <td><%= item['product']['base_product']['name'] %></td>
+          <% else %>
+              <td><%= "#{item['product']['base_product']['name']} (#{item['product']['kind']})" %></td>
+          <% end %>
+          <td><%= user item['owner'] %></td>
+          <td><%= cost item['cost'] %></td>
+        </tr>
+    <% end %>
+    <% if @order['rebate'] > 0 %>
+        <tr>
+          <td>LinTek-rabatt</td>
+          <td>Du</td>
+          <td><%= cost -@order['rebate'] %></td>
+        </tr>
+    <% end %>
+    <% if @order['funkis_rebate'] > 0 %>
+        <tr>
+          <td>Funkis-rabatt</td>
+          <td>Du</td>
+          <td><%= cost -@order['funkis_rebate'] %></td>
+        </tr>
+    <% end %>
+    </tbody>
+    <tfoot>
+    <tr>
+      <th>Totalt</th>
+      <th></th>
+      <th><%= cost @total %></th>
+    </tr>
+    </tfoot>
+  </table>
+</div>

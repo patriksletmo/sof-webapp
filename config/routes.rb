@@ -39,6 +39,8 @@ Rails.application.routes.draw do
   get 'cortege/:id' => 'cortege#show'
   post 'cortege/:id' => 'cortege#update'
   post 'cortege/:id/delete' => 'cortege#delete'
+  post 'corteges/add_member/:id' => 'cortege#add_member'
+  post 'corteges/remove_member/:id' => 'cortege#remove_member'
 
   # Case cortege
   get 'case_cortege' => 'case_cortege#index'
@@ -75,11 +77,36 @@ Rails.application.routes.draw do
   get 'manage/corteges' => 'cortege_management#index'
   get 'manage/corteges/:id' => 'cortege_management#show'
   post 'manage/corteges/:id' => 'cortege_management#update'
+  post 'manage/corteges/add_member/:id' => 'cortege_management#add_member'
+  post 'manage/corteges/remove_member/:id' => 'cortege_management#remove_member'
 
   # Case cortege management
   get 'manage/case_corteges' => 'case_cortege_management#index'
   get 'manage/case_corteges/:id' => 'case_cortege_management#show'
   post 'manage/case_corteges/:id' => 'case_cortege_management#update'
+
+  # Webstore
+  get 'store' => 'webstore#index'
+  post 'store' => 'webstore#add_item_to_cart'
+  get 'store/cart' => 'webstore#cart'
+  post 'store/cart/clear' => 'webstore#clear_cart'
+  post 'store/cart/delete/:id' => 'webstore#remove_item_from_cart'
+  get 'store/checkout' => 'webstore#checkout'
+  post 'store/checkout' => 'webstore#charge'
+
+  # User inventory
+  get 'store/orders' => 'user_inventory#orders'
+  get 'store/orders/:id' => 'user_inventory#order'
+  get 'store/inventory' => 'user_inventory#index'
+  get 'store/inventory/:id' => 'user_inventory#order_item'
+  post 'store/inventory/:id' => 'user_inventory#change_owner'
+
+  # Product management
+  get 'manage/products' => 'product_management#index'
+  get 'manage/products/new' => 'product_management#new'
+  post 'manage/products/new' => 'product_management#create'
+  get 'manage/products/:id' => 'product_management#show'
+  post 'manage/products/:id' => 'product_management#update'
 
   # Funkis management
   get 'manage/funkis' => 'funkis_management#index'

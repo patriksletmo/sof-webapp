@@ -34,6 +34,38 @@ $top-nav-height: 80px;
   font-size: 2.5em;
 }
 
+.nav-button {
+  display: inline-block;
+  float: right;
+  line-height: $top-nav-line-height;
+  height: $top-nav-height;
+  padding: 0 30px;
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-button .icon-cart2 {
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+.cart-circle {
+  display: inline-block;
+  background-color: white;
+  height: 26px;
+  width: 26px;
+  line-height: 26px;
+  vertical-align: middle;
+  text-align: center;
+  border-radius: 13px;
+  color: #772761;
+  margin-left: 4px;
+}
+
 /* Page-title fits with width of screen except when its wide enough to have a static size */
 @media only screen and (min-width: 800px) {
   .page-title h4 {

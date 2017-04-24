@@ -1,0 +1,36 @@
+<% content_for :header_title do %>Ordrar<% end %>
+
+<div class="container">
+  <% if @orders.length > 0 %>
+      <table class="highlight">
+        <thead>
+        <tr>
+          <th>Order</th>
+          <th>Datum</th>
+          <th>Belopp</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @orders.each do |order| %>
+            <tr data-href="<%= url_for action: :order, id: order['id'] %>">
+              <td>#<%= order['id'] %></td>
+              <td><%= date order['created_at'] %></td>
+              <td><%= cost order['amount'] %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+  <% else %>
+      <h4 class="center margin-top-40">Du har inte gjort några ordrar!</h4>
+      <div class="row">
+        <div class="col m8 offset-m2 s12">
+          <p class="center-align">
+            Efter du köpt något i butiken kan du se din orderhistorik här.
+          </p>
+          <div class="center-align m-margin-top-40">
+            <a class="btn" href="<%= url_for controller: :webstore, action: :index %>">Till butiken</a>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>
