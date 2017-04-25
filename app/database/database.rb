@@ -4,12 +4,14 @@ class Database
   include HTTParty
   include Areas::AccountArea
   include Areas::CaseCortegeArea
+  include Areas::CortegeLineupArea
   include Areas::CortegeArea
   include Areas::FunkisArea
   include Areas::MenuArea
   include Areas::OrchestraArea
   include Areas::PagesArea
   include Areas::UserArea
+
 
 
   base_uri Rails.configuration.database_api_url
@@ -35,7 +37,8 @@ class Database
   def post(*args)
     begin
       self.class.post(*args)
-    rescue
+    rescue Exception => e
+      puts e
       FailedResponse.new
     end
   end

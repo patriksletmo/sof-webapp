@@ -11,7 +11,7 @@ class CortegeContributionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get new_cortege_contribution_url
+    get new_cortege_lineup_url
     assert_response :success
   end
 
@@ -20,27 +20,27 @@ class CortegeContributionsControllerTest < ActionDispatch::IntegrationTest
       post cortege_contributions_url, params: { cortege_contribution: {  } }
     end
 
-    assert_redirected_to cortege_contribution_url(CortegeContribution.last)
+    assert_redirected_to cortege_lineup_url(CortegeContribution.last)
   end
 
   test "should show cortege_contribution" do
-    get cortege_contribution_url(@cortege_contribution)
+    get cortege_lineup_url(@cortege_contribution)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_cortege_contribution_url(@cortege_contribution)
+    get edit_cortege_lineup_url(@cortege_contribution)
     assert_response :success
   end
 
   test "should update cortege_contribution" do
-    patch cortege_contribution_url(@cortege_contribution), params: { cortege_contribution: {  } }
-    assert_redirected_to cortege_contribution_url(@cortege_contribution)
+    patch cortege_lineup_url(@cortege_contribution), params: {cortege_contribution: {  } }
+    assert_redirected_to cortege_lineup_url(@cortege_contribution)
   end
 
   test "should destroy cortege_contribution" do
     assert_difference('CortegeContribution.count', -1) do
-      delete cortege_contribution_url(@cortege_contribution)
+      delete cortege_lineup_url(@cortege_contribution)
     end
 
     assert_redirected_to cortege_contributions_url

@@ -1,0 +1,130 @@
+@import "fonts";
+@import "colors";
+
+.hero-cortege-contributions {
+  background-image: url("https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/hero/korteget%C3%A5g.jpg");
+}
+
+$light-green: #45b274;
+$green: #009640;
+$dark-green: #006e27;
+
+.cortege-container {
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: space-around;
+
+  .text-with-icon-column {
+    span {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+  }
+
+  .card-container {
+    margin: auto auto 30px;
+    width: 20%;
+  }
+
+  .card {
+    height: 170px;
+    width: 200px;
+    margin: auto;
+    h3 {
+      margin: 0;
+    }
+    .card-title {
+      font-size: 16px;
+    }
+    .card-content {
+      padding: 0;
+      .cortege-info-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        flex-wrap: wrap;
+        height: 35px;
+        h3 {
+          text-align: center;
+          font-family: Arial;
+          font-size: 16px;
+          color: white;
+          margin: auto auto 5px;
+        }
+        span {
+          font-family: Arial;
+          font-size: 16px;
+          color: white;
+          margin: 5px auto auto;
+        }
+      }
+      .points-container {
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        h3 {
+          font-family: Arial;
+          font-size: 16px;
+          margin: auto;
+        }
+      }
+    }
+
+    .card-content.bottom-block {
+      .card-title {
+        line-height: 35px;
+      }
+      span {
+        font-family: Arial;
+        color: white;
+      }
+    }
+
+    .card-reveal {
+      span {
+        font-family: DIN;
+        font-weight: normal;
+      }
+      p {
+        font-family: DIN;
+        font-weight: normal;
+        margin-bottom: 10px;
+      }
+    }
+
+    table {
+      thead {
+        th {
+          font-size: 14px;
+        }
+      }
+    }
+
+    .points-container {
+      h3.l-green-text {
+        color: $light-green;
+      }
+      h3.n-green-text {
+        color: $green;
+      }
+      h3.d-green-text {
+        color: $dark-green;
+      }
+    }
+
+    .l-green {
+      background-color: $light-green;
+    }
+    .n-green {
+      background-color: $green;
+    }
+    .d-green {
+      background-color: $dark-green;
+    }
+
+
+  }
+}

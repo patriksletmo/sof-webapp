@@ -1,1 +1,0 @@
-json.array! @cortege_contributions, partial: 'cortege_contributions/cortege_contribution', as: :cortege_contribution

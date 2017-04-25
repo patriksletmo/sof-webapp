@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :cortege_contributions
+  resources :cortege_lineups
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'frontpage#index'
 
@@ -48,6 +48,14 @@ Rails.application.routes.draw do
   get 'case_cortege/:id' => 'case_cortege#show'
   post 'case_cortege/:id' => 'case_cortege#update'
   post 'case_cortege/:id/delete' => 'case_cortege#delete'
+
+  # Cortege Lineup
+  get 'cortege_lineups' => 'cortege_lineups#index'
+  get 'cortege_lineups/new' => 'cortege_lineups#new'
+  post 'cortege_lineups/new' => 'cortege_lineups#create'
+  get 'cortege_lineups/:id' => 'cortege_lineups#show'
+  post 'cortege_lineups/:id' => 'cortege_lineups#update'
+  post 'cortege_lineups/:id/delete' => 'cortege_lineups#delete'
 
   # Funkis
   get 'funkis' => 'funkis#index'
@@ -100,5 +108,7 @@ Rails.application.routes.draw do
   get '/:category(/:page)' => 'pages#index'
 
   # Cortege contribution
-  get 'cortege_contributions' => 'cortege_contributions#index'
+  get 'cortege_lineups' => 'cortege_lineups#index'
+
+
 end
