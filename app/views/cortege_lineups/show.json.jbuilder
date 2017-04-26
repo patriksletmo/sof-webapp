@@ -1,1 +1,0 @@
-json.partial! "cortege_lineups/cortege_contribution", cortege_contribution: @cortege_contribution

@@ -1,0 +1,2 @@
+module CortegeLineupsManagementsHelper
+end

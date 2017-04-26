@@ -1,0 +1,1 @@
+json.partial! "cortege_lineups_managements/cortege_lineups_management", cortege_lineups_management: @cortege_lineups_management

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cortege Lineups Managements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cortege_lineups_managements.each do |cortege_lineups_management| %>
+      <tr>
+        <td><%= link_to 'Show', cortege_lineups_management %></td>
+        <td><%= link_to 'Edit', edit_cortege_lineups_management_path(cortege_lineups_management) %></td>
+        <td><%= link_to 'Destroy', cortege_lineups_management, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cortege Lineups Management', new_cortege_lineups_management_path %>
