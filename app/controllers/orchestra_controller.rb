@@ -228,7 +228,7 @@ class OrchestraController < NavigationController
     {
         item: {
             code: params[:code],
-            dormitory: dormitory,
+            dormitory: false,
             active_member: params[:active] == 'active',
             consecutive_10: params[:spree] == 'yes',
             attended_25: params['25years'] == 'yes',
