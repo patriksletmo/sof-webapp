@@ -9,7 +9,7 @@ module WebstoreHelper
 
   def user(user_obj)
     if is_self(user_obj)
-      'Du'
+      "Du - #{user_obj['display_name']}"
     else
       "#{user_obj['display_name']} (#{user_obj['email']})"
     end
@@ -17,7 +17,7 @@ module WebstoreHelper
 
   def user_alt(user_obj)
     if is_self(user_obj)
-      'Dig'
+      "Dig - #{user_obj['display_name']}"
     else
       user(user_obj)
     end
