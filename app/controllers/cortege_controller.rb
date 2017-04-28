@@ -62,29 +62,6 @@ class CortegeController < NavigationController
 
   private
 
-  def add_membership_params
-    if params[:cortege]
-      cortege_params = {
-          :cortege_membership => {
-              :cortege_id => params[:id]
-          },
-          :user => {
-              :email => params[:email]
-          }
-      }
-    else
-      cortege_params = {
-          :cortege_membership => {
-              :case_cortege_id => params[:id]
-          },
-          :user => {
-              :email => params[:email]
-          }
-      }
-    end
-    cortege_params
-  end
-
   def item_params
     # Filtering is performed in db-app
     params.to_unsafe_h
