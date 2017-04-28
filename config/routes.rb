@@ -84,6 +84,8 @@ Rails.application.routes.draw do
   get 'manage/case_corteges' => 'case_cortege_management#index'
   get 'manage/case_corteges/:id' => 'case_cortege_management#show'
   post 'manage/case_corteges/:id' => 'case_cortege_management#update'
+  post 'manage/case_corteges/add_member/:id' => 'cortege_membership#add_member'
+  post 'manage/case_corteges/remove_member/:id' => 'cortege_membership#remove_member'
 
   # Webstore
   get 'store' => 'webstore#index'

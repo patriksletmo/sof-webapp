@@ -26,6 +26,11 @@ class CaseCortegeController < NavigationController
       flash[:error] = 'Kunde inte hitta casekårtegeanmälan'
       redirect_to action: :index
     end
+
+    @cortege_members = database.show_case_cortege_memberships(params[:id])
+    unless @cortege_members.success?
+      flash.now[:error] = 'Kunde inte hitta kårtegedeltarna'
+    end
   end
 
   def update
@@ -53,6 +58,7 @@ class CaseCortegeController < NavigationController
 
     redirect_to action: :new
   end
+
 
   private
 

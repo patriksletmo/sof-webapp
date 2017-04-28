@@ -59,33 +59,6 @@ class CortegeController < NavigationController
     redirect_to action: :interest
   end
 
-  def add_member
-    return if require_login!
-
-    response = database.create_cortege_membership(add_membership_params)
-    if response.success?
-      flash[:success] = 'Medlemmen tillagd'
-      redirect_to action: :show, id: params['id']
-    else
-      flash[:error] = 'Något gick fel, medlemmen ej tillagd'
-      redirect_to action: :show, id: params['id']
-    end
-
-  end
-
-  def remove_member
-    return if require_login!
-
-    response = database.delete_cortege_membership(params[:membership_id])
-    if response.success?
-      flash[:success] = 'Medlemen bortagen'
-      redirect_to action: :show, id: params['id']
-    else
-      flash[:error] = 'Något gick fel, medlemmen ej bortagen'
-      redirect_to action: :show, id: params['id']
-    end
-  end
-
 
   private
 
