@@ -39,8 +39,6 @@ Rails.application.routes.draw do
   get 'cortege/:id' => 'cortege#show'
   post 'cortege/:id' => 'cortege#update'
   post 'cortege/:id/delete' => 'cortege#delete'
-  post 'corteges/add_member/:id' => 'cortege#add_member'
-  post 'corteges/remove_member/:id' => 'cortege#remove_member'
 
   # Case cortege
   get 'case_cortege' => 'case_cortege#index'
@@ -77,13 +75,15 @@ Rails.application.routes.draw do
   get 'manage/corteges' => 'cortege_management#index'
   get 'manage/corteges/:id' => 'cortege_management#show'
   post 'manage/corteges/:id' => 'cortege_management#update'
-  post 'manage/corteges/add_member/:id' => 'cortege_management#add_member'
-  post 'manage/corteges/remove_member/:id' => 'cortege_management#remove_member'
 
   # Case cortege management
   get 'manage/case_corteges' => 'case_cortege_management#index'
   get 'manage/case_corteges/:id' => 'case_cortege_management#show'
   post 'manage/case_corteges/:id' => 'case_cortege_management#update'
+
+  # Cortege membership
+  post 'cortege_membership/add_member/:id' => 'cortege_membership#add_member'
+  post 'cortege_membership/remove_member/:id' => 'cortege_membership#remove_member'
 
   # Webstore
   get 'store' => 'webstore#index'
