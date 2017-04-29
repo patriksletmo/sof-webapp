@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20170425104633) do
     t.string   "picture"
   end
 
-  create_table "cortege_lineups_managements", force: :cascade do |t|
+  create_table "cortege_lineups_management", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

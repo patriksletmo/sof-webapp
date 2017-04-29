@@ -1,14 +1,17 @@
-class CortegeLineupsManagementsController < ApplicationController
-  before_action :set_cortege_lineups_management, only: [:show, :edit, :update, :destroy]
+class CortegeLineupsManagementController < NavigationController
 
-  # GET /cortege_lineups_managements
-  # GET /cortege_lineups_managements.json
+  # GET /cortege_lineups_management
+  # GET /cortege_lineups_management.json
   def index
-    @cortege_lineups_managements = CortegeLineupsManagement.all
+    @corteges = database.all_corteges_lineup()
+    unless @corteges.success?
+      flash[:error] = 'Kunde inte hämta kårtege'
+      @corteges={}
+    end
   end
 
-  # GET /cortege_lineups_managements/1
-  # GET /cortege_lineups_managements/1.json
+  # GET /cortege_lineups_management/1
+  # GET /cortege_lineups_management/1.json
   def show
     @cortege = database.show_cortege_lineup(params[:id])
     unless @cortege.success?
@@ -17,19 +20,19 @@ class CortegeLineupsManagementsController < ApplicationController
     end
   end
 
-  # GET /cortege_lineups_managements/new
+  # GET /cortege_lineups_management/new
   def new
     @cortege_lineup={}
 
   end
 
-  # GET /cortege_lineups_managements/1/edit
+  # GET /cortege_lineups_management/1/edit
   def edit
 
   end
 
-  # POST /cortege_lineups_managements
-  # POST /cortege_lineups_managements.json
+  # POST /cortege_lineups_management
+  # POST /cortege_lineups_management.json
   def create
     return if require_login!
     response = database.create_cortege_lineup(params.to_unsafe_h)
@@ -42,22 +45,21 @@ class CortegeLineupsManagementsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /cortege_lineups_managements/1
-  # PATCH/PUT /cortege_lineups_managements/1.json
+  # PATCH/PUT /cortege_lineups_management/1
+  # PATCH/PUT /cortege_lineups_management/1.json
   def update
-    respond_to do |format|
-      if @cortege_lineup.update(cortege_contribution_params)
-        format.html { redirect_to @cortege_lineup, notice: 'Cortege contribution was successfully updated.' }
-        format.json { render :show, status: :ok, location: @cortege_lineup }
-      else
-        format.html { render :edit }
-        format.json { render json: @cortege_lineup.errors, status: :unprocessable_entity }
-      end
+    response = database.update_cortege_lineup(params[:id], item_params)
+    if response.success?
+      flash[:success] = 'Status uppdaterad'
+      redirect_to action: :show, id: response['id']
+    else
+      flash[:error] = 'Kunde inte uppdatera status'
+      #redirect_to action: :show, id: response['id']
     end
   end
 
-  # DELETE /cortege_lineups_managements/1
-  # DELETE /cortege_lineups_managements/1.json
+  # DELETE /cortege_lineups_management/1
+  # DELETE /cortege_lineups_management/1.json
   def destroy
     response = database.delete_cortege_lineup(params[:id])
     if response.success?
@@ -79,4 +81,10 @@ class CortegeLineupsManagementsController < ApplicationController
     def cortege_lineups_management_params
       params.fetch(:cortege_lineups_management, {})
     end
+
+
+  def item_params
+    # Filtering is performed in db-app
+    params.to_unsafe_h
+  end
 end

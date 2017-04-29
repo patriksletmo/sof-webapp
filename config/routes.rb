@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :cortege_lineups_managements
-  resources :cortege_lineups
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'frontpage#index'
 
@@ -89,6 +87,13 @@ Rails.application.routes.draw do
   get 'manage/case_corteges' => 'case_cortege_management#index'
   get 'manage/case_corteges/:id' => 'case_cortege_management#show'
   post 'manage/case_corteges/:id' => 'case_cortege_management#update'
+
+  # Cortege lineups management
+  get 'manage/cortege_lineups' => 'cortege_lineups_management#index'
+  get 'manage/cortege_lineups/:id' => 'cortege_lineups_management#show'
+  post 'manage_cortege_lineups/new' => 'cortege_lineups_management#create'
+  post 'manage/cortege_lineups/:id' => 'cortege_lineups_management#update'
+  post 'manage/cortege_lineups/:id/delete' => 'cortege_lineups_management#delete'
 
   # Funkis management
   get 'manage/funkis' => 'funkis_management#index'
