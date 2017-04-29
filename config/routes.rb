@@ -50,11 +50,6 @@ Rails.application.routes.draw do
 
   # Cortege Lineup
   get 'cortege_lineups' => 'cortege_lineups#index'
-  get 'cortege_lineups/new' => 'cortege_lineups#new'
-  post 'cortege_lineups/new' => 'cortege_lineups#create'
-  get 'cortege_lineups/:id' => 'cortege_lineups#show'
-  post 'cortege_lineups/:id' => 'cortege_lineups#update'
-  post 'cortege_lineups/:id/delete' => 'cortege_lineups#delete'
 
   # Funkis
   get 'funkis' => 'funkis#index'
@@ -90,8 +85,10 @@ Rails.application.routes.draw do
 
   # Cortege lineups management
   get 'manage/cortege_lineups' => 'cortege_lineups_management#index'
+  get 'manage/cortege_lineups/new' => 'cortege_lineups_management#new'
+  post 'manage/cortege_lineups/new' => 'cortege_lineups_management#create'
+  get 'manage/cortege_lineups/:id/edit' => 'cortege_lineups_management#edit'
   get 'manage/cortege_lineups/:id' => 'cortege_lineups_management#show'
-  post 'manage_cortege_lineups/new' => 'cortege_lineups_management#create'
   post 'manage/cortege_lineups/:id' => 'cortege_lineups_management#update'
   post 'manage/cortege_lineups/:id/delete' => 'cortege_lineups_management#delete'
 

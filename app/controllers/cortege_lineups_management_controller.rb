@@ -3,7 +3,8 @@ class CortegeLineupsManagementController < NavigationController
   # GET /cortege_lineups_management
   # GET /cortege_lineups_management.json
   def index
-    @corteges = database.all_corteges_lineup()
+    @corteges = database.all_corteges_lineup
+
     unless @corteges.success?
       flash[:error] = 'Kunde inte hämta kårtege'
       @corteges={}
@@ -13,8 +14,8 @@ class CortegeLineupsManagementController < NavigationController
   # GET /cortege_lineups_management/1
   # GET /cortege_lineups_management/1.json
   def show
-    @cortege = database.show_cortege_lineup(params[:id])
-    unless @cortege.success?
+    @cortege_lineup = database.show_cortege_lineup(params[:id])
+    unless @cortege_lineup.success?
       flash[:error] = 'Kunde inte hitta casekårtegeanmälan'
       redirect_to action: :index
     end
@@ -28,7 +29,7 @@ class CortegeLineupsManagementController < NavigationController
 
   # GET /cortege_lineups_management/1/edit
   def edit
-
+    @cortege_lineup={}
   end
 
   # POST /cortege_lineups_management
@@ -37,10 +38,10 @@ class CortegeLineupsManagementController < NavigationController
     return if require_login!
     response = database.create_cortege_lineup(params.to_unsafe_h)
     if response.success?
-      flash[:success] = 'kårtegeanmälan skapad'
+      flash[:success] = 'kårtegelineup skapad'
       redirect_to action: :index
     else
-      flash[:error] = 'Kunde inte skapa kårtegeanmälan'
+      flash[:error] = 'Kunde inte skapa kårtegelineup'
       redirect_to action: :new
     end
   end
@@ -50,25 +51,25 @@ class CortegeLineupsManagementController < NavigationController
   def update
     response = database.update_cortege_lineup(params[:id], item_params)
     if response.success?
-      flash[:success] = 'Status uppdaterad'
-      redirect_to action: :show, id: response['id']
+      flash[:success] = 'kårtegelineup uppdaterad'
+      redirect_to action: :index
     else
-      flash[:error] = 'Kunde inte uppdatera status'
-      #redirect_to action: :show, id: response['id']
+      flash[:error] = 'Kunde inte uppdatera kårtegelineup'
+      redirect_to action: :index
     end
   end
 
   # DELETE /cortege_lineups_management/1
   # DELETE /cortege_lineups_management/1.json
-  def destroy
+  def delete
     response = database.delete_cortege_lineup(params[:id])
     if response.success?
-      flash[:success] = 'cortegen borttagen'
+      flash[:success] = 'kårtegelineup borttagen'
     else
-      flash[:error] = 'Kunde inte ta bort cortegen'
+      flash[:error] = 'Kunde inte ta bort kårtegelineup'
     end
 
-    redirect_to action: :new
+    redirect_to action: :index
   end
 
   private
