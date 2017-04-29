@@ -3,12 +3,13 @@ class CortegeLineupsManagementController < NavigationController
   # GET /cortege_lineups_management
   # GET /cortege_lineups_management.json
   def index
-    @corteges = database.all_corteges_lineup
+    @cortege_lineups = database.all_corteges_lineup
 
-    unless @corteges.success?
+    unless @cortege_lineups.success?
       flash[:error] = 'Kunde inte hämta kårtege'
-      @corteges={}
+      @cortege_lineups={}
     end
+    @cortege_lineups = @cortege_lineups.sort_by {|t| t["order"]}
   end
 
   # GET /cortege_lineups_management/1

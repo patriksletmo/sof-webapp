@@ -10,7 +10,7 @@
     </tr>
     </thead>
     <tbody>
-    <% @corteges.each do |cortege| %>
+    <% @cortege_lineups.each do |cortege| %>
         <tr data-href="<%= url_for action: :show, id: cortege['id'] %>">
           <td><%= cortege['name']%></td>
           <td><%= cortege['cortege_type'] %></td>
