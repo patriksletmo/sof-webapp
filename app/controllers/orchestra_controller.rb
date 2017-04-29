@@ -204,7 +204,7 @@ class OrchestraController < NavigationController
   def verify_code
     return if require_login!
 
-    response = database.verify_orchestra_code params[:code]
+    response = database.verify_orchestra_code(params[:code])
     if response.success?
       render :json => response
     else
@@ -228,7 +228,7 @@ class OrchestraController < NavigationController
     {
         item: {
             code: params[:code],
-            dormitory: dormitory,
+            dormitory: false,
             active_member: params[:active] == 'active',
             consecutive_10: params[:spree] == 'yes',
             attended_25: params['25years'] == 'yes',

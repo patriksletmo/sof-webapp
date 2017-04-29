@@ -4,10 +4,10 @@
   <h4>Intresseanmälan</h4>
   <div class="row">
     <div class="col s12 m6">
+
       <p><b>Status: </b><%= cortege_status %></p>
       <p><b>Godkänd: </b><%= @cortege['approved'] ? 'Ja' : 'Nej' %></p>
-    </div>
-    <div class="col s12 m6">
+
       <b>Kontaktuppgifter</b>
       <blockquote>
         <%= current_user['display_name'] %>
@@ -16,16 +16,51 @@
         <br/>
         Telefon: <span id="contact_phone"></span><b id="contact_phone_missing">(saknas)</b>
       </blockquote>
+
+      <h4>Uppdatera kårtegeanmälan</h4>
+      <%= render 'form', action: 'Uppdatera' %>
+      <form method="post" action="<%= url_for action: :delete %>" onsubmit="return confirm('Vill du verkligen ta bort din intresseanmälan?');">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <div class="input-field col s6">
+          <button type="submit" class="btn red">Ta bort intresseanmälan</button>
+        </div>
+      </form>
     </div>
-  </div>
-  <h4>Uppdatera kårtegeanmälan</h4>
-  <%= render 'form', action: 'Uppdatera' %>
-  <div class="row">
-    <form method="post" action="<%= url_for action: :delete %>" onsubmit="return confirm('Vill du verkligen ta bort din intresseanmälan?');">
-      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-      <div class="input-field col s12">
-        <button type="submit" class="btn red">Ta bort intresseanmälan</button>
-      </div>
-    </form>
+
+    <div class="col s12 m6">
+      <h4>Medlemmar i laget</h4>
+
+      <%= form_tag({controller: "cortege_membership", action: "add_member", cortege: true}, method: "post") do %>
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+          <%= text_field_tag('email', nil, placeholder: 'Skriv in medlemmens email...') %>
+          <%= submit_tag("Lägg till medlem", :class => 'btn green') %>
+      <% end %>
+
+      <table>
+        <thead>
+        <tr>
+          <th>Namn</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @cortege_members.each do |member| %>
+            <tr>
+              <td>
+                <%= user member['user'] %>
+              </td>
+              <td>
+                <form method="post" action="<%= url_for controller: :cortege_membership, action: :remove_member, membership_id: member['id'], id: params[:id] %>">
+                  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                  <button type="submit" class="btn red">Ta bort medlem</button>
+                </form>
+              </td>
+            </tr>
+        <% end %>
+
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

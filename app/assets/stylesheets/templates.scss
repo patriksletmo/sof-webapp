@@ -20,8 +20,26 @@ main {
     height: 100%;
     width: 100%;
   }
-
 }
+
+.hero-container.movie {
+  height: 550px;
+  width: 100%;
+
+  .hero {
+    background-repeat: no-repeat;
+    background-position: center;
+    //background-size: contain;
+    height: 100%;
+    width: 100%;
+  }
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+
 .hero-description-container {
   p {
     margin: 40px auto 50px auto;
@@ -38,6 +56,10 @@ main {
     height: 1px;
     background-color: $secondary-color;
   }
+}
+
+.margin-top-32 {
+  margin-top: 32px;
 }
 
 .margin-top-40 {
@@ -177,4 +199,8 @@ span.bold {
 }
 span.enlarge {
   font-size: 150%;
+}
+
+form.inline {
+  display: inline-block;
 }

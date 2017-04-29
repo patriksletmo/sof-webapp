@@ -32,9 +32,17 @@
   font-size: 20px;
 }
 
-#login-card .card-action-text,
-#register-card .card-action-text {
-  color: $primary-color
+.card .card-action a.card-action-text:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
+  color: $primary-color;
+}
+
+.card .card-action a.card-action-text:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating):hover {
+  color: lighten($primary-color, 40%);
+}
+
+.card .card-action a.card-action-disabled:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating),
+.card .card-action a.card-action-disabled:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating):hover {
+  color: #888;
 }
 
 

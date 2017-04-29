@@ -1,0 +1,81 @@
+<% content_for :header_title do %>Varukorg<% end %>
+
+<div class="container">
+  <% if @cart['cart_items'].length > 0 %>
+      <div>
+        <p>
+          Vill du köpa fler saker? Kolla in utbudet i <a href="<%= url_for action: :index %>">butiken</a>!
+        </p>
+      </div>
+  <table>
+    <thead>
+    <tr>
+      <th>Artikel</th>
+      <th class="right">Pris</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @cart['cart_items'].each do |item| %>
+        <tr>
+          <% if item['product']['kind'].nil? or item['product']['kind'].empty? %>
+            <td><%= item['product']['base_product']['name'] %></td>
+          <% else %>
+            <td><%= "#{item['product']['base_product']['name']} (#{item['product']['kind']})" %></td>
+          <% end %>
+          <td class="right"><%= item['product']['actual_cost'] %> SEK</td>
+          <td>
+            <form method="post" action="<%= url_for action: :remove_item_from_cart, id: item['id'] %>">
+              <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+              <button class="btn red right" type="submit">
+                <i class="icon-bin"></i>
+              </button>
+            </form>
+          </td>
+        </tr>
+    <% end %>
+    <% if @cart['rebate'] > 0 %>
+        <tr>
+          <td>LinTek-rabatt</td>
+          <td class="right"><%= cost -@cart['rebate'] %></td>
+          <td></td>
+        </tr>
+    <% end %>
+    <% if @cart['funkis_rebate'] > 0 %>
+        <tr>
+          <td>Funkis-rabatt</td>
+          <td class="right"><%= cost -@cart['funkis_rebate'] %></td>
+          <td></td>
+        </tr>
+    <% end %>
+    <tr>
+      <th>Totalt</th>
+      <th class="right"><%= @total %> SEK</th>
+      <td>
+        <form method="post" action="<%= url_for action: :clear_cart %>">
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <button class="btn red right" type="submit">Rensa</button>
+        </form>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <br/>
+
+  <a class="btn green" href="<%= url_for action: :checkout %>">Till kassan</a>
+
+  <% else %>
+      <h4 class="center margin-top-40">Din varukorg är tom!</h4>
+      <div class="row">
+        <div class="col m8 offset-m2 s12">
+          <p>
+            Du har inte lagt till något i din varukorg. Hitta något kul att köpa i butiken och kom sedan tillbaka
+            till den här sidan för att betala.
+          </p>
+          <div class="center-align m-margin-top-40">
+            <a class="btn" href="<%= url_for action: :index %>">Till butiken</a>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>

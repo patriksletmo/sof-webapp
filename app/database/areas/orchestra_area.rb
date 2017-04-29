@@ -66,5 +66,9 @@ module Areas
     def anniversary
       get('/api/v1/orchestra/anniversary', authenticated_options)
     end
+
+    def allergies
+      get('/api/v1/orchestra/allergies', authenticated_options)
+    end
   end
 end

@@ -1,0 +1,6 @@
+<% content_for :header_title do %>Hantera produkt<% end %>
+
+<div class="container">
+  <p><a href="<%= url_for action: :index %>"><i class="icon-arrow-left2"></i> Tillbaka till alla produkter</a></p>
+  <%= render 'form' %>
+</div>

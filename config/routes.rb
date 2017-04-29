@@ -54,9 +54,9 @@ Rails.application.routes.draw do
   # Funkis
   get 'funkis' => 'funkis#index'
   get 'funkis/categories' => 'funkis#categories'
-  #match 'funkis/application' => 'funkis#application', via: [:get, :post]
-  #match 'funkis/application/shifts' => 'funkis#shift_selection', via: [:get, :post]
-  #match 'funkis/application/agreement' => 'funkis#agreement', via: [:get, :post]
+  match 'funkis/application' => 'funkis#application', via: [:get, :post]
+  match 'funkis/application/shifts' => 'funkis#shift_selection', via: [:get, :post]
+  match 'funkis/application/agreement' => 'funkis#agreement', via: [:get, :post]
   get 'funkis/application/complete' => 'funkis#show'
 
   # Festival
@@ -72,6 +72,7 @@ Rails.application.routes.draw do
   get 'manage/orchestras' => 'orchestra_management#index'
   get 'manage/orchestras/extra_performances' => 'orchestra_management#extra_performances'
   get 'manage/orchestras/anniversary' => 'orchestra_management#anniversary'
+  get 'manage/orchestras/allergies' => 'orchestra_management#allergies'
 
   # Cortege management
   get 'manage/corteges' => 'cortege_management#index'
@@ -91,6 +92,33 @@ Rails.application.routes.draw do
   get 'manage/cortege_lineups/:id' => 'cortege_lineups_management#show'
   post 'manage/cortege_lineups/:id' => 'cortege_lineups_management#update'
   post 'manage/cortege_lineups/:id/delete' => 'cortege_lineups_management#delete'
+
+  # Cortege membership
+  post 'cortege_membership/add_member/:id' => 'cortege_membership#add_member'
+  post 'cortege_membership/remove_member/:id' => 'cortege_membership#remove_member'
+
+  # Webstore
+  get 'store' => 'webstore#index'
+  post 'store' => 'webstore#add_item_to_cart'
+  get 'store/cart' => 'webstore#cart'
+  post 'store/cart/clear' => 'webstore#clear_cart'
+  post 'store/cart/delete/:id' => 'webstore#remove_item_from_cart'
+  get 'store/checkout' => 'webstore#checkout'
+  post 'store/checkout' => 'webstore#charge'
+
+  # User inventory
+  get 'store/orders' => 'user_inventory#orders'
+  get 'store/orders/:id' => 'user_inventory#order'
+  get 'store/inventory' => 'user_inventory#index'
+  get 'store/inventory/:id' => 'user_inventory#order_item'
+  post 'store/inventory/:id' => 'user_inventory#change_owner'
+
+  # Product management
+  get 'manage/products' => 'product_management#index'
+  get 'manage/products/new' => 'product_management#new'
+  post 'manage/products/new' => 'product_management#create'
+  get 'manage/products/:id' => 'product_management#show'
+  post 'manage/products/:id' => 'product_management#update'
 
   # Funkis management
   get 'manage/funkis' => 'funkis_management#index'

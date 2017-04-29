@@ -1,0 +1,100 @@
+<% content_for :header_title do %>Sammanställning<% end %>
+
+<div class="container checkout-container">
+  <table>
+    <thead>
+    <tr>
+      <th>Artikel</th>
+      <th class="right">Pris</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @cart['cart_items'].each do |item| %>
+        <tr>
+          <% if item['product']['kind'].nil? or item['product']['kind'].empty? %>
+              <td><%= item['product']['base_product']['name'] %></td>
+          <% else %>
+              <td><%= "#{item['product']['base_product']['name']} (#{item['product']['kind']})" %></td>
+          <% end %>
+          <td class="right"><%= item['product']['actual_cost'] %> SEK</td>
+        </tr>
+    <% end %>
+    <% if @cart['rebate'] > 0 %>
+        <tr>
+          <td>LinTek-rabatt</td>
+          <td class="right"><%= cost -@cart['rebate'] %></td>
+        </tr>
+    <% end %>
+    <% if @cart['funkis_rebate'] > 0 %>
+        <tr>
+          <td>Funkis-rabatt</td>
+          <td class="right"><%= cost -@cart['funkis_rebate'] %></td>
+        </tr>
+    <% end %>
+    <tr>
+      <th>Totalt</th>
+      <th class="right"><%= @total %> SEK</th>
+    </tr>
+    </tbody>
+  </table>
+
+  <br/>
+
+  <% unless @is_funkis %>
+      <div class="row info-square">
+        <div class="col s12 m8 offset-m2 l6 offset-l3">
+          <div class="card-panel grey lighten-5 z-depth-1">
+            <img class="tutputte" src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/logotyper/sof/tutputte.png" />
+            <span class="black-text">
+          Vill du ha en billigare biljett och en fet tackkravall? Ansök till <%= link_to 'Funkis!', funkis_url %>
+        </span>
+          </div>
+        </div>
+      </div>
+  <% end %>
+
+  <% if @total == 0 %>
+      <a class="btn green" id="free-checkout-button">Bekräfta köp (gratis <i class="icon-happy2"></i>)</a>
+  <% else %>
+      <a class="btn green" id="checkout-button">Betala</a>
+  <% end %>
+</div>
+
+
+
+<form id="stripe-form" method="post" action="<%= url_for action: :charge %>">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input id="stripe-token" type="hidden" name="stripe_token"/>
+</form>
+
+<script>
+    var handler = StripeCheckout.configure({
+        key: '<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>',
+        image: 'https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/logotyper/sof/hjartat_2.png',
+        locale: 'sv',
+        token: function(token) {
+            $('#stripe-token').val(token.id);
+            $('#stripe-form').submit();
+        }
+    });
+
+    $('#checkout-button').click(function(e) {
+        // Open Checkout with further options:
+        handler.open({
+            name: 'LinTek',
+            description: 'Köp på www.sof17.se',
+            amount: <%= @total * 100 %>,
+            currency: 'sek',
+            email: '<%=	current_user['email'] %>'
+        });
+        e.preventDefault();
+    });
+
+    $('#free-checkout-button').click(function(e) {
+        $('#stripe-form').submit();
+    });
+
+    window.addEventListener('popstate', function() {
+        handler.close();
+    });
+</script>

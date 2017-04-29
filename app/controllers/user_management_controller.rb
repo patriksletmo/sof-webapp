@@ -50,19 +50,31 @@ class UserManagementController < NavigationController
     {
         user: {
           display_name: params[:display_name],
-          permissions: permission_params
+          admin_permissions: permission_params,
+          usergroup: group_params
         }
     }
   end
 
   def permission_params
     permissions = 0
-    unless params[:permission].nil?
-      params[:permission].each do |key, value|
+    unless params[:admin_permission].nil?
+      params[:admin_permission].each do |key, value|
         permissions |= 1 << key.to_i
       end
     end
 
     permissions
+  end
+
+  def group_params
+    groups = 0
+    unless params[:group].nil?
+      params[:group].each do |key, value|
+        groups |= 1 << key.to_i
+      end
+    end
+
+    groups
   end
 end

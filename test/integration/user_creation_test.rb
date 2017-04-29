@@ -23,10 +23,10 @@ class UserCreationTest < ActionDispatch::IntegrationTest
 
     click_link 'Skapa användare'
 
-    confirmation_email = inbox.find_mail_with_subject 'Confirmation instructions'
+    confirmation_email = inbox.find_mail_with_subject 'SOF17 - Välkommen till StudentOrkesterFestivalen'
     assert_not_nil confirmation_email
 
-    confirmation_link = find_link_in confirmation_email, with_title: 'Bekräfta e-postadress'
+    confirmation_link = find_link_in confirmation_email, with_title: 'Aktivera konto'
     assert_not_nil confirmation_link
 
     visit confirmation_link
