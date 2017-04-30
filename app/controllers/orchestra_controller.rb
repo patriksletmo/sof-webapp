@@ -39,6 +39,11 @@ class OrchestraController < NavigationController
       @ticketOpt[i][1] = @ticketCost[i]
     end
 
+
+    # Tickets disabled in view, need to set them here
+    params[:festival_ticket] = 3
+    params[:food_ticket] = 3
+
     if request.post?
       item_params = orchestra_signup_params
       response = database.create_orchestra_signup(item_params)
