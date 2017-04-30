@@ -45,8 +45,8 @@
           <div class="row">
             <div class="col s12">
               <label for="festival_ticket"><%= t('orchestra.register.festival_ticket') %></label>
-              <select name="festival_ticket" id="festival_ticket">
-                <%=  options_for_select(@ticketOpt)  %>
+              <select name="festival_ticket" id="festival_ticket" disabled>
+                <%=  options_for_select(@ticketOpt, 3)  %>
               </select>
             </div>
           </div>
@@ -55,12 +55,12 @@
           <div class="row">
             <div class="col s12">
               <label for="food_ticket"><%= t('orchestra.register.food_ticket') %></label>
-              <select name="food_ticket" id="food_ticket">
+              <select name="food_ticket" id="food_ticket" disabled>
                 <option value="0"><%= t('orchestra.register.food_ticket_thursday') %></option>
                 <option value="1"><%= t('orchestra.register.food_ticket_friday') %></option>
                 <option value="2"><%= t('orchestra.register.food_ticket_saturday') %></option>
                 <option value="4"><%= t('orchestra.register.food_ticket_thursday_friday') %></option>
-                <option value="3"><%= t('orchestra.register.food_ticket_none') %></option>
+                <option selected value="3"><%= t('orchestra.register.food_ticket_none') %></option>
               </select>
 
             </div>
@@ -68,7 +68,7 @@
 
           <div class="row">
             <div class="col s12">
-              <input type="checkbox" class="filled-in" id="specialfood-box" name="has_special_diet" onclick="toggleSpecialkost(this)"/>
+              <input type="checkbox" class="filled-in" id="specialfood-box" name="has_special_diet" disabled onclick="toggleSpecialkost(this)"/>
               <label for="specialfood-box"><%= t('orchestra.register.special_diet') %></label>
 
               <div id="specialfood-group" style = "display:none" disabled>
@@ -112,7 +112,7 @@
                 <br/>
 
                 <div class="input-field">
-                  <textarea id="field-specialfood" type="text" class="materialize-textarea" name="special_diets[]" rows="1"></textarea>
+                  <textarea id="field-specialfood" type="text" class="materialize-textarea" name="special_diets[]" rows="1" disabled></textarea>
                   <label for="field-specialfood"><%= t('.special_diet_other') %></label>
                 </div>
               </div>
@@ -243,7 +243,7 @@
             <div class="col s12">
               <label for="size-of-instrument" ><%= t('.instrument_size') %></label>
 
-              <select id="select-size-of-instrument" name="size-of-instrument">
+              <select id="select-size-of-instrument" name="size-of-instrument" disabled>
 
                 <option value="0"><%= t('.instrument_size_none') %></option>
                 <option value="1"><%= t('.instrument_size_very_small') %></option>
@@ -256,13 +256,13 @@
 
           <div class="row">
             <div class="col s12">
-              <input type="checkbox" class="filled-in" id="otherPerformance-box" name="otherPerformance-box" onclick="toggleMultipleOrchestras(this)"/>
+              <input type="checkbox" class="filled-in" id="otherPerformance-box" name="otherPerformance-box" disabled onclick="toggleMultipleOrchestras(this)"/>
               <label for="otherPerformance-box"><%= t('.other_performance') %></label>
             </div>
           </div>
           <div class="row">
             <div class=" input-field col s12">
-              <textarea id="otherPerformance-field" type="text" class="materialize-textarea" name="otherPerformance-field"disabled></textarea>
+              <textarea id="otherPerformance-field" type="text" class="materialize-textarea" name="otherPerformance-field" disabled></textarea>
               <label for="otherPerformance-field"><%= t('.other_performance_which') %></label>
             </div>
           </div>
