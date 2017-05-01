@@ -113,6 +113,7 @@ Rails.application.routes.draw do
   get 'manage/funkis/all_funkis_applications' => 'funkis_management#all_funkis_applications'
 
   # Contact
+  get 'contact/general' => 'contacts#general'
   get 'contact/press' => 'contacts#press'
   get 'contact/funkis' => 'contacts#funkis'
   get 'contact/orchestra' => 'contacts#orchestra'
