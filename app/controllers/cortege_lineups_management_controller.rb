@@ -3,6 +3,7 @@ class CortegeLineupsManagementController < NavigationController
   # GET /cortege_lineups_management
   # GET /cortege_lineups_management.json
   def index
+    return if require_login!
     @cortege_lineups = database.all_corteges_lineup
 
     unless @cortege_lineups.success?
@@ -15,6 +16,7 @@ class CortegeLineupsManagementController < NavigationController
   # GET /cortege_lineups_management/1
   # GET /cortege_lineups_management/1.json
   def show
+    return if require_login!
     @cortege_lineup = database.show_cortege_lineup(params[:id])
     unless @cortege_lineup.success?
       flash[:error] = 'Kunde inte hitta casekårtegeanmälan'
@@ -24,12 +26,14 @@ class CortegeLineupsManagementController < NavigationController
 
   # GET /cortege_lineups_management/new
   def new
+    return if require_login!
     @cortege_lineup={}
 
   end
 
   # GET /cortege_lineups_management/1/edit
   def edit
+    return if require_login!
     @cortege_lineup={}
   end
 
@@ -50,6 +54,7 @@ class CortegeLineupsManagementController < NavigationController
   # PATCH/PUT /cortege_lineups_management/1
   # PATCH/PUT /cortege_lineups_management/1.json
   def update
+    return if require_login!
     response = database.update_cortege_lineup(params[:id], item_params)
     if response.success?
       flash[:success] = 'kårtegelineup uppdaterad'
@@ -63,6 +68,7 @@ class CortegeLineupsManagementController < NavigationController
   # DELETE /cortege_lineups_management/1
   # DELETE /cortege_lineups_management/1.json
   def delete
+    return if require_login!
     response = database.delete_cortege_lineup(params[:id])
     if response.success?
       flash[:success] = 'kårtegelineup borttagen'
@@ -84,9 +90,8 @@ class CortegeLineupsManagementController < NavigationController
       params.fetch(:cortege_lineups_management, {})
     end
 
-
-  def item_params
-    # Filtering is performed in db-app
-    params.to_unsafe_h
-  end
+    def item_params
+      # Filtering is performed in db-app
+      params.to_unsafe_h
+    end
 end

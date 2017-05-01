@@ -1,23 +1,18 @@
 <% content_for :header_title do %>Kårtegetåget<% end %>
 
 
-<div class="cortege-container">
+<div class="cortege-lineup-container">
   <% @cortege_lineups.each_with_index do |c| %>
     <div class="card-container">
       <div class="card margin-bottom-40">
         <div class="card-content">
-          <div class="cortege-info-container l-green">
-            <h3>
-              <%= c['name'] %>
-            </h3>
-          </div>
-          <div class="points-container">
-            <%= c['image'] %>
+          <div class="card-image">
+            <img src="<%= c['image'] %>">
           </div>
         </div>
         <div class="card-content bottom-block">
           <span class="card-title activator center-block center l-green">
-            - mer info -
+            <%= c['name'] %>
           </span>
         </div>
         <div class="card-reveal">
