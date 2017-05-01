@@ -12,6 +12,7 @@ ContactGroup.delete_all
 #c1 = Contact.create(name: 'Daniel Modig', title: 'General', email: 'general@sof17.se')
 #c2 = Contact.create(name: 'Victoria Boman', title: 'Personal', email: 'personal@sof17.se')
 ContactGroup.create([
+    {group: 'general', title: 'Huvudansvarig'},
     {group: 'press', title: 'Press & Företag'},
     {group: 'funkis', title: 'Funkis'},
     {group: 'orchestra', title: 'Orkestrar'},
@@ -21,6 +22,8 @@ ContactGroup.create([
                     ])
 
 Contact.create([
+ {name: 'Daniel Modig', title: 'General', email: 'general@sof17.se', group: 'general', picture: 'daniel_modig'},
+
  {name: 'Irma Hamzic', title: 'Marknadsföringssamordnare', email: 'marknadsforing@sof17.se', group: 'press', picture: 'irma_hamzic'},
  {name: 'Filip Gardler', title: 'Samarbetsansvarig', email: 'samarbete@sof17.se', group: 'press', picture: 'filip_gardler'},
 
