@@ -1,2 +1,0 @@
-class CortegeContribution < ApplicationRecord
-end

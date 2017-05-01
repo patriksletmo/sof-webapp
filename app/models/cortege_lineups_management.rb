@@ -1,2 +1,0 @@
-class CortegeLineupsManagement < ApplicationRecord
-end
