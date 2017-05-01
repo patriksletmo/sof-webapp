@@ -4,8 +4,6 @@ module Areas
       options = {
           body: item_params
       }
-      puts("area db create --------------------------------------")
-      puts(item_params)
       post('/api/v1/cortege_lineups', options.merge(authenticated_options))
     end
 

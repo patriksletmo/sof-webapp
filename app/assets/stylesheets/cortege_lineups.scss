@@ -5,10 +5,6 @@
   background-image: url("https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/hero/korteget%C3%A5g.jpg");
 }
 
-$light-green: #45b274;
-$green: #009640;
-$dark-green: #006e27;
-
 .cortege-lineup-container {
   display: flex;
   flex-flow: wrap row;
@@ -101,29 +97,6 @@ $dark-green: #006e27;
           }
         }
       }
-
-      .points-container {
-        h3.l-green-text {
-          color: $light-green;
-        }
-        h3.n-green-text {
-          color: $green;
-        }
-        h3.d-green-text {
-          color: $dark-green;
-        }
-      }
-
-      .l-green {
-        background-color: $light-green;
-      }
-      .n-green {
-        background-color: $green;
-      }
-      .d-green {
-        background-color: $dark-green;
-      }
-
     }
   }
 }
