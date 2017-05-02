@@ -51,9 +51,8 @@ class ProductManagementController < NavigationController
 
   def statistics
     @statistics = database.base_product_statistics
-    puts @statistics
     if @statistics.success?
-      flash[:success] = 'Alla order items hämtade.'
+      flash[:success] = 'Produktstatistik hämtad.'
     else
       flash[:error] = 'Något gick fel.'
     end
