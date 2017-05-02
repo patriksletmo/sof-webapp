@@ -1,0 +1,2 @@
+module FaqManagementHelper
+end
