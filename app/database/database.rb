@@ -8,6 +8,8 @@ class Database
   include Areas::CaseCortegeArea
   include Areas::CortegeArea
   include Areas::CortegeMembershipArea
+  include Areas::FaqArea
+  include Areas::FaqGroupArea
   include Areas::FunkisArea
   include Areas::MenuArea
   include Areas::OrchestraArea

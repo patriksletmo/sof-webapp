@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get '/login/verify', to: 'user#verify_liu_id'
   match '/complete_profile', to: 'user#nag_display_name', via: [:get, :post]
 
+  # FAQ - Frequently asked questions
+  get '/faq', to: 'faq#index'
 
   # Orchestra
   get 'orchestra' => 'orchestra#index'
