@@ -4,7 +4,7 @@ module Areas
       get('/api/v1/faq')
     end
 
-    def create_faq_post(params)
+    def create_faq(params)
       options = {
           body: {
               item: params
@@ -13,7 +13,7 @@ module Areas
       post('/api/v1/faq', options.merge(authenticated_options))
     end
 
-    def destroy_faq_post(id)
+    def destroy_faq(id)
       delete("/api/v1/faq/#{id}", authenticated_options)
     end
   end

@@ -4,7 +4,7 @@ module Areas
       get('/api/v1/faq_group')
     end
 
-    def create_faq_post(params)
+    def create_faq_group(params)
       options = {
           body: {
               item: params
