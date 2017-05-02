@@ -1,0 +1,2 @@
+module CortegeMembershipHelper
+end
