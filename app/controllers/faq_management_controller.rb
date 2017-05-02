@@ -1,4 +1,8 @@
 class FaqManagementController < NavigationController
+  def new_faq
+
+  end
+
   def create_faq
     response = database.create_faq item_params
     if response.success?
@@ -11,6 +15,10 @@ class FaqManagementController < NavigationController
   end
 
   def delete_faq
+
+  end
+
+  def new_faq_group
 
   end
 

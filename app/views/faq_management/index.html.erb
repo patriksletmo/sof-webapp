@@ -1,0 +1,44 @@
+<% content_for :header_title do %>Hantera FAQs<% end %>
+
+<div class="container">
+  <a class="btn green" href="<%= url_for action: :new_faq %>">Skapa ny FAQ</a>
+  <a class="btn green" href="<%= url_for action: :new_faq_group %>">Skapa ny FAQ-grupp</a>
+
+  <h4>FAQ-grupper</h4>
+  <table class="highlight">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Antal FAQs</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @faq_groups.each do |item| %>
+        <tr data-href="<%= url_for action: :show_group, id: item['id'] %>">
+          <td><%= item['name'] %></td>
+          <td><%= item['number_of_faqs'] %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <h4>FAQs</h4>
+  <table class="highlight">
+    <thead>
+    <tr>
+      <th>Grupp</th>
+      <th>Fråga</th>
+      <th>Svar</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @faqs.each do |item| %>
+        <tr data-href="<%= url_for action: :show_faq, id: item['id'] %>">
+          <td><%= item['faq_group']['name'] %></td>
+          <td><%= item['question'] %></td>
+          <td><%= item['answer'] %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
