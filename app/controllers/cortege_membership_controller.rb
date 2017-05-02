@@ -4,9 +4,9 @@ class CortegeMembershipController < NavigationController
 
     response = database.create_cortege_membership(add_membership_params)
     if response.success?
-      flash[:success] = 'Medlemmen tillagd'
+      flash[:success] = response['message']
     else
-      flash[:error] = 'Något gick fel, medlemmen ej tillagd'
+      flash[:error] = response['message']
     end
     redirect_back(fallback_location: root_path)
   end
@@ -16,9 +16,9 @@ class CortegeMembershipController < NavigationController
 
     response = database.delete_cortege_membership(params[:membership_id])
     if response.success?
-      flash[:success] = 'Medlemen bortagen'
+      flash[:success] = response['message']
     else
-      flash[:error] = 'Något gick fel, medlemmen ej bortagen'
+      flash[:error] = response['message']
     end
     redirect_back(fallback_location: root_path)
   end
