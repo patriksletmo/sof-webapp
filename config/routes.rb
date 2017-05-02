@@ -105,8 +105,13 @@ Rails.application.routes.draw do
   get 'manage/products' => 'product_management#index'
   get 'manage/products/new' => 'product_management#new'
   post 'manage/products/new' => 'product_management#create'
+  get 'manage/products/statistics' => 'product_management#statistics'
   get 'manage/products/:id' => 'product_management#show'
   post 'manage/products/:id' => 'product_management#update'
+
+
+  # OrderItem management
+  get 'manage/order_items' => 'order_item_management#index'
 
   # Funkis management
   get 'manage/funkis' => 'funkis_management#index'

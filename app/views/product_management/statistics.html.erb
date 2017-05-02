@@ -1,0 +1,54 @@
+<% content_for :header_title do %>Order-statistik<% end %>
+
+<div class="container product-statistics-container">
+
+  <table>
+    <thead>
+    <tr>
+      <th>Basprodukt</th>
+      <th>Produktnamn</th>
+      <th>Antal sålda</th>
+      <th>Max gräns</th>
+      <th>Procent sålda</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @statistics.each do |base_product| %>
+        <% if base_product['products'].count < 2 %>
+            <tr>
+              <td><%= base_product['name'] %></td>
+              <td></td>
+              <td><%= base_product['products'].first['amount_bought'] %></td>
+              <% if base_product['products'].first['max_num_available']== 0 %>
+                  <td>Oändligt</td>
+                  <td></td>
+              <% else %>
+                  <td><%= base_product['products'].first['max_num_available'] %></td>
+                  <td><%= percent_of(base_product['products'].first['amount_bought'], base_product['products'].first['max_num_available']) %></td>
+              <% end %>
+
+            </tr>
+        <% else %>
+            <% base_product['products'].each_with_index do |product, index| %>
+                <tr>
+                  <% if index == 0 %>
+                      <td><%= base_product['name'] %></td>
+                  <% else %>
+                      <td></td>
+                  <% end %>
+                  <td><%= product['kind'] %></td>
+                  <td><%= product['amount_bought'] %></td>
+                  <% if product['max_num_available'] == 0 %>
+                      <td>Oändligt</td>
+                      <td></td>
+                  <% else %>
+                      <td><%= product['max_num_available'] %></td>
+                      <td><%= percent_of(product['amount_bought'], product['max_num_available']) %>%</td>
+                  <% end %>
+                </tr>
+            <% end %>
+        <% end %>
+    <% end %>
+    </tbody>
+  </table>
+</div>
