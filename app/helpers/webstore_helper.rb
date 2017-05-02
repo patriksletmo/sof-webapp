@@ -4,7 +4,9 @@ module WebstoreHelper
   end
 
   def date(datetime)
-    datetime.to_time.strftime('%F %R')
+    if datetime.present?
+      datetime.to_time.localtime.strftime('%F %R')
+    end
   end
 
   def user(user_obj)
