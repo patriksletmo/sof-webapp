@@ -19,7 +19,12 @@ Rails.application.routes.draw do
   match '/complete_profile', to: 'user#nag_display_name', via: [:get, :post]
 
   # FAQ - Frequently asked questions
-  get '/faq', to: 'faq#index'
+  get 'faq', to: 'faq#index'
+  get 'manage/faqs', to: 'faq_management#index'
+  match 'manage/create_faq', to: 'faq_management#create_faq', via: [:get, :post]
+  match 'manage/new_faq_group', to: 'faq_management#create_faq_group', via: [:get, :post]
+  get 'manage/show_group', to: 'faq_management#show_group'
+  get 'manage/show_faq_group', to: 'faq_management#show_faq_group'
 
   # Orchestra
   get 'orchestra' => 'orchestra#index'

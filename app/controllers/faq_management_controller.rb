@@ -1,36 +1,46 @@
 class FaqManagementController < NavigationController
-  def new_faq
-
+  def index
+    @faq_groups = database.faq_group
+    @faqs = database.faq
+    unless @faq_groups.success? && @faqs.success?
+      render status: 403
+    end
   end
 
   def create_faq
-    response = database.create_faq item_params
-    if response.success?
-      flash[:success] = response.message
-    else
-      flash[:error] = response.message
+    if request.post?
+      response = database.create_faq item_params
+      if response.success?
+        flash[:success] = response.message
+      else
+        flash[:error] = response.message
+      end
+      redirect_back(fallback_location: root_path)
     end
+  end
 
-    redirect_back(fallback_location: root_path)
+  def show_faq
+
   end
 
   def delete_faq
 
   end
 
-  def new_faq_group
-
+  def create_faq_group
+    if request.post?
+      response = database.create_faq_group item_params
+      if response.success?
+        flash[:success] = response.message
+      else
+        flash[:error] = response.message
+      end
+      redirect_back(fallback_location: root_path)
+    end
   end
 
-  def create_faq_group
-    response = database.create_faq_group item_params
-    if response.success?
-      flash[:success] = response.message
-    else
-      flash[:error] = response.message
-    end
+  def show_faq_group
 
-    redirect_back(fallback_location: root_path)
   end
 
   def delete_faq_group

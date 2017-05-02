@@ -1,8 +1,8 @@
 <% content_for :header_title do %>Hantera FAQs<% end %>
 
 <div class="container">
-  <a class="btn green" href="<%= url_for action: :new_faq %>">Skapa ny FAQ</a>
-  <a class="btn green" href="<%= url_for action: :new_faq_group %>">Skapa ny FAQ-grupp</a>
+  <a class="btn green" href="<%= url_for action: :create_faq %>">Skapa ny FAQ</a>
+  <a class="btn green" href="<%= url_for action: :create_faq_group %>">Skapa ny FAQ-grupp</a>
 
   <h4>FAQ-grupper</h4>
   <table class="highlight">
@@ -14,7 +14,7 @@
     </thead>
     <tbody>
     <% @faq_groups.each do |item| %>
-        <tr data-href="<%= url_for action: :show_group, id: item['id'] %>">
+        <tr data-href="<%= url_for action: :show_faq_group, id: item['id'] %>">
           <td><%= item['name'] %></td>
           <td><%= item['number_of_faqs'] %></td>
         </tr>
