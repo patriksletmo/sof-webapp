@@ -16,6 +16,10 @@ module Areas
       get("/api/v1/cortege_membership/cortege/#{id}", authenticated_options)
     end
 
+    def show_case_cortege_memberships(id)
+      get("/api/v1/cortege_membership/case_cortege/#{id}", authenticated_options)
+    end
+
     def delete_cortege_membership(id)
       delete("/api/v1/cortege_membership/#{id}", authenticated_options)
     end

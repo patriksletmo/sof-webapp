@@ -144,7 +144,7 @@ sv:
       allergies: Allergier
       other_performances: Andra uppträdanden
       actions:
-        warning: OBS! Om du tar bort och skapar en ny anmälan efter den 5 Mars så kommer det att tillkomma en förseningsavgift på 100 kr
+        warning: OBS! Du kan inte längre ta bort din anmälan då vi nu jobbar med att skicka ut fakturorna.
         delete: Ta bort anmälan
     messages:
       register:

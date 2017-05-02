@@ -165,7 +165,7 @@ en:
       allergies: Allergies
       other_performances: Other performances
       actions:
-        warning: Note! If you remove this signup to recreate it after the 5th of Mars, a 100 SEK late registration fee will be added.
+        warning: Note! You cannot remove your signup anymore since we are now working on sending out the invoices.
         delete: Remove signup
     messages:
       register:

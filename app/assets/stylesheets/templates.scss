@@ -20,8 +20,26 @@ main {
     height: 100%;
     width: 100%;
   }
-
 }
+
+.hero-container.movie {
+  height: 550px;
+  width: 100%;
+
+  .hero {
+    background-repeat: no-repeat;
+    background-position: center;
+    //background-size: contain;
+    height: 100%;
+    width: 100%;
+  }
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+
 .hero-description-container {
   p {
     margin: 40px auto 50px auto;

@@ -1,5 +1,11 @@
 class ContactsController < NavigationController
 
+  def general
+    @group = ContactGroup.where(group: 'general').take
+    @contacts = Contact.where(group: 'general')
+    render :index
+  end
+
   def press
     @group = ContactGroup.where(group: 'press').take
     @contacts = Contact.where(group: 'press')

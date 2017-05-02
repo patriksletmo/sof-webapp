@@ -251,13 +251,13 @@ function dormitoryPrice(chosenIndex) {
 function lateRegistrationFee(){
 
     var currentDate = new Date();
-    var lastRegistrationDate = new Date("Mars 5, 2017 00:00:00");
+    var lastRegistrationDate = new Date("May 1, 2017 00:00:00");
 
 
     currentDate = convertDateToUTC1(currentDate);
     lastRegistrationDate = convertDateToUTC1(lastRegistrationDate);
 
-    if(lastRegistrationDate <= currentDate){
+    if(lastRegistrationDate > currentDate){
         return lateRegistrationPrice
     }
     return 0
