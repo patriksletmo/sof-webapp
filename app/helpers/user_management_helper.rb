@@ -9,6 +9,7 @@ module UserManagementHelper
       6 => 'List cortege applications',
       7 => 'Approve cortege applications',
       8 => 'List funkis applications',
+      9 => 'Analyst'
   }
 
   GROUPS = {
