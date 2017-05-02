@@ -24,7 +24,7 @@
                   <td></td>
               <% else %>
                   <td><%= base_product['products'].first['max_num_available'] %></td>
-                  <td><%= percent_of(base_product['products'].first['amount_bought'], base_product['products'].first['max_num_available']) %></td>
+                  <td><%= percent_of(base_product['products'].first['amount_bought'], base_product['products'].first['max_num_available']) %>%</td>
               <% end %>
 
             </tr>
