@@ -21,10 +21,12 @@
               <td><%= base_product['products'].first['amount_bought'] %></td>
               <% if base_product['products'].first['max_num_available']== 0 %>
                   <td>Oändligt</td>
+                  <td></td>
               <% else %>
                   <td><%= base_product['products'].first['max_num_available'] %></td>
+                  <td><%= percent_of(base_product['products'].first['amount_bought'], base_product['products'].first['max_num_available']) %></td>
               <% end %>
-              <td><%= percent_of(base_product['products'].first['amount_bought'], base_product['products'].first['max_num_available']) %></td>
+
             </tr>
         <% else %>
             <% base_product['products'].each_with_index do |product, index| %>
@@ -38,8 +40,10 @@
                   <td><%= product['amount_bought'] %></td>
                   <% if product['max_num_available'] == 0 %>
                       <td>Oändligt</td>
+                      <td></td>
                   <% else %>
                       <td><%= product['max_num_available'] %></td>
+                      <td><%= percent_of(product['amount_bought'], product['max_num_available']) %>%</td>
                   <% end %>
                 </tr>
             <% end %>
