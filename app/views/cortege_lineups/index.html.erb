@@ -4,12 +4,11 @@
 <div class="cortege-lineup-container">
   <% @cortege_lineups.each_with_index do |c| %>
     <div class="card-container">
-      <div class="card margin-bottom-40">
+      <div class="card">
         <div class="card-content">
-          <div class="card-image">
-            <img src="<%= c['image'] %>">
-          </div>
+          <img src="<%= c['image'] %>" class="card-image">
         </div>
+
         <div class="card-content bottom-block">
           <span class="card-title activator center-block center l-green">
             <%= c['name'] %>
