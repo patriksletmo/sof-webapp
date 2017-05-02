@@ -1,0 +1,45 @@
+<% content_for :header_title do %>Skapa ny FAQ<% end %>
+
+<div class="container faq-container">
+
+  <form method="post" action="<%= url_for controller: :faq_management, action: :create_faq %>">
+
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <div class="row margin-top-40">
+        <div class="input-field col s12 m6 l6">
+          <input placeholder="Din fråga på svenska..." name="question" id="question" type="text" class="validate">
+          <label for="question">Fråga(sv):</label>
+        </div>
+        <div class="input-field col s12 m6 l6">
+          <input placeholder="Din fråga på engelska..." name="question_eng" id="question_eng" type="text" class="validate">
+          <label for="question_eng">Fråga(en):</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12 m6 l6">
+          <textarea placeholder="Ditt svar på svenska..." name="answer" id="answer" class="materialize-textarea"></textarea>
+          <label for="answer">Svar(sv):</label>
+        </div>
+        <div class="input-field col s12 m6 l6">
+          <textarea placeholder="Ditt svar på engelska..." name="answer_eng" id="answer_eng" class="materialize-textarea"></textarea>
+          <label for="answer_eng">Svar(en):</label>
+        </div>
+      </div>
+
+    <div class="row">
+      <div class="input-field col s12 m6 l6">
+        <select name="faq_group_id">
+          <option value="" disabled selected>FAQ Grupper</option>
+          <% @faq_groups.each do |fg| %>
+              <option value="<%= fg.id %>"><%= fg.name %></option>
+          <% end %>
+        </select>
+        <label>Tillhör FAQ grupp:</label>
+      </div>
+    </div>
+
+    <button type="submit" class="btn green">Skapa FAQ</button>
+
+  </form>
+</div>
