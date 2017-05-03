@@ -12,14 +12,13 @@ class FaqManagementController < NavigationController
       puts item_params
       response = database.create_faq item_params
       if response.success?
-        flash[:success] = response.message
+        flash[:success] = response['message']
       else
-        flash[:error] = response.message
+        flash[:error] = response['message']
       end
-      redirect_back(fallback_location: root_path)
+      redirect_to manage_faqs_url
     else
       @faq_groups = database.faq_group
-
       unless @faq_groups.success?
         render status: 403
       end
@@ -33,18 +32,18 @@ class FaqManagementController < NavigationController
   end
 
   def delete_faq
-
+    
   end
 
   def create_faq_group
     if request.post?
       response = database.create_faq_group item_params
       if response.success?
-        flash[:success] = response.message
+        flash[:success] = response['message']
       else
-        flash[:error] = response.message
+        flash[:error] = response['message']
       end
-      redirect_back(fallback_location: root_path)
+      redirect_to manage_faqs_url
     else
       render :new_faq_group
     end

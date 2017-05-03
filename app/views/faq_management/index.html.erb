@@ -16,7 +16,7 @@
     <% @faq_groups.each do |item| %>
         <tr data-href="<%= url_for action: :show_faq_group, id: item['id'] %>">
           <td><%= item['name'] %></td>
-          <td><%= item['number_of_faqs'] %></td>
+          <td><%= item['faqs'].count %></td>
         </tr>
     <% end %>
     </tbody>
