@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   match 'manage/create_faq_group', to: 'faq_management#create_faq_group', via: [:get, :post]
   get 'manage/show_faq/:id', to: 'faq_management#show_faq'
   get 'manage/show_faq_group/:id', to: 'faq_management#show_faq_group'
+  post 'manage/delete_faq/:id', to: 'faq_management#delete_faq'
+  post 'manage/delete_faq_group/:id', to: 'faq_management#delete_faq_group'
 
   # Orchestra
   get 'orchestra' => 'orchestra#index'

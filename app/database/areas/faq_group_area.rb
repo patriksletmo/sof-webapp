@@ -16,5 +16,9 @@ module Areas
     def show_faq_group(id)
       get("/api/v1/faq_group/#{id}", authenticated_options)
     end
+
+    def destroy_faq_group(id)
+      delete("/api/v1/faq_group/#{id}", authenticated_options)
+    end
   end
 end

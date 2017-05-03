@@ -44,6 +44,13 @@ class FaqManagementController < NavigationController
   def delete_faq
     return if require_login!
 
+    response = database.destroy_faq(params[:id])
+    if response.success?
+      flash[:success] = response['message']
+    else
+      flash[:error] = response['message']
+    end
+    redirect_back(fallback_location: root_url)
   end
 
   def create_faq_group
@@ -75,6 +82,13 @@ class FaqManagementController < NavigationController
   def delete_faq_group
     return if require_login!
 
+    response = database.destroy_faq_group(params[:id])
+    if response.success?
+      flash[:success] = response['message']
+    else
+      flash[:error] = response['message']
+    end
+    redirect_back(fallback_location: root_url)
   end
 
   private
