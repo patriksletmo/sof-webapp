@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   post 'manage/delete_faq/:id', to: 'faq_management#delete_faq'
   post 'manage/delete_faq_group/:id', to: 'faq_management#delete_faq_group'
   post 'manage/update_faq/:id', to: 'faq_management#update_faq'
+  post 'manage/update_faq_group/:id', to: 'faq_management#update_faq_group'
 
   # Orchestra
   get 'orchestra' => 'orchestra#index'

@@ -9,17 +9,16 @@ class FaqManagementController < NavigationController
     end
   end
 
+  ## FAQ
+
   def create_faq
     return if require_login!
 
     if request.post?
       puts item_params
       response = database.create_faq item_params
-      if response.success?
-        flash[:success] = response['message']
-      else
-        flash[:error] = response['message']
-      end
+      check_response(response)
+
       redirect_to manage_faqs_url
     else
       @faq_groups = database.faq_group
@@ -50,11 +49,8 @@ class FaqManagementController < NavigationController
     return if require_login!
 
     response = database.update_faq params[:id], item_params
-    if response.success?
-      flash[:success] = response['message']
-    else
-      flash[:error] = response['message']
-    end
+    check_response(response)
+
     redirect_to manage_faqs_url
   end
 
@@ -62,24 +58,20 @@ class FaqManagementController < NavigationController
     return if require_login!
 
     response = database.destroy_faq(params[:id])
-    if response.success?
-      flash[:success] = response['message']
-    else
-      flash[:error] = response['message']
-    end
+    check_response(response)
+
     redirect_back(fallback_location: root_url)
   end
+
+  ## FAQ GROUPS
 
   def create_faq_group
     return if require_login!
 
     if request.post?
       response = database.create_faq_group item_params
-      if response.success?
-        flash[:success] = response['message']
-      else
-        flash[:error] = response['message']
-      end
+      check_success(response)
+
       redirect_to manage_faqs_url
     else
       render :new_faq_group
@@ -96,19 +88,33 @@ class FaqManagementController < NavigationController
     end
   end
 
+  def update_faq_group
+    return if require_login!
+
+    response = database.update_faq_group params[:id], item_params
+    check_response(response)
+
+    redirect_to manage_faqs_url
+  end
+
   def delete_faq_group
     return if require_login!
 
     response = database.destroy_faq_group(params[:id])
+    check_success response
+
+    redirect_back(fallback_location: root_url)
+  end
+
+  private
+
+  def check_success(response)
     if response.success?
       flash[:success] = response['message']
     else
       flash[:error] = response['message']
     end
-    redirect_back(fallback_location: root_url)
   end
-
-  private
 
   def item_params
     # Validation done on api-side
