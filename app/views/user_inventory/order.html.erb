@@ -17,6 +17,7 @@
       <th>Artikel</th>
       <th>Ägare</th>
       <th>Kostnad</th>
+      <th>Uthämtad</th>
     </tr>
     </thead>
     <tbody>
@@ -29,6 +30,7 @@
           <% end %>
           <td><%= user item['owner'] %></td>
           <td><%= cost item['cost'] %></td>
+          <td><%= human_boolean item['collected'] %></td>
         </tr>
     <% end %>
     <% if @order['rebate'] > 0 %>
@@ -36,6 +38,7 @@
           <td>LinTek-rabatt</td>
           <td>Du</td>
           <td><%= cost -@order['rebate'] %></td>
+          <td></td>
         </tr>
     <% end %>
     <% if @order['funkis_rebate'] > 0 %>
@@ -43,6 +46,7 @@
           <td>Funkis-rabatt</td>
           <td>Du</td>
           <td><%= cost -@order['funkis_rebate'] %></td>
+          <td></td>
         </tr>
     <% end %>
     </tbody>
@@ -51,6 +55,7 @@
       <th>Totalt</th>
       <th></th>
       <th><%= cost @total %></th>
+      <th></th>
     </tr>
     </tfoot>
   </table>
