@@ -7,6 +7,7 @@
         <tr>
           <th>Artikel</th>
           <th>Kostnad</th>
+          <th>Uthämtad</th>
         </tr>
         </thead>
         <tbody>
@@ -18,6 +19,7 @@
                   <td><%= "#{item['product']['base_product']['name']} (#{item['product']['kind']})" %></td>
               <% end %>
               <td><%= cost item['cost'] %></td>
+              <td><%= human_boolean item['collected'] %></td>
             </tr>
         <% end %>
         </tbody>
