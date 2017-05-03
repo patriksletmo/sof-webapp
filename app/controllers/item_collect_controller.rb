@@ -12,7 +12,11 @@ class ItemCollectController < NavigationController
 
     response = database.search_for_user params[:query]
     unless response.success?
-      flash[:error] = 'Kunde inte hitta användare'
+      if response['message'].present?
+        flash[:error] = response['message']
+      else
+        flash[:error] = 'Ett okänt fel uppstod'
+      end
     end
 
     redirect_to action: :index, id: response['user_id']
