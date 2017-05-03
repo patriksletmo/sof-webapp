@@ -117,14 +117,25 @@ Rails.application.routes.draw do
   get 'manage/products' => 'product_management#index'
   get 'manage/products/new' => 'product_management#new'
   post 'manage/products/new' => 'product_management#create'
+  get 'manage/products/statistics' => 'product_management#statistics'
   get 'manage/products/:id' => 'product_management#show'
   post 'manage/products/:id' => 'product_management#update'
+
+
+  # OrderItem management
+  get 'manage/order_items' => 'order_item_management#index'
 
   # Funkis management
   get 'manage/funkis' => 'funkis_management#index'
   get 'manage/funkis/all_funkis_applications' => 'funkis_management#all_funkis_applications'
 
+  # Item collection
+  get 'manage/collect' => 'item_collect#index'
+  post 'manage/collect' => 'item_collect#collect'
+  post 'manage/collect/search' => 'item_collect#search'
+
   # Contact
+  get 'contact/general' => 'contacts#general'
   get 'contact/press' => 'contacts#press'
   get 'contact/funkis' => 'contacts#funkis'
   get 'contact/orchestra' => 'contacts#orchestra'

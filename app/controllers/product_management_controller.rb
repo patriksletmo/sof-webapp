@@ -49,6 +49,15 @@ class ProductManagementController < NavigationController
     redirect_to action: :show
   end
 
+  def statistics
+    @statistics = database.base_product_statistics
+    if @statistics.success?
+      flash.now[:success] = 'Produktstatistik hämtad.'
+    else
+      flash.now[:error] = 'Något gick fel.'
+    end
+  end
+
   private
 
   def item_params
