@@ -17,6 +17,15 @@ module Areas
       get("/api/v1/faq/#{id}", authenticated_options)
     end
 
+    def update_faq(id, params)
+      options = {
+          body: {
+              item: params
+          }
+      }
+      put("/api/v1/faq/#{id}", options.merge(authenticated_options))
+    end
+
     def destroy_faq(id)
       delete("/api/v1/faq/#{id}", authenticated_options)
     end

@@ -34,11 +34,28 @@ class FaqManagementController < NavigationController
   def show_faq
     return if require_login!
 
+    @faq_groups = database.faq_group
     @faq = database.show_faq(params[:id])
     unless @faq.success?
       flash[:error] = @faq['message']
       redirect_to manage_faqs_url
     end
+    unless @faq_groups.success?
+      flash[:error] = @faq_groups['message']
+      redirect_to manage_faqs_url
+    end
+  end
+
+  def update_faq
+    return if require_login!
+
+    response = database.update_faq params[:id], item_params
+    if response.success?
+      flash[:success] = response['message']
+    else
+      flash[:error] = response['message']
+    end
+    redirect_to manage_faqs_url
   end
 
   def delete_faq
