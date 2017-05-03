@@ -12,5 +12,9 @@ module Areas
       }
       post('/api/v1/faq_group', options.merge(authenticated_options))
     end
+
+    def show_faq_group(id)
+      get("/api/v1/faq_group/#{id}", authenticated_options)
+    end
   end
 end

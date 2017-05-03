@@ -13,6 +13,10 @@ module Areas
       post('/api/v1/faq', options.merge(authenticated_options))
     end
 
+    def show_faq(id)
+      get("/api/v1/faq/#{id}", authenticated_options)
+    end
+
     def destroy_faq(id)
       delete("/api/v1/faq/#{id}", authenticated_options)
     end
