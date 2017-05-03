@@ -1,8 +1,10 @@
-.row.collected {
-  color: #bbb;
-}
+.item-collect-container {
+  .row.collected {
+    color: #bbb;
+  }
 
-.row.collectable [type="checkbox"]:checked + label {
-  font-weight: bold;
-  color: #000;
+  .row.collectable [type="checkbox"]:checked + label {
+    font-weight: bold;
+    color: #000;
+  }
 }
