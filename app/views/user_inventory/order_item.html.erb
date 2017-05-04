@@ -15,6 +15,8 @@
       <p><b>Gåva från: </b><%= user_alt @order_item['gifted_by'] %></p>
   <% end %>
 
+  <p><b>Uthämtad: </b><%= human_boolean @order_item['collected'] %></p>
+
   <p>
   <% if is_self @order_item['user'] %>
       <a class="btn waves-effect waves-light green" href="<%= url_for action: :order, id: @order_item['order_id'] %>">Visa
@@ -22,7 +24,7 @@
   <% end %>
 
   <% if is_self @order_item['owner'] %>
-      <% if @order_item['product']['base_product']['giftable'] %>
+      <% if @order_item['product']['base_product']['giftable'] and not @order_item['collected'] %>
         <a class="btn waves-effect waves-light blue" href="#gift-modal">
           <i class="icon-gift2"></i> Ge bort
         </a>

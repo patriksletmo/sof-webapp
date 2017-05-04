@@ -6,6 +6,7 @@ class Database
   include Areas::BaseProductArea
   include Areas::CartArea
   include Areas::CaseCortegeArea
+  include Areas::CollectArea
   include Areas::CortegeArea
   include Areas::CortegeMembershipArea
   include Areas::FaqArea
@@ -18,8 +19,6 @@ class Database
   include Areas::StoreArea
   include Areas::UserArea
   include Areas::UserInventoryArea
-
-
 
   base_uri Rails.configuration.database_api_url
 
