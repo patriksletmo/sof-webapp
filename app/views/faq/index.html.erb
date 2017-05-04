@@ -1,0 +1,47 @@
+<% content_for :header_title do %>FAQ<% end %>
+
+<div class="faq-container">
+  <div class="container ">
+    <div class="row">
+      <div class="col s12">
+        <div class="language-select">
+          <%= link_to faq_path(:lang => "swe") do %>
+              <img src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/languange_flags/swe.png" id="swe-lang">
+          <% end %>
+          <%= link_to faq_path(:lang => "eng") do %>
+              <img src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/languange_flags/eng.png" id="eng-lang">
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="faqs">
+      <% @faq_group.each do |group| %>
+          <div class="row faq-group-row faq-group">
+            <% if @lang == 'eng' %>
+                <h5><%= group['name_eng'] %></h5>
+            <% else %>
+                <h5><%= group['name'] %></h5>
+            <% end %>
+          </div>
+
+          <div class="faq">
+            <div class="row">
+              <% group['faqs'].each do |faq| %>
+                  <div class="col s12 m6 l6">
+                    <% if @lang == 'eng' %>
+                        <p class="question"><%= faq['question_eng'] %></p>
+                        <p class="answer"><%= faq['answer_eng'] %></p>
+                    <% else %>
+                        <p class="question"><%= faq['question'] %></p>
+                        <p class="answer"><%= faq['answer'] %></p>
+                    <% end %>
+                  </div>
+              <% end %>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="margin-bottom-40"></div>
+</div>

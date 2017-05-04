@@ -18,6 +18,20 @@ Rails.application.routes.draw do
   get '/login/verify', to: 'user#verify_liu_id'
   match '/complete_profile', to: 'user#nag_display_name', via: [:get, :post]
 
+  # FAQ - Frequently asked questions
+  get 'faq', to: 'faq#index'
+  get 'manage/faqs', to: 'faq_management#index'
+  match 'manage/create_faq', to: 'faq_management#create_faq', via: [:get, :post]
+  get 'manage/show_faq/:id', to: 'faq_management#show_faq'
+  post 'manage/delete_faq/:id', to: 'faq_management#delete_faq'
+  post 'manage/update_faq/:id', to: 'faq_management#update_faq'
+
+
+  # FAQ Groups
+  match 'manage/create_faq_group', to: 'faq_group_management#create_faq_group', via: [:get, :post]
+  get 'manage/show_faq_group/:id', to: 'faq_group_management#show_faq_group'
+  post 'manage/delete_faq_group/:id', to: 'faq_group_management#delete_faq_group'
+  post 'manage/update_faq_group/:id', to: 'faq_group_management#update_faq_group'
 
   # Orchestra
   get 'orchestra' => 'orchestra#index'
