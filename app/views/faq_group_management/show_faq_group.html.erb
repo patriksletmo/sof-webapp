@@ -2,7 +2,7 @@
 
 <div class="container faq-container">
 
-  <form method="post" action="<%= url_for controller: :faq_management, action: :update_faq_group %>" id="<%= @faq_group['id'] %>">
+  <form method="post" action="<%= url_for controller: :faq_group_management, action: :update_faq_group %>" id="<%= @faq_group['id'] %>">
 
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     <div class="row margin-top-40">
