@@ -1,0 +1,64 @@
+<% content_for :header_title do %>Lämna ut varor<% end %>
+
+<div class="container item-collect-container">
+  <div class="row">
+    <div class="col s12 m6">
+      <h3>Utlämning</h3>
+      <form method="post" action="<%= url_for action: :search %>">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <div class="row">
+          <div class="input-field col s12">
+            <input name="query" placeholder="(fylls i automatiskt vid blipp)" id="collect-query-field" type="text" autocomplete="off">
+            <label for="collect-query-field">LiU-ID, kortnummer eller e-postadress</label>
+          </div>
+        </div>
+      </form>
+
+      <h3>Lathund</h3>
+      <ol>
+        <li>Blippa LiU-ID eller skriv in e-postadress alternativt LiU-ID</li>
+        <li>Markera de varor personen vill hämta ut</li>
+        <li>Lämna ut varorna</li>
+        <li>Klicka på "Lämna ut"</li>
+      </ol>
+    </div>
+    <div class="col s12 m6">
+      <% if @user.present? %>
+          <h3><%= @user['display_name'] %></h3>
+          <p><%= @user['email'] %></p>
+
+          <h5>Köpta varor</h5>
+
+          <form method="post">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <div>
+              <% @user['owned_items'].each do |item| %>
+                  <div class="row <%= item['collected'] ? 'collected' : 'collectable' %>">
+                    <div class="col s12">
+                      <p>
+                        <% if item['product']['kind'].nil? or item['product']['kind'].empty? %>
+                            <span><%= item['product']['base_product']['name'] %></span>
+                        <% else %>
+                            <span><%= "#{item['product']['base_product']['name']} (#{item['product']['kind']})" %></span>
+                        <% end %>
+                        <span class="right">
+                          <% if item['collected'] %>
+                              Hämtades ut <%= date item['collected_at'] %>
+                          <% else %>
+                              <input type="checkbox" name="collected_ids[]" id="collect-item-<%= item['id'] %>" value="<%= item['id'] %>"/>
+                              <label for="collect-item-<%= item['id'] %>">Lämna ut</label>
+                          <% end %>
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+              <% end %>
+            </div>
+
+            <input class="btn" type="submit" value="Lämna ut">
+          </form>
+      <% end %>
+    </div>
+  </div>
+</div>
+

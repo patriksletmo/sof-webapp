@@ -128,6 +128,11 @@ Rails.application.routes.draw do
   get 'manage/funkis' => 'funkis_management#index'
   get 'manage/funkis/all_funkis_applications' => 'funkis_management#all_funkis_applications'
 
+  # Item collection
+  get 'manage/collect' => 'item_collect#index'
+  post 'manage/collect' => 'item_collect#collect'
+  post 'manage/collect/search' => 'item_collect#search'
+
   # Contact
   get 'contact/general' => 'contacts#general'
   get 'contact/press' => 'contacts#press'
