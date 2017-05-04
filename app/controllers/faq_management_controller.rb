@@ -17,7 +17,7 @@ class FaqManagementController < NavigationController
     if request.post?
       puts item_params
       response = database.create_faq item_params
-      check_response(response)
+      check_success(response)
 
       redirect_to manage_faqs_url
     else
@@ -49,7 +49,7 @@ class FaqManagementController < NavigationController
     return if require_login!
 
     response = database.update_faq params[:id], item_params
-    check_response(response)
+    check_success(response)
 
     redirect_to manage_faqs_url
   end
@@ -58,7 +58,7 @@ class FaqManagementController < NavigationController
     return if require_login!
 
     response = database.destroy_faq(params[:id])
-    check_response(response)
+    check_success(response)
 
     redirect_back(fallback_location: root_url)
   end
@@ -81,7 +81,7 @@ class FaqManagementController < NavigationController
   def show_faq_group
     return if require_login!
 
-    @faq_group = database.show_faq(params[:id])
+    @faq_group = database.show_faq_group(params[:id])
     unless @faq_group.success?
       flash[:error] = @faq_group['message']
       redirect_to manage_faqs_url
@@ -92,7 +92,7 @@ class FaqManagementController < NavigationController
     return if require_login!
 
     response = database.update_faq_group params[:id], item_params
-    check_response(response)
+    check_success(response)
 
     redirect_to manage_faqs_url
   end
