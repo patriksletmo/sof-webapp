@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
       if response['message'].present?
         flash[:error] = response['message']
       else
-        flash[:error] = 'Something went terribly wrong. Invalid response'
+        flash[:error] = 'Något gick väldigt fel, fick ett ogiltigt svar av servern.'
       end
     end
   end
