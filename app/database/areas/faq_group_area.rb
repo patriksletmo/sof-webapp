@@ -1,6 +1,6 @@
 module Areas
   module FaqGroupArea
-    def faq_group
+    def faq_groups
       get('/api/v1/faq_group', authenticated_options)
     end
 

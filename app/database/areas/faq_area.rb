@@ -1,6 +1,6 @@
 module Areas
   module FaqArea
-    def faq
+    def faqs
       get('/api/v1/faq')
     end
 

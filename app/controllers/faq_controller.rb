@@ -1,6 +1,6 @@
 class FaqController < NavigationController
   def index
-    @faq_group = database.faq_group
+    @faq_group = database.faq_groups
     unless @faq_group.success?
       render status: 403
     end

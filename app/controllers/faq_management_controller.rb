@@ -2,26 +2,23 @@ class FaqManagementController < NavigationController
   def index
     return if require_login!
 
-    @faq_groups = database.faq_group
-    @faqs = database.faq
+    @faq_groups = database.faq_groups
+    @faqs = database.faqs
     unless @faq_groups.success? && @faqs.success?
       render status: 403
     end
   end
 
-  ## FAQ
-
   def create_faq
     return if require_login!
 
     if request.post?
-      puts item_params
       response = database.create_faq item_params
-      check_success(response)
+      toast_response_message(response)
 
       redirect_to manage_faqs_url
     else
-      @faq_groups = database.faq_group
+      @faq_groups = database.faq_groups
       unless @faq_groups.success?
         render status: 403
       end
@@ -33,7 +30,7 @@ class FaqManagementController < NavigationController
   def show_faq
     return if require_login!
 
-    @faq_groups = database.faq_group
+    @faq_groups = database.faq_groups
     @faq = database.show_faq(params[:id])
     unless @faq.success?
       flash[:error] = @faq['message']
@@ -49,7 +46,7 @@ class FaqManagementController < NavigationController
     return if require_login!
 
     response = database.update_faq params[:id], item_params
-    check_success(response)
+    toast_response_message(response)
 
     redirect_to manage_faqs_url
   end
@@ -58,61 +55,23 @@ class FaqManagementController < NavigationController
     return if require_login!
 
     response = database.destroy_faq(params[:id])
-    check_success(response)
+    toast_response_message(response)
 
     redirect_back(fallback_location: root_url)
   end
 
-  ## FAQ GROUPS
-
-  def create_faq_group
-    return if require_login!
-
-    if request.post?
-      response = database.create_faq_group item_params
-      check_success(response)
-
-      redirect_to manage_faqs_url
-    else
-      render :new_faq_group
-    end
-  end
-
-  def show_faq_group
-    return if require_login!
-
-    @faq_group = database.show_faq_group(params[:id])
-    unless @faq_group.success?
-      flash[:error] = @faq_group['message']
-      redirect_to manage_faqs_url
-    end
-  end
-
-  def update_faq_group
-    return if require_login!
-
-    response = database.update_faq_group params[:id], item_params
-    check_success(response)
-
-    redirect_to manage_faqs_url
-  end
-
-  def delete_faq_group
-    return if require_login!
-
-    response = database.destroy_faq_group(params[:id])
-    check_success response
-
-    redirect_back(fallback_location: root_url)
-  end
 
   private
 
-  def check_success(response)
+  def toast_response_message(response)
     if response.success?
       flash[:success] = response['message']
     else
-      flash[:error] = response['message']
+      if response['message'].present?
+        flash[:error] = response['message']
+      else
+        flash[:error] = 'Something went terribly wrong. Invalid response'
+      end
     end
   end
 
