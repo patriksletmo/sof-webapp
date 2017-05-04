@@ -1,6 +1,11 @@
 @import "fonts";
 @import "colors";
 
+.faq-container .container .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .faq-container {
   .language-select {
     margin: 20px auto auto;
@@ -19,16 +24,19 @@
   }
 
   .faq-group-row {
-    margin-bottom: 0;
+    width: 100%;
+    margin: auto auto 0;
   }
 
   .faqs {
+    margin: auto;
     .faq-group {
       font-family: Arial;
 
     }
     .faq {
       .row {
+        width: 100%;
         margin-bottom: 0;
       }
       font-family: DIN, serif;
