@@ -42,19 +42,8 @@ class FaqGroupManagementController < NavigationController
     redirect_back(fallback_location: root_url)
   end
 
-  private
 
-  def toast_response_message(response)
-    if response.success?
-      flash[:success] = response['message']
-    else
-      if response['message'].present?
-        flash[:error] = response['message']
-      else
-        flash[:error] = 'Something went terribly wrong. Invalid response'
-      end
-    end
-  end
+  private
 
   def item_params
     # Validation done on api-side
