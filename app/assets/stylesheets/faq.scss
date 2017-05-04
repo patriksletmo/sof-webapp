@@ -28,27 +28,24 @@
     margin: auto auto 0;
   }
 
-  .faqs {
-    margin: auto;
-    .faq-group {
-      font-family: Arial;
+  .faq-group {
+    font-family: Arial, serif;
+    font-weight: normal;
+    font-style: normal
+  }
 
-    }
-    .faq {
-      .row {
-        width: 100%;
-        margin-bottom: 0;
-      }
+  .faq-holder {
+    .row {
       font-family: DIN, serif;
       font-weight: normal;
       font-style: normal;
+
       .question {
         font-weight: bold;
       }
       .answer {
 
       }
-
     }
   }
 }
