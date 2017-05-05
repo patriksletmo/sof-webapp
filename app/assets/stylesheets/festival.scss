@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "colors";
+
 .hero-festival-beer {
   background-image: url("https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/hero/ol_bild.jpg");
 }
@@ -19,5 +21,64 @@
     .margin-top-40 {
       margin-top: 0;
     }
+  }
+}
+
+.area-map {
+  .info-panel {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .bold-card-title {
+    color: $sof-purple-color;
+    font-family: Arial;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .card-panel {
+    text-align: center;
+    padding-bottom: 3px;
+  }
+
+
+
+  .numbered-list {
+    b {
+      display: block;
+    }
+  }
+
+  .item-number {
+    position: relative;
+  }
+
+  .item-number span {
+    display: inline-block;
+    border: 2px solid;
+    border-radius: 17px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    box-sizing: content-box;
+
+    position: absolute;
+    left: 0;
+  }
+
+  .green-items .item-number span {
+    color: $sof-green-color;
+    border-color: $sof-green-color;
+
+    margin-top: 5px;
+  }
+
+  .red-items .item-number span {
+    color: $sof-red-color;
+    border-color: $sof-red-color;
+    margin-top: -5px;
   }
 }
