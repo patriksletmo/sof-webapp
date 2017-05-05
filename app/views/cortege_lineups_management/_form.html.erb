@@ -1,0 +1,36 @@
+<form method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <div class="container lineupContainer">
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="name" type="text" class="materialize-textarea" name="item[name]" required><%= @cortege_lineup['name'] %></textarea>
+            <label for="name">Namn</label>
+          </div>
+          <div class="input-field col s12">
+            <textarea id="description" type="text" class="materialize-textarea" name="item[description]" required><%= @cortege_lineup['description'] %></textarea>
+            <label for="description">Beskrivning</label>
+          </div>
+          <div class="input-field col s12">
+            <textarea id="image" type="text" class="materialize-textarea" name="item[image]" required><%= @cortege_lineup['image'] %></textarea>
+            <label for="image">Länk till bild</label>
+          </div>
+          <div class="input-field col s12">
+            <textarea id="cortege_type" type="text" class="materialize-textarea" name="item[cortege_type]" required><%= @cortege_lineup['cortege_type'] %></textarea>
+            <label for="cortege_type">Typ av kårtege</label>
+          </div>
+          <div class="input-field col s12">
+            <textarea id="order" type="number" class="materialize-textarea" name="item[order]" required><%= @cortege_lineup['order']%></textarea>
+            <label for="order">Placering</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <button class="waves-effect waves-light btn" type="submit">Submit</button>
+      </div>
+    </div>
+  </div>
+</form>

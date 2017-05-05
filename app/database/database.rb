@@ -8,6 +8,7 @@ class Database
   include Areas::CaseCortegeArea
   include Areas::CollectArea
   include Areas::CortegeArea
+  include Areas::CortegeLineupArea
   include Areas::CortegeMembershipArea
   include Areas::FaqArea
   include Areas::FaqGroupArea
@@ -19,6 +20,7 @@ class Database
   include Areas::StoreArea
   include Areas::UserArea
   include Areas::UserInventoryArea
+
 
   base_uri Rails.configuration.database_api_url
 
@@ -43,7 +45,7 @@ class Database
   def post(*args)
     begin
       self.class.post(*args)
-    rescue
+    rescue Exception => e
       FailedResponse.new
     end
   end

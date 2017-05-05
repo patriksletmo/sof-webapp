@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170325112718) do
+ActiveRecord::Schema.define(version: 20170425104633) do
 
   create_table "contact_groups", force: :cascade do |t|
     t.string   "group"
@@ -28,5 +28,5 @@ ActiveRecord::Schema.define(version: 20170325112718) do
     t.string   "group"
     t.string   "picture"
   end
-
+  
 end

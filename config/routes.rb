@@ -62,6 +62,9 @@ Rails.application.routes.draw do
   post 'case_cortege/:id' => 'case_cortege#update'
   post 'case_cortege/:id/delete' => 'case_cortege#delete'
 
+  # Cortege Lineup
+  get 'cortege_lineups' => 'cortege_lineups#index'
+
   # Funkis
   get 'funkis' => 'funkis#index'
   get 'funkis/categories' => 'funkis#categories'
@@ -94,6 +97,15 @@ Rails.application.routes.draw do
   get 'manage/case_corteges' => 'case_cortege_management#index'
   get 'manage/case_corteges/:id' => 'case_cortege_management#show'
   post 'manage/case_corteges/:id' => 'case_cortege_management#update'
+
+  # Cortege lineups management
+  get 'manage/cortege_lineups' => 'cortege_lineups_management#index'
+  get 'manage/cortege_lineups/new' => 'cortege_lineups_management#new'
+  post 'manage/cortege_lineups/new' => 'cortege_lineups_management#create'
+  get 'manage/cortege_lineups/:id/edit' => 'cortege_lineups_management#edit'
+  get 'manage/cortege_lineups/:id' => 'cortege_lineups_management#show'
+  post 'manage/cortege_lineups/:id' => 'cortege_lineups_management#update'
+  post 'manage/cortege_lineups/:id/delete' => 'cortege_lineups_management#delete'
 
   # Cortege membership
   post 'cortege_membership/add_member/:id' => 'cortege_membership#add_member'
@@ -150,4 +162,9 @@ Rails.application.routes.draw do
 
   # Pages controller
   get '/:category(/:page)' => 'pages#index'
+
+  # Cortege contribution
+  get 'cortege_lineups' => 'cortege_lineups#index'
+
+
 end
