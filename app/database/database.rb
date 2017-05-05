@@ -44,7 +44,6 @@ class Database
     begin
       self.class.post(*args)
     rescue Exception => e
-      puts e
       FailedResponse.new
     end
   end

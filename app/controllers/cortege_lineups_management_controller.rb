@@ -2,10 +2,10 @@ class CortegeLineupsManagementController < NavigationController
 
   def index
     return if require_login!
-    @cortege_lineups = database.all_corteges_lineup
+    @cortege_lineups = database.all_corteges_lineups
 
     unless @cortege_lineups.success?
-      flash[:error] = 'Kunde inte hämta lineup'
+      flash.now[:error] = 'Kunde inte hämta lineup'
       @cortege_lineups={}
     end
     @cortege_lineups = @cortege_lineups.sort_by {|t| t["order"]}
@@ -26,11 +26,6 @@ class CortegeLineupsManagementController < NavigationController
 
   end
 
-  def edit
-    return if require_login!
-    @cortege_lineup={}
-  end
-
   def create
     return if require_login!
     response = database.create_cortege_lineup(params.to_unsafe_h)
@@ -47,7 +42,7 @@ class CortegeLineupsManagementController < NavigationController
     return if require_login!
     response = database.update_cortege_lineup(params[:id], item_params)
     if response.success?
-      flash[:success] = 'lineup uppdaterad'
+      flash[:success] = 'Lineup uppdaterad'
       redirect_to action: :index
     else
       flash[:error] = 'Kunde inte uppdatera lineup'
@@ -59,7 +54,7 @@ class CortegeLineupsManagementController < NavigationController
     return if require_login!
     response = database.delete_cortege_lineup(params[:id])
     if response.success?
-      flash[:success] = 'lineup borttagen'
+      flash[:success] = 'Lineup borttagen'
     else
       flash[:error] = 'Kunde inte ta bort lineup'
     end

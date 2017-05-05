@@ -22,7 +22,7 @@ module Areas
       delete("/api/v1/cortege_lineups/#{id}", authenticated_options)
     end
 
-    def all_corteges_lineup
+    def all_corteges_lineups
       get('/api/v1/cortege_lineups', authenticated_options)
     end
   end
