@@ -1,0 +1,21 @@
+<% content_for :header_title do %>Skapa ny FAQ-grupp<% end %>
+
+<div class="container faq-container">
+
+  <form method="post" action="<%= url_for controller: :faq_group_management, action: :create_faq_group %>">
+
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <div class="row margin-top-40">
+      <div class="input-field col s12 m6 l6">
+        <input placeholder="Gruppnamn..." name="name" id="name" type="text" class="validate" required>
+        <label for="question">Fråga(sv):</label>
+      </div>
+      <div class="input-field col s12 m6 l6">
+        <input placeholder="Gruppnamn på engelska..." name="name_eng" id="name_eng" type="text" class="validate" required>
+        <label for="question_eng">Fråga(en):</label>
+      </div>
+    </div>
+
+    <button type="submit" class="btn green">Skapa FAQ-Grupp</button>
+  </form>
+</div>

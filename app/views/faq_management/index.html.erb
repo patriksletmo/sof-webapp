@@ -1,0 +1,58 @@
+<% content_for :header_title do %>Hantera FAQs<% end %>
+
+<div class="container">
+  <a class="btn green" href="<%= url_for action: :create_faq %>">Skapa ny FAQ</a>
+  <a class="btn green" href="<%= url_for controller: 'faq_group_management', action: :create_faq_group %>">Skapa ny FAQ-grupp</a>
+
+  <h4>FAQ-grupper</h4>
+  <table class="highlight">
+    <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Antal FAQs</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @faq_groups.each do |item| %>
+        <tr data-href="<%= url_for controller: 'faq_group_management', action: :show_faq_group, id: item['id'] %>">
+          <td><%= item['name'] %></td>
+          <td><%= item['faqs'].count %></td>
+          <td>
+            <form method="post" action="<%= url_for controller: :faq_group_management, action: :delete_faq_group, id: item['id'] %>" class="right">
+              <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+              <button type="submit" class="btn red">Ta bort FAQ-grupp</button>
+            </form>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <h4>FAQs</h4>
+  <table class="highlight">
+    <thead>
+    <tr>
+      <th>Gruppnamn</th>
+      <th>Fråga</th>
+      <th>Svar</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @faqs.each do |item| %>
+        <tr data-href="<%= url_for action: :show_faq, id: item['id'] %>">
+          <td><%= item['faq_group']['name'] %></td>
+          <td><%= item['question'] %></td>
+          <td><%= item['answer'] %></td>
+          <td>
+            <form method="post" action="<%= url_for controller: :faq_management, action: :delete_faq, id: item['id'] %>" class="right">
+              <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+              <button type="submit" class="btn red">Ta bort FAQ</button>
+            </form>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

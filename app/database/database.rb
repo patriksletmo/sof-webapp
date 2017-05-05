@@ -10,6 +10,8 @@ class Database
   include Areas::CortegeArea
   include Areas::CortegeLineupArea
   include Areas::CortegeMembershipArea
+  include Areas::FaqArea
+  include Areas::FaqGroupArea
   include Areas::FunkisArea
   include Areas::MenuArea
   include Areas::OrchestraArea
