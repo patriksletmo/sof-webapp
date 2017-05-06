@@ -2,8 +2,18 @@ class ItemCollectController < NavigationController
   def index
     return if require_login!
 
-    if params[:id].present?
-      @user = database.retrieve_user_with_items params[:id]
+    if params['response'].is_a? Array
+      if params['response'].count == 1
+        @user = database.retrieve_user_with_items params['response'].first['id']
+      elsif params['response'].count > 1
+        @users = []
+        params['response'].each do |user|
+          user = database.single_user user['id']
+          @users.append user
+        end
+      end
+    elsif params['response'].present?
+      flash.now[:error] = params['response']['message']
     end
   end
 

@@ -2,13 +2,15 @@ class UserManagementController < NavigationController
   def index
     return if require_login!
 
-    if params[:id].present?
+    if params['response'].is_a? Array
       @users = []
 
-      params['id'].each do |user|
+      params['response'].each do |user|
         user = database.single_user user['id']
         @users.append user
       end
+    elsif params['response'].present?
+      flash.now[:error] = params['response']['message']
     end
   end
 
@@ -38,18 +40,11 @@ class UserManagementController < NavigationController
     return if require_login!
 
     response = database.search_for_users params[:query]
-    unless response.success?
-      if response['message'].present?
-        flash[:error] = response['message']
-      else
-        flash[:error] = 'Ett okänt fel uppstod'
-      end
-    end
 
     if params[:origin_controller] == 'item_collect'
-      redirect_to controller: :item_collect, action: :index, ids: response
+      redirect_to controller: :item_collect, action: :index, response: response
     else
-      redirect_to action: :index, id: response
+      redirect_to action: :index, response: response
     end
   end
 
