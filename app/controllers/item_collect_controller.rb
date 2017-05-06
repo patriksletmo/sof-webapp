@@ -7,21 +7,6 @@ class ItemCollectController < NavigationController
     end
   end
 
-  def search
-    return if require_login!
-
-    response = database.search_for_user params[:query]
-    unless response.success?
-      if response['message'].present?
-        flash[:error] = response['message']
-      else
-        flash[:error] = 'Ett okänt fel uppstod'
-      end
-    end
-
-    redirect_to action: :index, id: response['user_id']
-  end
-
   def collect
     return if require_login!
 

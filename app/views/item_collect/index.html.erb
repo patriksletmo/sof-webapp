@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col s12 m6">
       <h3>Utlämning</h3>
-      <form method="post" action="<%= url_for action: :search %>">
+      <form method="post" action="<%= url_for controller: :user_management, action: :search, origin_controller: 'item_collect' %>">
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         <div class="row">
           <div class="input-field col s12">

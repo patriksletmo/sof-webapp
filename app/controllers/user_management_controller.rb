@@ -2,9 +2,13 @@ class UserManagementController < NavigationController
   def index
     return if require_login!
 
-    @users = database.all_users
-    unless @users.success?
-      redirect_to '/'
+    if params[:id].present?
+      @users = []
+
+      params['id'].each do |user|
+        user = database.single_user user['id']
+        @users.append user
+      end
     end
   end
 
@@ -28,6 +32,25 @@ class UserManagementController < NavigationController
     end
 
     redirect_to action: :show
+  end
+
+  def search
+    return if require_login!
+
+    response = database.search_for_users params[:query]
+    unless response.success?
+      if response['message'].present?
+        flash[:error] = response['message']
+      else
+        flash[:error] = 'Ett okänt fel uppstod'
+      end
+    end
+
+    if params[:origin_controller] == 'item_collect'
+      redirect_to controller: :item_collect, action: :index, ids: response
+    else
+      redirect_to action: :index, id: response
+    end
   end
 
   def remove_funkis_application
