@@ -1,26 +1,54 @@
 <% content_for :header_title do %>Kårtegetåget<% end %>
 
-<div class="container">
-  <div class="cortege-lineup-container">
-    <% @cortege_lineups.each_with_index do |c| %>
-      <div class="card-container">
-        <div class="card">
-          <div class="card-content">
-            <img src="<%= c['image'] %>" class="card-image">
+<div class="container cortege-lineup-container">
+  <% @cortege_lineups.each_with_index do |c, index| %>
+      <% if index % 2 == 0 %>
+          <div class="row">
+            <div class="col s12 m6 l6">
+              <div class="card-container">
+                <div class="card">
+                  <div class="card-content">
+                    <img src="<%= c['image'] %>" class="card-image">
+                  </div>
+                  <div class="card-content bottom-block">
+                    <span class="card-title activator center-block center l-green">
+                      <%= c['name'] %>
+                    </span>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">
+                      <%= c['description'] %>
+                      <i class="material-icons right">close</i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+      <% else %>
+            <div class="col s12 m6 l6">
+              <div class="card-container">
+                <div class="card">
+                  <div class="card-content">
+                    <img src="<%= c['image'] %>" class="card-image">
+                  </div>
+                  <div class="card-content bottom-block">
+                    <span class="card-title activator center-block center l-green">
+                      <%= c['name'] %>
+                    </span>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">
+                      <%= c['description'] %>
+                      <i class="material-icons right">close</i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="card-content bottom-block">
-            <span class="card-title activator center-block center l-green">
-              <%= c['name'] %>
-            </span>
+      <% end %>
+      <% if index % 2 and c == @cortege_lineups.last %>
           </div>
-          <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">
-              <%= c['description'] %>
-              <i class="material-icons right">close</i>
-            </span>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>  
+      <% end %>
+  <% end %>
+</div>
