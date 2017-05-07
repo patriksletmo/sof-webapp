@@ -58,8 +58,13 @@ main {
   }
 }
 
+
 .margin-top-20 {
   margin-top: 20px
+}
+
+.margin-top-13 {
+  margin-top: 13px;
 }
 
 .margin-top-32 {
@@ -211,4 +216,12 @@ span.enlarge {
 
 form.inline {
   display: inline-block;
+}
+
+img.custom-icon {
+  display: inline-block;
+  vertical-align: bottom;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 2px;
 }

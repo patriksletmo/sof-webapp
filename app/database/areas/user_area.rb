@@ -8,11 +8,17 @@ module Areas
       get("/api/v1/users/#{id}", authenticated_options)
     end
 
+
     def update_user(id, params)
       options = {
         body: params
       }
       put("/api/v1/users/#{id}", options.merge(authenticated_options))
     end
+
+    def search_for_users(query)
+      get("/api/v1/users/search/?query=#{query}", authenticated_options)
+    end
   end
+
 end
