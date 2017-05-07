@@ -28,6 +28,13 @@
   .info-panel {
     padding: 10px;
     text-align: center;
+
+    .btn {
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+      background-color: $sof-red-color;
+    }
   }
 
   .bold-card-title {
@@ -37,6 +44,18 @@
     font-weight: bold;
     text-align: center;
     margin-top: 40px;
+
+    i {
+      color: $sof-red-color;
+
+      @media only screen and (min-width: 993px) {
+        display: none;
+      }
+    }
+
+    > i:first-child {
+      opacity: 0;
+    }
   }
 
   .card-panel {

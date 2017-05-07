@@ -2,16 +2,28 @@
     Områdeskarta
 <% end %>
 
-<div class="area-map">
+<div id="top" class="area-map">
   <div class="info-panel hide-on-large-only margin-top-13">
-    Mer information finns nedanför kartan!
+    <div class="row">
+      <div class="col s4">
+        <a class="btn" href="#bars">Barer</a>
+      </div>
+
+      <div class="col s4">
+        <a class="btn" href="#food">Mattält</a>
+      </div>
+
+      <div class="col s4">
+        <a class="btn" href="#scenes">Scener</a>
+      </div>
+    </div>
   </div>
   <div class="row margin-top-13">
     <div class="col s12 l6">
       <img src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/festival/map/areamap.svg"/>
     </div>
     <div class="col s12 m6 l3">
-      <h3 class="bold-card-title">MATTÄLT</h3>
+      <h3 id="food" class="bold-card-title"><i class="icon-arrow-up2 left"></i> MATTÄLT <a href="#top"><i class="icon-arrow-up2 right"></i></a></h3>
       <div class="card-panel">
         <b><i class="icon-mug"></i> Öltältet</b>
         <p>
@@ -75,14 +87,14 @@
       </div>
 
       <div class="card-panel">
-        <b><i class="icon-"></i> Kyrkan</b>
+        <b><img class="custom-icon" src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/festival/map/bowl.svg" /> Kyrkan</b>
         <p>
           Gratis nyponsoppa
         </p>
       </div>
     </div>
     <div class="col s12 m6 l3">
-      <h3 class="bold-card-title">BARER</h3>
+      <h3 id="bars" class="bold-card-title"><i class="icon-arrow-up2 left"></i> BARER <a href="#top"><i class="icon-arrow-up2 right"></i></a></h3>
       <div class="card-panel numbered-list green-items">
         <div class="row">
           <div class="col s2 item-number">
@@ -125,7 +137,7 @@
         </div>
       </div>
 
-      <h3 class="bold-card-title">SCENER</h3>
+      <h3 id="scenes" class="bold-card-title"><i class="icon-arrow-up2 left"></i> SCENER <a href="#top"><i class="icon-arrow-up2 right"></i></a></h3>
       <div class="card-panel numbered-list red-items">
         <div class="row">
           <div class="col s2 item-number">
