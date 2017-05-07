@@ -74,9 +74,11 @@ Rails.application.routes.draw do
   get 'funkis/application/complete' => 'funkis#show'
 
   # Festival
+  get '/festival/schedule', to: 'festival#schedule'
   get '/festival/map', to: 'festival#map'
   get '/festival/beer', to: 'festival#beer'
   get '/festivalen/servering/ol', to: redirect('/festival/beer')
+
 
   # User management
   get 'manage/users' => 'user_management#index'
