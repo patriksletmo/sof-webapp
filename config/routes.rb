@@ -81,6 +81,7 @@ Rails.application.routes.draw do
   # User management
   get 'manage/users' => 'user_management#index'
   get 'manage/users/:id' => 'user_management#show'
+  post 'manage/users/search' => 'user_management#search'
   post 'manage/users/:id' => 'user_management#update'
   post 'manage/users/:id/delete_funkis' => 'user_management#remove_funkis_application'
 
@@ -148,7 +149,6 @@ Rails.application.routes.draw do
   # Item collection
   get 'manage/collect' => 'item_collect#index'
   post 'manage/collect' => 'item_collect#collect'
-  post 'manage/collect/search' => 'item_collect#search'
 
   # Contact
   get 'contact/general' => 'contacts#general'

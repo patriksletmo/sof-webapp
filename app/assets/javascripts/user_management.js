@@ -5,4 +5,10 @@ document.addEventListener('turbolinks:load', function () {
             window.document.location = href;
         }
     });
+
+
+});
+
+$(document).on('turbolinks:load', function () {
+    $('#query-field').focus();
 });

@@ -1,6 +1,6 @@
 module Areas
   module CollectArea
-    def search_for_user(query)
+    def item_collect_search_for_user(query)
       get("/api/v1/collect/search?query=#{query}", authenticated_options)
     end
 
