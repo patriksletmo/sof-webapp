@@ -1,22 +1,42 @@
 <% content_for :header_title do %>Hantera användare<% end %>
 
-<div class="container">
-<table class="highlight">
-  <thead>
-    <tr>
-      <th>Namn</th>
-      <th>E-post</th>
-      <th>Behörigheter</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-      <tr data-href="<%= url_for action: :show, id: user['id'] %>">
-        <td><%= user['display_name'] %></td>
-        <td><%= user['email'] %></td>
-        <td><%= given_permissions(user) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container user-management-container">
+  <div class="row">
+    <div class="col s12 m6">
+      <h3>Sök användare</h3>
+      <form method="post" action="<%= url_for action: :search %>">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <div class="row">
+          <div class="input-field col s12">
+            <input name="query" placeholder="(fylls i automatiskt vid blipp)" id="query-field" type="text" autocomplete="off">
+            <label for="query-field">LiU-ID, namn, kortnummer eller e-postadress</label>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12 m12 l12">
+      <% if @users.present? %>
+          <table class="highlight">
+            <thead>
+            <tr>
+              <th>Namn</th>
+              <th>E-post</th>
+              <th>Behörigheter</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @users.each do |user| %>
+                <tr data-href="<%= url_for action: :show, id: user['id'] %>">
+                  <td><%= user['display_name'] %></td>
+                  <td><%= user['email'] %></td>
+                  <td><%= given_permissions(user) %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+      <% end %>
+    </div>
+  </div>
 </div>
