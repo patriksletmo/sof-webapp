@@ -20,6 +20,14 @@ main {
 
 }
 
+* {
+  font-family: DIN, serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Arial;
+}
+
 #debug-header {
   position: fixed;
   top: 0;
