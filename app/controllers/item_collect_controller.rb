@@ -2,24 +2,11 @@ class ItemCollectController < NavigationController
   def index
     return if require_login!
 
-    if params[:id].present?
-      @user = database.retrieve_user_with_items params[:id]
+    if params['response'].count == 1
+      @user = database.retrieve_user_with_items params['response'].first['id']
+    elsif params['response'].count > 1
+      @multipleUsers = true
     end
-  end
-
-  def search
-    return if require_login!
-
-    response = database.search_for_user params[:query]
-    unless response.success?
-      if response['message'].present?
-        flash[:error] = response['message']
-      else
-        flash[:error] = 'Ett okänt fel uppstod'
-      end
-    end
-
-    redirect_to action: :index, id: response['user_id']
   end
 
   def collect
