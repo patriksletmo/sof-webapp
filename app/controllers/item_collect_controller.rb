@@ -5,11 +5,7 @@ class ItemCollectController < NavigationController
     if params['response'].count == 1
       @user = database.retrieve_user_with_items params['response'].first['id']
     elsif params['response'].count > 1
-      @users = []
-      params['response'].each do |user|
-        user = database.single_user user['id']
-        @users.append user
-      end
+      @multipleUsers = true
     end
   end
 
