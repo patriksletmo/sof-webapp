@@ -21,6 +21,10 @@
         <th>Grupper:</th>
         <td><%= render 'groups' %><br></td>
       </tr>
+      <tr>
+        <th>Funkis-rabatt:</th>
+        <td><input type="number" name="rebate_balance" value="<%= @user['rebate_balance'] %>"></td>
+      </tr>
     </table>
 
     <button class="btn" type="submit">Spara</button>

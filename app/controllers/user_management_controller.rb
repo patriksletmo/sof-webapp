@@ -71,7 +71,8 @@ class UserManagementController < NavigationController
         user: {
           display_name: params[:display_name],
           admin_permissions: permission_params,
-          usergroup: group_params
+          usergroup: group_params,
+          rebate_balance: params[:rebate_balance]
         }
     }
   end
