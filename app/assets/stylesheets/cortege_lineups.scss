@@ -48,9 +48,8 @@
         width: 100%;
       }
 
-
       .card-title {
-        font-size: 16px;
+        font-size: 24px;
         margin-bottom: 10px;
       }
 
@@ -85,10 +84,22 @@
         right: 0;
         bottom: 0;
         height: 40px;
+
+        .card-bottom-order {
+          display: none;
+          @media all and (max-width: 800px) {
+            display: inline;
+            font-size: inherit;
+            font-weight: bold;
+            position: absolute;
+            left: 15px;
+          }
+        }
         .card-title {
-          line-height: 30px;
+          line-height: 40px;
         }
         span {
+          text-align: center;
           font-family: Arial;
           color: $sof-seashell-color;
         }
@@ -98,17 +109,17 @@
         span {
           font-family: DIN;
           font-weight: normal;
+          font-size: 16px;
         }
         p {
           font-family: DIN;
           font-weight: normal;
           margin-bottom: 10px;
+          font-size: 16px;
         }
       }
     }
   }
-
-
 
   @media all and (max-width: 800px){
     .card-container{
@@ -119,6 +130,5 @@
     .card-container{
       width: 50%;
     }
-
   }
 }
