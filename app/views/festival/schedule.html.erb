@@ -1,30 +1,27 @@
 <% content_for :header_title do %>Spelschema<% end %>
 
 <div class="container schedule-container">
-  <div class="row margin-top-20 no-bottom-margin">
-    <div class="tab-container">
-      <ul id="schedule-tab-bar" class="tabs z-depth-1">
-        <li class="tab col s12"><a class="active" href="#schedule-thursday">Torsdag</a></li>
-        <li class="tab col s12"><a href="#schedule-friday">Fredag</a></li>
-        <li class="tab col s12"><a href="#schedule-saturday">Lördag</a></li>
-        <li class="tab col s12"><a href="#schedule-city-saturday">Stan Lördag</a></li>
-        <li class="tab col s12"><a href="#schedule-family-sunday">Familjesöndag</a></li>
-      </ul>
-      <div id="schedule-thursday" class="col s12">
-        <img class="schedule-img" src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/schedule/thursday.svg">
-      </div>
-      <div id="schedule-friday" class="col s12">
-        <img class="schedule-img" src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/schedule/friday.svg">
-      </div>
-      <div id="schedule-saturday" class="col s12">
-        <img class="schedule-img" src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/schedule/saturday.svg">
-      </div>
-      <div id="schedule-city-saturday" class="col s12">
-        <img class="schedule-img" src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/schedule/city_saturday.svg">
-      </div>
-      <div id="schedule-family-sunday" class="col s12">
-        <img class="schedule-img" src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/schedule/family_sunday.svg">
-      </div>
+  <div class="row">
+    <div class="input-field">
+      <select id="schedule-select" class="schedule-select margin-top-40">
+        <option value="" disabled selected>Välj dag</option>
+        <option value="thursday">Torsdag</option>
+        <option value="friday">Fredag</option>
+        <option value="saturday">Lördag</option>
+        <option value="city">Stan lördag</option>
+        <option value="family">Familjesöndag</option>
+      </select>
+      <label>Välj dag att visa spelschema för</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div id="schedule-holder">
+      <img class="schedule-img" id="schedule-thursday" src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/schedule/thursday.svg">
+      <img class="schedule-img" id="schedule-friday" src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/schedule/friday.svg">
+      <img class="schedule-img" id="schedule-saturday" src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/schedule/saturday.svg">
+      <img class="schedule-img" id="schedule-city" src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/schedule/city_saturday.svg">
+      <img class="schedule-img" id="schedule-family" src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/schedule/family_sunday.svg">
     </div>
   </div>
 </div>
