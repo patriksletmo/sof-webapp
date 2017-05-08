@@ -6,94 +6,54 @@
 }
 
 .schedule-container {
-  .tab-container {
-    margin: auto;
-    width: 80%;
-    max-width: 700px;
-    .swipe-container {
-      width: 100%;
-    }
-    img.schedule-img {
-      width: 100%;
-    }
-  }
-  .row .tab.col.s12 {
-    width: auto;
-  }
-
-
-  .tabs .tab {
-    a {
-      color: $sof-red-color
-    }
-    a:active {
-      color: $sof-red-color
-    }
-    a:hover {
-      color: $sof-red-color;
-    }
-    a.active {
-      color: $sof-red-color;
+  .input-field {
+    .schedule-select, label {
+      margin-left: 20px;
+      margin-right: 20px;
+      width: 40%;
+      max-width: 300px;
     }
   }
 
-  .tabs .indicator {
-    background-color: $sof-purple-color;
-    color: $sof-purple-color;
-  }
 
-  .tabs-content.carousel {
-    height: 1400px !important;
-  }
-
-  .tabs-content.carousel .carousel-item {
-    height: 100%;
-  }
-
-  @media only screen and (max-width: 1150px) {
-    .tabs-content.carousel {
-      height: 1200px !important;
+  #schedule-holder {
+    width: 100%;
+    text-align: center;
+    .schedule-img {
+      display: inline-block;
+      min-width: 70%;
+      max-width: 700px;
+      height: auto;
     }
-  }
 
-  @media only screen and (max-width: 1100px) {
-    .tabs-content.carousel {
-      height: 1275px !important;
+    #schedule-thursday {
+      display: inline-block;
     }
+
+    #schedule-friday, #schedule-saturday, #schedule-city, #schedule-family {
+      display: none;
+    }
+
+
   }
 
   @media only screen and (max-width: 1000px) {
-    .tabs-content.carousel {
-      height: 1350px !important;
+    .input-field {
+      .schedule-select, label {
+        width: 50%;
+      }
     }
   }
 
-  @media only screen and (max-width: 800px) {
-    .tabs-content.carousel {
-      height: 1100px !important;
+  @media only screen and (max-width: 500px) {
+    .input-field {
+      .schedule-select, label {
+        width: 100%;
+
+      }
     }
   }
-
-  @media only screen and (max-width: 600px) {
-    .tabs-content.carousel {
-      height: 1075px !important;
-    }
-    .tab-container {
-      width: 100%;
-    }
-  }
-
-  @media only screen and (max-width: 400px) {
-    .tabs-content.carousel {
-      height: 750px !important;
-    }
-  }
-
-
-
 }
-
-
 
 
 .beer-container {
