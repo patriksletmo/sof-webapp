@@ -5,7 +5,7 @@ module WebstoreHelper
 
   def date(datetime)
     if datetime.present?
-      datetime.to_time.localtime.strftime('%F %R')
+      datetime.to_time.in_time_zone('Stockholm').strftime('%F %R')
     end
   end
 
