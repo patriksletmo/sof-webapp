@@ -2,10 +2,12 @@ class ItemCollectController < NavigationController
   def index
     return if require_login!
 
-    if params['response'].count == 1
-      @user = database.retrieve_user_with_items params['response'].first['id']
-    elsif params['response'].count > 1
-      @multipleUsers = true
+    if params['response'].present?
+      if params['response'].count == 1
+        @user = database.retrieve_user_with_items params['response'].first['id']
+      elsif params['response'].count > 1
+        @multipleUsers = true
+      end
     end
   end
 
