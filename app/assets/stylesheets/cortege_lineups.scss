@@ -18,18 +18,17 @@
 
         .hook-number {
           position: absolute;
-          top: 8px;
-          right: 67px;
           text-align: center;
-          color: $sof-red-color;
           font-size: 24px;
           font-weight: bold;
+          color: $sof-red-color;
+          right: 67px;
           top: -17px;
           width: 46px;
         }
       }
     }
-
+    // removes the hook if the screen is too small
     @media all and (max-width: 800px){
       .card-hook{
         display: none;
@@ -62,17 +61,6 @@
           height: inherit;
           width: inherit;
           object-fit: contain;
-
-        }
-
-        .cortege-info-container {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          align-content: center;
-          flex-wrap: wrap;
-          height: 35px;
         }
       }
 
