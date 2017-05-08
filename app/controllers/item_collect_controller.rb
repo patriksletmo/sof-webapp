@@ -21,6 +21,6 @@ class ItemCollectController < NavigationController
       flash[:error] = 'KUNDE INTE LÄMNA UT VAROR!'
     end
 
-    redirect_to action: :index, id: params[:id]
+    redirect_back fallback_location: '/manage/collect'
   end
 end
