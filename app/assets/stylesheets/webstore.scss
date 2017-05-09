@@ -8,10 +8,26 @@
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+
+    span .btn {
+      background-color: $sof-purple-color;
+      text-align: center;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .card-reveal {
+      width: 100%;
+      overflow-y: hidden;
+      img {
+        //width: 100%;
+        object-fit: contain;
+      }
+    }
   }
 
   .shop-item {
-    width: 250px;
+    width: 300px;
     margin: 10px 10px;
 
     .row {
