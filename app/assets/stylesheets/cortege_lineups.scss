@@ -77,13 +77,17 @@
         bottom: 0;
         height: 40px;
 
+        overflow: hidden;
+
         .card-bottom-order {
           display: inline;
           font-size: inherit;
           font-weight: bold;
           position: absolute;
-          width: 35px;
-          left: 0px;
+          text-align: left;
+          padding-left: 12px;
+          left: 0;
+
         }
         .card-title {
           line-height: 40px;
