@@ -25,5 +25,9 @@ module Areas
     def all_corteges_lineups
       get('/api/v1/cortege_lineups', authenticated_options)
     end
+
+    def get_orchestras_from_lineups
+      get('/api/v1/orchestra_lineups')
+    end
   end
 end
