@@ -7,7 +7,9 @@
     <thead>
     <tr>
       <th>Namn</th>
-      <th>Typ</th>
+      <th>Artist</th>
+      <th>Ballet</th>
+      <th>Kårtege</th>
       <th>Nummer</th>
     </tr>
     </thead>
@@ -15,7 +17,9 @@
     <% @cortege_lineups.each do |cortege| %>
         <tr data-href="<%= url_for action: :show, id: cortege['id'] %>">
           <td><%= cortege['name']%></td>
-          <td><%= cortege['cortege_type'] %></td>
+          <td><%= cortege['orchestra'] %></td>
+          <td><%= cortege['ballet'] %></td>
+          <td><%= cortege['cortege'] %></td>
           <td><%= cortege['order']%></td>
         </tr>
     <% end %>
