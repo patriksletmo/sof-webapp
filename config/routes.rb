@@ -46,6 +46,9 @@ Rails.application.routes.draw do
   match 'orchestra/:id/reset_code' => 'orchestra#reset_code', via: [:post]
   get 'orchestra/signup/:id' => 'orchestra#show_signup'
 
+  # Cortege Lineup
+  get 'cortege/lineups' => 'cortege_lineups#index'
+
   # Cortege
   get 'cortege' => 'cortege#index'
   get 'cortege/interest' => 'cortege#interest'
@@ -62,9 +65,6 @@ Rails.application.routes.draw do
   post 'case_cortege/:id' => 'case_cortege#update'
   post 'case_cortege/:id/delete' => 'case_cortege#delete'
 
-  # Cortege Lineup
-  get 'cortege_lineups' => 'cortege_lineups#index'
-
   # Funkis
   get 'funkis' => 'funkis#index'
   get 'funkis/categories' => 'funkis#categories'
@@ -79,6 +79,8 @@ Rails.application.routes.draw do
   get '/festival/beer', to: 'festival#beer'
   get '/festivalen/servering/ol', to: redirect('/festival/beer')
 
+  # Artists
+  get '/festival/lineup', to: 'artist_lineup#index'
 
   # User management
   get 'manage/users' => 'user_management#index'

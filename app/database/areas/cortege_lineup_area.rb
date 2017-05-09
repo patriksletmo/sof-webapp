@@ -27,7 +27,7 @@ module Areas
     end
 
     def get_orchestras_from_lineups
-      get('/api/v1/orchestra_lineups')
+      get('/api/v1/cortege_lineups/artists_from_lineups', authenticated_options)
     end
   end
 end

@@ -1,3 +1,63 @@
-// Place all the styles related to the artist_lineup controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "fonts";
+@import "colors";
+
+.artist-lineup-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+
+  .card-container {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    .card {
+      height: 350px;
+      width: 100%;
+
+      margin: 0;
+
+      .card-content {
+        padding: 0;
+        height: inherit;
+        width: inherit;
+
+        .card-image {
+          height: inherit;
+          width: inherit;
+          object-fit: contain;
+        }
+      }
+
+      .card-content.bottom-block {
+        align-content: flex-end;
+        background-color: $sof-purple-color;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -35px;
+        height: 40px;
+
+        .card-title {
+          vertical-align: middle;
+          line-height: 32px;
+        }
+        span {
+          padding-right: 12px;
+          text-align: right;
+          font-family: Arial;
+          color: $sof-seashell-color;
+        }
+      }
+    }
+  }
+
+  @media all and (max-width: 800px){
+    .card-container{
+      width: 100%;
+    }
+  }
+  @media all and (min-width: 800px) {
+    .card-container{
+      width: 50%;
+    }
+  }
+}
