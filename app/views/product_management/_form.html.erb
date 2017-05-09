@@ -31,6 +31,13 @@
 
   <div class="row">
     <div class="col s12 m6 l6">
+      <label for="product-image-path">Filnamn för bild:</label>
+      <input type="text" id="product-image-path" name="item[image_path]" value="<%= @product['image_path'] %>">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12 m6 l6">
       <input type="hidden" name="item[required_permissions]" value="0">
       <input id="required-permission" class="filled-in" type="checkbox" name="item[required_permissions]" value="1" <%= 'checked' if @product['required_permissions'] == 1 %>>
       <label for="required-permission">Kräver admin-rättigheter</label>
@@ -50,6 +57,14 @@
       <input type="hidden" name="item[giftable]" value="false">
       <input id="product-giftable" class="filled-in" type="checkbox" name="item[giftable]" value="true" <%= 'checked' unless @product['giftable'] == false %> <%# Don't simplify! %>>
       <label for="product-giftable">Kan ges bort</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12 m6 l6">
+      <input type="hidden" name="item[has_image]" value="false">
+      <input id="product-has-image" class="filled-in" type="checkbox" name="item[has_image]" value="true" <%= 'checked' unless @product['has_image'] == false %> <%# Don't simplify! %>>
+      <label for="product-has-image">Har bild</label>
     </div>
   </div>
 
