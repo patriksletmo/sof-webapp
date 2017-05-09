@@ -1,14 +1,29 @@
 <% content_for :header_title do %>Lineup<% end %>
 
-
-<div class="artist-lineup-container">
-  <% @artist_lineups.each_with_index do |a| %>
-    <div class="card-container">
-      <div class="card">
-        <div class="card-content">
-          <img src="<%= a['image'] %>" class="card-image">
+<div class="container">
+  <div class="cortege-lineup-container">
+    <% @artist_lineups.each_with_index do |a| %>
+      <div class="card-container">
+        <div class="card">
+          <div class="card-content">
+            <img src="<%= a['image'] %>" class="card-image">
+          </div>
+          <div class="card-content bottom-block">
+          <span class="card-title activator flow-text">
+            <div class="card-bottom-order">
+              <%= a['order'] %>
+            </div>
+            <%= a['name'] %>
+          </span>
+          </div>
+          <div class="card-reveal">
+          <span class="card-title">
+            <i class="material-icons right">close</i>
+          </span>
+            <p class="flow-text"><%= a['description'] %></p>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

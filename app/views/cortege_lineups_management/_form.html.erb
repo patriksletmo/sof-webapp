@@ -17,12 +17,23 @@
             <label for="image">Länk till bild</label>
           </div>
           <div class="input-field col s12">
-            <textarea id="cortege_type" type="text" class="materialize-textarea" name="item[cortege_type]" required><%= @cortege_lineup['cortege_type'] %></textarea>
-            <label for="cortege_type">Typ av kårtege</label>
-          </div>
-          <div class="input-field col s12">
             <textarea id="order" type="number" class="materialize-textarea" name="item[order]" required><%= @cortege_lineup['order']%></textarea>
             <label for="order">Placering</label>
+          </div>
+          <div class="input-field col s12">
+            <input type="hidden" name="item[orchestra]" value="false">
+            <input type="checkbox" id="orchestra" name="item[orchestra]" <%= 'checked' unless @cortege_lineup['orchestra'] == false %> />
+            <label for="orchestra">Orkester  <%= @cortege_lineup['orchestra'] %></label>
+          </div>
+          <div class="input-field col s12">
+            <input type="hidden" name="item[ballet]" value="false">
+            <input type="checkbox" id="ballet" name="item[ballet]" <%= 'checked' unless @cortege_lineup['ballet'] == false %>/>
+            <label for="ballet">Balett</label>
+          </div>
+          <div class="input-field col s12">
+            <input type="hidden" name="item[cortege]" value="false">
+            <input type="checkbox" id="cortege" name="item[cortege]" value="true" <%= 'checked' unless @cortege_lineup['cortege'] == false %> />
+            <label for="cortege">Kårtege</label>
           </div>
         </div>
       </div>
