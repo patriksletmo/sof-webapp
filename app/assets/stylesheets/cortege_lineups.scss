@@ -41,15 +41,19 @@
 
     .card {
       height: 240px;
-      width: 300px;
-
-      @media all and (max-width: 800px) {
-        width: 100%;
-      }
+      width: 375px;
 
       .card-title {
-        font-size: 24px;
+        font-size: 20px;
         margin-bottom: 10px;
+      }
+
+      @media all and (max-width: 1180px) {
+        width: 100%;
+        max-width: 300px;
+        .card-title {
+          font-size: 18px;
+        }
       }
 
       .card-content {
@@ -74,19 +78,18 @@
         height: 40px;
 
         .card-bottom-order {
-          display: none;
-          @media all and (max-width: 800px) {
-            display: inline;
-            font-size: inherit;
-            font-weight: bold;
-            position: absolute;
-            left: 15px;
-          }
+          display: inline;
+          font-size: inherit;
+          font-weight: bold;
+          position: absolute;
+          width: 35px;
+          left: 0px;
         }
         .card-title {
           line-height: 40px;
         }
         span {
+          padding-left: 40px;
           text-align: center;
           font-family: Arial;
           color: $sof-seashell-color;
@@ -94,6 +97,9 @@
       }
 
       .card-reveal {
+
+        //overflow: hidden;
+
         span {
           font-family: DIN;
           font-weight: normal;

@@ -4,18 +4,12 @@
   <div class="cortege-lineup-container">
     <% @cortege_lineups.each_with_index do |c| %>
       <div class="card-container">
-        <div class="card-hook">
-          <img src="https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/lineup/krok.svg">
-          <div class="hook-number">
-            <p><%= c['order'] %></p>
-          </div>
-        </div>
         <div class="card">
           <div class="card-content">
             <img src="<%= c['image'] %>" class="card-image">
           </div>
           <div class="card-content bottom-block">
-            <span class="card-title activator">
+            <span class="card-title activator flow-text">
               <div class="card-bottom-order">
                 <%= c['order'] %>
               </div>
@@ -26,7 +20,7 @@
             <span class="card-title">
               <i class="material-icons right">close</i>
             </span>
-            <%= c['description'] %>
+            <p class="flow-text"><%= c['description'] %></p>
           </div>
         </div>
       </div>
