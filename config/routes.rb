@@ -48,7 +48,6 @@ Rails.application.routes.draw do
 
   # Cortege
   get 'cortege' => 'cortege#index'
-  get 'cortege/map' => 'cortege#map'
   get 'cortege/interest' => 'cortege#interest'
   post 'cortege/interest' => 'cortege#create'
   get 'cortege/:id' => 'cortege#show'
