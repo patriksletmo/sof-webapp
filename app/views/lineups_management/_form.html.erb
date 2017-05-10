@@ -1,0 +1,47 @@
+<form method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <div class="container lineupContainer">
+    <div class="row">
+      <div class="col s12 m12">
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="name" type="text" class="materialize-textarea" name="item[name]" required><%= @lineup['name'] %></textarea>
+            <label for="name">Namn</label>
+          </div>
+          <div class="input-field col s12">
+            <textarea id="description" type="text" class="materialize-textarea" name="item[description]" required><%= @lineup['description'] %></textarea>
+            <label for="description">Beskrivning</label>
+          </div>
+          <div class="input-field col s12">
+            <textarea id="image" type="text" class="materialize-textarea" name="item[image]" required><%= @lineup['image'] %></textarea>
+            <label for="image">Länk till bild</label>
+          </div>
+          <div class="input-field col s12">
+            <textarea id="order" type="number" class="materialize-textarea" name="item[order]" required><%= @lineup['order']%></textarea>
+            <label for="order">Placering</label>
+          </div>
+          <div class="input-field col s12">
+            <input type="hidden" name="item[orchestra]" value="false">
+            <input type="checkbox" id="orchestra" name="item[orchestra]" <%= 'checked' unless @lineup['orchestra'] == false %> />
+            <label for="orchestra">Orkester</label>
+          </div>
+          <div class="input-field col s12">
+            <input type="hidden" name="item[ballet]" value="false">
+            <input type="checkbox" id="ballet" name="item[ballet]" <%= 'checked' unless @lineup['ballet'] == false %>/>
+            <label for="ballet">Balett</label>
+          </div>
+          <div class="input-field col s12">
+            <input type="hidden" name="item[cortege]" value="false">
+            <input type="checkbox" id="cortege" name="item[cortege]" value="true" <%= 'checked' unless @lineup['cortege'] == false %> />
+            <label for="cortege">Kårtege</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <button class="waves-effect waves-light btn" type="submit">Submit</button>
+      </div>
+    </div>
+  </div>
+</form>
