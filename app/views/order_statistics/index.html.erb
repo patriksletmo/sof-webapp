@@ -1,39 +1,65 @@
 <% content_for :header_title do %>Orderstatistik<% end %>
 
 <div class="container">
-  <canvas id="myChart" width="400" height="280"></canvas>
+  <div class="row">
+    <div class="input-field col s6">
+      <select id="stat-params-select">
+        <option value="" disabled selected>Välj en parameter att visa</option>
+        <option value="full_cost" <%= 'selected' if params[:parameter] == 'full_cost' %>>Total kostnad per produkt (utan rabatter)</option>
+        <option value="sold_count" <%= 'selected' if params[:parameter] == 'sold_count' %>>Antal sålda produkter</option>
+        <option value="rebate_count" <%= 'selected' if params[:parameter] == 'rebate_count' %>>Antal LinTek-rabatter utnyttjade</option>
+      </select>
+      <label>Parameter</label>
+    </div>
+    <div class="input-field col s6">
+      <div class="switch">
+        <label>
+          Per dag
+          <input id="sum-switch" type="checkbox" <%= 'checked' if params[:sum] %>>
+          <span class="lever"></span>
+          Summerat resultat
+        </label>
+      </div>
+    </div>
+  </div>
 
-  <script type="application/javascript">
-      var data = {
-          labels: <%= @stats['labels'].to_s.html_safe %>,
-          datasets: [
-              <% @stats['datasets'].map do |product_id, set| %>
-              {
-                  label: "<%= set['name'] %>",
-                  data: <%= set[params[:parameter]] %>,
-                  backgroundColor: "hsla(<%= product_id.to_i * 20 %>, 100%, 50%, 0.5)",
-                  labelColor: "hsl(<%= product_id.to_i * 20 %>, 100%, 50%)"
-              },
-              <% end %>
-          ]
-      };
+  <% if params[:parameter].present? %>
+    <canvas id="myChart" width="400" height="280"></canvas>
 
-      var ctx = $("#myChart");
-      var myLineChart = new Chart(ctx, {
-          type: 'line',
-          data: data,
-          options: {
-              scales: {
-                  yAxes: [{
-                      ticks: {
-                          beginAtZero:true
-                      }
-                  }]
-              },
-              legend: {
-                  position: 'left'
-              }
-          }
-      });
-  </script>
+    <script type="application/javascript">
+        var selectedStatsParam = "<%= params[:parameter] %>";
+
+        var data = {
+            labels: <%= @stats['labels'].to_s.html_safe %>,
+            datasets: [
+                <% @stats['datasets'].map do |product_id, set| %>
+                {
+                    label: "<%= set['name'] %>",
+                    data: <%= set[params[:parameter]] %>,
+                    backgroundColor: "hsla(<%= product_id.to_i * 20 %>, 100%, 50%, 0.5)",
+                    labelColor: "hsl(<%= product_id.to_i * 20 %>, 100%, 50%)"
+                },
+                <% end %>
+            ]
+        };
+
+        var ctx = $("#myChart");
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                },
+                legend: {
+                    position: 'left'
+                }
+            }
+        });
+    </script>
+  <% end %>
 </div>
