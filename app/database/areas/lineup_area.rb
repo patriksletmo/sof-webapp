@@ -18,7 +18,7 @@ module Areas
       put("/api/v1/lineups/#{id}", options.merge(authenticated_options))
     end
 
-    def delete_cortege_lineup(id)
+    def delete_lineup(id)
       delete("/api/v1/lineups/#{id}", authenticated_options)
     end
 
