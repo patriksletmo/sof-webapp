@@ -46,8 +46,13 @@ Rails.application.routes.draw do
   match 'orchestra/:id/reset_code' => 'orchestra#reset_code', via: [:post]
   get 'orchestra/signup/:id' => 'orchestra#show_signup'
 
-  # Cortege Lineup
+  # Lineups
+  # Cortege
   get 'cortege/lineups' => 'cortege_lineups#index'
+  # Artists
+  get 'festival/lineups' => 'artist_lineups#index'
+
+
 
   # Cortege
   get 'cortege' => 'cortege#index'
@@ -79,9 +84,6 @@ Rails.application.routes.draw do
   get '/festival/beer', to: 'festival#beer'
   get '/festivalen/servering/ol', to: redirect('/festival/beer')
 
-  # Artists
-  get '/festival/lineup', to: 'artist_lineup#index'
-
   # User management
   get 'manage/users' => 'user_management#index'
   get 'manage/users/:id' => 'user_management#show'
@@ -105,14 +107,14 @@ Rails.application.routes.draw do
   get 'manage/case_corteges/:id' => 'case_cortege_management#show'
   post 'manage/case_corteges/:id' => 'case_cortege_management#update'
 
-  # Cortege lineups management
-  get 'manage/cortege_lineups' => 'cortege_lineups_management#index'
-  get 'manage/cortege_lineups/new' => 'cortege_lineups_management#new'
-  post 'manage/cortege_lineups/new' => 'cortege_lineups_management#create'
-  get 'manage/cortege_lineups/:id/edit' => 'cortege_lineups_management#edit'
-  get 'manage/cortege_lineups/:id' => 'cortege_lineups_management#show'
-  post 'manage/cortege_lineups/:id' => 'cortege_lineups_management#update'
-  post 'manage/cortege_lineups/:id/delete' => 'cortege_lineups_management#delete'
+  # lineups management
+  get 'manage/lineups' => 'lineups_management#index'
+  get 'manage/lineups/new' => 'lineups_management#new'
+  post 'manage/lineups/new' => 'lineups_management#create'
+  get 'manage/lineups/:id/edit' => 'lineups_management#edit'
+  get 'manage/lineups/:id' => 'lineups_management#show'
+  post 'manage/lineups/:id' => 'lineups_management#update'
+  post 'manage/lineups/:id/delete' => 'lineups_management#delete'
 
   # Cortege membership
   post 'cortege_membership/add_member/:id' => 'cortege_membership#add_member'

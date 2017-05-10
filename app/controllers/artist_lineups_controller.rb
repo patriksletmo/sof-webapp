@@ -1,4 +1,4 @@
-class ArtistLineupController < NavigationController
+class ArtistLineupsController < NavigationController
 
   def index
     @artist_lineups = database.get_orchestras_from_lineups

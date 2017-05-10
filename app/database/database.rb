@@ -8,7 +8,7 @@ class Database
   include Areas::CaseCortegeArea
   include Areas::CollectArea
   include Areas::CortegeArea
-  include Areas::CortegeLineupArea
+  include Areas::LineupArea
   include Areas::CortegeMembershipArea
   include Areas::FaqArea
   include Areas::FaqGroupArea

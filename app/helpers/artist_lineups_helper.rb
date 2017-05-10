@@ -1,0 +1,2 @@
+module ArtistLineupsHelper
+end

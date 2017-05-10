@@ -3,10 +3,10 @@
 <div class="container">
   <div class="row">
     <div class="col s12 m12">
-      <%= render 'form', cortege_lineup: @cortege_lineup %>
+      <%= render 'form', cortege_lineup: @lineup %>
     </div>
     <div class="col s12">
-      <form method="post" action="<%= url_for action: :delete, id: @cortege_lineup["id"] %>">
+      <form method="post" action="<%= url_for action: :delete, id: @lineup["id"] %>">
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         <button class="btn red" type="submit">Ta bort cortege</button>
       </form>

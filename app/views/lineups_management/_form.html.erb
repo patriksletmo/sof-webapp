@@ -5,34 +5,34 @@
       <div class="col s12 m12">
         <div class="row">
           <div class="input-field col s12">
-            <textarea id="name" type="text" class="materialize-textarea" name="item[name]" required><%= @cortege_lineup['name'] %></textarea>
+            <textarea id="name" type="text" class="materialize-textarea" name="item[name]" required><%= @lineup['name'] %></textarea>
             <label for="name">Namn</label>
           </div>
           <div class="input-field col s12">
-            <textarea id="description" type="text" class="materialize-textarea" name="item[description]" required><%= @cortege_lineup['description'] %></textarea>
+            <textarea id="description" type="text" class="materialize-textarea" name="item[description]" required><%= @lineup['description'] %></textarea>
             <label for="description">Beskrivning</label>
           </div>
           <div class="input-field col s12">
-            <textarea id="image" type="text" class="materialize-textarea" name="item[image]" required><%= @cortege_lineup['image'] %></textarea>
+            <textarea id="image" type="text" class="materialize-textarea" name="item[image]" required><%= @lineup['image'] %></textarea>
             <label for="image">Länk till bild</label>
           </div>
           <div class="input-field col s12">
-            <textarea id="order" type="number" class="materialize-textarea" name="item[order]" required><%= @cortege_lineup['order']%></textarea>
+            <textarea id="order" type="number" class="materialize-textarea" name="item[order]" required><%= @lineup['order']%></textarea>
             <label for="order">Placering</label>
           </div>
           <div class="input-field col s12">
             <input type="hidden" name="item[orchestra]" value="false">
-            <input type="checkbox" id="orchestra" name="item[orchestra]" <%= 'checked' unless @cortege_lineup['orchestra'] == false %> />
-            <label for="orchestra">Orkester  <%= @cortege_lineup['orchestra'] %></label>
+            <input type="checkbox" id="orchestra" name="item[orchestra]" <%= 'checked' unless @lineup['orchestra'] == false %> />
+            <label for="orchestra">Orkester  <%= @lineup['orchestra'] %></label>
           </div>
           <div class="input-field col s12">
             <input type="hidden" name="item[ballet]" value="false">
-            <input type="checkbox" id="ballet" name="item[ballet]" <%= 'checked' unless @cortege_lineup['ballet'] == false %>/>
+            <input type="checkbox" id="ballet" name="item[ballet]" <%= 'checked' unless @lineup['ballet'] == false %>/>
             <label for="ballet">Balett</label>
           </div>
           <div class="input-field col s12">
             <input type="hidden" name="item[cortege]" value="false">
-            <input type="checkbox" id="cortege" name="item[cortege]" value="true" <%= 'checked' unless @cortege_lineup['cortege'] == false %> />
+            <input type="checkbox" id="cortege" name="item[cortege]" value="true" <%= 'checked' unless @lineup['cortege'] == false %> />
             <label for="cortege">Kårtege</label>
           </div>
         </div>

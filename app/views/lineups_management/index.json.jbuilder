@@ -1,0 +1,1 @@
+json.array! @cortege_lineups_managements, partial: 'lineups_management/lineups_management', as: :lineups_management

@@ -1,0 +1,28 @@
+<% content_for :header_title do %>Lineups<% end %>
+
+<div class="container">
+  <a class="btn blue" href="<%= url_for action: :new %>">lägg till lineup</a>
+
+  <table class="highlight responsive-table">
+    <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Artist</th>
+      <th>Ballet</th>
+      <th>Kårtege</th>
+      <th>Nummer</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @lineups.each do |l| %>
+        <tr data-href="<%= url_for action: :show, id: l['id'] %>">
+          <td><%= l['name']%></td>
+          <td><%= l['orchestra'] %></td>
+          <td><%= l['ballet'] %></td>
+          <td><%= l['cortege'] %></td>
+          <td><%= l['order']%></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
