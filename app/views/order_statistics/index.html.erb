@@ -1,0 +1,39 @@
+<% content_for :header_title do %>Orderstatistik<% end %>
+
+<div class="container">
+  <canvas id="myChart" width="400" height="280"></canvas>
+
+  <script type="application/javascript">
+      var data = {
+          labels: <%= @stats['labels'].to_s.html_safe %>,
+          datasets: [
+              <% @stats['datasets'].map do |product_id, set| %>
+              {
+                  label: "<%= set['name'] %>",
+                  data: <%= set[params[:parameter]] %>,
+                  backgroundColor: "hsla(<%= product_id.to_i * 20 %>, 100%, 50%, 0.5)",
+                  labelColor: "hsl(<%= product_id.to_i * 20 %>, 100%, 50%)"
+              },
+              <% end %>
+          ]
+      };
+
+      var ctx = $("#myChart");
+      var myLineChart = new Chart(ctx, {
+          type: 'line',
+          data: data,
+          options: {
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero:true
+                      }
+                  }]
+              },
+              legend: {
+                  position: 'left'
+              }
+          }
+      });
+  </script>
+</div>
