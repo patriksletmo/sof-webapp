@@ -28,7 +28,7 @@ class LineupsManagementController < NavigationController
 
   def create
     return if require_login!
-    response = database.create_lineup(params.to_unsafe_h)
+    response = database.create_lineup(item_params)
     if response.success?
       flash[:success] = 'Lineup skapad'
       redirect_to action: :index

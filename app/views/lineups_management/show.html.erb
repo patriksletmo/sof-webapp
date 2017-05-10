@@ -6,7 +6,7 @@
       <%= render 'form', Lineup: @lineup %>
     </div>
     <div class="col s12">
-      <form method="post" action="<%= url_for action: :delete, id: @lineup["id"] %>">
+      <form method="post" action="<%= url_for action: :delete, id: @lineup['id'] %>">
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         <button class="btn red" type="submit">Ta bort lineup</button>
       </form>

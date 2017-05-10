@@ -14,13 +14,13 @@
     </tr>
     </thead>
     <tbody>
-    <% @lineups.each do |l| %>
-        <tr data-href="<%= url_for action: :show, id: l['id'] %>">
-          <td><%= l['name']%></td>
-          <td><%= l['orchestra'] %></td>
-          <td><%= l['ballet'] %></td>
-          <td><%= l['cortege'] %></td>
-          <td><%= l['order']%></td>
+    <% @lineups.each do |lineup| %>
+        <tr data-href="<%= url_for action: :show, id: lineup['id'] %>">
+          <td><%= lineup['name']%></td>
+          <td><%= lineup['orchestra'] %></td>
+          <td><%= lineup['ballet'] %></td>
+          <td><%= lineup['cortege'] %></td>
+          <td><%= lineup['order']%></td>
         </tr>
     <% end %>
     </tbody>
