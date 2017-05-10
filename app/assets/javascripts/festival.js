@@ -16,5 +16,26 @@ document.addEventListener('turbolinks:load', function () {
         });
     }
 
-    document.getElementById("schedule-select").onchange = setSchedule;
+    $("#schedule-select").change(setSchedule);
+
+    if ($('.area-map').length > 0) {
+        var mapImage = $('#area-map-img');
+        var mapClone = $('#area-map-img-clone');
+
+        function lockBottom() {
+            mapImage.css('position', 'fixed');
+            mapImage.css('bottom', 0);
+            mapImage.css('width', mapClone.width());
+        }
+
+
+        $(window).on('scroll', function() {
+            var imageBottom = mapImage.offset().top + mapImage.height();
+            var windowBottom = window.scrollY + window.innerHeight;
+
+            if (imageBottom <= windowBottom) {
+                lockBottom();
+            }
+        });
+    }
 });
