@@ -81,6 +81,7 @@ Rails.application.routes.draw do
 
   # Festival
   get '/festival/schedule', to: 'festival#schedule'
+  get '/festival/orchestra/schedule', to: 'festival#orchestra_schedule'
   get '/festival/map', to: 'festival#map'
   get '/festival/beer', to: 'festival#beer'
   get '/festivalen/servering/ol', to: redirect('/festival/beer')
