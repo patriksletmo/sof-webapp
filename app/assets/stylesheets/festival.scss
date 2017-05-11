@@ -1,6 +1,8 @@
 @import 'colors';
 @import 'fonts';
 
+@import "materialize";
+
 .hero-festival-beer {
   background-image: url("https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/hero/ol_bild.jpg");
 }
@@ -172,6 +174,27 @@
       color: $sof-red-color;
       border-color: $sof-red-color;
       margin-top: -5px;
+    }
+  }
+}
+
+.food-flex {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 25%;
+  flex-shrink: 10;
+  justify-content: space-around;
+
+  .card {
+    width: 48%;
+    margin: 1%;
+
+    @media #{$small-and-down} {
+      width: 100%;
+      margin: 2% 0;
+    }
+    @media #{$extra-large-and-up} {
+      width: 31%;
     }
   }
 }
