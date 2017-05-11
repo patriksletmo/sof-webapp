@@ -32,8 +32,10 @@
   top: 0;
 }
 
-.hero-frontpage {
+#hero-frontpage {
   //background-image: url("https://s3-eu-west-1.amazonaws.com/lintek-sof/webapp/hero/korteget%C3%A5g.jpg");
+  height: 45vw;
+  max-height: 550px;
   #frontpage-movie {
     width: 100%;
     height: 100%;
