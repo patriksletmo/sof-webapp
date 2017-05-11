@@ -37,17 +37,16 @@
         var data = {
             labels: <%= @stats['labels'].to_s.html_safe %>,
             datasets: [
-                <% @stats['datasets'].map do |product_id, set| %>
+                <% @stats['datasets'].map do |set| %>
                 {
                     label: "<%= set['name'] %>",
-                    data: <%= set[params[:parameter]] %>,
-                    backgroundColor: colorFromId(<%= product_id.to_i %>),
-                    borderColor: colorFromId(<%= product_id.to_i %>),
-                    labelColor: colorFromId(<%= product_id.to_i %>),
-                    pointBorderColor: colorFromId(<%= product_id.to_i %>),
-                    pointBackgroundColor: colorFromId(<%= product_id.to_i %>),
-                    fill: false,
-                    hidden: true
+                    data: <%= set['values'] %>,
+                    backgroundColor: colorFromId(<%= set['index'] %>),
+                    borderColor: colorFromId(<%= set['index'] %>),
+                    labelColor: colorFromId(<%= set['index'] %>),
+                    pointBorderColor: colorFromId(<%= set['index'] %>),
+                    pointBackgroundColor: colorFromId(<%= set['index'] %>),
+                    fill: false
                 },
                 <% end %>
             ]
