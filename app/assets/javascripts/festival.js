@@ -16,5 +16,5 @@ document.addEventListener('turbolinks:load', function () {
         });
     }
 
-    document.getElementById("schedule-select").onchange = setSchedule;
+    $("#schedule-select").change(setSchedule);
 });

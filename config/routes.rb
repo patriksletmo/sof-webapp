@@ -56,6 +56,7 @@ Rails.application.routes.draw do
 
   # Cortege
   get 'cortege' => 'cortege#index'
+  get 'cortege/map' => 'cortege#map'
   get 'cortege/interest' => 'cortege#interest'
   post 'cortege/interest' => 'cortege#create'
   get 'cortege/:id' => 'cortege#show'
@@ -82,6 +83,7 @@ Rails.application.routes.draw do
   get '/festival/schedule', to: 'festival#schedule'
   get '/festival/map', to: 'festival#map'
   get '/festival/colour_it', to: 'festival#colour_it'
+  get '/festival/orchestra/schedule', to: 'festival#orchestra_schedule'
   get '/festival/beer', to: 'festival#beer'
   get '/festivalen/servering/ol', to: redirect('/festival/beer')
 
