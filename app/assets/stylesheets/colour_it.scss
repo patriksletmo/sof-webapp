@@ -1,0 +1,17 @@
+.colour-it-video-container {
+  height: 45vw;
+  max-height: 550px;
+  #colour-it-video {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.colour-it-container {
+  .hero-description-container {
+    p {
+      margin: 20px auto 10px;
+      text-align: center;
+    }
+  }
+}
