@@ -2,7 +2,10 @@
 @import "colors";
 
 .artist-lineup-container {
-  background-color: black;
+    
+  .effect-flip {
+    background-color: $sof-red-color;
+  }
 
   .card-special {
     position: relative;
