@@ -50,7 +50,7 @@ Rails.application.routes.draw do
   # Cortege
   get 'cortege/lineups' => 'cortege_lineups#index'
   # Artists
-  get 'festival/lineups' => 'artist_lineups#index'
+
 
 
 
@@ -80,13 +80,15 @@ Rails.application.routes.draw do
   get 'funkis/application/complete' => 'funkis#show'
 
   # Festival
-  get '/festival/schedule', to: 'festival#schedule'
-  get '/festival/map', to: 'festival#map'
-  get '/festival/colour_it', to: 'festival#colour_it'
-  get '/festival/orchestra/schedule', to: 'festival#orchestra_schedule'
-  get '/festival/beer', to: 'festival#beer'
-  get '/festival/food', to: 'festival#food'
-  get '/festivalen/servering/ol', to: redirect('/festival/beer')
+  get 'festival/schedule', to: 'festival#schedule'
+  get 'festival/map', to: 'festival#map'
+  get 'festival/colour_it', to: 'festival#colour_it'
+  get 'festival/orchestra/schedule', to: 'festival#orchestra_schedule'
+  get 'festival/beer', to: 'festival#beer'
+  get 'festival/food', to: 'festival#food'
+  get 'festival/artist_lineup' => 'festival#artist_lineup'
+  get 'festivalen/servering/ol', to: redirect('/festival/beer')
+
 
   # User management
   get 'manage/users' => 'user_management#index'
