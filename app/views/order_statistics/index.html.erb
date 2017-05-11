@@ -43,8 +43,6 @@
     <canvas id="myChart" width="400" height="280"></canvas>
 
     <script type="application/javascript">
-        var selectedStatsParam = "<%= params[:parameter] %>";
-
         function colorFromId(product_id) {
             var factor = 50;
             return "hsl(" + product_id * factor + ", 100%, " + Math.round(2 + product_id / (180/factor)) + "0%)";
