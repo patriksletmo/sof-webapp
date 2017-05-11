@@ -46,8 +46,17 @@ Rails.application.routes.draw do
   match 'orchestra/:id/reset_code' => 'orchestra#reset_code', via: [:post]
   get 'orchestra/signup/:id' => 'orchestra#show_signup'
 
+  # Lineups
+  # Cortege
+  get 'cortege/lineups' => 'cortege_lineups#index'
+  # Artists
+
+
+
+
   # Cortege
   get 'cortege' => 'cortege#index'
+  get 'cortege/map' => 'cortege#map'
   get 'cortege/interest' => 'cortege#interest'
   post 'cortege/interest' => 'cortege#create'
   get 'cortege/:id' => 'cortege#show'
@@ -62,9 +71,6 @@ Rails.application.routes.draw do
   post 'case_cortege/:id' => 'case_cortege#update'
   post 'case_cortege/:id/delete' => 'case_cortege#delete'
 
-  # Cortege Lineup
-  get 'cortege_lineups' => 'cortege_lineups#index'
-
   # Funkis
   get 'funkis' => 'funkis#index'
   get 'funkis/categories' => 'funkis#categories'
@@ -74,10 +80,14 @@ Rails.application.routes.draw do
   get 'funkis/application/complete' => 'funkis#show'
 
   # Festival
-  get '/festival/schedule', to: 'festival#schedule'
-  get '/festival/map', to: 'festival#map'
-  get '/festival/beer', to: 'festival#beer'
-  get '/festivalen/servering/ol', to: redirect('/festival/beer')
+  get 'festival/schedule', to: 'festival#schedule'
+  get 'festival/map', to: 'festival#map'
+  get 'festival/colour_it', to: 'festival#colour_it'
+  get 'festival/orchestra/schedule', to: 'festival#orchestra_schedule'
+  get 'festival/beer', to: 'festival#beer'
+  get 'festival/food', to: 'festival#food'
+  get 'festival/artist_lineup' => 'festival#artist_lineup'
+  get 'festivalen/servering/ol', to: redirect('/festival/beer')
 
 
   # User management
@@ -103,14 +113,14 @@ Rails.application.routes.draw do
   get 'manage/case_corteges/:id' => 'case_cortege_management#show'
   post 'manage/case_corteges/:id' => 'case_cortege_management#update'
 
-  # Cortege lineups management
-  get 'manage/cortege_lineups' => 'cortege_lineups_management#index'
-  get 'manage/cortege_lineups/new' => 'cortege_lineups_management#new'
-  post 'manage/cortege_lineups/new' => 'cortege_lineups_management#create'
-  get 'manage/cortege_lineups/:id/edit' => 'cortege_lineups_management#edit'
-  get 'manage/cortege_lineups/:id' => 'cortege_lineups_management#show'
-  post 'manage/cortege_lineups/:id' => 'cortege_lineups_management#update'
-  post 'manage/cortege_lineups/:id/delete' => 'cortege_lineups_management#delete'
+  # lineups management
+  get 'manage/lineups' => 'lineups_management#index'
+  get 'manage/lineups/new' => 'lineups_management#new'
+  post 'manage/lineups/new' => 'lineups_management#create'
+  get 'manage/lineups/:id/edit' => 'lineups_management#edit'
+  get 'manage/lineups/:id' => 'lineups_management#show'
+  post 'manage/lineups/:id' => 'lineups_management#update'
+  post 'manage/lineups/:id/delete' => 'lineups_management#delete'
 
   # Cortege membership
   post 'cortege_membership/add_member/:id' => 'cortege_membership#add_member'

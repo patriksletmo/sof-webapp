@@ -1,0 +1,15 @@
+<% content_for :header_title do %>Hantera kårtegeLineup<% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col s12 m12">
+      <%= render 'form', Lineup: @lineup %>
+    </div>
+    <div class="col s12">
+      <form method="post" action="<%= url_for action: :delete, id: @lineup['id'] %>">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <button class="btn red" type="submit">Ta bort lineup</button>
+      </form>
+    </div>
+    </div>
+</div>

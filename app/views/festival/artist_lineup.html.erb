@@ -1,0 +1,22 @@
+<% content_for :header_title do %>Orkestrar<% end %>
+
+<div class="artist-lineup-container">
+  <% @artist_lineups.each do |artist| %>
+      <div class="card-special effect-flip">
+        <div class="card-front">
+          <img src="<%= artist['image'] %>" class="artist-image">
+          <div class="name-tag">
+            <%= artist['name'] %>
+          </div>
+        </div>
+        <div class="card-back">
+          <p>
+            <%= artist['description'] %>
+          </p>
+        </div>
+      </div>
+  <% end %>
+</div>
+
+<%# artist['description'] %>
+<%# artist['name'] %>
