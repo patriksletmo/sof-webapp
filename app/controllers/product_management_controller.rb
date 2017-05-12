@@ -50,11 +50,10 @@ class ProductManagementController < NavigationController
   end
 
   def statistics
+    @measures = database.order_key_measures
     @statistics = database.base_product_statistics
-    if @statistics.success?
-      flash.now[:success] = 'Produktstatistik hämtad.'
-    else
-      flash.now[:error] = 'Något gick fel.'
+    unless @statistics.success?
+      redirect_to '/'
     end
   end
 
