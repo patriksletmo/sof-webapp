@@ -18,7 +18,6 @@ document.addEventListener('turbolinks:load', function () {
 
     $("#schedule-select").change(setSchedule);
 
-
     (function() {
         var cards = document.querySelectorAll(".card-special");
         for ( var i  = 0, len = cards.length; i < len; i++ ) {

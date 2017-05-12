@@ -15,6 +15,7 @@ class Database
   include Areas::FunkisArea
   include Areas::MenuArea
   include Areas::OrchestraArea
+  include Areas::OrderStatisticsArea
   include Areas::PagesArea
   include Areas::ProductArea
   include Areas::StoreArea
