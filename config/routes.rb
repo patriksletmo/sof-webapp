@@ -153,6 +153,7 @@ Rails.application.routes.draw do
 
   # OrderItem management
   get 'manage/order_items' => 'order_item_management#index'
+  get 'manage/order_stats' => 'order_statistics#index'
 
   # Funkis management
   get 'manage/funkis' => 'funkis_management#index'

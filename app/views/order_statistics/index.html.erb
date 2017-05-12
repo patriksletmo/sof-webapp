@@ -1,0 +1,127 @@
+<% content_for :header_title do %>Orderstatistik<% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="input-field col s3">
+      <select id="stat-params-select">
+        <option value="" disabled selected>Välj en parameter att visa</option>
+        <option value="full_cost" <%= 'selected' if params[:parameter] == 'full_cost' %>>Total kostnad per produkt (utan rabatter)</option>
+        <option value="sold_count" <%= 'selected' if params[:parameter] == 'sold_count' %>>Antal sålda produkter</option>
+        <option value="rebate_count" <%= 'selected' if params[:parameter] == 'rebate_count' %>>Antal LinTek-rabatter utnyttjade</option>
+      </select>
+      <label>Parameter</label>
+    </div>
+    <div class="input-field col s4">
+      <div class="switch">
+        <label>
+          Per dag
+          <input id="sum-switch" type="checkbox" <%= 'checked' if params[:sum] == 'true' %>>
+          <span class="lever"></span>
+          Summerat resultat
+        </label>
+      </div>
+    </div>
+    <div class="input-field col s2">
+      <input id="set-date-field" type="date" value="<%= params[:date] %>">
+      <label for="set-date-field" class="active">Datum</label>
+    </div>
+    <div class="input-field col s3">
+      <button id="reset-date-field" class="btn">Visa alla datum</button>
+    </div>
+    <div class="input-field col s12">
+      <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Filtrera efter kategori</a>
+
+      <ul id='dropdown1' class='dropdown-content'>
+        <li><a id="set-category-all" href="#"><i class="icon-star-full"></i> Allt</a></li>
+        <li><a id="set-category-nothing" href="#"><i class="icon-blocked"></i> Inget</a></li>
+        <li><a id="set-category-ticket" href="#"><i class="icon-ticket"></i> Betalda biljetter</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <% if params[:parameter].present? %>
+    <canvas id="myChart" width="400" height="280"></canvas>
+
+    <script type="application/javascript">
+        function colorFromId(product_id) {
+            var factor = 50;
+            return "hsl(" + product_id * factor + ", 100%, " + Math.round(2 + product_id / (180/factor)) + "0%)";
+        }
+
+        var data = {
+            labels: <%= @stats['labels'].to_s.html_safe %>,
+            datasets: [
+                <% @stats['datasets'].sort_by{|x| x['name']}.map do |set| %>
+                {
+                    label: "<%= set['name'] %>",
+                    data: <%= set['values'] %>,
+                    backgroundColor: colorFromId(<%= set['index'] %>),
+                    borderColor: colorFromId(<%= set['index'] %>),
+                    labelColor: colorFromId(<%= set['index'] %>),
+                    pointBorderColor: colorFromId(<%= set['index'] %>),
+                    pointBackgroundColor: colorFromId(<%= set['index'] %>),
+                    fill: false
+                },
+                <% end %>
+            ]
+        };
+
+        var ctx = $("#myChart");
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                },
+                legend: {
+                    position: 'left',
+                    onClick: function(e, legendItem) {
+                        e.preventDefault();
+
+                        var dataset = myLineChart.data.datasets[legendItem.datasetIndex];
+                        dataset.hidden = !dataset.hidden;
+                        myLineChart.update();
+                    }
+                }
+            }
+        });
+
+        $('#set-category-all').click(function(e) {
+            e.preventDefault();
+
+            myLineChart.data.datasets.forEach(function(dataset) {
+                dataset.hidden = false;
+            });
+
+            myLineChart.update();
+        });
+
+        $('#set-category-nothing').click(function(e) {
+          e.preventDefault();
+
+          myLineChart.data.datasets.forEach(function(dataset) {
+              dataset.hidden = true;
+          });
+
+          myLineChart.update();
+        });
+
+        $('#set-category-ticket').click(function(e) {
+          e.preventDefault();
+
+          myLineChart.data.datasets.forEach(function(dataset) {
+              var label = dataset.label.toLowerCase();
+              var show = (label.indexOf('biljett') != -1) && (label.indexOf('gratis') == -1) && (label.indexOf('orkester') == -1) && (label.indexOf('risk-smask') == -1);
+              dataset.hidden = !show;
+          });
+
+          myLineChart.update();
+        });
+    </script>
+  <% end %>
+</div>
