@@ -1,6 +1,17 @@
 <% content_for :header_title do %>Order-statistik<% end %>
 
 <div class="container product-statistics-container">
+  <div class="row">
+    <div class="col s12 m6">
+      <p><b>Köpt LinTek-rabatt: </b><%= @measures['used_lintek_rebate'] %></p>
+      <p><b>Köpt funkis-rabatt: </b><%= @measures['used_funkis_rebate'] %></p>
+      <p><b>Antal utlämnade: </b><%= @measures['collected'] %></p>
+      <p><b>Antal kvar att hämta ut: </b><%= @measures['collectable'] %></p>
+    </div>
+    <div class="col s12 m6">
+      <a class="btn right margin-top-13" href="<%= url_for controller: :order_statistics %>">Visa graf</a>
+    </div>
+  </div>
 
   <table>
     <thead>
