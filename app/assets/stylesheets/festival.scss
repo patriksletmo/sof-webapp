@@ -178,6 +178,37 @@
   }
 }
 
+.bracelet-container {
+  .promotion-text {
+    .header {
+      color: $sof-red-color;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .promotion-link {
+      color: $sof-purple-color;
+    }
+
+    .promotion-link:hover {
+      color: $sof-green-color;
+    }
+  }
+  .promotion-list {
+    margin-top: 20px;
+  }
+
+  .promotion-img {
+    width: 100%;
+  }
+
+  .summary-header {
+    font-family: DIN, serif;
+    font-weight: bold;
+    color: $sof-purple-color;
+  }
+}
+
 .food-flex {
   display: flex;
   flex-wrap: wrap;

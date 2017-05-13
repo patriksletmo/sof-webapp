@@ -49,10 +49,6 @@ Rails.application.routes.draw do
   # Lineups
   # Cortege
   get 'cortege/lineups' => 'cortege_lineups#index'
-  # Artists
-
-
-
 
   # Cortege
   get 'cortege' => 'cortege#index'
@@ -87,6 +83,7 @@ Rails.application.routes.draw do
   get 'festival/beer', to: 'festival#beer'
   get 'festival/food', to: 'festival#food'
   get 'festival/artist_lineup' => 'festival#artist_lineup'
+  get 'festival/bracelet' => 'festival#bracelet'
   get 'festivalen/servering/ol', to: redirect('/festival/beer')
 
 
