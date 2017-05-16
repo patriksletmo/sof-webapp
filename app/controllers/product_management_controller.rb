@@ -51,6 +51,8 @@ class ProductManagementController < NavigationController
 
   def statistics
     @measures = database.order_key_measures
+    puts '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'
+    puts @measures
     @statistics = database.base_product_statistics
     unless @statistics.success?
       redirect_to '/'
