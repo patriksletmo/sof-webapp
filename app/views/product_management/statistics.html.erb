@@ -7,6 +7,11 @@
       <p><b>Köpt funkis-rabatt: </b><%= @measures['used_funkis_rebate'] %></p>
       <p><b>Antal utlämnade: </b><%= @measures['collected'] %></p>
       <p><b>Antal kvar att hämta ut: </b><%= @measures['collectable'] %></p>
+      <p><b>Torsdagsrabatter: </b><%= @measures['thursday'] %></p>
+      <p><b>Fredagsrabatter: </b><%= @measures['friday'] %></p>
+      <p><b>Lördagsrabatter: </b><%= @measures['saturday'] %></p>
+      <p><b>Helhelgsrabatter: </b><%= @measures['weekend'] %></p>
+      <p><b>Fridag/Lördag, okänt: </b><%= @measures['unknown'] %></p>
     </div>
     <div class="col s12 m6">
       <a class="btn right margin-top-13" href="<%= url_for controller: :order_statistics %>">Visa graf</a>
