@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'frontpage#index'
 
+  get 'sittning', to: redirect('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+
   # Internationalization
   get '/lang/:lang', to: 'application#change_language'
 
@@ -177,6 +179,5 @@ Rails.application.routes.draw do
 
   # Cortege contribution
   get 'cortege_lineups' => 'cortege_lineups#index'
-
 
 end
