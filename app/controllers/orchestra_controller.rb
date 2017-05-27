@@ -91,8 +91,7 @@ class OrchestraController < NavigationController
       flash[:error] = t('orchestra.messages.show.failure')
       redirect_to '/'
     end
-      
-
+    
     respond_to do |format|
       format.html
       format.csv { 

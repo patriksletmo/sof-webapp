@@ -59,4 +59,18 @@ class OrchestraManagementController < NavigationController
       }
     end
   end
+
+  def lintek_rebate
+    return if require_login!
+
+    respond_to do |format|
+      format.html
+      format.csv {
+        lintek = database.lintek_rebate
+        send_data lintek.encode('iso-8859-1'),
+            :filenmame => "orchestra_lintek" + "-#{Date.today}.csv",
+            :type => 'text/csv; charset=iso-8859-1; header=present'
+      }
+    end
+  end
 end

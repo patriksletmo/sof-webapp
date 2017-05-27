@@ -70,5 +70,9 @@ module Areas
     def allergies
       get('/api/v1/orchestra/allergies', authenticated_options)
     end
+
+    def lintek_rebate
+      get('/api/v1/orchestra/lintek_rebate', authenticated_options)
+    end
   end
 end

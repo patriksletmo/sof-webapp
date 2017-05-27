@@ -101,6 +101,7 @@ Rails.application.routes.draw do
   get 'manage/orchestras/extra_performances' => 'orchestra_management#extra_performances'
   get 'manage/orchestras/anniversary' => 'orchestra_management#anniversary'
   get 'manage/orchestras/allergies' => 'orchestra_management#allergies'
+  get 'manage/orchestras/lintek_rebate' => 'orchestra_management#lintek_rebate'
 
   # Cortege management
   get 'manage/corteges' => 'cortege_management#index'
